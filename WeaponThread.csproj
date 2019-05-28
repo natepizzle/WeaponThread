@@ -1,0 +1,205 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A01B066B-3D2D-4261-BD67-E8E51826AA2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ClassLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>WeaponThread</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HavokWrapper">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\HavokWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Common">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Game">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Graphics">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.RenderDirect">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.RenderDirect.dll</HintPath>
+    </Reference>
+    <Reference Include="SpaceEngineers.Game">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\SpaceEngineers.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="SpaceEngineers.ObjectBuilders">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\SpaceEngineers.ObjectBuilders.dll</HintPath>
+    </Reference>
+    <Reference Include="SpaceEngineers.ObjectBuilders.XmlSerializers">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\SpaceEngineers.ObjectBuilders.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="VRage">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Ansel">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Ansel.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Audio">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Game">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Input">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Library">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Math">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.NativeAftermath">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.NativeAftermath.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.OpenVRWrapper">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.OpenVRWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Scripting">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Steam">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Steam.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\WEP\OneShotEnd_2D.wav" />
+    <Content Include="Audio\WEP\OneShotEnd_3D.wav" />
+    <Content Include="Audio\WEP\OneShotLoop_2D.wav" />
+    <Content Include="Audio\WEP\OneShotLoop_3D.wav" />
+    <Content Include="Audio\WEP\OneShotStart_2D.wav" />
+    <Content Include="Audio\WEP\OneShotStart_3D.wav" />
+    <Content Include="Audio\WEP\startloopend_original.wav" />
+    <Content Include="Models\Cubes\MultiTurretBarrelsLB.blockdef.xml" />
+    <Content Include="Models\Cubes\MultiTurretBarrelsLB.xml" />
+    <Content Include="Models\Cubes\MultiTurretBase1LB.blockdef.xml" />
+    <Content Include="Models\Cubes\MultiTurretBase1LB.xml" />
+    <Content Include="Models\Cubes\MultiTurretBase2LB.blockdef.xml" />
+    <Content Include="Models\Cubes\MultiTurretBase2LB.xml" />
+    <Content Include="Models\Cubes\MultiTurretBase2LB_2.blockdef.xml" />
+    <Content Include="Models\Cubes\MultiTurretBase2LB_2.xml" />
+    <Content Include="Models\Cubes\MultiTurretLB.blockdef.xml" />
+    <Content Include="Models\Cubes\MultiTurretLB.xml" />
+    <Content Include="Textures\GUI\Icons\ammo\DeURounds.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\PDC_Turret.dds" />
+    <Content Include="Textures\Models\Cubes\Ntechlogo_add.dds" />
+    <Content Include="Textures\Models\Cubes\Ntechlogo_alphamask.dds" />
+    <Content Include="Textures\Models\Cubes\Ntechlogo_cm.dds" />
+    <Content Include="Textures\Models\Cubes\Ntechlogo_ng.dds" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Ammo.sbc" />
+    <None Include="Data\AmmoMag.sbc" />
+    <None Include="Data\Audio_PDC.sbc" />
+    <None Include="Data\BlockCategories_PDC.sbc" />
+    <None Include="Data\BlueprintClasses_PDC.sbc" />
+    <None Include="Data\CubeBlocks_PDC.sbc" />
+    <None Include="Data\EntityComponents.sbc" />
+    <None Include="Data\Particles_PDC.sbc" />
+    <None Include="Data\Weapons.sbc" />
+    <None Include="Models\Ammo\DeURounds.mwm" />
+    <None Include="Models\Cubes\DS_TorpBarrel.mwm" />
+    <None Include="Models\Cubes\DS_TorpBase0.mwm" />
+    <None Include="Models\Cubes\DS_TorpBase0_Constr1.mwm" />
+    <None Include="Models\Cubes\DS_TorpBase0_Constr2.mwm" />
+    <None Include="Models\Cubes\DS_TorpBase1.mwm" />
+    <None Include="Models\Cubes\MultiTurretBarrelsLB.fbx" />
+    <None Include="Models\Cubes\MultiTurretBarrelsLB.mwm" />
+    <None Include="Models\Cubes\MultiTurretBase1LB.fbx" />
+    <None Include="Models\Cubes\MultiTurretBase1LB.mwm" />
+    <None Include="Models\Cubes\MultiTurretBase2LB.fbx" />
+    <None Include="Models\Cubes\MultiTurretBase2LB.mwm" />
+    <None Include="Models\Cubes\MultiTurretBase2LB_2.fbx" />
+    <None Include="Models\Cubes\MultiTurretBase2LB_2.mwm" />
+    <None Include="Models\Cubes\MultiTurretLB.fbx" />
+    <None Include="Models\Cubes\MultiTurretLB.hkt" />
+    <None Include="Models\Cubes\MultiTurretLB.hkt.fbx" />
+    <None Include="Models\Cubes\MultiTurretLB.mwm" />
+    <None Include="Models\Cubes\PDCBarrelsLB.mwm" />
+    <None Include="Models\Cubes\PDCBase1LB.mwm" />
+    <None Include="Models\Cubes\PDCBase2LB.mwm" />
+    <None Include="Models\Cubes\PDCTurretLB.mwm" />
+    <None Include="Models\Cubes\PDCTurretLB_Constr1.mwm" />
+    <None Include="Models\Cubes\PDCTurretLB_Constr2.mwm" />
+    <None Include="Models\Cubes\PDCTurretLB_Constr3.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurret.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBarrels.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBarrels_LOD1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBarrels_LOD2.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBarrels_LOD3.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBase1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBase1_LOD1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBase1_LOD2.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretBase1_LOD3.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretConstruction_1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretConstruction_1_LOD1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretConstruction_2.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurretConstruction_2_LOD1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurret_LOD1.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurret_LOD2.mwm" />
+    <None Include="Models\Cubes\Small\MissileTurret_LOD3.mwm" />
+    <None Include="Models\Weapons\Torpedo_Ammo_1st.mwm" />
+    <None Include="Models\Weapons\Torpedo_Test.mwm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Scripts\WeaponThread\ConfigMe.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Session\Session_Run.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Support\Log.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Support\WeaponStructure.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
