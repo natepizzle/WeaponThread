@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ProtoBuf;
-using Sandbox.Game.Entities;
 using VRage.Utils;
 using VRageMath;
 

@@ -17,17 +17,11 @@ namespace WeaponThread
         protected override void UnloadData()
         {
             MyAPIGateway.Utilities.UnregisterMessageHandler(2, Handler);
-            Log.Close();
         }
 
         void Handler(object o)
         {
-            if (o == null)
-            {
-                Log.Line($"received null message from master, sending payload");
-                SendModMessage();
-            }
-			else Log.Line($"received non-null message from master");
+            if (o == null) SendModMessage();
         }
 
         void SendModMessage()
