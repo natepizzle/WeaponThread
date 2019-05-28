@@ -13,14 +13,14 @@ namespace WeaponThread
     {
         public override void LoadData()
         {
-            MyAPIGateway.Utilities.RegisterMessageHandler(2, Handler);
+            MyAPIGateway.Utilities.RegisterMessageHandler(7772, Handler);
             Init();
             SendModMessage();
         }
 
         protected override void UnloadData()
         {
-            MyAPIGateway.Utilities.UnregisterMessageHandler(2, Handler);
+            MyAPIGateway.Utilities.UnregisterMessageHandler(7772, Handler);
         }
 
         void Handler(object o)
@@ -30,7 +30,7 @@ namespace WeaponThread
 
         void SendModMessage()
         {
-            MyAPIGateway.Utilities.SendModMessage(1, Storage);
+            MyAPIGateway.Utilities.SendModMessage(7771, Storage);
         }
 
         internal byte[] Storage;
