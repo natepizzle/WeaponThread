@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using Sandbox.ModAPI;
+﻿using System.Collections.Generic;
 using VRage.Utils;
 using VRageMath;
-using static WeaponThread.WeaponDefinition.ShieldType;
-using static WeaponThread.WeaponDefinition.EffectType;
-using static WeaponThread.WeaponDefinition.GuidanceType;
+using static WeaponThread.Session.WeaponDefinition.EffectType;
+using static WeaponThread.Session.WeaponDefinition.ShieldType;
+using static WeaponThread.Session.WeaponDefinition.GuidanceType;
 namespace WeaponThread
 {
-    class ConfigMe
+    partial class Session
     {
         readonly WeaponDefinition[] WeaponDefinitions =
         {
 			//Start of your weapon definitions, can have as many WeaponDefinitions as you want.
+            //First Weapon part on PDCTurretLB turret
             new WeaponDefinition
             {
                 DefinitionId = "LargeGatling",
@@ -103,6 +102,7 @@ namespace WeaponThread
                 ShieldDamage = Kinetic,
             },
 
+            // Second Weapon part on PDCTurretLB turret
             new WeaponDefinition
             {
                 DefinitionId = "LargeMissileTurret",
@@ -195,15 +195,5 @@ namespace WeaponThread
 
 			// Don't edit below this line.
         };
-
-        internal byte[] Storage;
-        internal void Init()
-        {
-            try
-            {
-                Storage = MyAPIGateway.Utilities.SerializeToBinary(WeaponDefinitions);
-            }
-            catch (Exception ex) { Log.Line($"Exception in Init: {ex}"); }
-        }
     }
 }
