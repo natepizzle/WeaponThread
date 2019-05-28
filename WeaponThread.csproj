@@ -194,7 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Scripts\WeaponThread\ConfigMe.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\Session_Run.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Slave.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
