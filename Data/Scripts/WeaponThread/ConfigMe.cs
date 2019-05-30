@@ -50,7 +50,7 @@ namespace WeaponThread
 
                 //Ammo Properties
                 Guidance = Smart,
-                DefaultDamage = 1f,
+                DefaultDamage = 100f,
                 InitalSpeed = 10f,
                 AccelPerSec = 10f,
                 DesiredSpeed = 300f,
@@ -75,7 +75,7 @@ namespace WeaponThread
 
                 ParticleTrail = true,
                 // The following are used if ParticleTrail is set to true
-                ParticleColor = new Vector4(255, 255, 255, 128),
+                ParticleColor = new Vector4(255, 255, 255, 8),
                 Effect = Custom,
                 CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
                 ParticleRadiusMultiplier = 1.5f,
@@ -119,7 +119,7 @@ namespace WeaponThread
                 TurretMode = false,
                 TrackTarget = true,
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                RateOfFire = 60,
+                RateOfFire = 600,
                 BarrelsPerShot = 1,
                 SkipBarrels = 0,
                 ShotsPerBarrel = 1,
@@ -128,7 +128,7 @@ namespace WeaponThread
                 HeatSinkRate = 2,
                 MuzzleFlashLifeSpan = 0,
                 RotateSpeed = 1f,
-                FiringSound = "RealWepTurretMissileShot",
+                FiringSound = "",
                 FiringSoundRange = 150f,
                 FiringSoundVolume = 1f,
 
@@ -141,7 +141,7 @@ namespace WeaponThread
 
                 //Ammo Properties
                 Guidance = Smart,
-                DefaultDamage = 1f,
+                DefaultDamage = 10f,
                 InitalSpeed = 10f,
                 AccelPerSec = 10f,
                 DesiredSpeed = 180f,
@@ -156,27 +156,27 @@ namespace WeaponThread
 
                 // Ammo Visual Audio properties
                 ModelName = MyStringId.GetOrCompute("Custom"),
-                AmmoTravelSound = "ShipJumpDriveRecharge",
+                AmmoTravelSound = "",
                 AmmoTravelSoundRange = 40f,
                 AmmoTravelSoundVolume = 1f,
-                AmmoHitSound = "RealWepSmallMissileExpl",
+                AmmoHitSound = "",
                 AmmoHitSoundRange = 100f,
                 AmmoHitSoundVolume = 1f,
-                VisualProbability = 1f,
+                VisualProbability = 0.25f,
 
-                ParticleTrail = true,
+                ParticleTrail = false,
                 // The following are used if ParticleTrail is set to true
                 ParticleColor = new Vector4(255, 18, 0, 64),
                 Effect = Custom,
                 CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
                 ParticleRadiusMultiplier = 0.65f,
 
-                LineTrail = false,
+                LineTrail = true,
                 // The following are used if Trail is set to true;
                 PhysicalMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                TrailColor = new Vector4(0, 0, 255, 110f),
-                LineLength = 1f,
-                LineWidth = 0.025f,
+                TrailColor = new Vector4(255, 0, 0, 12),
+                LineLength = 3f,
+                LineWidth = 0.08f,
 
                 RealisticDamage = false,
                 // If set to realistic DefaultDamage is disabled the 
