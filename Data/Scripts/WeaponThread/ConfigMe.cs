@@ -28,7 +28,7 @@ namespace WeaponThread
                 TurretMode = true,
                 TrackTarget = true,
                 RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                RateOfFire = 30,
+                RateOfFire = 120,
                 BarrelsPerShot = 1,
                 SkipBarrels = 0,
                 ShotsPerBarrel = 1,
@@ -162,7 +162,7 @@ namespace WeaponThread
                 AmmoHitSound = "",
                 AmmoHitSoundRange = 100f,
                 AmmoHitSoundVolume = 1f,
-                VisualProbability = 0.25f,
+                VisualProbability = 1f,
 
                 ParticleTrail = false,
                 // The following are used if ParticleTrail is set to true
