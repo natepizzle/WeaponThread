@@ -144,7 +144,7 @@ namespace WeaponThread
                 DefaultDamage = 10f,
                 InitalSpeed = 10f,
                 AccelPerSec = 10f,
-                DesiredSpeed = 180f,
+                DesiredSpeed = 30f,
                 MaxTrajectory = 800f,
                 DeviateShotAngle = 1f,
                 BackkickForce = 2.5f,
@@ -174,8 +174,8 @@ namespace WeaponThread
                 LineTrail = true,
                 // The following are used if Trail is set to true;
                 PhysicalMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                TrailColor = new Vector4(255, 0, 0, 12),
-                LineLength = 3f,
+                TrailColor = new Vector4(255, 0, 0, 255),
+                LineLength = 5f,
                 LineWidth = 0.08f,
 
                 RealisticDamage = false,
