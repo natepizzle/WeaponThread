@@ -39,7 +39,7 @@ namespace WeaponThread
                 RotateSpeed = 0.05f,
                 FiringSound = "RealWepTurretMissileShot",
                 FiringSoundRange = 500f,
-                FiringSoundVolume = 10f,
+                FiringSoundVolume = 5f,
 
                 // Ammo Mag properties
                 ReloadTime = 10,
@@ -67,10 +67,10 @@ namespace WeaponThread
                 ModelName = MyStringId.GetOrCompute("Custom"),
                 AmmoTravelSound = "ShipJumpDriveRecharge",
                 AmmoTravelSoundRange = 350f,
-                AmmoTravelSoundVolume = 5f,
+                AmmoTravelSoundVolume = 1f,
                 AmmoHitSound = "RealWepSmallMissileExpl",
                 AmmoHitSoundRange = 450f,
-                AmmoHitSoundVolume = 10f,
+                AmmoHitSoundVolume = 3f,
                 VisualProbability = 1f,
 
                 ParticleTrail = true,
@@ -144,7 +144,7 @@ namespace WeaponThread
                 DefaultDamage = 10f,
                 InitalSpeed = 10f,
                 AccelPerSec = 10f,
-                DesiredSpeed = 30f,
+                DesiredSpeed = 300f,
                 MaxTrajectory = 800f,
                 DeviateShotAngle = 1f,
                 BackkickForce = 2.5f,
@@ -157,10 +157,10 @@ namespace WeaponThread
                 // Ammo Visual Audio properties
                 ModelName = MyStringId.GetOrCompute("Custom"),
                 AmmoTravelSound = "",
-                AmmoTravelSoundRange = 40f,
+                AmmoTravelSoundRange = 30f,
                 AmmoTravelSoundVolume = 1f,
                 AmmoHitSound = "",
-                AmmoHitSoundRange = 100f,
+                AmmoHitSoundRange = 30f,
                 AmmoHitSoundVolume = 1f,
                 VisualProbability = 1f,
 
