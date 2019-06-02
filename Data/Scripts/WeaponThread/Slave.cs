@@ -44,7 +44,7 @@ namespace WeaponThread
         }
 
         [ProtoContract]
-        public struct WeaponDefinition
+        public struct GraphicDefinition
         {
             public enum EffectType
             {
@@ -53,7 +53,64 @@ namespace WeaponThread
                 Orb,
                 Custom
             }
+            [ProtoMember(1)] internal bool ShieldHitDraw;
+            [ProtoMember(2)] internal bool ProjectileTrail;
+            [ProtoMember(3)] internal bool ParticleTrail;
+            [ProtoMember(4)] internal float ProjectileWidth;
+            [ProtoMember(5)] internal float VisualProbability;
+            [ProtoMember(6)] internal float ParticleRadiusMultiplier;
+            [ProtoMember(7)] internal MyStringId ProjectileMaterial;
+            [ProtoMember(8)] internal MyStringId ModelName;
+            [ProtoMember(9)] internal Vector4 ProjectileColor;
+            [ProtoMember(10)] internal Vector4 ParticleColor;
+            [ProtoMember(11)] internal EffectType Effect;
+            [ProtoMember(12)] internal string CustomEffect;
+        }
 
+        [ProtoContract]
+        public struct AudioDefinition
+        {
+            [ProtoMember(1)] internal float AmmoTravelSoundRange;
+            [ProtoMember(2)] internal float AmmoTravelSoundVolume;
+            [ProtoMember(3)] internal float AmmoHitSoundRange;
+            [ProtoMember(4)] internal float AmmoHitSoundVolume;
+            [ProtoMember(5)] internal float ReloadSoundRange;
+            [ProtoMember(6)] internal float ReloadSoundVolume;
+            [ProtoMember(7)] internal float FiringSoundRange;
+            [ProtoMember(8)] internal float FiringSoundVolume;
+            [ProtoMember(9)] internal string AmmoTravelSound;
+            [ProtoMember(10)] internal string AmmoHitSound;
+            [ProtoMember(11)] internal string ReloadSound;
+            [ProtoMember(12)] internal string FiringSound;
+        }
+
+        [ProtoContract]
+        public struct TurretDefinition
+        {
+            [ProtoMember(1)] internal KeyValuePair<string, string>[] MountPoints;
+            [ProtoMember(2)] internal string[] Barrels;
+            [ProtoMember(3)] internal string DefinitionId;
+            [ProtoMember(4)] internal bool TurretMode;
+            [ProtoMember(5)] internal bool TrackTarget;
+            [ProtoMember(6)] internal int RotateBarrelAxis;
+            [ProtoMember(7)] internal int ReloadTime;
+            [ProtoMember(8)] internal int RateOfFire;
+            [ProtoMember(9)] internal int BarrelsPerShot;
+            [ProtoMember(10)] internal int SkipBarrels;
+            [ProtoMember(11)] internal int ShotsPerBarrel;
+            [ProtoMember(12)] internal int HeatPerRoF;
+            [ProtoMember(13)] internal int MaxHeat;
+            [ProtoMember(14)] internal int HeatSinkRate;
+            [ProtoMember(15)] internal int MuzzleFlashLifeSpan;
+            [ProtoMember(16)] internal float RotateSpeed;
+            [ProtoMember(17)] internal float DeviateShotAngle;
+            [ProtoMember(18)] internal float ReleaseTimeAfterFire;
+
+        }
+
+        [ProtoContract]
+        public struct AmmoDefinition
+        {
             internal enum GuidanceType
             {
                 None,
@@ -71,73 +128,40 @@ namespace WeaponThread
                 Kinetic
             }
 
-            [ProtoMember(1)] internal KeyValuePair<string, string>[] MountPoints;
-            [ProtoMember(2)] internal string[] Barrels;
-            [ProtoMember(3)] internal string DefinitionId;
-            [ProtoMember(4)] internal bool TurretMode;
-            [ProtoMember(5)] internal bool TrackTarget;
-            [ProtoMember(6)] internal bool HasAreaEffect;
-            [ProtoMember(7)] internal bool HasThermalEffect;
-            [ProtoMember(8)] internal bool HasKineticEffect;
-            [ProtoMember(9)] internal bool SkipAcceleration;
-            [ProtoMember(10)] internal bool UseRandomizedRange;
-            [ProtoMember(11)] internal bool ShieldHitDraw;
-            [ProtoMember(12)] internal bool RealisticDamage;
-            [ProtoMember(13)] internal bool LineTrail;
-            [ProtoMember(14)] internal bool ParticleTrail;
-            [ProtoMember(15)] internal int RotateBarrelAxis;
-            [ProtoMember(16)] internal int ReloadTime;
-            [ProtoMember(17)] internal int RateOfFire;
-            [ProtoMember(18)] internal int BarrelsPerShot;
-            [ProtoMember(19)] internal int SkipBarrels;
-            [ProtoMember(20)] internal int ShotsPerBarrel;
-            [ProtoMember(21)] internal int HeatPerRoF;
-            [ProtoMember(22)] internal int MaxHeat;
-            [ProtoMember(23)] internal int HeatSinkRate;
-            [ProtoMember(24)] internal int MuzzleFlashLifeSpan;
-            [ProtoMember(25)] internal float Mass;
-            [ProtoMember(26)] internal float Health;
-            [ProtoMember(27)] internal float LineLength;
-            [ProtoMember(28)] internal float LineWidth;
-            [ProtoMember(29)] internal float InitalSpeed;
-            [ProtoMember(30)] internal float AccelPerSec;
-            [ProtoMember(31)] internal float DesiredSpeed;
-            [ProtoMember(32)] internal float RotateSpeed;
-            [ProtoMember(33)] internal float SpeedVariance;
-            [ProtoMember(34)] internal float MaxTrajectory;
-            [ProtoMember(35)] internal float BackkickForce;
-            [ProtoMember(36)] internal float DeviateShotAngle;
-            [ProtoMember(37)] internal float ReleaseTimeAfterFire;
-            [ProtoMember(38)] internal float RangeMultiplier;
-            [ProtoMember(39)] internal float ThermalDamage;
-            [ProtoMember(40)] internal float KeenScaler;
-            [ProtoMember(41)] internal float AreaEffectYield;
-            [ProtoMember(42)] internal float AreaEffectRadius;
-            [ProtoMember(43)] internal float ShieldDmgMultiplier;
-            [ProtoMember(44)] internal float DefaultDamage;
-            [ProtoMember(45)] internal float ComputedBaseDamage;
-            [ProtoMember(46)] internal float VisualProbability;
-            [ProtoMember(47)] internal float ParticleRadiusMultiplier;
-            [ProtoMember(48)] internal float AmmoTravelSoundRange;
-            [ProtoMember(49)] internal float AmmoTravelSoundVolume;
-            [ProtoMember(50)] internal float AmmoHitSoundRange;
-            [ProtoMember(51)] internal float AmmoHitSoundVolume;
-            [ProtoMember(52)] internal float ReloadSoundRange;
-            [ProtoMember(53)] internal float ReloadSoundVolume;
-            [ProtoMember(54)] internal float FiringSoundRange;
-            [ProtoMember(55)] internal float FiringSoundVolume;
-            [ProtoMember(56)] internal MyStringId PhysicalMaterial;
-            [ProtoMember(57)] internal MyStringId ModelName;
-            [ProtoMember(58)] internal Vector4 TrailColor;
-            [ProtoMember(59)] internal Vector4 ParticleColor;
-            [ProtoMember(60)] internal ShieldType ShieldDamage;
-            [ProtoMember(61)] internal EffectType Effect;
-            [ProtoMember(62)] internal GuidanceType Guidance;
-            [ProtoMember(63)] internal string AmmoTravelSound;
-            [ProtoMember(64)] internal string AmmoHitSound;
-            [ProtoMember(65)] internal string ReloadSound;
-            [ProtoMember(66)] internal string FiringSound;
-            [ProtoMember(67)] internal string CustomEffect;
+            [ProtoMember(1)] internal bool UseRandomizedRange;
+            [ProtoMember(2)] internal bool RealisticDamage;
+            [ProtoMember(3)] internal float Mass;
+            [ProtoMember(4)] internal float Health;
+            [ProtoMember(5)] internal float ProjectileLength;
+            [ProtoMember(6)] internal float InitalSpeed;
+            [ProtoMember(7)] internal float AccelPerSec;
+            [ProtoMember(8)] internal float DesiredSpeed;
+            [ProtoMember(9)] internal float SpeedVariance;
+            [ProtoMember(10)] internal float MaxTrajectory;
+            [ProtoMember(11)] internal float BackkickForce;
+            [ProtoMember(12)] internal float RangeMultiplier;
+            [ProtoMember(13)] internal float ThermalDamage;
+            [ProtoMember(14)] internal float AreaEffectYield;
+            [ProtoMember(15)] internal float AreaEffectRadius;
+            [ProtoMember(16)] internal float ShieldDmgMultiplier;
+            [ProtoMember(17)] internal float DefaultDamage;
+            [ProtoMember(18)] internal ShieldType ShieldDamage;
+            [ProtoMember(19)] internal GuidanceType Guidance;
+        }
+
+        [ProtoContract]
+        public struct WeaponDefinition
+        {
+            [ProtoMember(1)] internal bool HasAreaEffect;
+            [ProtoMember(2)] internal bool HasThermalEffect;
+            [ProtoMember(3)] internal bool HasKineticEffect;
+            [ProtoMember(4)] internal bool SkipAcceleration;
+            [ProtoMember(5)] internal float KeenScaler;
+            [ProtoMember(6)] internal float ComputedBaseDamage;
+            [ProtoMember(7)] internal TurretDefinition TurretDef;
+            [ProtoMember(8)] internal AmmoDefinition AmmoDef;
+            [ProtoMember(9)] internal GraphicDefinition GraphicDef;
+            [ProtoMember(10)] internal AudioDefinition AudioDef;
         }
     }
 }
