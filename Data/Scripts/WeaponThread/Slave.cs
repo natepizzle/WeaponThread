@@ -38,6 +38,8 @@ namespace WeaponThread
         {
             try
             {
+                for (int i = 0; i < WeaponDefinitions.Length; i++)
+                    WeaponDefinitions[i].ModPath = ModContext.ModPath;
                 Storage = MyAPIGateway.Utilities.SerializeToBinary(WeaponDefinitions);
             }
             catch (Exception ex) {; }
@@ -60,7 +62,7 @@ namespace WeaponThread
             [ProtoMember(5)] internal float VisualProbability;
             [ProtoMember(6)] internal float ParticleRadiusMultiplier;
             [ProtoMember(7)] internal MyStringId ProjectileMaterial;
-            [ProtoMember(8)] internal MyStringId ModelName;
+            [ProtoMember(8)] internal string ModelName;
             [ProtoMember(9)] internal Vector4 ProjectileColor;
             [ProtoMember(10)] internal Vector4 ParticleColor;
             [ProtoMember(11)] internal EffectType Effect;
@@ -108,46 +110,46 @@ namespace WeaponThread
 
         }
 
-        [ProtoContract]
-        public struct AmmoDefinition
+    [ProtoContract]
+    public struct AmmoDefinition
+    {
+        internal enum GuidanceType
         {
-            internal enum GuidanceType
-            {
-                None,
-                Remote,
-                Seeking,
-                Lock,
-                Smart
-            }
-
-            internal enum ShieldType
-            {
-                Bypass,
-                Emp,
-                Energy,
-                Kinetic
-            }
-
-            [ProtoMember(1)] internal bool UseRandomizedRange;
-            [ProtoMember(2)] internal bool RealisticDamage;
-            [ProtoMember(3)] internal float Mass;
-            [ProtoMember(4)] internal float Health;
-            [ProtoMember(5)] internal float ProjectileLength;
-            [ProtoMember(6)] internal float InitalSpeed;
-            [ProtoMember(7)] internal float AccelPerSec;
-            [ProtoMember(8)] internal float DesiredSpeed;
-            [ProtoMember(9)] internal float SpeedVariance;
-            [ProtoMember(10)] internal float MaxTrajectory;
-            [ProtoMember(11)] internal float BackkickForce;
-            [ProtoMember(12)] internal float RangeMultiplier;
-            [ProtoMember(13)] internal float ThermalDamage;
-            [ProtoMember(14)] internal float AreaEffectYield;
-            [ProtoMember(15)] internal float AreaEffectRadius;
-            [ProtoMember(16)] internal float ShieldDmgMultiplier;
-            [ProtoMember(17)] internal float DefaultDamage;
-            [ProtoMember(18)] internal ShieldType ShieldDamage;
-            [ProtoMember(19)] internal GuidanceType Guidance;
+            None,
+            Remote,
+            TravelTo,
+            Smart
         }
+
+        internal enum ShieldType
+        {
+            Bypass,
+            Emp,
+            Energy,
+            Kinetic
+        }
+
+        [ProtoMember(1)] internal bool UseRandomizedRange;
+        [ProtoMember(2)] internal bool RealisticDamage;
+        [ProtoMember(3)] internal bool DetonateOnEnd;
+        [ProtoMember(4)] internal float Mass;
+        [ProtoMember(5)] internal float Health;
+        [ProtoMember(6)] internal float ProjectileLength;
+        [ProtoMember(7)] internal float InitalSpeed;
+        [ProtoMember(8)] internal float AccelPerSec;
+        [ProtoMember(9)] internal float DesiredSpeed;
+        [ProtoMember(10)] internal float SpeedVariance;
+        [ProtoMember(11)] internal float MaxTrajectory;
+        [ProtoMember(12)] internal float BackkickForce;
+        [ProtoMember(13)] internal float RangeMultiplier;
+        [ProtoMember(14)] internal float ThermalDamage;
+        [ProtoMember(15)] internal float AreaEffectYield;
+        [ProtoMember(16)] internal float AreaEffectRadius;
+        [ProtoMember(17)] internal float ShieldDmgMultiplier;
+        [ProtoMember(18)] internal float DefaultDamage;
+        [ProtoMember(19)] internal ShieldType ShieldDamage;
+        [ProtoMember(20)] internal GuidanceType Guidance;
+    }
 
         [ProtoContract]
         public struct WeaponDefinition
@@ -162,6 +164,7 @@ namespace WeaponThread
             [ProtoMember(8)] internal AmmoDefinition AmmoDef;
             [ProtoMember(9)] internal GraphicDefinition GraphicDef;
             [ProtoMember(10)] internal AudioDefinition AudioDef;
+			[ProtoMember(11)] internal string ModPath;
         }
     }
 }
