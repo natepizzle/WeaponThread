@@ -1,5 +1,40 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TransparentMaterials>
+         <TransparentMaterial>
+          <Id>
+              <TypeId>TransparentMaterialDefinition</TypeId>
+              <SubtypeId>EnergyAmmoGlass</SubtypeId>
+          </Id>      
+          <AlphaMistingEnable>false</AlphaMistingEnable>
+          <AlphaSaturation>1</AlphaSaturation>
+          <CanBeAffectedByOtherLights>true</CanBeAffectedByOtherLights>
+          <IgnoreDepth>false</IgnoreDepth>
+		  <UseAtlas>false</UseAtlas>
+          <SoftParticleDistanceScale>1</SoftParticleDistanceScale>
+          <Texture>Textures\Particles\SemiTintGlass_ca.dds</Texture>
+          <GlossTexture>Textures\Models\Cubes\Chrome_ng.dds</GlossTexture>
+        <ShadowMultiplier>
+            <X>3</X>
+            <Y>3</Y>
+            <Z>3</Z>
+            <W>1</W>
+        </ShadowMultiplier>
+        <LightMultiplier>
+            <X>0.4</X>
+            <Y>0.4</Y>
+            <Z>0.4</Z>
+            <W>3</W>
+        </LightMultiplier>
+        <Reflectivity>1.0</Reflectivity>
+        <Fresnel>2.0</Fresnel>
+        <ReflectionShadow>0.25</ReflectionShadow>
+        <TriangleFaceCulling>false</TriangleFaceCulling>
+        <SoftParticleDistanceScale>20</SoftParticleDistanceScale>
+        <SpecularColorFactor>10</SpecularColorFactor>
+        <Gloss>4.4</Gloss>
+      </TransparentMaterial>
+  </TransparentMaterials>
   <CubeBlocks>
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
       <Id>
