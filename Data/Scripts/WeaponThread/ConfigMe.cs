@@ -28,10 +28,10 @@ namespace WeaponThread
                     },
                     TurretMode = true,
                     TrackTarget = true,
-                    RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                    RateOfFire = 1,
-                    BarrelsPerShot = 1,
-                    SkipBarrels = 0,
+                    RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+                    RateOfFire = 180,
+                    BarrelsPerShot = 3,
+                    SkipBarrels = 3,
                     ShotsPerBarrel = 1,
                     HeatPerRoF = 1,
                     MaxHeat = 180,
@@ -40,27 +40,24 @@ namespace WeaponThread
                     RotateSpeed = 0.05f,
                     ReloadTime = 10,
                     ReleaseTimeAfterFire = 10f,
-                    DeviateShotAngle = 10f,
+                    DeviateShotAngle = 0.001f,
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    Guidance = Smart,
-                    ProjectileLength = 1f,
+                    Guidance = None,
                     DefaultDamage = 1f,
                     InitalSpeed = 0f,
-                    AccelPerSec = 10f,
+                    AccelPerSec = 0f,
                     DesiredSpeed = 150f,
-                    MaxTrajectory = 3000f,
+                    MaxTrajectory = 2500f,
                     BackkickForce = 2.5f,
                     SpeedVariance = 5f,
                     RangeMultiplier = 2.1f,
-                    AreaEffectYield = 0f,
-                    AreaEffectRadius = 0f,
+                    AreaEffectYield = 1f,
+                    AreaEffectRadius = 40f,
 					DetonateOnEnd = false,
                     UseRandomizedRange = false,
-                    ShieldDmgMultiplier = 1.1f,
-                    ShieldDamage = Kinetic,
-
+                    ProjectileLength = 7f,
                     RealisticDamage = false,
                     // If set to realistic DefaultDamage is disabled the 
                     // and following values are used, damage equation is: 
@@ -68,18 +65,20 @@ namespace WeaponThread
                     Mass = 150f,  // in grams
                     ThermalDamage = 0, // MegaWatts
                     Health = 0f,
+                    ShieldDmgMultiplier = 1.1f,
+                    ShieldDamage = Kinetic,
                 },
                 GraphicDef = new GraphicDefinition
                 {
-                    ModelName = "\\Models\\Cubes\\AmmoOrb.mwm",
+                    ModelName = "",
                     VisualProbability = 1f,
-                    ParticleTrail = true,
+                    ParticleTrail = false,
                     ParticleColor = new Vector4(0, 0, 255, 32),
                     Effect = Custom,
                     CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
                     ParticleRadiusMultiplier = 1f,
 
-                    ProjectileTrail = false,
+                    ProjectileTrail = true,
                     ProjectileMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
                     ProjectileColor = new Vector4(0, 0, 255, 32),
                     ProjectileWidth = 0.05f,
@@ -120,8 +119,8 @@ namespace WeaponThread
                     TurretMode = false,
                     TrackTarget = true,
                     RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                    RateOfFire = 100,
-                    BarrelsPerShot = 1,
+                    RateOfFire = 3600,
+                    BarrelsPerShot = 6,
                     SkipBarrels = 0,
                     ShotsPerBarrel = 1,
                     HeatPerRoF = 1,
@@ -131,24 +130,24 @@ namespace WeaponThread
                     RotateSpeed = 1f,
                     ReloadTime = 10,
                     ReleaseTimeAfterFire = 10f,
-                    DeviateShotAngle = 10f,
+                    DeviateShotAngle = 0.001f,
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    Guidance = TravelTo,
+                    Guidance = None,
                     DefaultDamage = 1f,
                     InitalSpeed = 0f,
                     AccelPerSec = 0f,
-                    DesiredSpeed = 150f,
-                    MaxTrajectory = 2500f,
+                    DesiredSpeed = 0f,
+                    MaxTrajectory = 0f,
                     BackkickForce = 2.5f,
                     SpeedVariance = 5f,
                     RangeMultiplier = 2.1f,
-                    AreaEffectYield = 1f,
-                    AreaEffectRadius = 40f,
-					DetonateOnEnd = true,
+                    AreaEffectYield = 0f,
+                    AreaEffectRadius = 0f,
+					DetonateOnEnd = false,
                     UseRandomizedRange = false,
-                    ProjectileLength = 1f,
+                    ProjectileLength = 2500f,
                     RealisticDamage = false,
                     // If set to realistic DefaultDamage is disabled the 
                     // and following values are used, damage equation is: 
@@ -161,17 +160,17 @@ namespace WeaponThread
                 },
                 GraphicDef = new GraphicDefinition
                 {
-                    ModelName = "\\Models\\Cubes\\AmmoOrb.mwm",
+                    ModelName = "",
                     VisualProbability = 1f,
-                    ParticleTrail = true,
+                    ParticleTrail = false,
                     ParticleColor = new Vector4(255, 12, 0, 32),
                     Effect = Custom,
                     CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
                     ParticleRadiusMultiplier = 1f,
 
-                    ProjectileTrail = false,
+                    ProjectileTrail = true,
                     ProjectileMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                    ProjectileColor = new Vector4(0, 0, 255, 32),
+                    ProjectileColor = new Vector4(255, 0, 0, 255),
                     ProjectileWidth = 0.05f,
                     ShieldHitDraw = true,
                 },
