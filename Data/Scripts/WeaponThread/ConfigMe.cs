@@ -55,7 +55,7 @@ namespace WeaponThread
                     SpeedVariance = 5f,
                     RangeMultiplier = 2.1f,
                     AreaEffectYield = 1f,
-                    AreaEffectRadius = 40f,
+                    AreaEffectRadius = 1.99f,
 					DetonateOnEnd = false,
                     UseRandomizedRange = false,
                     ProjectileLength = 7f,
