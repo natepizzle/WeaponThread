@@ -30,9 +30,9 @@ namespace WeaponThread
                     TurretMode = true,
                     TrackTarget = true,
                     RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                    RateOfFire = 180,
-                    BarrelsPerShot = 3,
-                    SkipBarrels = 3,
+                    RateOfFire = 360,
+                    BarrelsPerShot = 1,
+                    SkipBarrels = 0,
                     ShotsPerBarrel = 1,
                     HeatPerRoF = 1,
                     MaxHeat = 180,
@@ -74,14 +74,14 @@ namespace WeaponThread
                     ModelName = "",
                     VisualProbability = 1f,
                     ParticleTrail = false,
-                    ParticleColor = new Vector4(0, 0, 255, 32),
+                    ParticleColor = new Vector4(0, 0, 128, 32),
                     Effect = Custom,
                     CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
                     ParticleRadiusMultiplier = 1f,
 
                     ProjectileTrail = true,
                     ProjectileMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                    ProjectileColor = new Vector4(0, 0, 255, 32),
+                    ProjectileColor = new Vector4(255, 255, 255, 32),
                     ProjectileWidth = 0.05f,
                     ShieldHitDraw = true,
                 },
@@ -173,7 +173,7 @@ namespace WeaponThread
 
                     ProjectileTrail = true,
                     ProjectileMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                    ProjectileColor = new Vector4(255, 0, 0, 255),
+                    ProjectileColor = new Vector4(0, 0, 64, 175),
                     ProjectileWidth = 0.05f,
                     ShieldHitDraw = true,
                 },
