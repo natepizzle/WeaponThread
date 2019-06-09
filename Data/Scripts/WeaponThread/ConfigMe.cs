@@ -20,6 +20,7 @@ namespace WeaponThread
                     MountPoints = new []
                     {
                         new KeyValuePair<string, string>("PDCTurretLB", "Boomsticks"),
+						new KeyValuePair<string, string>("PDCTurretSB", "Boomsticks"),
                     },
                     Barrels = new []
                     {
@@ -40,7 +41,7 @@ namespace WeaponThread
                     RotateSpeed = 0.05f,
                     ReloadTime = 10,
                     ReleaseTimeAfterFire = 10f,
-                    DeviateShotAngle = 0.001f,
+                    DeviateShotAngle = 0f,
                 },
                 AmmoDef = new AmmoDefinition
                 {
@@ -110,6 +111,8 @@ namespace WeaponThread
                     MountPoints = new []
                     {
                         new KeyValuePair<string, string>("PDCTurretLB", "MissileTurretBarrels"),
+						new KeyValuePair<string, string>("PDCTurretSB", "MissileTurretBarrels"),
+
                     },
                     Barrels = new []
                     {
@@ -130,7 +133,7 @@ namespace WeaponThread
                     RotateSpeed = 1f,
                     ReloadTime = 10,
                     ReleaseTimeAfterFire = 10f,
-                    DeviateShotAngle = 0.001f,
+                    DeviateShotAngle = 0f,
                 },
                 AmmoDef = new AmmoDefinition
                 {
