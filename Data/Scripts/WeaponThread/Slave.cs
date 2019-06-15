@@ -87,69 +87,71 @@ namespace WeaponThread
         }
 
         [ProtoContract]
-        public struct TurretDefinition
-        {
-            [ProtoMember(1)] internal KeyValuePair<string, string>[] MountPoints;
-            [ProtoMember(2)] internal string[] Barrels;
-            [ProtoMember(3)] internal string DefinitionId;
-            [ProtoMember(4)] internal bool TurretMode;
-            [ProtoMember(5)] internal bool TrackTarget;
-            [ProtoMember(6)] internal int RotateBarrelAxis;
-            [ProtoMember(7)] internal int ReloadTime;
-            [ProtoMember(8)] internal int RateOfFire;
-            [ProtoMember(9)] internal int BarrelsPerShot;
-            [ProtoMember(10)] internal int SkipBarrels;
-            [ProtoMember(11)] internal int ShotsPerBarrel;
-            [ProtoMember(12)] internal int HeatPerRoF;
-            [ProtoMember(13)] internal int MaxHeat;
-            [ProtoMember(14)] internal int HeatSinkRate;
-            [ProtoMember(15)] internal int MuzzleFlashLifeSpan;
-            [ProtoMember(16)] internal float RotateSpeed;
-            [ProtoMember(17)] internal float DeviateShotAngle;
-            [ProtoMember(18)] internal float ReleaseTimeAfterFire;
+		public struct TurretDefinition
+		{
+			[ProtoMember(1)] internal KeyValuePair<string, string>[] MountPoints;
+			[ProtoMember(2)] internal string[] Barrels;
+			[ProtoMember(3)] internal string DefinitionId;
+			[ProtoMember(4)] internal string AmmoMagazineId;
+			[ProtoMember(5)] internal bool TurretMode;
+			[ProtoMember(6)] internal bool TrackTarget;
+			[ProtoMember(7)] internal int RotateBarrelAxis;
+			[ProtoMember(8)] internal int ReloadTime;
+			[ProtoMember(9)] internal int RateOfFire;
+			[ProtoMember(10)] internal int BarrelsPerShot;
+			[ProtoMember(11)] internal int SkipBarrels;
+			[ProtoMember(12)] internal int ShotsPerBarrel;
+			[ProtoMember(13)] internal int HeatPerRoF;
+			[ProtoMember(14)] internal int MaxHeat;
+			[ProtoMember(15)] internal int HeatSinkRate;
+			[ProtoMember(16)] internal int MuzzleFlashLifeSpan;
+			[ProtoMember(17)] internal float RotateSpeed;
+			[ProtoMember(18)] internal float DeviateShotAngle;
+			[ProtoMember(19)] internal float ReleaseTimeAfterFire;
+			[ProtoMember(20)] internal float ShotEnergyCost;
+			[ProtoMember(21)] internal double AimingTolerance;
+		}
 
-        }
+		[ProtoContract]
+		public struct AmmoDefinition
+		{
+			internal enum GuidanceType
+			{
+				None,
+				Remote,
+				TravelTo,
+				Smart
+			}
 
-    [ProtoContract]
-    public struct AmmoDefinition
-    {
-        internal enum GuidanceType
-        {
-            None,
-            Remote,
-            TravelTo,
-            Smart
-        }
+			internal enum ShieldType
+			{
+				Bypass,
+				Emp,
+				Energy,
+				Kinetic
+			}
 
-        internal enum ShieldType
-        {
-            Bypass,
-            Emp,
-            Energy,
-            Kinetic
-        }
-
-        [ProtoMember(1)] internal bool UseRandomizedRange;
-        [ProtoMember(2)] internal bool RealisticDamage;
-        [ProtoMember(3)] internal bool DetonateOnEnd;
-        [ProtoMember(4)] internal float Mass;
-        [ProtoMember(5)] internal float Health;
-        [ProtoMember(6)] internal float ProjectileLength;
-        [ProtoMember(7)] internal float InitalSpeed;
-        [ProtoMember(8)] internal float AccelPerSec;
-        [ProtoMember(9)] internal float DesiredSpeed;
-        [ProtoMember(10)] internal float SpeedVariance;
-        [ProtoMember(11)] internal float MaxTrajectory;
-        [ProtoMember(12)] internal float BackkickForce;
-        [ProtoMember(13)] internal float RangeMultiplier;
-        [ProtoMember(14)] internal float ThermalDamage;
-        [ProtoMember(15)] internal float AreaEffectYield;
-        [ProtoMember(16)] internal float AreaEffectRadius;
-        [ProtoMember(17)] internal float ShieldDmgMultiplier;
-        [ProtoMember(18)] internal float DefaultDamage;
-        [ProtoMember(19)] internal ShieldType ShieldDamage;
-        [ProtoMember(20)] internal GuidanceType Guidance;
-    }
+			[ProtoMember(1)] internal bool UseRandomizedRange;
+			[ProtoMember(2)] internal bool RealisticDamage;
+			[ProtoMember(3)] internal bool DetonateOnEnd;
+			[ProtoMember(4)] internal float Mass;
+			[ProtoMember(5)] internal float Health;
+			[ProtoMember(6)] internal float ProjectileLength;
+			[ProtoMember(7)] internal float InitalSpeed;
+			[ProtoMember(8)] internal float AccelPerSec;
+			[ProtoMember(9)] internal float DesiredSpeed;
+			[ProtoMember(10)] internal float SpeedVariance;
+			[ProtoMember(11)] internal float MaxTrajectory;
+			[ProtoMember(12)] internal float BackkickForce;
+			[ProtoMember(13)] internal float RangeMultiplier;
+			[ProtoMember(14)] internal float ThermalDamage;
+			[ProtoMember(15)] internal float AreaEffectYield;
+			[ProtoMember(16)] internal float AreaEffectRadius;
+			[ProtoMember(17)] internal float ShieldDmgMultiplier;
+			[ProtoMember(18)] internal float DefaultDamage;
+			[ProtoMember(19)] internal ShieldType ShieldDamage;
+			[ProtoMember(20)] internal GuidanceType Guidance;
+		}
 
         [ProtoContract]
         public struct WeaponDefinition
