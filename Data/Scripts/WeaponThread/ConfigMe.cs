@@ -7,8 +7,8 @@ namespace WeaponThread
     {
         readonly WeaponDefinition[] WeaponDefinitions =
         {
-		//Start of your weapon definitions, can have as many WeaponDefinitions as you want.
-		//First Weapon part on PDCTurretLB turret
+			//Start of your weapon definitions, can have as many WeaponDefinitions as you want.
+			//First Weapon part on PDCTurretLB turret
             new WeaponDefinition
             {
                 TurretDef = new TurretDefinition
@@ -60,7 +60,6 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                          Guidance = None,
-                         InitalSpeed = 0f,
                          AccelPerSec = 0f,
                          DesiredSpeed = 400f,
                          MaxTrajectory = 800f,
@@ -84,7 +83,7 @@ namespace WeaponThread
                     {
                         AmmoParticle = "",
                         AmmoColor = new Vector4(0, 0, 128, 32),
-                        AmmoOffset = Vector3D.Zero,
+                        AmmoOffset = new Vector3D(0, -1, 0),
                         AmmoScale = 1f,
                         HitParticle = "",
                         HitColor = new Vector4(0, 0, 0, 0),
@@ -192,9 +191,8 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                         Guidance = None,
-                        InitalSpeed = 0f,
-                        AccelPerSec = 0f,
-                        DesiredSpeed = 5f,
+                        AccelPerSec = 5f,
+                        DesiredSpeed = 200f,
                         MaxTrajectory = 800f,
                         SpeedVariance = new Randomize {Start = 0, End = 10},
                         RangeVariance = new Randomize {Start = 0, End = 100},
