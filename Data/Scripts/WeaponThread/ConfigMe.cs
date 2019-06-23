@@ -7,8 +7,8 @@ namespace WeaponThread
     {
         readonly WeaponDefinition[] WeaponDefinitions =
         {
-			//Start of your weapon definitions, can have as many WeaponDefinitions as you want.
-			//First Weapon part on PDCTurretLB turret
+            //Start of your weapon definitions, can have as many WeaponDefinitions as you want.
+            //First Weapon part on PDCTurretLB turret
             new WeaponDefinition
             {
                 TurretDef = new TurretDefinition
@@ -148,7 +148,7 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "LargeMissileTurret",
-					AmmoMagazineId = "NATO_25x184mm",
+                    AmmoMagazineId = "NATO_25x184mm",
                     TurretMode = false,
                     TrackTarget = true,
                     RateOfFire = 45,
@@ -156,7 +156,7 @@ namespace WeaponThread
                     SkipBarrels = 0,
                     ShotsPerBarrel = 1,
                     RotateSpeed = 0.05f,
-					ElevationSpeed = 0.05f,
+                    ElevationSpeed = 0.05f,
                     ReloadTime = 6000,
                     ReleaseTimeAfterFire = 204f,
                     HeatPerRoF = 1,
