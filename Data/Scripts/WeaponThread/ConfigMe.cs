@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using VRage.Utils;
-using VRageMath;
-using static WeaponThread.Session.GraphicDefinition.EffectType;
-using static WeaponThread.Session.AmmoDefinition.ShieldType;
-using static WeaponThread.Session.AmmoDefinition.GuidanceType;
+﻿using VRageMath;
+using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
+using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 namespace WeaponThread
 {
     partial class Session
@@ -17,88 +14,132 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "LargeGatling",
+					AmmoMagazineId = "NATO_5p56x45mm",
+                    TurretMode = true,
+                    TrackTarget = true,
+                    RateOfFire = 600,
+                    BarrelsPerShot = 1,
+                    ShotsPerBarrel = 1,
+                    SkipBarrels = 0,
+                    ElevationSpeed = 0.05f,
+                    RotateSpeed = 0.05f,
+                    DeviateShotAngle = 0.4f,
+                    AimingTolerance = 4f,
+                    ReloadTime = 6000,
+                    ReleaseTimeAfterFire = 204f,
+                    HeatPerRoF = 1,
+                    MaxHeat = 180,
+                    HeatSinkRate = 2,
+                    ShotEnergyCost = 0,
+                    RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+
                     MountPoints = new []
                     {
-                        new KeyValuePair<string, string>("PDCTurretLB", "Boomsticks"),
-						new KeyValuePair<string, string>("PDCTurretSB", "Boomsticks"),
+                        new MountPoint {SubtypeId = "PDCTurretLB", SubpartId = "Boomsticks"},
+                        new MountPoint {SubtypeId = "PDCTurretSB", SubpartId = "Boomsticks"},
                     },
+
                     Barrels = new []
                     {
                         "muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003",
                         "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006"
                     },
-                    TurretMode = true,
-                    TrackTarget = true,
-                    RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                    RateOfFire = 360,
-                    BarrelsPerShot = 1,
-                    SkipBarrels = 0,
-                    ShotsPerBarrel = 1,
-                    HeatPerRoF = 1,
-                    MaxHeat = 180,
-                    HeatSinkRate = 2,
-                    MuzzleFlashLifeSpan = 0,
-                    RotateSpeed = 0.05f,
-                    ReloadTime = 10,
-                    ReleaseTimeAfterFire = 10f,
-                    DeviateShotAngle = 0f,
+
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    Guidance = None,
                     DefaultDamage = 1f,
-                    InitalSpeed = 0f,
-                    AccelPerSec = 0f,
-                    DesiredSpeed = 150f,
-                    MaxTrajectory = 2500f,
-                    BackkickForce = 2.5f,
-                    SpeedVariance = 5f,
-                    RangeMultiplier = 2.1f,
                     AreaEffectYield = 1f,
                     AreaEffectRadius = 1.99f,
-					DetonateOnEnd = false,
-                    UseRandomizedRange = false,
-                    ProjectileLength = 7f,
-                    RealisticDamage = false,
-                    // If set to realistic DefaultDamage is disabled the 
-                    // and following values are used, damage equation is: 
-                    // ((Mass / 2) * (Velocity * Velocity) / 1000) * KeenScaler
+                    DetonateOnEnd = false,
+                    ProjectileLength = 3f,
                     Mass = 150f,  // in grams
-                    ThermalDamage = 0, // MegaWatts
                     Health = 0f,
-                    ShieldDmgMultiplier = 1.1f,
-                    ShieldDamage = Kinetic,
+                    BackkickForce = 2.5f,
+
+                    Trajectory = new AmmoTrajectory
+                    {
+                         Guidance = None,
+                         InitalSpeed = 0f,
+                         AccelPerSec = 0f,
+                         DesiredSpeed = 400f,
+                         MaxTrajectory = 800f,
+                         SpeedVariance = new Randomize {Start = 0, End = 10},
+                         RangeVariance = new Randomize {Start = 0, End = 100},
+                    },
+
+                    ShieldBehavior = new AmmoShieldBehavior
+                    {
+                        ShieldDmgMultiplier = 1.1f,
+                        ShieldDamage = Kinetic,
+                    },
+
                 },
                 GraphicDef = new GraphicDefinition
                 {
                     ModelName = "",
-                    VisualProbability = 1f,
-                    ParticleTrail = false,
-                    ParticleColor = new Vector4(0, 0, 128, 32),
-                    Effect = Custom,
-                    CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
-                    ParticleRadiusMultiplier = 1f,
-
-                    ProjectileTrail = true,
-                    ProjectileMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                    ProjectileColor = new Vector4(255, 255, 255, 32),
-                    ProjectileWidth = 0.05f,
+                    VisualProbability = 0.5f,
                     ShieldHitDraw = true,
+                    Particles = new ParticleDefinition
+                    {
+                        AmmoParticle = "",
+                        AmmoColor = new Vector4(0, 0, 128, 32),
+                        AmmoOffset = Vector3D.Zero,
+                        AmmoScale = 1f,
+                        HitParticle = "",
+                        HitColor = Vector4.Zero,
+                        HitScale = 1f,
+                        Turret1Particle = "",
+                        Turret1Color = Vector4.Zero,
+                        Turret1Scale = 1f,
+                        Turret1Restart = false,
+                        Turret2Particle = "",
+                        Turret2Color = Vector4.Zero,
+                        Turret2Scale = 1f,
+                        Turret2Restart = true,
+                    },
+
+                    Line = new LineDefinition
+                    {
+                        Trail = true,
+                        Material = "ProjectileTrailLine", // WeaponLaser, WarpBubble, ProjectileTrailLine
+                        Color = new Vector4(10, 10, 10, 1),
+                        Width = 0.04f,
+                        RandomizeColor = new Randomize { Start =  1f, End = 2f },
+                        RandomizeWidth = new Randomize { Start =  0f, End = 0f },
+                    },
                 },
                 AudioDef = new AudioDefinition
                 {
-                    FiringSound = "",
-                    FiringSoundRange = 500f,
-                    FiringSoundVolume = 1f,
-                    ReloadSound = "",
-                    ReloadSoundRange = 30f,
-                    ReloadSoundVolume = 1f,
-                    AmmoTravelSound = "",
-                    AmmoTravelSoundRange = 350f,
-                    AmmoTravelSoundVolume = 1f,
-                    AmmoHitSound = "",
-                    AmmoHitSoundRange = 450f,
-                    AmmoHitSoundVolume = 1f,
+                    Turret = new AudioTuretDefinition
+                    {
+                        FiringSoundStart = "",
+                        FiringSoundLoop = "",
+                        FiringSoundEnd = "",
+                        FiringRange = 500f,
+                        FiringVolume = 1f,
+                        FiringPitchVar = new Randomize {Start = 0f, End = 0f},
+                        FiringVolumeVar = new Randomize {Start = 0f, End = 0f},
+                        ReloadSound = "",
+                        ReloadRange = 30f,
+                        ReloadVolume = 1f,
+                        NoAmmoSound = "",
+                        TurretRotationSound = "",
+                    },
+
+                    Ammo = new AudioAmmoDefinition
+                    {
+                        TravelSound = "",
+                        TravelRange = 350f,
+                        TravelVolume = 1f,
+                        TravelPitchVar = new Randomize {Start = 0, End = 0},
+                        TravelVolumeVar = new Randomize {Start = 0, End = 0},
+                        HitSound = "",
+                        HitRange = 450f,
+                        HitVolume = 1f,
+                        HitPitchVar = new Randomize {Start = 0, End = 0},
+                        HitVolumeVar = new Randomize {Start = 0, End = 0},
+                    },
                 },
             },
 
@@ -108,89 +149,130 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "LargeMissileTurret",
+					AmmoMagazineId = "NATO_25x184mm",
+                    TurretMode = false,
+                    TrackTarget = true,
+                    RateOfFire = 45,
+                    BarrelsPerShot = 1,
+                    SkipBarrels = 0,
+                    ShotsPerBarrel = 1,
+                    RotateSpeed = 0.05f,
+					ElevationSpeed = 0.05f,
+                    ReloadTime = 6000,
+                    ReleaseTimeAfterFire = 204f,
+                    HeatPerRoF = 1,
+                    MaxHeat = 180,
+                    HeatSinkRate = 2,
+                    ShotEnergyCost = 0,
+
                     MountPoints = new []
                     {
-                        new KeyValuePair<string, string>("PDCTurretLB", "MissileTurretBarrels"),
-						new KeyValuePair<string, string>("PDCTurretSB", "MissileTurretBarrels"),
-
+                        new MountPoint {SubtypeId = "PDCTurretLB", SubpartId = "MissileTurretBarrels"},
+                        new MountPoint {SubtypeId = "PDCTurretSB", SubpartId = "MissileTurretBarrels"},
                     },
+
                     Barrels = new []
                     {
                         "muzzle_missile_001", "muzzle_missile_002", "muzzle_missile_003",
                         "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006"
                     },
-                    TurretMode = false,
-                    TrackTarget = true,
-                    RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                    RateOfFire = 3600,
-                    BarrelsPerShot = 6,
-                    SkipBarrels = 0,
-                    ShotsPerBarrel = 1,
-                    HeatPerRoF = 1,
-                    MaxHeat = 180,
-                    HeatSinkRate = 2,
-                    MuzzleFlashLifeSpan = 0,
-                    RotateSpeed = 1f,
-                    ReloadTime = 10,
-                    ReleaseTimeAfterFire = 10f,
-                    DeviateShotAngle = 0f,
+
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    Guidance = None,
                     DefaultDamage = 1f,
-                    InitalSpeed = 0f,
-                    AccelPerSec = 0f,
-                    DesiredSpeed = 0f,
-                    MaxTrajectory = 0f,
-                    BackkickForce = 2.5f,
-                    SpeedVariance = 5f,
-                    RangeMultiplier = 2.1f,
-                    AreaEffectYield = 0f,
-                    AreaEffectRadius = 0f,
-					DetonateOnEnd = false,
-                    UseRandomizedRange = false,
-                    ProjectileLength = 2500f,
-                    RealisticDamage = false,
-                    // If set to realistic DefaultDamage is disabled the 
-                    // and following values are used, damage equation is: 
-                    // ((Mass / 2) * (Velocity * Velocity) / 1000) * KeenScaler
+                    AreaEffectYield = 1f,
+                    AreaEffectRadius = 1.99f,
+                    DetonateOnEnd = false,
+                    ProjectileLength = 3f,
                     Mass = 150f,  // in grams
-                    ThermalDamage = 0, // MegaWatts
                     Health = 0f,
-                    ShieldDmgMultiplier = 1.1f,
-                    ShieldDamage = Kinetic,
+                    BackkickForce = 2.5f,
+
+                    Trajectory = new AmmoTrajectory
+                    {
+                        Guidance = None,
+                        InitalSpeed = 0f,
+                        AccelPerSec = 0f,
+                        DesiredSpeed = 5f,
+                        MaxTrajectory = 800f,
+                        SpeedVariance = new Randomize {Start = 0, End = 10},
+                        RangeVariance = new Randomize {Start = 0, End = 100},
+                    },
+
+                    ShieldBehavior = new AmmoShieldBehavior
+                    {
+                        ShieldDmgMultiplier = 1.1f,
+                        ShieldDamage = Kinetic,
+                    },
+
                 },
                 GraphicDef = new GraphicDefinition
                 {
-                    ModelName = "",
+                    ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm",
                     VisualProbability = 1f,
-                    ParticleTrail = false,
-                    ParticleColor = new Vector4(255, 12, 0, 32),
-                    Effect = Custom,
-                    CustomEffect = "ShipWelderArc", //only used if effect is set to "Custom"
-                    ParticleRadiusMultiplier = 1f,
-
-                    ProjectileTrail = true,
-                    ProjectileMaterial = MyStringId.GetOrCompute("WeaponLaser"), // WeaponLaser, WarpBubble, ProjectileTrailLine
-                    ProjectileColor = new Vector4(0, 0, 64, 175),
-                    ProjectileWidth = 0.05f,
                     ShieldHitDraw = true,
+
+                    Particles = new ParticleDefinition
+                    {
+                        AmmoParticle = "ShipWelderArc",
+                        AmmoColor = new Vector4(0, 0, 128, 32),
+                        AmmoOffset = new Vector3D(0, -1 , 0),
+                        AmmoScale = 1f,
+                        HitParticle = "",
+                        HitColor = Vector4.Zero,
+                        HitScale = 1f,
+                        Turret1Particle = "",
+                        Turret1Color = Vector4.Zero,
+                        Turret1Scale = 1f,
+                        Turret1Restart = false,
+                        Turret2Particle = "",
+                        Turret2Color = Vector4.Zero,
+                        Turret2Scale = 1f,
+                        Turret2Restart = true,
+                    },
+
+                    Line = new LineDefinition
+                    {
+                        Trail = false,
+                        Material = "ProjectileTrailLine", // WeaponLaser, WarpBubble, ProjectileTrailLine
+                        Color = new Vector4(10, 10, 10, 1),
+                        Width = 0.04f,
+                        RandomizeColor = new Randomize { Start =  1f, End = 2f },
+                        RandomizeWidth = new Randomize { Start =  0f, End = 0f },
+                    },
                 },
                 AudioDef = new AudioDefinition
                 {
-                    FiringSound = "",
-                    FiringSoundRange = 150f,
-                    FiringSoundVolume = 1f,
-                    ReloadSound = "",
-                    ReloadSoundRange = 30f,
-                    ReloadSoundVolume = 1f,
-                    AmmoTravelSound = "",
-                    AmmoTravelSoundRange = 30f,
-                    AmmoTravelSoundVolume = 1f,
-                    AmmoHitSound = "",
-                    AmmoHitSoundRange = 30f,
-                    AmmoHitSoundVolume = 1f,
+                    Turret = new AudioTuretDefinition
+                    {
+                        FiringSoundStart = "",
+                        FiringSoundLoop = "",
+                        FiringSoundEnd = "",
+                        FiringRange = 500f,
+                        FiringVolume = 1f,
+                        FiringPitchVar = new Randomize {Start = 0f, End = 0f},
+                        FiringVolumeVar = new Randomize {Start = 0f, End = 0f},
+                        ReloadSound = "",
+                        ReloadRange = 30f,
+                        ReloadVolume = 1f,
+                        NoAmmoSound = "",
+                        TurretRotationSound = "",
+                    },
+
+                    Ammo = new AudioAmmoDefinition
+                    {
+                        TravelSound = "",
+                        TravelRange = 350f,
+                        TravelVolume = 1f,
+                        TravelPitchVar = new Randomize {Start = 0, End = 0},
+                        TravelVolumeVar = new Randomize {Start = 0, End = 0},
+                        HitSound = "",
+                        HitRange = 450f,
+                        HitVolume = 1f,
+                        HitPitchVar = new Randomize {Start = 0, End = 0},
+                        HitVolumeVar = new Randomize {Start = 0, End = 0},
+                    },
                 },
             },
 			// Don't edit below this line.

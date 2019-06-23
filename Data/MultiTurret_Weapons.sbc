@@ -14,8 +14,6 @@
       <SecondarySoundName>WepShipGatlingRotation</SecondarySoundName>
       <AmmoMagazines>
         <AmmoMagazine Subtype="Blank" />
-		<AmmoMagazine Subtype="Missile200mm" />
-        <AmmoMagazine Subtype="NATO_5p56x45mm" />
       </AmmoMagazines>
       <ReloadTime>0</ReloadTime>
     </Weapon>
