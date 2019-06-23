@@ -174,7 +174,7 @@ namespace WeaponThread
                     Barrels = new []
                     {
                         "muzzle_missile_001", "muzzle_missile_002", "muzzle_missile_003",
-                        "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006"
+                        "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006",
                     },
 
                 },
