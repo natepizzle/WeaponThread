@@ -213,7 +213,7 @@ namespace WeaponThread
 
                     Particles = new ParticleDefinition
                     {
-                        AmmoParticle = "ShipWelderArc",
+                        AmmoParticle = "",
                         AmmoColor = new Vector4(0, 0, 128, 32),
                         AmmoOffset = new Vector3D(0, -1 , 0),
                         AmmoScale = 1f,
