@@ -48,9 +48,9 @@ namespace WeaponThread
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    DefaultDamage = 1f,
-                    AreaEffectYield = 1f,
-                    AreaEffectRadius = 1.99f,
+                    DefaultDamage = 500f,
+                    AreaEffectYield = 0f,
+                    AreaEffectRadius = 0f,
                     DetonateOnEnd = false,
                     ProjectileLength = 3f,
                     Mass = 150f,  // in grams
