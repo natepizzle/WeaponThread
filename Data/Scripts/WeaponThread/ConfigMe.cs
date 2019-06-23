@@ -8,7 +8,7 @@ namespace WeaponThread
         readonly WeaponDefinition[] WeaponDefinitions =
         {
 			//Start of your weapon definitions, can have as many WeaponDefinitions as you want.
-            //First Weapon part on PDCTurretLB turret
+			//First Weapon part on PDCTurretLB turret
             new WeaponDefinition
             {
                 TurretDef = new TurretDefinition
@@ -275,7 +275,7 @@ namespace WeaponThread
                     },
                 },
             },
-			// Don't edit below this line.
+		// Don't edit below this line.
         };
     }
 }
