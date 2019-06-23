@@ -14,7 +14,7 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "LargeGatling",
-                    AmmoMagazineId = "NATO_5p56x45mm",
+                    AmmoMagazineId = "Blank",
                     TurretMode = true,
                     TrackTarget = true,
                     RateOfFire = 600,
@@ -48,7 +48,7 @@ namespace WeaponThread
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    DefaultDamage = 500f,
+                    DefaultDamage = 100f,
                     AreaEffectYield = 0f,
                     AreaEffectRadius = 0f,
                     DetonateOnEnd = false,
@@ -151,7 +151,7 @@ namespace WeaponThread
                     AmmoMagazineId = "NATO_25x184mm",
                     TurretMode = false,
                     TrackTarget = true,
-                    RateOfFire = 45,
+                    RateOfFire = 60,
                     BarrelsPerShot = 1,
                     SkipBarrels = 0,
                     ShotsPerBarrel = 1,
