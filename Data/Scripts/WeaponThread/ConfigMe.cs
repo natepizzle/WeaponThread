@@ -151,7 +151,7 @@ namespace WeaponThread
                     AmmoMagazineId = "NATO_25x184mm",
                     TurretMode = false,
                     TrackTarget = true,
-                    RateOfFire = 60,
+                    RateOfFire = 600,
                     BarrelsPerShot = 1,
                     SkipBarrels = 0,
                     ShotsPerBarrel = 1,
