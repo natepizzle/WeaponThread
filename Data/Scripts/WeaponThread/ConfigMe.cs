@@ -13,8 +13,8 @@ namespace WeaponThread
             {
                 TurretDef = new TurretDefinition
                 {
-					DefinitionId = "LargeGatling",
-					AmmoMagazineId = "NATO_5p56x45mm",
+                    DefinitionId = "LargeGatling",
+                    AmmoMagazineId = "NATO_5p56x45mm",
                     TurretMode = true,
                     TrackTarget = true,
                     RateOfFire = 600,
