@@ -191,7 +191,7 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                         Guidance = None,
-                        AccelPerSec = 5f,
+                        AccelPerSec = 15f,
                         DesiredSpeed = 200f,
                         MaxTrajectory = 800f,
                         SpeedVariance = new Randomize {Start = 0, End = 10},
