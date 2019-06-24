@@ -48,7 +48,7 @@ namespace WeaponThread
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    DefaultDamage = 100f,
+                    DefaultDamage = 20f,
                     AreaEffectYield = 0f,
                     AreaEffectRadius = 0f,
                     DetonateOnEnd = false,
@@ -151,7 +151,7 @@ namespace WeaponThread
                     AmmoMagazineId = "NATO_25x184mm",
                     TurretMode = false,
                     TrackTarget = true,
-                    RateOfFire = 600,
+                    RateOfFire = 60,
                     BarrelsPerShot = 1,
                     SkipBarrels = 0,
                     ShotsPerBarrel = 1,
@@ -181,9 +181,9 @@ namespace WeaponThread
                 {
                     DefaultDamage = 1f,
                     AreaEffectYield = 1f,
-                    AreaEffectRadius = 1.99f,
+                    AreaEffectRadius = 0.99f,
                     DetonateOnEnd = false,
-                    ProjectileLength = 3f,
+                    ProjectileLength = 1f,
                     Mass = 150f,  // in grams
                     Health = 0f,
                     BackkickForce = 2.5f,
