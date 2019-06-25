@@ -88,11 +88,11 @@ namespace WeaponThread
                         HitParticle = "",
                         HitColor = new Vector4(0, 0, 0, 0),
                         HitScale = 1f,
-                        Turret1Particle = "",
+                        Turret1Particle = "Smoke_LargeGunShot",
                         Turret1Color = new Vector4(0, 0, 0, 0),
                         Turret1Scale = 1f,
                         Turret1Restart = false,
-                        Turret2Particle = "",
+                        Turret2Particle = "Muzzle_Flash_Large",
                         Turret2Color = new Vector4(0, 0, 0, 0),
                         Turret2Scale = 1f,
                         Turret2Restart = true,
@@ -179,7 +179,7 @@ namespace WeaponThread
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    DefaultDamage = 1f,
+                    DefaultDamage = 0f,
                     AreaEffectYield = 1f,
                     AreaEffectRadius = 0.99f,
                     DetonateOnEnd = false,
