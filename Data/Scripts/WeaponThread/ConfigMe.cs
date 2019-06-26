@@ -148,7 +148,7 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "LargeMissileTurret",
-                    AmmoMagazineId = "NATO_25x184mm",
+                    AmmoMagazineId = "WolfSlug40mm",
                     TurretMode = false,
                     TrackTarget = true,
                     RateOfFire = 60,
