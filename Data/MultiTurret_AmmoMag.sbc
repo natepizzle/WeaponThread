@@ -19,5 +19,31 @@
       <Capacity>1</Capacity>
       <AmmoDefinitionId Subtype="Blank" />
     </AmmoMagazine>
+	
+	
+	
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>DS_TorpAmmoMag</SubtypeId>
+      </Id>
+      <DisplayName>Proton Torpedo</DisplayName>
+      <Icon>Textures\GUI\Icons\ammo\DeURounds.dds</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Mass>70.25</Mass>
+      <Volume>32.33</Volume>
+      <Model>Models\Weapons\Torpedo_Ammo_1st.mwm</Model>
+      <Capacity>500</Capacity>
+      <AmmoDefinitionId Subtype="DS_TorpAmmo" />
+    </AmmoMagazine>
+	
+	
+	
+	
   </AmmoMagazines>
 </Definitions>
