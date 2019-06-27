@@ -17,6 +17,18 @@
       </AmmoMagazines>
       <ReloadTime>0</ReloadTime>
     </Weapon>
+	<Weapon>
+      <Id>
+        <TypeId>WeaponDefinition</TypeId>
+        <SubtypeId>FixedMuzzleTurret</SubtypeId>
+      </Id>
+      <MissileAmmoData RateOfFire="60" ShootSoundName="WepTurretMissileShot" ShotsInBurst="2" />
+      <DeviateShotAngle>0</DeviateShotAngle>
+      <AmmoMagazines>
+        <AmmoMagazine Subtype="DS_TorpAmmoMag" />
+      </AmmoMagazines>
+      <ReloadTime>400</ReloadTime>
+    </Weapon>
   </Weapons>
   <Blueprints>   
    <Blueprint>
