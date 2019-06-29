@@ -15,8 +15,9 @@ namespace WeaponThread
                 {
                     DefinitionId = "LargeGatling",
                     AmmoMagazineId = "Blank",
-                    TurretMode = true,
-                    TrackTarget = true,
+					IsTurret = true,
+                    TurretController = true,
+                    TrackTargets = true,
                     RateOfFire = 600,
                     BarrelsPerShot = 1,
                     ShotsPerBarrel = 1,
@@ -149,8 +150,9 @@ namespace WeaponThread
                 {
                     DefinitionId = "LargeMissileTurret",
                     AmmoMagazineId = "WolfSlug40mm",
-                    TurretMode = false,
-                    TrackTarget = true,
+					IsTurret = true,
+                    TurretController = false,
+                    TrackTargets = true,
                     RateOfFire = 60,
                     BarrelsPerShot = 1,
                     SkipBarrels = 0,
@@ -191,7 +193,7 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                         Guidance = None,
-                        AccelPerSec = 15f,
+                        AccelPerSec = 5f,
                         DesiredSpeed = 200f,
                         MaxTrajectory = 800f,
                         SpeedVariance = new Randomize {Start = 0, End = 10},
@@ -280,9 +282,10 @@ namespace WeaponThread
                 {
                     DefinitionId = "PhotonTorpedo",
                     AmmoMagazineId = "Blank",
-                    TurretMode = false,
-                    TrackTarget = false,
-                    RateOfFire = 60,
+					IsTurret = false,
+                    TurretController = false,
+                    TrackTargets = false,
+                    RateOfFire = 600,
                     BarrelsPerShot = 1,
                     SkipBarrels = 0,
                     ShotsPerBarrel = 1,
@@ -308,23 +311,23 @@ namespace WeaponThread
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    DefaultDamage = 0f,
+                    DefaultDamage = 20f,
                     AreaEffectYield = 0f,
                     AreaEffectRadius = 0f,
                     DetonateOnEnd = false,
-                    ProjectileLength = 1f,
+                    ProjectileLength = 3f,
                     Mass = 150f,  // in grams
                     Health = 0f,
                     BackkickForce = 2.5f,
 
                     Trajectory = new AmmoTrajectory
                     {
-                        Guidance = None,
-                        AccelPerSec = 0f,
-                        DesiredSpeed = 200f,
-                        MaxTrajectory = 800f,
-                        SpeedVariance = new Randomize {Start = 0, End = 10},
-                        RangeVariance = new Randomize {Start = 0, End = 100},
+                         Guidance = None,
+                         AccelPerSec = 0f,
+                         DesiredSpeed = 400f,
+                         MaxTrajectory = 800f,
+                         SpeedVariance = new Randomize {Start = 0, End = 10},
+                         RangeVariance = new Randomize {Start = 0, End = 100},
                     },
 
                     ShieldBehavior = new AmmoShieldBehavior
@@ -337,23 +340,22 @@ namespace WeaponThread
                 GraphicDef = new GraphicDefinition
                 {
                     ModelName = "",
-                    VisualProbability = 1f,
+                    VisualProbability = 0.5f,
                     ShieldHitDraw = true,
-
                     Particles = new ParticleDefinition
                     {
                         AmmoParticle = "",
                         AmmoColor = new Vector4(0, 0, 128, 32),
-                        AmmoOffset = new Vector3D(0, -1 , 0),
+                        AmmoOffset = new Vector3D(0, -1, 0),
                         AmmoScale = 1f,
                         HitParticle = "",
                         HitColor = new Vector4(0, 0, 0, 0),
                         HitScale = 1f,
-                        Turret1Particle = "",
+                        Turret1Particle = "Smoke_LargeGunShot",
                         Turret1Color = new Vector4(0, 0, 0, 0),
                         Turret1Scale = 1f,
                         Turret1Restart = false,
-                        Turret2Particle = "",
+                        Turret2Particle = "Muzzle_Flash_Large",
                         Turret2Color = new Vector4(0, 0, 0, 0),
                         Turret2Scale = 1f,
                         Turret2Restart = true,
