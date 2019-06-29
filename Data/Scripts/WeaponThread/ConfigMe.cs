@@ -149,7 +149,7 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "LargeMissileTurret",
-                    AmmoMagazineId = "WolfSlug40mm",
+                    AmmoMagazineId = "TorpAmmo",
 					IsTurret = true,
                     TurretController = false,
                     TrackTargets = true,
@@ -281,7 +281,7 @@ namespace WeaponThread
                 TurretDef = new TurretDefinition
                 {
                     DefinitionId = "PhotonTorpedo",
-                    AmmoMagazineId = "Blank",
+                    AmmoMagazineId = "WolfSlug40mm",
 					IsTurret = false,
                     TurretController = false,
                     TrackTargets = false,
@@ -305,7 +305,7 @@ namespace WeaponThread
 
                     Barrels = new []
                     {
-                        "muzzle_missile_001", "muzzle_missile_002",
+                        "missile_muzzle_001", "missile_muzzle_002",
                     },
 
                 },

@@ -7,13 +7,13 @@
         <SubtypeId>PDCTurret</SubtypeId>
       </Id>
       <ProjectileAmmoData RateOfFire="1" ShootSoundName="WepShipGatlingShot" ShotsInBurst="1" />
-      <ReleaseTimeAfterFire>100</ReleaseTimeAfterFire>
+      <ReleaseTimeAfterFire>0</ReleaseTimeAfterFire>
       <DeviateShotAngle>0</DeviateShotAngle>
       <MuzzleFlashLifeSpan>0</MuzzleFlashLifeSpan>
       <NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
       <SecondarySoundName>WepShipGatlingRotation</SecondarySoundName>
       <AmmoMagazines>
-        <AmmoMagazine Subtype="WolfSlug40mm" />
+        <AmmoMagazine Subtype="Blank" />
       </AmmoMagazines>
       <ReloadTime>0</ReloadTime>
     </Weapon>
@@ -23,7 +23,7 @@
         <SubtypeId>FixedMuzzleTurret</SubtypeId>
       </Id>
       <ProjectileAmmoData RateOfFire="1" ShootSoundName="WepTurretMissileShot" ShotsInBurst="1" />
-      <ReleaseTimeAfterFire>100</ReleaseTimeAfterFire>
+      <ReleaseTimeAfterFire>0</ReleaseTimeAfterFire>
       <DeviateShotAngle>0</DeviateShotAngle>
       <MuzzleFlashLifeSpan>0</MuzzleFlashLifeSpan>
 	  <NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
