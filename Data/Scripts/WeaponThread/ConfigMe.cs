@@ -1,6 +1,8 @@
 ﻿using VRageMath;
 using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
+using static WeaponThread.Session.TurretDefinition.Prediction;
+
 namespace WeaponThread
 {
     partial class Session
@@ -24,7 +26,7 @@ namespace WeaponThread
                     SkipBarrels = 0,
                     ElevationSpeed = 0.05f,
                     RotateSpeed = 0.05f,
-                    DeviateShotAngle = 0.4f,
+                    DeviateShotAngle = 0f,
                     AimingTolerance = 4f,
                     ReloadTime = 6000,
                     ReleaseTimeAfterFire = 204f,
@@ -33,6 +35,7 @@ namespace WeaponThread
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
                     RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+					TargetPrediction = Advanced, // Off, Basic, Advanced
 
                     MountPoints = new []
                     {
@@ -49,7 +52,7 @@ namespace WeaponThread
                 },
                 AmmoDef = new AmmoDefinition
                 {
-                    DefaultDamage = 20f,
+                    DefaultDamage = 0f,
                     AreaEffectYield = 0f,
                     AreaEffectRadius = 0f,
                     DetonateOnEnd = false,
@@ -62,8 +65,8 @@ namespace WeaponThread
                     {
                          Guidance = None,
                          AccelPerSec = 0f,
-                         DesiredSpeed = 400f,
-                         MaxTrajectory = 800f,
+                         DesiredSpeed = 100f,
+                         MaxTrajectory = 2000f,
                          SpeedVariance = new Randomize {Start = 0, End = 10},
                          RangeVariance = new Randomize {Start = 0, End = 100},
                     },
@@ -165,6 +168,8 @@ namespace WeaponThread
                     MaxHeat = 180,
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
+                    RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+					TargetPrediction = Advanced,
 
                     MountPoints = new []
                     {
@@ -182,7 +187,7 @@ namespace WeaponThread
                 AmmoDef = new AmmoDefinition
                 {
                     DefaultDamage = 0f,
-                    AreaEffectYield = 1f,
+                    AreaEffectYield = 0f,
                     AreaEffectRadius = 0.99f,
                     DetonateOnEnd = false,
                     ProjectileLength = 1f,
@@ -297,6 +302,8 @@ namespace WeaponThread
                     MaxHeat = 180,
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
+                    RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+					TargetPrediction = Advanced,
 
                     MountPoints = new []
                     {
