@@ -35,7 +35,7 @@ namespace WeaponThread
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
                     RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-					TargetPrediction = Advanced, // Off, Basic, Advanced
+					TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
 
                     MountPoints = new []
                     {
@@ -257,7 +257,7 @@ namespace WeaponThread
                 {
                     Turret = new AudioTuretDefinition
                     {
-                        FiringSoundStart = "",
+                        FiringSoundStart = "WepShipSmallMissileShot",
                         FiringSoundLoop = "",
                         FiringSoundEnd = "",
                         FiringRange = 500f,
