@@ -64,9 +64,11 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                          Guidance = None,
+						 SmartsFactor = 0.009f,
+						 TargetLossDegree = 80f,
                          AccelPerSec = 0f,
-                         DesiredSpeed = 100f,
-                         MaxTrajectory = 2000f,
+                         DesiredSpeed = 300f,
+                         MaxTrajectory = 1000f,
                          SpeedVariance = new Randomize {Start = 0, End = 10},
                          RangeVariance = new Randomize {Start = 0, End = 100},
                     },
@@ -158,10 +160,12 @@ namespace WeaponThread
                     TrackTargets = true,
                     RateOfFire = 60,
                     BarrelsPerShot = 1,
-                    SkipBarrels = 0,
                     ShotsPerBarrel = 1,
-                    RotateSpeed = 0.05f,
+                    SkipBarrels = 0,
                     ElevationSpeed = 0.05f,
+                    RotateSpeed = 0.05f,
+                    DeviateShotAngle = 0f,
+                    AimingTolerance = 10f,
                     ReloadTime = 6000,
                     ReleaseTimeAfterFire = 204f,
                     HeatPerRoF = 1,
@@ -187,8 +191,8 @@ namespace WeaponThread
                 AmmoDef = new AmmoDefinition
                 {
                     DefaultDamage = 0f,
-                    AreaEffectYield = 0f,
-                    AreaEffectRadius = 0.99f,
+                    AreaEffectYield = 10f,
+                    AreaEffectRadius = 10f,
                     DetonateOnEnd = false,
                     ProjectileLength = 1f,
                     Mass = 150f,  // in grams
@@ -197,12 +201,14 @@ namespace WeaponThread
 
                     Trajectory = new AmmoTrajectory
                     {
-                        Guidance = None,
-                        AccelPerSec = 5f,
-                        DesiredSpeed = 200f,
-                        MaxTrajectory = 800f,
-                        SpeedVariance = new Randomize {Start = 0, End = 10},
-                        RangeVariance = new Randomize {Start = 0, End = 100},
+                         Guidance = Smart,
+						 SmartsFactor = 0.009f,
+						 TargetLossDegree = 80f,
+                         AccelPerSec = 60f,
+                         DesiredSpeed = 240f,
+                         MaxTrajectory = 3000f,
+                         SpeedVariance = new Randomize {Start = 0, End = 10},
+                         RangeVariance = new Randomize {Start = 0, End = 100},
                     },
 
                     ShieldBehavior = new AmmoShieldBehavior
@@ -220,9 +226,9 @@ namespace WeaponThread
 
                     Particles = new ParticleDefinition
                     {
-                        AmmoParticle = "",
-                        AmmoColor = new Vector4(0, 0, 128, 32),
-                        AmmoOffset = new Vector3D(0, -1 , 0),
+                        AmmoParticle = "Smoke_Missile",
+                        AmmoColor = Vector4.One,
+                        //AmmoOffset = new Vector3D(0, -1 , 0),
                         AmmoScale = 1f,
                         HitParticle = "",
                         HitColor = new Vector4(0, 0, 0, 0),
@@ -292,10 +298,12 @@ namespace WeaponThread
                     TrackTargets = false,
                     RateOfFire = 600,
                     BarrelsPerShot = 1,
-                    SkipBarrels = 0,
                     ShotsPerBarrel = 1,
-                    RotateSpeed = 0.05f,
+                    SkipBarrels = 0,
                     ElevationSpeed = 0.05f,
+                    RotateSpeed = 0.05f,
+                    DeviateShotAngle = 0f,
+                    AimingTolerance = 10f,
                     ReloadTime = 6000,
                     ReleaseTimeAfterFire = 204f,
                     HeatPerRoF = 1,
@@ -319,10 +327,10 @@ namespace WeaponThread
                 AmmoDef = new AmmoDefinition
                 {
                     DefaultDamage = 20f,
-                    AreaEffectYield = 0f,
-                    AreaEffectRadius = 0f,
+                    AreaEffectYield = 10f,
+                    AreaEffectRadius = 15f,
                     DetonateOnEnd = false,
-                    ProjectileLength = 3f,
+                    ProjectileLength = 1f,
                     Mass = 150f,  // in grams
                     Health = 0f,
                     BackkickForce = 2.5f,
@@ -330,6 +338,8 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                          Guidance = None,
+						 SmartsFactor = 0.5f,
+						 TargetLossDegree = 80f,
                          AccelPerSec = 0f,
                          DesiredSpeed = 400f,
                          MaxTrajectory = 800f,
