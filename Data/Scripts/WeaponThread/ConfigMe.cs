@@ -17,7 +17,7 @@ namespace WeaponThread
                 {
                     DefinitionId = "LargeGatling",
                     AmmoMagazineId = "Blank",
-					IsTurret = true,
+                    IsTurret = true,
                     TurretController = true,
                     TrackTargets = true,
                     RateOfFire = 600,
@@ -35,7 +35,7 @@ namespace WeaponThread
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
                     RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-					TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                    TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
 
                     MountPoints = new []
                     {
@@ -64,8 +64,8 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                          Guidance = None,
-						 SmartsFactor = 0.009f,
-						 TargetLossDegree = 80f,
+                         SmartsFactor = 0.009f,
+                         TargetLossDegree = 80f,
                          AccelPerSec = 0f,
                          DesiredSpeed = 300f,
                          MaxTrajectory = 1000f,
@@ -155,7 +155,7 @@ namespace WeaponThread
                 {
                     DefinitionId = "LargeMissileTurret",
                     AmmoMagazineId = "TorpAmmo",
-					IsTurret = true,
+                    IsTurret = true,
                     TurretController = false,
                     TrackTargets = true,
                     RateOfFire = 60,
@@ -173,7 +173,7 @@ namespace WeaponThread
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
                     RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-					TargetPrediction = Advanced,
+                    TargetPrediction = Advanced,
 
                     MountPoints = new []
                     {
@@ -202,8 +202,8 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                          Guidance = Smart,
-						 SmartsFactor = 0.009f,
-						 TargetLossDegree = 80f,
+                         SmartsFactor = 0.009f,
+                         TargetLossDegree = 80f,
                          AccelPerSec = 60f,
                          DesiredSpeed = 240f,
                          MaxTrajectory = 3000f,
@@ -293,7 +293,7 @@ namespace WeaponThread
                 {
                     DefinitionId = "PhotonTorpedo",
                     AmmoMagazineId = "WolfSlug40mm",
-					IsTurret = false,
+                    IsTurret = false,
                     TurretController = false,
                     TrackTargets = false,
                     RateOfFire = 600,
@@ -311,7 +311,7 @@ namespace WeaponThread
                     HeatSinkRate = 2,
                     ShotEnergyCost = 0,
                     RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-					TargetPrediction = Advanced,
+                    TargetPrediction = Advanced,
 
                     MountPoints = new []
                     {
@@ -338,8 +338,8 @@ namespace WeaponThread
                     Trajectory = new AmmoTrajectory
                     {
                          Guidance = None,
-						 SmartsFactor = 0.5f,
-						 TargetLossDegree = 80f,
+                         SmartsFactor = 0.5f,
+                         TargetLossDegree = 80f,
                          AccelPerSec = 0f,
                          DesiredSpeed = 400f,
                          MaxTrajectory = 800f,
