@@ -20,7 +20,7 @@ namespace WeaponThread
                     IsTurret = true,
                     TurretController = true,
                     TrackTargets = true,
-                    RateOfFire = 1800,
+                    RateOfFire = 300,
                     BarrelsPerShot = 1,
                     ShotsPerBarrel = 1,
                     SkipBarrels = 0,
@@ -56,7 +56,7 @@ namespace WeaponThread
                     AreaEffectYield = 0f,
                     AreaEffectRadius = 0f,
                     DetonateOnEnd = false,
-                    ProjectileLength = 4f,
+                    ProjectileLength = 8f,
                     Mass = 150f,  // in grams
                     Health = 0f,
                     BackkickForce = 2.5f,
@@ -83,7 +83,7 @@ namespace WeaponThread
                 GraphicDef = new GraphicDefinition
                 {
                     ModelName = "",
-                    VisualProbability = 0.5f,
+                    VisualProbability = 1f,
                     ShieldHitDraw = true,
                     Particles = new ParticleDefinition
                     {
@@ -201,10 +201,10 @@ namespace WeaponThread
 
                     Trajectory = new AmmoTrajectory
                     {
-                         Guidance = None,
+                         Guidance = Smart,
                          SmartsFactor = 0.009f,
                          TargetLossDegree = 80f,
-                         AccelPerSec = 60f,
+                         AccelPerSec = 1f,
                          DesiredSpeed = 240f,
                          MaxTrajectory = 3000f,
                          SpeedVariance = new Randomize {Start = 0, End = 10},
@@ -228,7 +228,7 @@ namespace WeaponThread
                     {
                         AmmoParticle = "Smoke_Missile",
                         AmmoColor = Vector4.One,
-                        AmmoOffset = new Vector3D(-0.4, 0 , 0),
+                        AmmoOffset = new Vector3D(0, 0 , 0.4), // +Z backward, +Y up, +X right
                         AmmoScale = 0.8f,
                         HitParticle = "",
                         HitColor = new Vector4(0, 0, 0, 0),
