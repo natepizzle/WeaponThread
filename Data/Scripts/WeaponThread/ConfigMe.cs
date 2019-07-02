@@ -204,7 +204,7 @@ namespace WeaponThread
                          Guidance = Smart,
                          SmartsFactor = 0.009f,
                          TargetLossDegree = 80f,
-                         AccelPerSec = 1f,
+                         AccelPerSec = 30f,
                          DesiredSpeed = 240f,
                          MaxTrajectory = 3000f,
                          SpeedVariance = new Randomize {Start = 0, End = 10},
