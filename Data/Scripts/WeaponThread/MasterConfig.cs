@@ -6,10 +6,8 @@ namespace WeaponThread
     {
         internal Weapons(out WeaponDefinition[] weaponDefinitions)
         {
-            // file convention: Name.cs
+            // file convention: Name.cs - See Example.cs file for weapon property details.
             // add procedure: Add(Name1, Name2, Name3, etc..);
-            // See Example.cs file for weapon property details.
-            // Don't edit above this line
 
             Add(Missile, Torpedo, Gatling);
             
