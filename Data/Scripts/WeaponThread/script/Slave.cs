@@ -9,10 +9,9 @@ using VRageMath;
 namespace WeaponThread
 {
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate, int.MinValue + 1)]
-    public partial class Session : MySessionComponentBase
+    public class Session : MySessionComponentBase
     {
         internal WeaponDefinition[] WeaponDefinitions;
-        internal Weapons Weapons;
 
         public override void LoadData()
         {
@@ -46,43 +45,12 @@ namespace WeaponThread
 
         internal void Init()
         {
-            Weapons = new Weapons(ref WeaponDefinitions);
+            new Weapons(ref WeaponDefinitions);
             for (int i = 0; i < WeaponDefinitions.Length; i++)
                 WeaponDefinitions[i].ModPath = ModContext.ModPath;
             Storage = MyAPIGateway.Utilities.SerializeToBinary(WeaponDefinitions);
             Array.Clear(WeaponDefinitions, 0, WeaponDefinitions.Length);
             WeaponDefinitions = null;
-        }
-
-        public class Log
-        {
-            private static Log _instance = null;
-            private TextWriter _file = null;
-
-            private static Log GetInstance()
-            {
-                return _instance ?? (_instance = new Log());
-            }
-
-            public static void Init(string name)
-            {
-                if (GetInstance()._file == null)
-                    GetInstance()._file = MyAPIGateway.Utilities.WriteFileInLocalStorage(name, typeof(Log));
-            }
-
-            public static void CleanLine(string text)
-            {
-                if (GetInstance()._file == null) return;
-                GetInstance()._file.WriteLine(text);
-                GetInstance()._file.Flush();
-            }
-
-            public static void Close()
-            {
-                if (GetInstance()._file == null) return;
-                GetInstance()._file.Flush();
-                GetInstance()._file.Close();
-            }
         }
 
         [ProtoContract]
@@ -273,6 +241,37 @@ namespace WeaponThread
             [ProtoMember(9)] internal string TurretRotationSound;
             [ProtoMember(10)] internal string FiringSound;
             [ProtoMember(11)] internal bool FiringSoundLoop;
+        }
+
+        public class Log
+        {
+            private static Log _instance = null;
+            private TextWriter _file = null;
+
+            private static Log GetInstance()
+            {
+                return _instance ?? (_instance = new Log());
+            }
+
+            public static void Init(string name)
+            {
+                if (GetInstance()._file == null)
+                    GetInstance()._file = MyAPIGateway.Utilities.WriteFileInLocalStorage(name, typeof(Log));
+            }
+
+            public static void CleanLine(string text)
+            {
+                if (GetInstance()._file == null) return;
+                GetInstance()._file.WriteLine(text);
+                GetInstance()._file.Flush();
+            }
+
+            public static void Close()
+            {
+                if (GetInstance()._file == null) return;
+                GetInstance()._file.Flush();
+                GetInstance()._file.Close();
+            }
         }
     }
 }
