@@ -107,16 +107,11 @@ namespace WeaponThread
         HardPoint = new AudioHardPointDefinition
         {
             FiringSound = "WepShipSmallMissileShot",
-            FiringSoundLoop = false,
-            FiringRange = 500f,
-            FiringVolume = 1f,
-            FiringPitchVar = Random(start: 0, end: 0),
-            FiringVolumeVar = Random(start: 0, end: 0),
+            FiringSoundPerShot = true,
             ReloadSound = "ArcBotSpiderAttackBite",
-            ReloadRange = 30f,
-            ReloadVolume = 1f,
             NoAmmoSound = "",
-            TurretRotationSound = "",
+            HardPointRotationSound = "",
+            BarrelRotationSound = "",
         },
 
         Ammo = new AudioAmmoDefinition

@@ -105,17 +105,12 @@ namespace WeaponThread
     {
         HardPoint = new AudioHardPointDefinition
         {
-            FiringSound = "ShipJumpDriveCharging",
-            FiringSoundLoop = true,
-            FiringRange = 500f,
-            FiringVolume = 1f,
-            FiringPitchVar = Random(start: 0, end: 0),
-            FiringVolumeVar = Random(start: 0, end: 0),
+            FiringSound = "WepShipGatlingShot",
+            FiringSoundPerShot = true,
             ReloadSound = "",
-            ReloadRange = 30f,
-            ReloadVolume = 1f,
             NoAmmoSound = "",
-            TurretRotationSound = "ArcWepTurretGatlingRotate",
+            HardPointRotationSound = "WepTurretGatlingRotate",
+            BarrelRotationSound = "WepShipGatlingRotation",
         },
 
         Ammo = new AudioAmmoDefinition

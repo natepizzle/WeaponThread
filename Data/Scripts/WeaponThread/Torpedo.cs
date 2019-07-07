@@ -105,16 +105,11 @@ namespace WeaponThread
         HardPoint = new AudioHardPointDefinition
         {
             FiringSound = "",
-            FiringSoundLoop = false,
-            FiringRange = 500f,
-            FiringVolume = 1f,
-            FiringPitchVar = Random(start: 0, end: 0),
-            FiringVolumeVar = Random(start: 0, end: 0),
+            FiringSoundPerShot = false,
             ReloadSound = "",
-            ReloadRange = 30f,
-            ReloadVolume = 1f,
             NoAmmoSound = "",
-            TurretRotationSound = "",
+            HardPointRotationSound = "",
+            BarrelRotationSound = "",
         },
 
         Ammo = new AudioAmmoDefinition
