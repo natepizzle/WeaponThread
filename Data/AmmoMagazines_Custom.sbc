@@ -37,7 +37,7 @@
       <Mass>70.25</Mass>
       <Volume>32.33</Volume>
       <Model>Models\Weapons\Torpedo_Ammo_1st.mwm</Model>
-      <Capacity>500</Capacity>
+      <Capacity>20</Capacity>
       <AmmoDefinitionId Subtype="Blank" />
     </AmmoMagazine>
 	

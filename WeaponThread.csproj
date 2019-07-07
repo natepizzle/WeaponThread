@@ -55,6 +55,9 @@
     <Reference Include="protobuf-net">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\protobuf-net.dll</HintPath>
     </Reference>
+    <Reference Include="ProtoBuf.Net.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\ProtoBuf.Net.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Sandbox.Common">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Common.dll</HintPath>
     </Reference>
@@ -196,8 +199,11 @@
     <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Scripts\WeaponThread\ConfigMe.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\Slave.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Missile.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\script\Slave.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\Torpedo.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
