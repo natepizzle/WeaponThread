@@ -35,10 +35,7 @@ namespace WeaponThread
             MountPoint(subTypeId: "LargeFixedPositionMissileTurret", subPartId: "None"),
         },
 
-        Barrels = new[]
-        {
-            "missile_muzzle_001", "missile_muzzle_002",
-        },
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002")
     },
     Ammo = new AmmoDefinition
     {

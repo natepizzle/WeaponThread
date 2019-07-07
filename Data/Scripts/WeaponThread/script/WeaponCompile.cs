@@ -38,5 +38,10 @@ namespace WeaponThread
         {
             return new Session.MountPoint { SubtypeId = subTypeId, SubpartId = subPartId };
         }
+
+        internal string[] Names(params string[] names)
+        {
+            return names;
+        }
     }
 }

@@ -36,12 +36,7 @@ namespace WeaponThread
             MountPoint(subTypeId: "PDCTurretSB", subPartId: "MissileTurretBarrels"),
         },
 
-        Barrels = new[]
-        {
-            "muzzle_missile_001", "muzzle_missile_002", "muzzle_missile_003",
-            "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006",
-        },
-
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
     },
     Ammo = new AmmoDefinition
     {
