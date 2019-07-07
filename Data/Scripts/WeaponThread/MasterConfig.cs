@@ -6,7 +6,7 @@
         {
             // file convention: Name.cs - See Example.cs file for weapon property details.
             //
-            // enable your config files using the follow syntax:
+            // Enable your config files using the follow syntax, don't include the ".cs" extension:
             // ConfigFiles(Your1stConfigFile, Your2ndConfigFile, Your3rdConfigFile);
 
             ConfigFiles(Missile, Torpedo, Gatling);
