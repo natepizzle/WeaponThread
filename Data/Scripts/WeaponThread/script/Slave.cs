@@ -216,16 +216,9 @@ namespace WeaponThread
         [ProtoContract]
         public struct AudioAmmoDefinition
         {
-            [ProtoMember(1)] internal float TravelRange;
-            [ProtoMember(2)] internal float TravelVolume;
-            [ProtoMember(3)] internal Randomize TravelPitchVar;
-            [ProtoMember(4)] internal Randomize TravelVolumeVar;
-            [ProtoMember(5)] internal float HitRange;
-            [ProtoMember(6)] internal float HitVolume;
-            [ProtoMember(7)] internal Randomize HitPitchVar;
-            [ProtoMember(8)] internal Randomize HitVolumeVar;
-            [ProtoMember(9)] internal string TravelSound;
-            [ProtoMember(10)] internal string HitSound;
+            [ProtoMember(1)] internal string TravelSound;
+            [ProtoMember(2)] internal string HitSound;
+            [ProtoMember(3)] internal float SoundMaxDistanceOveride;
         }
 
         [ProtoContract]
@@ -237,6 +230,7 @@ namespace WeaponThread
             [ProtoMember(4)] internal string BarrelRotationSound;
             [ProtoMember(5)] internal string FiringSound;
             [ProtoMember(6)] internal bool FiringSoundPerShot;
+            [ProtoMember(7)] internal float SoundMaxDistanceOveride;
         }
 
         public class Log

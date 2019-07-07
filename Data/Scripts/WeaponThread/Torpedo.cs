@@ -110,20 +110,14 @@ namespace WeaponThread
             NoAmmoSound = "",
             HardPointRotationSound = "",
             BarrelRotationSound = "",
+            SoundMaxDistanceOveride = 500f, // Should be equal max distance from HardPoint you want to hear.
         },
 
         Ammo = new AudioAmmoDefinition
         {
             TravelSound = "",
-            TravelRange = 350f,
-            TravelVolume = 1f,
-            TravelPitchVar = Random(start: 0, end: 0),
-            TravelVolumeVar = Random(start: 0, end: 0),
             HitSound = "",
-            HitRange = 450f,
-            HitVolume = 1f,
-            HitPitchVar = Random(start: 0, end: 0),
-            HitVolumeVar = Random(start: 0, end: 0),
+            SoundMaxDistanceOveride = 50f, // Should be equal max distance from Ammo you want to hear.
         }, // Don't edit below this line
     }, 
 };}}
