@@ -5,7 +5,7 @@ using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
 namespace WeaponThread
 {
-    partial class Weapons { void Missile() { Weapon.Add(new WeaponDefinition {
+    partial class Weapons { WeaponDefinition Missile => new WeaponDefinition {
     HardPoint = new HardPointDefinition
     { // Don't edit above this line
         DefinitionId = "Missile",
@@ -139,5 +139,4 @@ namespace WeaponThread
             HitVolumeVar = new Randomize {Start = 0, End = 0},
         }, // Don't edit below this line
     }, 
-    });}}
-}
+};}}

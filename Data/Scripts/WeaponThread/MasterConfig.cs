@@ -6,14 +6,16 @@ namespace WeaponThread
     {
         internal Weapons(ref WeaponDefinition[] weaponDefinitions)
         {
-            // file convention Name.cs
-            // call method Name();
-            // See Example.cs for details.
+            // file convention: Name.cs
+            // add procedure: Weapon.Add(Name);
+            // See Example.cs file for weapon property details.
             // Add each of your WeaponName entries below
+            //
+            // Don't edit above this line
 
-            Gatling();
-            Missile();
-            Torpedo();
+            Weapon.Add(Gatling);
+            Weapon.Add(Missile);
+            Weapon.Add(Torpedo);
             
             //
             // Don't edit below this line

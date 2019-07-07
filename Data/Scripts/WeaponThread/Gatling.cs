@@ -5,7 +5,7 @@ using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
 namespace WeaponThread
 {
-    partial class Weapons { void Gatling() { Weapon.Add(new WeaponDefinition {
+    partial class Weapons { WeaponDefinition Gatling => new WeaponDefinition {
     HardPoint = new HardPointDefinition
     { // Don't edit above this line
         DefinitionId = "Gatling",
@@ -138,5 +138,4 @@ namespace WeaponThread
             HitVolumeVar = new Randomize {Start = 0, End = 0},
         }, // Don't edit below this line
     },
-    });}}
-}
+};}}
