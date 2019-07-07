@@ -203,6 +203,7 @@
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Missile.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\Slave.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\script\WeaponCompile.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Torpedo.cs" />
   </ItemGroup>
   <ItemGroup />
