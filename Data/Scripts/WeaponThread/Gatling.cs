@@ -1,14 +1,12 @@
-﻿using VRageMath;
-using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
+﻿using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
 namespace WeaponThread
-{
-
+{   // Don't edit above this line
     partial class Weapons { WeaponDefinition Gatling => new WeaponDefinition {
     HardPoint = new HardPointDefinition
-    { // Don't edit above this line
+    { 
         DefinitionId = "Gatling",
         AmmoMagazineId = "Blank",
         IsTurret = true,

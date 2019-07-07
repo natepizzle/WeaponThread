@@ -1,13 +1,12 @@
-﻿using VRageMath;
-using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
+﻿using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
 namespace WeaponThread
-{
+{   // Don't edit above this line
     partial class Weapons { WeaponDefinition Torpedo => new WeaponDefinition {
     HardPoint = new HardPointDefinition
-    { // Don't edit above this line
+    { 
         DefinitionId = "Torpedo",
         AmmoMagazineId = "WolfSlug40mm",
         IsTurret = false,
@@ -76,7 +75,7 @@ namespace WeaponThread
         {
             AmmoParticle = "",
             AmmoColor = Color(red: 0, green: 0, blue: 128, alpha: 32),
-            AmmoOffset = new Vector3D(0, -1, 0),
+            AmmoOffset = Vector(x: 0, y: -1, z: 0),
             AmmoScale = 1f,
             HitParticle = "",
             HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
