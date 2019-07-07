@@ -33,8 +33,8 @@ namespace WeaponThread
 
         MountPoints = new[]
         {
-            new MountPoint {SubtypeId = "PDCTurretLB", SubpartId = "Boomsticks"},
-            new MountPoint {SubtypeId = "PDCTurretSB", SubpartId = "Boomsticks"},
+            MountPoint(subTypeId: "PDCTurretLB", subPartId: "Boomsticks"),
+            MountPoint(subTypeId: "PDCTurretSB", subPartId: "Boomsticks"),
         },
 
         Barrels = new[]

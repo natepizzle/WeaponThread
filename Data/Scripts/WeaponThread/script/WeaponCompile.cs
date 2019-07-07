@@ -33,5 +33,10 @@ namespace WeaponThread
         {
             return new Vector3D(x, y, z);
         }
+
+        internal Session.MountPoint MountPoint(string subTypeId, string subPartId)
+        {
+            return new Session.MountPoint { SubtypeId = subTypeId, SubpartId = subPartId };
+        }
     }
 }
