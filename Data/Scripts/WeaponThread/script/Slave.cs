@@ -45,7 +45,7 @@ namespace WeaponThread
 
         internal void Init()
         {
-            new Weapons(ref WeaponDefinitions);
+            new Weapons(out WeaponDefinitions);
             for (int i = 0; i < WeaponDefinitions.Length; i++)
                 WeaponDefinitions[i].ModPath = ModContext.ModPath;
             Storage = MyAPIGateway.Utilities.SerializeToBinary(WeaponDefinitions);

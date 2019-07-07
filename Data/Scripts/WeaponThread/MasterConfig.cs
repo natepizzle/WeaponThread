@@ -4,7 +4,7 @@ namespace WeaponThread
 {
     partial class Weapons
     {
-        internal Weapons(ref WeaponDefinition[] weaponDefinitions)
+        internal Weapons(out WeaponDefinition[] weaponDefinitions)
         {
             // file convention: Name.cs
             // add procedure: Weapon.Add(Name);
