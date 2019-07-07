@@ -5,6 +5,7 @@ using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
 namespace WeaponThread
 {
+
     partial class Weapons { WeaponDefinition Gatling => new WeaponDefinition {
     HardPoint = new HardPointDefinition
     { // Don't edit above this line
@@ -62,8 +63,8 @@ namespace WeaponThread
             AccelPerSec = 0f,
             DesiredSpeed = 300f,
             MaxTrajectory = 1000f,
-            SpeedVariance = new Randomize {Start = 0, End = 10},
-            RangeVariance = new Randomize {Start = 0, End = 100},
+            SpeedVariance = Random(start: 0, end: 10),
+            RangeVariance = Random(start: 0, end: 100),
         },
 
         ShieldBehavior = new AmmoShieldBehavior
@@ -81,18 +82,18 @@ namespace WeaponThread
         Particles = new ParticleDefinition
         {
             AmmoParticle = "",
-            AmmoColor = new Vector4(0, 0, 128, 32),
-            AmmoOffset = new Vector3D(0, -1, 0),
+            AmmoColor = Color(red: 0, green: 0, blue: 128, alpha: 32),
+            AmmoOffset = Vector(x: 0, y: -1, z: 0),
             AmmoScale = 1f,
             HitParticle = "",
-            HitColor = new Vector4(0, 0, 0, 0),
+            HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
             HitScale = 1f,
             Turret1Particle = "Smoke_LargeGunShot",
-            Turret1Color = new Vector4(0, 0, 0, 0),
+            Turret1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Turret1Scale = 1f,
             Turret1Restart = false,
             Turret2Particle = "Muzzle_Flash_Large",
-            Turret2Color = new Vector4(0, 0, 0, 0),
+            Turret2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Turret2Scale = 1f,
             Turret2Restart = true,
         },
@@ -101,10 +102,10 @@ namespace WeaponThread
         {
             Trail = true,
             Material = "ProjectileTrailLine",
-            Color = new Vector4(32, 32, 32, 1),
+            Color = Color(red: 32, green: 32, blue: 32, alpha: 1),
             Width = 0.04f,
-            RandomizeColor = new Randomize {Start = 1f, End = 2f},
-            RandomizeWidth = new Randomize {Start = 0f, End = 0f},
+            RandomizeColor = Random(start: 1, end: 2),
+            RandomizeWidth = Random(start: 0, end: 0),
         },
     },
     Audio = new AudioDefinition
@@ -115,8 +116,8 @@ namespace WeaponThread
             FiringSoundLoop = true,
             FiringRange = 500f,
             FiringVolume = 1f,
-            FiringPitchVar = new Randomize {Start = 0f, End = 0f},
-            FiringVolumeVar = new Randomize {Start = 0f, End = 0f},
+            FiringPitchVar = Random(start: 0, end: 0),
+            FiringVolumeVar = Random(start: 0, end: 0),
             ReloadSound = "",
             ReloadRange = 30f,
             ReloadVolume = 1f,
@@ -129,13 +130,13 @@ namespace WeaponThread
             TravelSound = "",
             TravelRange = 350f,
             TravelVolume = 1f,
-            TravelPitchVar = new Randomize {Start = 0, End = 0},
-            TravelVolumeVar = new Randomize {Start = 0, End = 0},
+            TravelPitchVar = Random(start: 0, end: 0),
+            TravelVolumeVar = Random(start: 0, end: 0),
             HitSound = "",
             HitRange = 450f,
             HitVolume = 1f,
-            HitPitchVar = new Randomize {Start = 0, End = 0},
-            HitVolumeVar = new Randomize {Start = 0, End = 0},
+            HitPitchVar = Random(start: 0, end: 0),
+            HitVolumeVar = Random(start: 0, end: 0),
         }, // Don't edit below this line
     },
 };}}

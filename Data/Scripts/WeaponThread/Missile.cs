@@ -62,8 +62,8 @@ namespace WeaponThread
             AccelPerSec = 30f,
             DesiredSpeed = 240f,
             MaxTrajectory = 3000f,
-            SpeedVariance = new Randomize {Start = 0, End = 10},
-            RangeVariance = new Randomize {Start = 0, End = 100},
+            SpeedVariance = Random(start: 0, end: 10),
+            RangeVariance = Random(start: 0, end: 100),
         },
 
         ShieldBehavior = new AmmoShieldBehavior
@@ -82,18 +82,18 @@ namespace WeaponThread
         Particles = new ParticleDefinition
         {
             AmmoParticle = "Smoke_Missile",
-            AmmoColor = Vector4.One,
-            AmmoOffset = new Vector3D(0, 0, 0.4), // +Z backward, +Y up, +X right
+            AmmoColor = Color(red: 1, green: 1, blue: 1, alpha: 1),
+            AmmoOffset = Vector(x: 0, y: 0, z: 0.4), // +Z backward, +Y up, +X right
             AmmoScale = 0.8f,
             HitParticle = "",
-            HitColor = new Vector4(0, 0, 0, 0),
+            HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
             HitScale = 1f,
             Turret1Particle = "",
-            Turret1Color = new Vector4(0, 0, 0, 0),
+            Turret1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Turret1Scale = 1f,
             Turret1Restart = false,
             Turret2Particle = "",
-            Turret2Color = new Vector4(0, 0, 0, 0),
+            Turret2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Turret2Scale = 1f,
             Turret2Restart = true,
         },
@@ -102,10 +102,10 @@ namespace WeaponThread
         {
             Trail = false,
             Material = "ProjectileTrailLine",
-            Color = new Vector4(10, 10, 10, 1),
+            Color = Color(red: 10, green: 10, blue: 10, alpha: 1),
             Width = 0.04f,
-            RandomizeColor = new Randomize {Start = 1f, End = 2f},
-            RandomizeWidth = new Randomize {Start = 0f, End = 0f},
+            RandomizeColor = Random(start: 1, end: 2),
+            RandomizeWidth = Random(start: 0, end: 0),
         },
     },
     Audio = new AudioDefinition
@@ -116,8 +116,8 @@ namespace WeaponThread
             FiringSoundLoop = false,
             FiringRange = 500f,
             FiringVolume = 1f,
-            FiringPitchVar = new Randomize {Start = 0f, End = 0f},
-            FiringVolumeVar = new Randomize {Start = 0f, End = 0f},
+            FiringPitchVar = Random(start: 0, end: 0),
+            FiringVolumeVar = Random(start: 0, end: 0),
             ReloadSound = "ArcBotSpiderAttackBite",
             ReloadRange = 30f,
             ReloadVolume = 1f,
@@ -130,13 +130,13 @@ namespace WeaponThread
             TravelSound = "",
             TravelRange = 350f,
             TravelVolume = 1f,
-            TravelPitchVar = new Randomize {Start = 0, End = 0},
-            TravelVolumeVar = new Randomize {Start = 0, End = 0},
+            TravelPitchVar = Random(start: 0, end: 0),
+            TravelVolumeVar = Random(start: 0, end: 0),
             HitSound = "",
             HitRange = 450f,
             HitVolume = 1f,
-            HitPitchVar = new Randomize {Start = 0, End = 0},
-            HitVolumeVar = new Randomize {Start = 0, End = 0},
+            HitPitchVar = Random(start: 0, end: 0),
+            HitVolumeVar = Random(start: 0, end: 0),
         }, // Don't edit below this line
     }, 
 };}}
