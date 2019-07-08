@@ -52,6 +52,7 @@ namespace WeaponThread
         {
             Guidance = None,
             SmartsFactor = 0.009f,
+            SmartsTrackingDelay = 1, // Measured in projectile length units traveled.
             TargetLossDegree = 80f,
             AccelPerSec = 0f,
             DesiredSpeed = 200f,

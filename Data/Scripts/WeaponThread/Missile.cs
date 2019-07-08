@@ -52,6 +52,7 @@ namespace WeaponThread
         {
             Guidance = Smart,
             SmartsFactor = 0.01f,
+            SmartsTrackingDelay = 1,
             TargetLossDegree = 80f,
             AccelPerSec = 60f,
             DesiredSpeed = 240f,
