@@ -13,19 +13,19 @@ namespace WeaponThread
         TurretController = true,
         TrackTargets = true,
         RateOfFire = 300,
-        BarrelsPerShot = 2,
-        ShotsPerBarrel = 1,
+        BarrelsPerShot = 6,
+        ShotsPerBarrel = 12,
         SkipBarrels = 0,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 0f,
+        DeviateShotAngle = 2f,
         AimingTolerance = 4f,
         ReloadTime = 600, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
         DelayUntilFire = 204, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
         HeatPerRoF = 1,
         MaxHeat = 180,
         HeatSinkRate = 2,
-        ShotEnergyCost = 0,
+        EnergyCost = 0.0001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
 
@@ -39,7 +39,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 0f,
+        DefaultDamage = 100f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,

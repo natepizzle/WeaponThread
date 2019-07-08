@@ -25,7 +25,7 @@ namespace WeaponThread
         HeatPerRoF = 1,
         MaxHeat = 180,
         HeatSinkRate = 2,
-        ShotEnergyCost = 0,
+        EnergyCost = 0,
         RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced,
 
