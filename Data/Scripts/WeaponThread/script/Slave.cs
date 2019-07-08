@@ -220,7 +220,6 @@ namespace WeaponThread
         {
             [ProtoMember(1)] internal string TravelSound;
             [ProtoMember(2)] internal string HitSound;
-            [ProtoMember(3)] internal float SoundMaxDistanceOveride;
         }
 
         [ProtoContract]
@@ -232,7 +231,6 @@ namespace WeaponThread
             [ProtoMember(4)] internal string BarrelRotationSound;
             [ProtoMember(5)] internal string FiringSound;
             [ProtoMember(6)] internal bool FiringSoundPerShot;
-            [ProtoMember(7)] internal float SoundMaxDistanceOveride;
         }
 
         public class Log
