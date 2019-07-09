@@ -37,13 +37,13 @@ namespace WeaponThread
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
-            ReloadTime = 600, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
-            DelayUntilFire = 0, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
+            ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 20,
-            DelayAfterBurst = 120, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
+            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
