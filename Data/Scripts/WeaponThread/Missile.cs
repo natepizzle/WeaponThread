@@ -5,6 +5,15 @@ using static WeaponThread.Session;
 namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons { WeaponDefinition Missile => new WeaponDefinition {
+    Assignments = new ModelAssignments
+    {
+        MountPoints = new[]
+        {
+            MountPoint(subTypeId: "PDCTurretLB", subPartId: "MissileTurretBarrels"),
+            MountPoint(subTypeId: "PDCTurretSB", subPartId: "MissileTurretBarrels"),
+        },
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
+    },
     HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Missile",
@@ -12,30 +21,28 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = false,
         TrackTargets = true,
-        RateOfFire = 60,
-        BarrelsPerShot = 1,
-        ShotsPerBarrel = 1,
-        SkipBarrels = 0,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
-        ReloadTime = 600,
-        DelayUntilFire = 204,
-        HeatPerRoF = 1,
-        MaxHeat = 180,
-        HeatSinkRate = 2,
         EnergyCost = 0,
-        RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+        RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
 
-        MountPoints = new[]
+        Loading = new AmmoLoading
         {
-            MountPoint(subTypeId: "PDCTurretLB", subPartId: "MissileTurretBarrels"),
-            MountPoint(subTypeId: "PDCTurretSB", subPartId: "MissileTurretBarrels"),
+            RateOfFire = 60,
+            BarrelsPerShot = 1,
+            TrajectilesPerBarrel = 1,
+            SkipBarrels = 0,
+            ReloadTime = 600,
+            DelayUntilFire = 204,
+            HeatPerRoF = 1,
+            MaxHeat = 180,
+            HeatSinkRate = 2,
+            ShotsInBurst = 0,
+            DelayAfterBurst = 120,
         },
-
-        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
     },
     Ammo = new AmmoDefinition
     {
@@ -44,7 +51,7 @@ namespace WeaponThread
         AreaEffectRadius = 10f,
         DetonateOnEnd = false,
         ProjectileLength = 1f,
-        Mass = 150f, // in grams
+        Mass = 150f, 
         Health = 0f,
         BackkickForce = 2.5f,
 

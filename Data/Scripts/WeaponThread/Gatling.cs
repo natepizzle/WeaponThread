@@ -5,6 +5,15 @@ using static WeaponThread.Session;
 namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons { WeaponDefinition Gatling => new WeaponDefinition {
+    Assignments = new ModelAssignments
+    {
+        MountPoints = new[]
+        {
+            MountPoint(subTypeId: "PDCTurretLB", subPartId: "Boomsticks"),
+            MountPoint(subTypeId: "PDCTurretSB", subPartId: "Boomsticks"),
+        },
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
+    },
     HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Gatling",
@@ -12,30 +21,30 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = true,
         TrackTargets = true,
-        RateOfFire = 150,
-        BarrelsPerShot = 2,
-        ShotsPerBarrel = 1,
-        SkipBarrels = 0,
+
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 2f,
         AimingTolerance = 4f,
-        ReloadTime = 600, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
-        DelayUntilFire = 0, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
-        HeatPerRoF = 1,
-        MaxHeat = 180,
-        HeatSinkRate = 2,
+
         EnergyCost = 0.0001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
 
-        MountPoints = new[]
+        Loading = new AmmoLoading
         {
-            MountPoint(subTypeId: "PDCTurretLB", subPartId: "Boomsticks"),
-            MountPoint(subTypeId: "PDCTurretSB", subPartId: "Boomsticks"),
+            RateOfFire = 1600,
+            BarrelsPerShot = 2,
+            TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
+            SkipBarrels = 1,
+            ReloadTime = 600, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 0, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
+            HeatPerRoF = 1,
+            MaxHeat = 180,
+            HeatSinkRate = 2,
+            ShotsInBurst = 10,
+            DelayAfterBurst = 120,
         },
-
-        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
     },
     Ammo = new AmmoDefinition
     {
@@ -86,12 +95,12 @@ namespace WeaponThread
             Barrel1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Barrel1Scale = 1f,
             Barrel1Restart = false,
-            Barrel1Duration = 10, // value measured in game ticks, 60 ticks in 1 second.
+            Barrel1Duration = 6, // value measured in game ticks, 60 ticks in 1 second.
             Barrel2Particle = "Muzzle_Flash_Large",
             Barrel2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Barrel2Scale = 1f,
             Barrel2Restart = true,
-            Barrel2Duration = 10,
+            Barrel2Duration = 6,
         },
 
         Line = new LineDefinition

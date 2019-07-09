@@ -5,6 +5,14 @@ using static WeaponThread.Session;
 namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons { WeaponDefinition Torpedo => new WeaponDefinition {
+    Assignments = new ModelAssignments
+    {
+        MountPoints = new[]
+        {
+            MountPoint(subTypeId: "LargeFixedPositionMissileTurret", subPartId: "None"),
+        },
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002")
+    },
     HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Torpedo",
@@ -12,29 +20,28 @@ namespace WeaponThread
         IsTurret = false,
         TurretController = false,
         TrackTargets = false,
-        RateOfFire = 600,
-        BarrelsPerShot = 1,
-        ShotsPerBarrel = 1,
-        SkipBarrels = 0,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
-        ReloadTime = 600,
-        DelayUntilFire = 204,
-        HeatPerRoF = 1,
-        MaxHeat = 180,
-        HeatSinkRate = 2,
         EnergyCost = 0,
         RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced,
 
-        MountPoints = new[]
+        Loading = new AmmoLoading
         {
-            MountPoint(subTypeId: "LargeFixedPositionMissileTurret", subPartId: "None"),
+            RateOfFire = 600,
+            BarrelsPerShot = 1,
+            TrajectilesPerBarrel = 1,
+            SkipBarrels = 0,
+            ReloadTime = 600,
+            DelayUntilFire = 204,
+            HeatPerRoF = 1,
+            MaxHeat = 180,
+            HeatSinkRate = 2,
+            ShotsInBurst = 0,
+            DelayAfterBurst = 120,
         },
-
-        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002")
     },
     Ammo = new AmmoDefinition
     {
@@ -43,7 +50,7 @@ namespace WeaponThread
         AreaEffectRadius = 15f,
         DetonateOnEnd = false,
         ProjectileLength = 1f,
-        Mass = 150f,  // in grams
+        Mass = 150f, 
         Health = 0f,
         BackkickForce = 2.5f,
 
