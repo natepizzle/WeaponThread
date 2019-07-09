@@ -51,7 +51,7 @@ namespace WeaponThread
         AreaEffectRadius = 10f,
         DetonateOnEnd = false,
         ProjectileLength = 1f,
-        Mass = 150f, 
+        Mass = 5000f, 
         Health = 0f,
         BackKickForce = 2.5f,
 
@@ -62,7 +62,7 @@ namespace WeaponThread
             SmartsTrackingDelay = 1,
             TargetLossDegree = 80f,
             AccelPerSec = 60f,
-            DesiredSpeed = 240f,
+            DesiredSpeed = 350f,
             MaxTrajectory = 3000f,
             SpeedVariance = Random(start: 0, end: 10),
             RangeVariance = Random(start: 0, end: 100),

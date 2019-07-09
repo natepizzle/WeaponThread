@@ -33,7 +33,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 1600,
+            RateOfFire = 800,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -42,8 +42,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 20,
-            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 40,
+            DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
@@ -53,9 +53,9 @@ namespace WeaponThread
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
         ProjectileLength = 8f,
-        Mass = 150f, // in grams
+        Mass = 50f, // in kilograms
         Health = 0f,
-        BackKickForce = 10000f,
+        BackKickForce = 0f,
 
         Trajectory = new AmmoTrajectory
         {
@@ -66,8 +66,8 @@ namespace WeaponThread
             AccelPerSec = 0f,
             DesiredSpeed = 200f,
             MaxTrajectory = 1000f,
-            SpeedVariance = Random(start: 0, end: 199), // subtracts value from DesiredSpeed
-            RangeVariance = Random(start: 0, end: 990), // subtracts value from MaxTrajectory
+            SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
+            RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
         },
 
         ShieldBehavior = new AmmoShieldBehavior
@@ -108,8 +108,8 @@ namespace WeaponThread
             Trail = true,
             Material = "ProjectileTrailLine",
             Color = Color(red: 32, green: 32, blue: 32, alpha: 1),
-            Width = 0.1f,
-            ColorVariance = Random(start: 0, end: 0), // multiply the color by random values within range.
+            Width = 0.05f,
+            ColorVariance = Random(start: 1, end: 2), // multiply the color by random values within range.
             WidthVariance = Random(start: -0.09f, end: 0.2f), // adds random value to default width (negatives shrinks width)
         },
     },
