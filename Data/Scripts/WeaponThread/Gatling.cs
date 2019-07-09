@@ -43,7 +43,7 @@ namespace WeaponThread
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 10,
-            DelayAfterBurst = 120,
+            DelayAfterBurst = 120, // Measured in game ticks (10 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
