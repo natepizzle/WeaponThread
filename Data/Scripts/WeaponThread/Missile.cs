@@ -53,7 +53,7 @@ namespace WeaponThread
         ProjectileLength = 1f,
         Mass = 150f, 
         Health = 0f,
-        BackkickForce = 2.5f,
+        BackKickForce = 2.5f,
 
         Trajectory = new AmmoTrajectory
         {
@@ -108,8 +108,8 @@ namespace WeaponThread
             Material = "ProjectileTrailLine",
             Color = Color(red: 10, green: 10, blue: 10, alpha: 1),
             Width = 0.04f,
-            RandomizeColor = Random(start: 1, end: 2),
-            RandomizeWidth = Random(start: 0, end: 0),
+            ColorVariance = Random(start: 1, end: 2),
+            WidthVariance = Random(start: 0, end: 0),
         },
     },
     Audio = new AudioDefinition

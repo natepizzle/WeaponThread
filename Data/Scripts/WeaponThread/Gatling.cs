@@ -55,7 +55,7 @@ namespace WeaponThread
         ProjectileLength = 8f,
         Mass = 150f, // in grams
         Health = 0f,
-        BackkickForce = 2.5f,
+        BackKickForce = 10000f,
 
         Trajectory = new AmmoTrajectory
         {
@@ -66,8 +66,8 @@ namespace WeaponThread
             AccelPerSec = 0f,
             DesiredSpeed = 200f,
             MaxTrajectory = 1000f,
-            SpeedVariance = Random(start: 0, end: 10),
-            RangeVariance = Random(start: 0, end: 100),
+            SpeedVariance = Random(start: 0, end: 199), // subtracts value from DesiredSpeed
+            RangeVariance = Random(start: 0, end: 990), // subtracts value from MaxTrajectory
         },
 
         ShieldBehavior = new AmmoShieldBehavior
@@ -108,9 +108,9 @@ namespace WeaponThread
             Trail = true,
             Material = "ProjectileTrailLine",
             Color = Color(red: 32, green: 32, blue: 32, alpha: 1),
-            Width = 0.04f,
-            RandomizeColor = Random(start: 1, end: 2),
-            RandomizeWidth = Random(start: 0, end: 0),
+            Width = 0.1f,
+            ColorVariance = Random(start: 0, end: 0), // multiply the color by random values within range.
+            WidthVariance = Random(start: -0.09f, end: 0.2f), // adds random value to default width (negatives shrinks width)
         },
     },
     Audio = new AudioDefinition
