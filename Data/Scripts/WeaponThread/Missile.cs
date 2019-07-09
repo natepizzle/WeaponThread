@@ -28,6 +28,7 @@ namespace WeaponThread
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
+        DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
         Loading = new AmmoLoading
         {
