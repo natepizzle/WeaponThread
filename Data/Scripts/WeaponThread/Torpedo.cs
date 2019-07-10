@@ -108,7 +108,7 @@ namespace WeaponThread
             Color = Color(red: 10, green: 10, blue: 10, alpha: 1),
             Width = 0.04f,
             ColorVariance = Random(start: 1, end: 2),
-            WidthVariance = Random(start: 0, end: 0),
+            WidthVariance = Random(start: -0.025f, end: 0.025f),
         },
     },
     Audio = new AudioDefinition

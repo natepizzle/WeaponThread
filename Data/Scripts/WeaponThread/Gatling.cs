@@ -21,19 +21,19 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = true,
         TrackTargets = true,
-        ElevationSpeed = 0.05f,
-        RotateSpeed = 0.05f,
-        DeviateShotAngle = 2f,
+        ElevationSpeed = 0.01f,
+        RotateSpeed = 0.01f,
+        DeviateShotAngle = 0f,
         AimingTolerance = 4f,
-        EnergyCost = 0.0001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        EnergyCost = 0.000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
-        DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+        DelayCeaseFire = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 1400,
-            BarrelsPerShot = 1,
+            RateOfFire = 3600,
+            BarrelsPerShot = 6,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -41,8 +41,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 8,
-            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 0,
+            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
@@ -51,8 +51,8 @@ namespace WeaponThread
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
-        ProjectileLength = 8f,
-        Mass = 50f, // in kilograms
+        ProjectileLength = 10f,
+        Mass = 1000f, // in kilograms
         Health = 0f,
         BackKickForce = 0f,
 
@@ -63,8 +63,8 @@ namespace WeaponThread
             SmartsTrackingDelay = 1, // Measured in projectile length units traveled.
             TargetLossDegree = 80f,
             AccelPerSec = 0f,
-            DesiredSpeed = 200f,
-            MaxTrajectory = 1000f,
+            DesiredSpeed = 0f,
+            MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
         },
@@ -90,33 +90,33 @@ namespace WeaponThread
             HitParticle = "",
             HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
             HitScale = 1f,
-            Barrel1Particle = "Smoke_LargeGunShot",
+            Barrel1Particle = "", // Smoke_LargeGunShot
             Barrel1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Barrel1Scale = 1f,
             Barrel1Restart = false,
             Barrel1Duration = 6, // value measured in game ticks, 60 ticks in 1 second.
-            Barrel2Particle = "Muzzle_Flash_Large",
+            Barrel2Particle = "", //Muzzle_Flash_Large
             Barrel2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Barrel2Scale = 1f,
-            Barrel2Restart = true,
+            Barrel2Restart = false,
             Barrel2Duration = 6,
         },
 
         Line = new LineDefinition
         {
             Trail = true,
-            Material = "ProjectileTrailLine",
-            Color = Color(red: 32, green: 32, blue: 32, alpha: 1),
+            Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+            Color = Color(red: 32, green: 32, blue: 40, alpha: 1),
             Width = 0.05f,
-            ColorVariance = Random(start: 1, end: 2), // multiply the color by random values within range.
-            WidthVariance = Random(start: -0.09f, end: 0.2f), // adds random value to default width (negatives shrinks width)
+            ColorVariance = Random(start: 0.5f, end: 2.0f), // multiply the color by random values within range.
+            WidthVariance = Random(start: 0f, end: 0.05f), // adds random value to default width (negatives shrinks width)
         },
     },
     Audio = new AudioDefinition
     {
         HardPoint = new AudioHardPointDefinition
         {
-            FiringSound = "WepShipGatlingShot",
+            FiringSound = "", // WepShipGatlingShot
             FiringSoundPerShot = true,
             ReloadSound = "",
             NoAmmoSound = "",
