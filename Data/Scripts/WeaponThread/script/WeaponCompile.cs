@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using VRageMath;
 
 namespace WeaponThread
@@ -18,6 +17,11 @@ namespace WeaponThread
             for (int i = 0; i < Weapon.Count; i++) weaponDefinitions[i] = Weapon[i];
             Weapon.Clear();
             return weaponDefinitions;
+        }
+
+        internal Session.Slider Slider(bool enable, double min, double max)
+        {
+            return new Session.Slider { Enable = enable, Min = min, Max = max };
         }
 
         internal Session.Randomize Random(float start, float end)

@@ -14,6 +14,12 @@ namespace WeaponThread
         },
         Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
     },
+    Ui = new UiDefinition
+    {
+        RateOfFire = Slider(enable: true, min: 1200, max: 3600),
+        DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
+        SelectableProjectileColor = true,
+    },
     HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Gatling",
@@ -25,15 +31,15 @@ namespace WeaponThread
         RotateSpeed = 0.01f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f,
-        EnergyCost = 0.000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        EnergyCost = 0.0001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
-        DelayCeaseFire = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+        DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
         Loading = new AmmoLoading
         {
             RateOfFire = 3600,
-            BarrelsPerShot = 6,
+            BarrelsPerShot = 2,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -41,18 +47,18 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 0,
-            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 24,
+            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 100f,
+        DefaultDamage = 50f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
         ProjectileLength = 10f,
-        Mass = 1000f, // in kilograms
+        Mass = 3000f, // in kilograms
         Health = 0f,
         BackKickForce = 0f,
 
@@ -87,9 +93,9 @@ namespace WeaponThread
             AmmoColor = Color(red: 0, green: 0, blue: 128, alpha: 32),
             AmmoOffset = Vector(x: 0, y: -1, z: 0),
             AmmoScale = 1f,
-            HitParticle = "",
-            HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            HitScale = 1f,
+            HitParticle = "ShipWelderArc",
+            HitColor = Color(red: 10, green: 10, blue: 172, alpha: 1),
+            HitScale = 1.5f,
             Barrel1Particle = "", // Smoke_LargeGunShot
             Barrel1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
             Barrel1Scale = 1f,
@@ -108,8 +114,8 @@ namespace WeaponThread
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             Color = Color(red: 32, green: 32, blue: 40, alpha: 1),
             Width = 0.05f,
-            ColorVariance = Random(start: 0.5f, end: 2.0f), // multiply the color by random values within range.
-            WidthVariance = Random(start: 0f, end: 0.05f), // adds random value to default width (negatives shrinks width)
+            ColorVariance = Random(start: 0.5f, end: 1.5f), // multiply the color by random values within range.
+            WidthVariance = Random(start: 0f, end: 0.075f), // adds random value to default width (negatives shrinks width)
         },
     },
     Audio = new AudioDefinition

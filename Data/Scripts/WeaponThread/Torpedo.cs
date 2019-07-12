@@ -13,7 +13,13 @@ namespace WeaponThread
         },
         Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002")
     },
-    HardPoint = new HardPointDefinition
+    Ui = new UiDefinition
+    {
+        RateOfFire = Slider(enable: true, min: 1200, max: 3600),
+        DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
+        SelectableProjectileColor = true,
+    },
+        HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Torpedo",
         AmmoMagazineId = "WolfSlug40mm",

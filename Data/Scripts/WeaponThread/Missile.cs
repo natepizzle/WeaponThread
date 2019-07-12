@@ -14,7 +14,13 @@ namespace WeaponThread
         },
         Barrels = Names("muzzle_missile_001", "muzzle_missile_002", "muzzle_missile_003", "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006")
     },
-    HardPoint = new HardPointDefinition
+    Ui = new UiDefinition
+    {
+        RateOfFire = Slider(enable: true, min: 1200, max: 3600),
+        DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
+        SelectableProjectileColor = true,
+    },
+        HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Missile",
         AmmoMagazineId = "TorpAmmo",
@@ -36,33 +42,33 @@ namespace WeaponThread
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
-            ReloadTime = 600,
-            DelayUntilFire = 204,
+            ReloadTime = 1200,
+            DelayUntilFire = 0,
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 4,
-            DelayAfterBurst = 240,
+            ShotsInBurst = 6,
+            DelayAfterBurst = 600,
         },
     },
     Ammo = new AmmoDefinition
     {
         DefaultDamage = 100f,
-        AreaEffectYield = 100f,
-        AreaEffectRadius = 50f,
+        AreaEffectYield = 1f,
+        AreaEffectRadius = 5f,
         DetonateOnEnd = false,
         ProjectileLength = 1f,
-        Mass = 50000f, 
+        Mass = 1000f, 
         Health = 0f,
         BackKickForce = 2.5f,
 
         Trajectory = new AmmoTrajectory
         {
             Guidance = Smart,
-            SmartsFactor = 0.01f,
+            SmartsFactor = 0.1f,
             SmartsTrackingDelay = 1,
             TargetLossDegree = 80f,
-            AccelPerSec = 60f,
+            AccelPerSec = 117f,
             DesiredSpeed = 350f,
             MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 10),
@@ -78,7 +84,7 @@ namespace WeaponThread
     },
     Graphics = new GraphicDefinition
     {
-        ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm",
+        ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm", // \\Models\\Weapons\\Projectile_Missile.mwm
         VisualProbability = 1f,
         ShieldHitDraw = true,
 

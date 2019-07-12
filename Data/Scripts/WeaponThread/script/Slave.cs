@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using ProtoBuf;
 using Sandbox.ModAPI;
@@ -62,7 +61,8 @@ namespace WeaponThread
             [ProtoMember(3)] internal GraphicDefinition Graphics;
             [ProtoMember(4)] internal AudioDefinition Audio;
             [ProtoMember(5)] internal ModelAssignments Assignments;
-            [ProtoMember(6)] internal string ModPath;
+            [ProtoMember(6)] internal UiDefinition Ui;
+            [ProtoMember(7)] internal string ModPath;
         }
 
 
@@ -71,6 +71,14 @@ namespace WeaponThread
         {
             [ProtoMember(1)] internal MountPoint[] MountPoints;
             [ProtoMember(2)] internal string[] Barrels;
+        }
+
+        [ProtoContract]
+        public struct UiDefinition
+        {
+            [ProtoMember(1)] internal Slider RateOfFire;
+            [ProtoMember(2)] internal Slider DamageModifier;
+            [ProtoMember(3)] internal bool SelectableProjectileColor;
         }
 
         [ProtoContract]
@@ -216,6 +224,14 @@ namespace WeaponThread
             [ProtoMember(4)] internal Vector4 Color;
             [ProtoMember(5)] internal Randomize ColorVariance;
             [ProtoMember(6)] internal Randomize WidthVariance;
+        }
+
+        [ProtoContract]
+        public struct Slider
+        {
+            [ProtoMember(1)] internal bool Enable;
+            [ProtoMember(2)] internal double Min;
+            [ProtoMember(3)] internal double Max;
         }
 
         [ProtoContract]
