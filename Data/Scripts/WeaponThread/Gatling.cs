@@ -31,7 +31,7 @@ namespace WeaponThread
         RotateSpeed = 0.01f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f,
-        EnergyCost = 0.0001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -39,7 +39,7 @@ namespace WeaponThread
         Loading = new AmmoLoading
         {
             RateOfFire = 3600,
-            BarrelsPerShot = 2,
+            BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -48,12 +48,12 @@ namespace WeaponThread
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 24,
-            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 50f,
+        DefaultDamage = 99999999f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
