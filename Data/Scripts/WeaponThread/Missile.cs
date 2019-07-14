@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 60,
+            RateOfFire = 1,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -53,13 +53,13 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 100f,
+        DefaultDamage = 0f,
         AreaEffectYield = 1f,
         AreaEffectRadius = 5f,
         DetonateOnEnd = true,
         ProjectileLength = 1f,
-        Mass = 1000f, 
-        Health = 0f,
+        Mass = 0f,
+        MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
         Trajectory = new AmmoTrajectory

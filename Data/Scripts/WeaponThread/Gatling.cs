@@ -47,19 +47,19 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 24,
-            DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 0,
+            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 99999999f,
+        DefaultDamage = 5000f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
-        ProjectileLength = 10f,
-        Mass = 3000f, // in kilograms
-        Health = 0f,
+        ProjectileLength = 1f,
+        Mass = 5000f, // in kilograms
+        MaxObjectsHit = 2, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         BackKickForce = 0f,
 
         Trajectory = new AmmoTrajectory
@@ -70,7 +70,7 @@ namespace WeaponThread
             TargetLossDegree = 80f,
             AccelPerSec = 0f,
             DesiredSpeed = 0f,
-            MaxTrajectory = 5000f,
+            MaxTrajectory = 3000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
         },
@@ -114,8 +114,8 @@ namespace WeaponThread
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             Color = Color(red: 32, green: 32, blue: 40, alpha: 1),
             Width = 0.05f,
-            ColorVariance = Random(start: 0.5f, end: 1.5f), // multiply the color by random values within range.
-            WidthVariance = Random(start: 0f, end: 0.075f), // adds random value to default width (negatives shrinks width)
+            ColorVariance = Random(start: 0.5f, end: 2.5f), // multiply the color by random values within range.
+            WidthVariance = Random(start: 0f, end: 0.1f), // adds random value to default width (negatives shrinks width)
         },
     },
     Audio = new AudioDefinition

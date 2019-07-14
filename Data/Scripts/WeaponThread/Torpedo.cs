@@ -57,8 +57,8 @@ namespace WeaponThread
         AreaEffectRadius = 15f,
         DetonateOnEnd = false,
         ProjectileLength = 1f,
-        Mass = 150f, 
-        Health = 0f,
+        Mass = 150f,
+        MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
         Trajectory = new AmmoTrajectory
