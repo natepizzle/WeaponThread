@@ -20,7 +20,7 @@ namespace WeaponThread
         DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
         SelectableProjectileColor = true,
     },
-        HardPoint = new HardPointDefinition
+    HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Missile",
         AmmoMagazineId = "TorpAmmo",
