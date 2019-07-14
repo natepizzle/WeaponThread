@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 1,
+            RateOfFire = 180,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -53,20 +53,21 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 0f,
+        DefaultDamage = 5f,
         AreaEffectYield = 1f,
-        AreaEffectRadius = 5f,
+        AreaEffectRadius = 10f,
         DetonateOnEnd = true,
         ProjectileLength = 1f,
-        Mass = 0f,
+        Mass = 5000f,
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
         Trajectory = new AmmoTrajectory
         {
             Guidance = Smart,
-            SmartsFactor = 0.1f,
+            SmartsFactor = 1f,
             SmartsTrackingDelay = 1,
+            SmartsMaxLateralThrust = 0.5,
             TargetLossDegree = 80f,
             AccelPerSec = 117f,
             DesiredSpeed = 350f,

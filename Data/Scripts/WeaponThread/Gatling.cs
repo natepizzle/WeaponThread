@@ -65,8 +65,9 @@ namespace WeaponThread
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,
-            SmartsFactor = 0.009f,
+            SmartsFactor = 1f, // controls how responsive tracking is.
             SmartsTrackingDelay = 1, // Measured in projectile length units traveled.
+            SmartsMaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
             TargetLossDegree = 80f,
             AccelPerSec = 0f,
             DesiredSpeed = 0f,

@@ -64,9 +64,10 @@ namespace WeaponThread
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,
-            SmartsFactor = 0.5f,
+            SmartsFactor = 0.5,
             SmartsTrackingDelay = 1,
-            TargetLossDegree = 80f,
+            SmartsMaxLateralThrust = 0.5,
+            TargetLossDegree = 80,
             AccelPerSec = 0f,
             DesiredSpeed = 400f,
             MaxTrajectory = 800f,
