@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 180,
+            RateOfFire = 30,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -47,18 +47,18 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 6,
-            DelayAfterBurst = 160,
+            ShotsInBurst = 12,
+            DelayAfterBurst = 99999999,
         },
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 5f,
-        AreaEffectYield = 1f,
-        AreaEffectRadius = 10f,
+        DefaultDamage = 99999999999f,
+        AreaEffectYield = 0f,
+        AreaEffectRadius = 0f,
         DetonateOnEnd = true,
-        ProjectileLength = 1f,
-        Mass = 5000f,
+        ProjectileLength = 3f,
+        Mass = 1000f,
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
@@ -69,9 +69,10 @@ namespace WeaponThread
             SmartsTrackingDelay = 1,
             SmartsMaxLateralThrust = 0.5,
             TargetLossDegree = 80f,
-            AccelPerSec = 117f,
-            DesiredSpeed = 350f,
-            MaxTrajectory = 5000f,
+            TargetLossTime = 200,
+            AccelPerSec = 30f,
+            DesiredSpeed = 450f,
+            MaxTrajectory = 500000f,
             SpeedVariance = Random(start: 0, end: 10),
             RangeVariance = Random(start: 0, end: 100),
         },
@@ -88,26 +89,36 @@ namespace WeaponThread
         ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm", // \\Models\\Weapons\\Projectile_Missile.mwm
         VisualProbability = 1f,
         ShieldHitDraw = true,
-
         Particles = new ParticleDefinition
         {
-            AmmoParticle = "Smoke_Missile",
-            AmmoColor = Color(red: 1, green: 1, blue: 1, alpha: 1),
-            AmmoOffset = Vector(x: 0, y: 0, z: 0.4), // +Z backward, +Y up, +X right
-            AmmoScale = 0.8f,
-            HitParticle = "",
-            HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            HitScale = 1f,
-            Barrel1Particle = "",
-            Barrel1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            Barrel1Scale = 1f,
-            Barrel1Restart = false,
-            Barrel1Duration = 30,
-            Barrel2Particle = "",
-            Barrel2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            Barrel2Scale = 1f,
-            Barrel2Restart = true,
-            Barrel2Duration = 30,
+            Ammo = new Particle
+            {
+                Name = "ShipWelderArc",
+                Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
+                Offset = Vector(x: 0, y: 0, z: 0.4), // +Z backward, +Y up, +X right
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.8f),
+            },
+            Hit = new Particle
+            {
+                Name = "ShipWelderArc",
+                Color = Color(red: 10, green: 10, blue: 255, alpha: 1),
+                Offset = Vector(x: 0, y: 0, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
+            },
+            Barrel1 = new Particle
+            {
+                Name = "", 
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+            },
+            Barrel2 = new Particle
+            {
+                Name = "",
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+            },
         },
 
         Line = new LineDefinition
@@ -115,8 +126,8 @@ namespace WeaponThread
             Trail = false,
             Material = "ProjectileTrailLine",
             Color = Color(red: 10, green: 10, blue: 10, alpha: 1),
-            Width = 0.04f,
-            ColorVariance = Random(start: 1, end: 2),
+            Width = 0.3f,
+            ColorVariance = Random(start: 1, end: 3),
             WidthVariance = Random(start: 0, end: 0),
         },
     },

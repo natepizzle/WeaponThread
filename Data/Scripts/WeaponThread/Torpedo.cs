@@ -68,6 +68,7 @@ namespace WeaponThread
             SmartsTrackingDelay = 1,
             SmartsMaxLateralThrust = 0.5,
             TargetLossDegree = 80,
+            TargetLossTime = 0,
             AccelPerSec = 0f,
             DesiredSpeed = 400f,
             MaxTrajectory = 800f,
@@ -89,23 +90,34 @@ namespace WeaponThread
         ShieldHitDraw = true,
         Particles = new ParticleDefinition
         {
-            AmmoParticle = "",
-            AmmoColor = Color(red: 0, green: 0, blue: 128, alpha: 32),
-            AmmoOffset = Vector(x: 0, y: -1, z: 0),
-            AmmoScale = 1f,
-            HitParticle = "",
-            HitColor = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            HitScale = 1f,
-            Barrel1Particle = "Smoke_LargeGunShot",
-            Barrel1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            Barrel1Scale = 1f,
-            Barrel1Restart = false,
-            Barrel1Duration = 30,
-            Barrel2Particle = "Muzzle_Flash_Large",
-            Barrel2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            Barrel2Scale = 1f,
-            Barrel2Restart = true,
-            Barrel2Duration = 30,
+            Ammo = new Particle
+            {
+                Name = "",
+                Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
+            },
+            Hit = new Particle
+            {
+                Name = "ShipWelderArc",
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
+            },
+            Barrel1 = new Particle
+            {
+                Name = "", // Smoke_LargeGunShot
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+            },
+            Barrel2 = new Particle
+            {
+                Name = "",//Muzzle_Flash_Large
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+            },
         },
 
         Line = new LineDefinition

@@ -47,18 +47,18 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 0,
-            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 60,
+            DelayAfterBurst = 1200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 5000f,
+        DefaultDamage = 1f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
         ProjectileLength = 1f,
-        Mass = 5000f, // in kilograms
+        Mass = 50000f, // in kilograms
         MaxObjectsHit = 2, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         BackKickForce = 0f,
 
@@ -69,6 +69,7 @@ namespace WeaponThread
             SmartsTrackingDelay = 1, // Measured in projectile length units traveled.
             SmartsMaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
             TargetLossDegree = 80f,
+            TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 0f,
             DesiredSpeed = 0f,
             MaxTrajectory = 3000f,
@@ -90,32 +91,43 @@ namespace WeaponThread
         ShieldHitDraw = true,
         Particles = new ParticleDefinition
         {
-            AmmoParticle = "",
-            AmmoColor = Color(red: 0, green: 0, blue: 128, alpha: 32),
-            AmmoOffset = Vector(x: 0, y: -1, z: 0),
-            AmmoScale = 1f,
-            HitParticle = "ShipWelderArc",
-            HitColor = Color(red: 10, green: 10, blue: 172, alpha: 1),
-            HitScale = 1.5f,
-            Barrel1Particle = "", // Smoke_LargeGunShot
-            Barrel1Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            Barrel1Scale = 1f,
-            Barrel1Restart = false,
-            Barrel1Duration = 6, // value measured in game ticks, 60 ticks in 1 second.
-            Barrel2Particle = "", //Muzzle_Flash_Large
-            Barrel2Color = Color(red: 0, green: 0, blue: 0, alpha: 0),
-            Barrel2Scale = 1f,
-            Barrel2Restart = false,
-            Barrel2Duration = 6,
+            Ammo = new Particle
+            {
+                Name = "",
+                Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
+            },
+            Hit = new Particle
+            {
+                Name = "ShipWelderArc",
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f),
+            },
+            Barrel1 = new Particle
+            {
+                Name = "", // Smoke_LargeGunShot
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+            },
+            Barrel2 = new Particle
+            {
+                Name = "",//Muzzle_Flash_Large
+                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Offset = Vector(x: 0, y: -1, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+            },
         },
 
         Line = new LineDefinition
         {
             Trail = true,
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-            Color = Color(red: 32, green: 32, blue: 40, alpha: 1),
+            Color = Color(red: 96, green: 32, blue: 32, alpha: 1),
             Width = 0.05f,
-            ColorVariance = Random(start: 0.5f, end: 2.5f), // multiply the color by random values within range.
+            ColorVariance = Random(start: 0.5f, end: 2.0f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.1f), // adds random value to default width (negatives shrinks width)
         },
     },

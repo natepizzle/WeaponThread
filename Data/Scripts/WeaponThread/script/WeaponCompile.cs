@@ -19,6 +19,18 @@ namespace WeaponThread
             return weaponDefinitions;
         }
 
+        internal Session.ParticleOptions Options(bool loop, bool restart, float distance, float duration, float scale)
+        {
+            return new Session.ParticleOptions
+            {
+                DisableLoop = loop,
+                Restart = restart,
+                MaxDistance = distance,
+                MaxDuration = duration,
+                Scale = scale, 
+            };
+        }
+
         internal Session.Slider Slider(bool enable, double min, double max)
         {
             return new Session.Slider { Enable = enable, Min = min, Max = max };
