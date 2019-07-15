@@ -219,7 +219,7 @@ namespace WeaponThread
             [ProtoMember(1)] internal float Scale;
             [ProtoMember(2)] internal float MaxDistance;
             [ProtoMember(3)] internal float MaxDuration;
-            [ProtoMember(4)] internal bool DisableLoop;
+            [ProtoMember(4)] internal bool Loop;
             [ProtoMember(5)] internal bool Restart;
         }
 

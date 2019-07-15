@@ -23,7 +23,7 @@ namespace WeaponThread
         {
             return new Session.ParticleOptions
             {
-                DisableLoop = loop,
+                Loop = loop,
                 Restart = restart,
                 MaxDistance = distance,
                 MaxDuration = duration,
