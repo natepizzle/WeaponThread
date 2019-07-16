@@ -30,7 +30,7 @@ namespace WeaponThread
         ElevationSpeed = 0.01f,
         RotateSpeed = 0.01f,
         DeviateShotAngle = 0f,
-        AimingTolerance = 4f,
+        AimingTolerance = 4f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 3600,
+            RateOfFire = 1,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
