@@ -58,8 +58,8 @@ namespace WeaponThread
         MaxIntegrity = 0, 
         DamageVoxels = false,
         Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), 
-        Shield = Modulation(damageModifer: 0, type: Kinetic), 
-        Player = 0,
+        Shield = Modulation(damageModifer: 0, type: Kinetic),
+        Character = 0,
     },
     Ammo = new AmmoDefinition
     {

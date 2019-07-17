@@ -59,7 +59,7 @@ namespace WeaponThread
         DamageVoxels = false,
         Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), // 0 = no modify, 1 = normalized (use 0), 0.1 = 10%, 2 = 200%
         Shield = Modulation(damageModifer: 0, type: Kinetic), // 0 = no modify, 0.1 = 10%, 2 = 200% - Type: Kinetic, Energy, Emp or Bypass
-        Player = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
+        Character = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
     },
     Ammo = new AmmoDefinition
     {
