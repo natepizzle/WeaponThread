@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 1,
+            RateOfFire = 3600,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -48,8 +48,17 @@ namespace WeaponThread
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 60,
-            DelayAfterBurst = 1200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
+    },
+    DamageScales = new DamageScaleDefinition
+    {
+        Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        Armor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        NonArmor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
+        DamageVoxels = false, 
     },
     Ammo = new AmmoDefinition
     {
@@ -59,6 +68,7 @@ namespace WeaponThread
         DetonateOnEnd = false,
         ProjectileLength = 1f,
         Mass = 50000f, // in kilograms
+        Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         MaxObjectsHit = 2, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         BackKickForce = 0f,
 

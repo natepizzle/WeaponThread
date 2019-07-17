@@ -50,6 +50,15 @@ namespace WeaponThread
             DelayAfterBurst = 120,
         },
     },
+    DamageScales = new DamageScaleDefinition
+    {
+        Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        Armor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        NonArmor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
+        DamageVoxels = false,
+    },
     Ammo = new AmmoDefinition
     {
         DefaultDamage = 20f,
@@ -58,6 +67,7 @@ namespace WeaponThread
         DetonateOnEnd = false,
         ProjectileLength = 1f,
         Mass = 150f,
+        Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 

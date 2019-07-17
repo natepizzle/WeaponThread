@@ -62,7 +62,8 @@ namespace WeaponThread
             [ProtoMember(4)] internal AudioDefinition Audio;
             [ProtoMember(5)] internal ModelAssignments Assignments;
             [ProtoMember(6)] internal UiDefinition Ui;
-            [ProtoMember(7)] internal string ModPath;
+            [ProtoMember(7)] internal DamageScaleDefinition DamageScales;
+            [ProtoMember(8)] internal string ModPath;
         }
 
 
@@ -140,10 +141,11 @@ namespace WeaponThread
             [ProtoMember(4)] internal float AreaEffectRadius;
             [ProtoMember(5)] internal bool DetonateOnEnd;
             [ProtoMember(6)] internal float Mass;
-            [ProtoMember(7)] internal int MaxObjectsHit;
-            [ProtoMember(8)] internal float BackKickForce;
-            [ProtoMember(9)] internal AmmoTrajectory Trajectory;
-            [ProtoMember(10)] internal AmmoShieldBehavior ShieldBehavior;
+            [ProtoMember(7)] internal float Health;
+            [ProtoMember(8)] internal int MaxObjectsHit;
+            [ProtoMember(9)] internal float BackKickForce;
+            [ProtoMember(10)] internal AmmoTrajectory Trajectory;
+            [ProtoMember(11)] internal AmmoShieldBehavior ShieldBehavior;
         }
 
         [ProtoContract]
@@ -272,6 +274,17 @@ namespace WeaponThread
             [ProtoMember(4)] internal string BarrelRotationSound;
             [ProtoMember(5)] internal string FiringSound;
             [ProtoMember(6)] internal bool FiringSoundPerShot;
+        }
+
+        [ProtoContract]
+        public struct DamageScaleDefinition
+        {
+            [ProtoMember(1)] internal float Large;
+            [ProtoMember(2)] internal float Small;
+            [ProtoMember(3)] internal float NonArmor;
+            [ProtoMember(4)] internal float Armor;
+            [ProtoMember(5)] internal float MaxIntegrity;
+            [ProtoMember(6)] internal bool DamageVoxels;
         }
 
         public class Log
