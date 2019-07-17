@@ -65,7 +65,6 @@ namespace WeaponThread
         AreaEffectYield = 10f,
         AreaEffectRadius = 15f,
         DetonateOnEnd = false,
-        ProjectileLength = 1f,
         Mass = 150f,
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         MaxObjectsHit = 0,
@@ -135,6 +134,7 @@ namespace WeaponThread
             Trail = true,
             Material = "ProjectileTrailLine",
             Color = Color(red: 10, green: 10, blue: 10, alpha: 1),
+            Length = 1f,
             Width = 0.04f,
             ColorVariance = Random(start: 1, end: 2),
             WidthVariance = Random(start: -0.025f, end: 0.025f),

@@ -47,7 +47,7 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 5,
+            ShotsInBurst = 12,
             DelayAfterBurst = 99999999,
         },
     },
@@ -55,18 +55,17 @@ namespace WeaponThread
     {
         Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
         Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Armor = 999999, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        Armor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
         NonArmor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
         MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
         DamageVoxels = false,
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 9999f,
+        DefaultDamage = 9999999f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
-        ProjectileLength = 6f,
         Mass = 1000f,
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         MaxObjectsHit = 0,
@@ -136,6 +135,7 @@ namespace WeaponThread
             Trail = true,
             Material = "ProjectileTrailLine",
             Color = Color(red: 6, green: 6, blue: 6, alpha: 1),
+            Length = 20f,
             Width = 0.1f,
             ColorVariance = Random(start: 1, end: 3),
             WidthVariance = Random(start: 0, end: 0),

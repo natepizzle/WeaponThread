@@ -136,16 +136,15 @@ namespace WeaponThread
         public struct AmmoDefinition
         {
             [ProtoMember(1)] internal float DefaultDamage;
-            [ProtoMember(2)] internal float ProjectileLength;
-            [ProtoMember(3)] internal float AreaEffectYield;
-            [ProtoMember(4)] internal float AreaEffectRadius;
-            [ProtoMember(5)] internal bool DetonateOnEnd;
-            [ProtoMember(6)] internal float Mass;
-            [ProtoMember(7)] internal float Health;
-            [ProtoMember(8)] internal int MaxObjectsHit;
-            [ProtoMember(9)] internal float BackKickForce;
-            [ProtoMember(10)] internal AmmoTrajectory Trajectory;
-            [ProtoMember(11)] internal AmmoShieldBehavior ShieldBehavior;
+            [ProtoMember(2)] internal float AreaEffectYield;
+            [ProtoMember(3)] internal float AreaEffectRadius;
+            [ProtoMember(4)] internal bool DetonateOnEnd;
+            [ProtoMember(5)] internal float Mass;
+            [ProtoMember(6)] internal float Health;
+            [ProtoMember(7)] internal int MaxObjectsHit;
+            [ProtoMember(8)] internal float BackKickForce;
+            [ProtoMember(9)] internal AmmoTrajectory Trajectory;
+            [ProtoMember(10)] internal AmmoShieldBehavior ShieldBehavior;
         }
 
         [ProtoContract]
@@ -229,11 +228,12 @@ namespace WeaponThread
         public struct LineDefinition
         {
             [ProtoMember(1)] internal bool Trail;
-            [ProtoMember(2)] internal float Width;
-            [ProtoMember(3)] internal string Material;
-            [ProtoMember(4)] internal Vector4 Color;
-            [ProtoMember(5)] internal Randomize ColorVariance;
-            [ProtoMember(6)] internal Randomize WidthVariance;
+            [ProtoMember(2)] internal float Length;
+            [ProtoMember(3)] internal float Width;
+            [ProtoMember(4)] internal string Material;
+            [ProtoMember(5)] internal Vector4 Color;
+            [ProtoMember(6)] internal Randomize ColorVariance;
+            [ProtoMember(7)] internal Randomize WidthVariance;
         }
 
         [ProtoContract]

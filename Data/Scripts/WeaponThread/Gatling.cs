@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 3600,
+            RateOfFire = 60,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -66,7 +66,6 @@ namespace WeaponThread
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
-        ProjectileLength = 1f,
         Mass = 50000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         MaxObjectsHit = 2, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -76,12 +75,12 @@ namespace WeaponThread
         {
             Guidance = None,
             SmartsFactor = 1f, // controls how responsive tracking is.
-            SmartsTrackingDelay = 1, // Measured in projectile length units traveled.
+            SmartsTrackingDelay = 1, // Measured in line length units traveled.
             SmartsMaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 0f,
-            DesiredSpeed = 0f,
+            DesiredSpeed = 50f,
             MaxTrajectory = 3000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -136,6 +135,7 @@ namespace WeaponThread
             Trail = true,
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             Color = Color(red: 96, green: 32, blue: 32, alpha: 1),
+            Length = 15f,
             Width = 0.05f,
             ColorVariance = Random(start: 0.5f, end: 2.0f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.1f), // adds random value to default width (negatives shrinks width)
