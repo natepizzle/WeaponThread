@@ -1,4 +1,4 @@
-﻿using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
+﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
@@ -34,7 +34,7 @@ namespace WeaponThread
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
-        DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+        DelayCeaseFire = 120, 
 
         Loading = new AmmoLoading
         {
@@ -53,12 +53,12 @@ namespace WeaponThread
     },
     DamageScales = new DamageScaleDefinition
     {
-        Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Armor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        NonArmor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
+        Large = 0, 
+        Small = 0, 
+        MaxIntegrity = 0, 
         DamageVoxels = false,
+        Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), 
+        Shield = Modulation(damageModifer: 0, type: Kinetic), 
     },
     Ammo = new AmmoDefinition
     {
@@ -67,7 +67,7 @@ namespace WeaponThread
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
         Mass = 1000f,
-        Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+        Health = 0, 
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
@@ -85,17 +85,10 @@ namespace WeaponThread
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
         },
-
-        ShieldBehavior = new AmmoShieldBehavior
-        {
-            ShieldDmgMultiplier = 1.1f,
-            ShieldDamage = Kinetic,
-        },
-
     },
     Graphics = new GraphicDefinition
     {
-        ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm", // \\Models\\Weapons\\Projectile_Missile.mwm
+        ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm", 
         VisualProbability = 1f,
         ShieldHitDraw = true,
         Particles = new ParticleDefinition
@@ -104,7 +97,7 @@ namespace WeaponThread
             {
                 Name = "ShipWelderArc",
                 Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
-                Offset = Vector(x: 0, y: 0, z: 0.4), // +Z backward, +Y up, +X right
+                Offset = Vector(x: 0, y: 0, z: 0.4),
                 Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.8f),
             },
             Hit = new Particle

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using VRageMath;
+using static WeaponThread.Session.ShieldDefinition;
 
 namespace WeaponThread
 {
@@ -29,6 +30,16 @@ namespace WeaponThread
                 MaxDuration = duration,
                 Scale = scale, 
             };
+        }
+
+        internal Session.ArmorDefinition Modifiers(float armor, float light, float heavy, float nonArmor)
+        {
+            return new Session.ArmorDefinition { Armor = armor, Light = light, Heavy = heavy, NonArmor = nonArmor };
+        }
+
+        internal Session.ShieldDefinition Modulation(float damageModifer, ShieldType type)
+        {
+            return new Session.ShieldDefinition { DamageModifer = damageModifer, Type = type };
         }
 
         internal Session.Slider Slider(bool enable, double min, double max)

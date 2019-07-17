@@ -1,4 +1,4 @@
-﻿using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
+﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
@@ -55,10 +55,10 @@ namespace WeaponThread
     {
         Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
         Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Armor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        NonArmor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
         MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
-        DamageVoxels = false, 
+        DamageVoxels = false,
+        Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), // 0 = no modify, 1 = normalized (use 0), 0.1 = 10%, 2 = 200%
+        Shield = Modulation(damageModifer: 0, type: Kinetic), // 0 = no modify, 0.1 = 10%, 2 = 200% - Type: Kinetic, Energy, Emp or Bypass
     },
     Ammo = new AmmoDefinition
     {
@@ -85,13 +85,6 @@ namespace WeaponThread
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
         },
-
-        ShieldBehavior = new AmmoShieldBehavior
-        {
-            ShieldDmgMultiplier = 1.1f,
-            ShieldDamage = Kinetic,
-        },
-
     },
     Graphics = new GraphicDefinition
     {

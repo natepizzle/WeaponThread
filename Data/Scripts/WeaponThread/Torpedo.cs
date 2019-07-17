@@ -1,4 +1,4 @@
-﻿using static WeaponThread.Session.AmmoShieldBehavior.ShieldType;
+﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session;
@@ -19,7 +19,7 @@ namespace WeaponThread
         DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
         SelectableProjectileColor = true,
     },
-        HardPoint = new HardPointDefinition
+    HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Torpedo",
         AmmoMagazineId = "WolfSlug40mm",
@@ -31,9 +31,9 @@ namespace WeaponThread
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 0,
-        RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+        RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
-        DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+        DelayCeaseFire = 120, 
 
         Loading = new AmmoLoading
         {
@@ -52,12 +52,12 @@ namespace WeaponThread
     },
     DamageScales = new DamageScaleDefinition
     {
-        Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Armor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        NonArmor = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
+        Large = 0, 
+        Small = 0, 
+        MaxIntegrity = 0, 
         DamageVoxels = false,
+        Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), 
+        Shield = Modulation(damageModifer: 0, type: Kinetic), 
     },
     Ammo = new AmmoDefinition
     {
@@ -66,7 +66,7 @@ namespace WeaponThread
         AreaEffectRadius = 15f,
         DetonateOnEnd = false,
         Mass = 150f,
-        Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+        Health = 0, 
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
@@ -84,13 +84,6 @@ namespace WeaponThread
             SpeedVariance = Random(start: 0, end: 10),
             RangeVariance = Random(start: 0, end: 100),
         },
-
-        ShieldBehavior = new AmmoShieldBehavior
-        {
-            ShieldDmgMultiplier = 1.1f,
-            ShieldDamage = Kinetic,
-        },
-
     },
     Graphics = new GraphicDefinition
     {
@@ -115,14 +108,14 @@ namespace WeaponThread
             },
             Barrel1 = new Particle
             {
-                Name = "", // Smoke_LargeGunShot
+                Name = "", 
                 Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
             },
             Barrel2 = new Particle
             {
-                Name = "",//Muzzle_Flash_Large
+                Name = "",
                 Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
