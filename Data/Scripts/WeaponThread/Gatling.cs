@@ -53,12 +53,13 @@ namespace WeaponThread
     },
     DamageScales = new DamageScaleDefinition
     {
-        Large = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
-        Small = 0, // 0 = disabled, 1 = normal, 0.1 = 10%, 2 = 200%
+        Large = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
+        Small = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
         MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
         DamageVoxels = false,
         Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), // 0 = no modify, 1 = normalized (use 0), 0.1 = 10%, 2 = 200%
         Shield = Modulation(damageModifer: 0, type: Kinetic), // 0 = no modify, 0.1 = 10%, 2 = 200% - Type: Kinetic, Energy, Emp or Bypass
+        Player = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
     },
     Ammo = new AmmoDefinition
     {

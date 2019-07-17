@@ -269,6 +269,7 @@ namespace WeaponThread
             [ProtoMember(4)] internal float MaxIntegrity;
             [ProtoMember(5)] internal bool DamageVoxels;
             [ProtoMember(6)] internal ShieldDefinition Shield;
+            [ProtoMember(7)] internal float Player;
         }
 
         [ProtoContract]
