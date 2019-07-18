@@ -53,17 +53,21 @@ namespace WeaponThread
     },
     DamageScales = new DamageScaleDefinition
     {
-        Large = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
-        Small = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
-        MaxIntegrity = 0, // 0 = disabled, 1000 = any blocks with intregity currently above 1000 will not take damage.
-        DamageVoxels = false,
-        Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), // 0 = no modify, 1 = normalized (use 0), 0.1 = 10%, 2 = 200%
-        Shield = Modulation(damageModifer: 0, type: Kinetic), // 0 = no modify, 0.1 = 10%, 2 = 200% - Type: Kinetic, Energy, Emp or Bypass
-        Character = 0, // 0 = no modify, 0.1 = 10%, 2 = 200%
+        MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
+        DamageVoxels = false, // true = voxels are vulnerable to this weapon
+
+        // modifier values: -1 = disabled, 0 = no damage (higher performance), 0.01 = 1% damage, 2 = 200% damage.
+        Characters = -1f,
+        Grids = Size(largeGridModifier: -1f, smallGridModifier: -1f),
+        Armor = Modifiers(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f), 
+        Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+
+        // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
+        Custom = Scale(true, Block(subTypeId: "LargeHeavyBlockArmorBlock", modifier: 0.0001f), Block(subTypeId: "test2", modifier: -1)),
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 1f,
+        DefaultDamage = 1000f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,

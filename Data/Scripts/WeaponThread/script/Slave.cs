@@ -14,8 +14,8 @@ namespace WeaponThread
 
         public override void LoadData()
         {
-            Log.Init("weapon.log");
-            Log.CleanLine($"Logging Started at: {DateTime.Now:MM-dd-yy_HH-mm-ss-fff}");
+            //Log.Init("weapon.log");
+            //Log.CleanLine($"Logging Started at: {DateTime.Now:MM-dd-yy_HH-mm-ss-fff}");
             MyAPIGateway.Utilities.RegisterMessageHandler(7772, Handler);
             Init();
             SendModMessage();
@@ -23,8 +23,8 @@ namespace WeaponThread
 
         protected override void UnloadData()
         {
-            Log.CleanLine($"Logging stopped at: {DateTime.Now:MM-dd-yy_HH-mm-ss-fff}");
-            Log.Close();
+            //Log.CleanLine($"Logging stopped at: {DateTime.Now:MM-dd-yy_HH-mm-ss-fff}");
+            //Log.Close();
             MyAPIGateway.Utilities.UnregisterMessageHandler(7772, Handler);
             Array.Clear(Storage, 0, Storage.Length);
             Storage = null;
@@ -263,13 +263,20 @@ namespace WeaponThread
         [ProtoContract]
         public struct DamageScaleDefinition
         {
+            [ProtoMember(1)] internal GridSizeDefinition Grids;
+            [ProtoMember(2)] internal ArmorDefinition Armor;
+            [ProtoMember(3)] internal float MaxIntegrity;
+            [ProtoMember(4)] internal bool DamageVoxels;
+            [ProtoMember(5)] internal ShieldDefinition Shields;
+            [ProtoMember(6)] internal float Characters;
+            [ProtoMember(7)] internal CustomScalesDefinition Custom;
+        }
+
+        [ProtoContract]
+        public struct GridSizeDefinition
+        {
             [ProtoMember(1)] internal float Large;
             [ProtoMember(2)] internal float Small;
-            [ProtoMember(3)] internal ArmorDefinition Armor;
-            [ProtoMember(4)] internal float MaxIntegrity;
-            [ProtoMember(5)] internal bool DamageVoxels;
-            [ProtoMember(6)] internal ShieldDefinition Shield;
-            [ProtoMember(7)] internal float Character;
         }
 
         [ProtoContract]
@@ -281,6 +288,19 @@ namespace WeaponThread
             [ProtoMember(4)] internal float NonArmor;
         }
 
+        [ProtoContract]
+        public struct CustomBlocksDefinition
+        {
+            [ProtoMember(1)] internal string SubTypeId;
+            [ProtoMember(2)] internal float Modifier;
+        }
+
+        [ProtoContract]
+        public struct CustomScalesDefinition
+        {
+            [ProtoMember(1)] internal CustomBlocksDefinition[] Types;
+            [ProtoMember(2)] internal bool IgnoreAllOthers;
+        }
 
         [ProtoContract]
         public struct ShieldDefinition
@@ -293,7 +313,7 @@ namespace WeaponThread
                 Kinetic
             }
 
-            [ProtoMember(1)] internal float DamageModifer;
+            [ProtoMember(1)] internal float Modifier;
             [ProtoMember(2)] internal ShieldType Type;
         }
 

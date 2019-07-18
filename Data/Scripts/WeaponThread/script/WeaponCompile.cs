@@ -32,14 +32,29 @@ namespace WeaponThread
             };
         }
 
+        internal Session.GridSizeDefinition Size(float largeGridModifier, float smallGridModifier)
+        {
+            return new Session.GridSizeDefinition { Large = largeGridModifier, Small = smallGridModifier };
+        }
+
+        internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
+        {
+            return new Session.CustomBlocksDefinition {SubTypeId = subTypeId, Modifier = modifier};
+        }
+
+        internal Session.CustomScalesDefinition Scale(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
+        {
+            return new Session.CustomScalesDefinition {IgnoreAllOthers = ignoreOthers, Types = customDefScale};
+        }
+
         internal Session.ArmorDefinition Modifiers(float armor, float light, float heavy, float nonArmor)
         {
             return new Session.ArmorDefinition { Armor = armor, Light = light, Heavy = heavy, NonArmor = nonArmor };
         }
 
-        internal Session.ShieldDefinition Modulation(float damageModifer, ShieldType type)
+        internal Session.ShieldDefinition Modulation(float modifier, ShieldType type)
         {
-            return new Session.ShieldDefinition { DamageModifer = damageModifer, Type = type };
+            return new Session.ShieldDefinition { Modifier = modifier, Type = type };
         }
 
         internal Session.Slider Slider(bool enable, double min, double max)

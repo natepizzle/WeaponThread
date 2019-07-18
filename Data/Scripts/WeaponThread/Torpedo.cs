@@ -52,13 +52,17 @@ namespace WeaponThread
     },
     DamageScales = new DamageScaleDefinition
     {
-        Large = 0, 
-        Small = 0, 
-        MaxIntegrity = 0, 
-        DamageVoxels = false,
-        Armor = Modifiers(armor: 0, light: 0, heavy: 0, nonArmor: 0), 
-        Shield = Modulation(damageModifer: 0, type: Kinetic),
-        Character = 0,
+        MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
+        DamageVoxels = false, // true = voxels are vulnerable to this weapon
+
+        // modifier values: -1 = disabled, 0 = no damage (higher performance), 0.01 = 1% damage, 2 = 200% damage.
+        Characters = -1f,
+        Grids = Size(largeGridModifier: -1f, smallGridModifier: -1f),
+        Armor = Modifiers(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
+        Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+
+        // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
+        Custom = Scale(true, Block(subTypeId: "LargeBlockArmorBlock", modifier: 0.000001f), Block(subTypeId: "test2", modifier: -1)),
     },
     Ammo = new AmmoDefinition
     {
