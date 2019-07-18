@@ -65,7 +65,7 @@ namespace WeaponThread
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
         Custom = Scale(true, Block(subTypeId: "LargeHeavyBlockArmorBlock", modifier: 0.000001f), Block(subTypeId: "test2", modifier: -1)),
     },
-        Ammo = new AmmoDefinition
+    Ammo = new AmmoDefinition
     {
         DefaultDamage = 9999999f,
         AreaEffectYield = 0f,
