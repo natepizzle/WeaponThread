@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 60,
+            RateOfFire = 3600,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -63,17 +63,17 @@ namespace WeaponThread
         Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-        Custom = Scale(true, Block(subTypeId: "LargeHeavyBlockArmorBlock", modifier: 0.0001f), Block(subTypeId: "test2", modifier: -1)),
+        Custom = Scale(true, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 1000f,
+        DefaultDamage = 1f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
-        Mass = 50000f, // in kilograms
+        Mass = 1000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
-        MaxObjectsHit = 2, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+        MaxObjectsHit = 0, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         BackKickForce = 0f,
 
         Trajectory = new AmmoTrajectory
@@ -85,7 +85,7 @@ namespace WeaponThread
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 0f,
-            DesiredSpeed = 50f,
+            DesiredSpeed = 0f,
             MaxTrajectory = 3000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory

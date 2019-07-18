@@ -47,7 +47,7 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 12,
+            ShotsInBurst = 64,
             DelayAfterBurst = 99999999,
         },
     },
@@ -63,7 +63,7 @@ namespace WeaponThread
         Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-        Custom = Scale(true, Block(subTypeId: "LargeHeavyBlockArmorBlock", modifier: 0.000001f), Block(subTypeId: "test2", modifier: -1)),
+        Custom = Scale(false),
     },
     Ammo = new AmmoDefinition
     {
@@ -84,8 +84,8 @@ namespace WeaponThread
             SmartsMaxLateralThrust = 0.5,
             TargetLossDegree = 80f,
             TargetLossTime = 200,
-            AccelPerSec = 60f,
-            DesiredSpeed = 60f,
+            AccelPerSec = 20f,
+            DesiredSpeed = 200f,
             MaxTrajectory = 500000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
@@ -130,7 +130,7 @@ namespace WeaponThread
 
         Line = new LineDefinition
         {
-            Trail = true,
+            Trail = false,
             Material = "ProjectileTrailLine",
             Color = Color(red: 6, green: 6, blue: 6, alpha: 1),
             Length = 20f,

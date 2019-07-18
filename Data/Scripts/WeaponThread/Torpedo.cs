@@ -62,7 +62,7 @@ namespace WeaponThread
         Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-        Custom = Scale(true, Block(subTypeId: "LargeBlockArmorBlock", modifier: 0.000001f), Block(subTypeId: "test2", modifier: -1)),
+        Custom = Scale(false),
     },
     Ammo = new AmmoDefinition
     {
