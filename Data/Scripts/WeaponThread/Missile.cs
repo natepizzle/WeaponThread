@@ -56,7 +56,7 @@ namespace WeaponThread
         MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
         DamageVoxels = false, // true = voxels are vulnerable to this weapon
 
-        // modifier values: -1 = disabled, 0 = no damage (higher performance), 0.01 = 1% damage, 2 = 200% damage.
+        // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
         Characters = -1f,
         Grids = Size(largeGridModifier: -1f, smallGridModifier: -1f),
         Armor = Modifiers(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
