@@ -39,7 +39,7 @@ namespace WeaponThread
         Loading = new AmmoLoading
         {
             RateOfFire = 3600,
-            BarrelsPerShot = 1,
+            BarrelsPerShot = 2,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -47,7 +47,7 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 60,
+            ShotsInBurst = 0,
             DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
@@ -67,7 +67,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 1f,
+        DefaultDamage = 10f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = false,
@@ -100,7 +100,7 @@ namespace WeaponThread
         {
             Ammo = new Particle
             {
-                Name = "",
+                Name = "ShipWelderArc",
                 Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
