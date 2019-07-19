@@ -29,7 +29,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 0f,
+        DeviateShotAngle = 10f,
         AimingTolerance = 180f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 60,
+            RateOfFire = 640,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -47,7 +47,7 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 128,
+            ShotsInBurst = 0,
             DelayAfterBurst = 99999999,
         },
     },
@@ -67,7 +67,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 9999999f,
+        DefaultDamage = 20000f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
@@ -79,16 +79,22 @@ namespace WeaponThread
         Trajectory = new AmmoTrajectory
         {
             Guidance = Smart,
-            SmartsFactor = 1f,
-            SmartsTrackingDelay = 1,
-            SmartsMaxLateralThrust = 0.5,
             TargetLossDegree = 80f,
             TargetLossTime = 200,
-            AccelPerSec = 20f,
-            DesiredSpeed = 200f,
+            AccelPerSec = 15f,
+            DesiredSpeed = 300f,
             MaxTrajectory = 500000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
+            Smarts = new Smarts
+            {
+                Aggressiveness = 1f, // controls how responsive tracking is.
+                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
+                TrackingDelay = 1, // Measured in line length units traveled.
+                MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
+            },
         },
     },
     Graphics = new GraphicDefinition

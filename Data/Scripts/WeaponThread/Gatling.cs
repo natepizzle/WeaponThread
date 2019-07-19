@@ -39,7 +39,7 @@ namespace WeaponThread
         Loading = new AmmoLoading
         {
             RateOfFire = 3600,
-            BarrelsPerShot = 2,
+            BarrelsPerShot = 6,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -79,9 +79,6 @@ namespace WeaponThread
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,
-            SmartsFactor = 1f, // controls how responsive tracking is.
-            SmartsTrackingDelay = 1, // Measured in line length units traveled.
-            SmartsMaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 0f,
@@ -89,6 +86,15 @@ namespace WeaponThread
             MaxTrajectory = 3000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
+            Smarts = new Smarts
+            {
+                Aggressiveness = 1f, // controls how responsive tracking is.
+                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
+                TrackingDelay = 1, // Measured in line length units traveled.
+                MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
+            },
         },
     },
     Graphics = new GraphicDefinition

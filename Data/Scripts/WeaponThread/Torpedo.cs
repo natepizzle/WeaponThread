@@ -78,9 +78,6 @@ namespace WeaponThread
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,
-            SmartsFactor = 0.5,
-            SmartsTrackingDelay = 1,
-            SmartsMaxLateralThrust = 0.5,
             TargetLossDegree = 80,
             TargetLossTime = 0,
             AccelPerSec = 0f,
@@ -88,6 +85,15 @@ namespace WeaponThread
             MaxTrajectory = 800f,
             SpeedVariance = Random(start: 0, end: 10),
             RangeVariance = Random(start: 0, end: 100),
+            Smarts = new Smarts
+            {
+                Aggressiveness = 1f, // controls how responsive tracking is.
+                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
+                TrackingDelay = 1, // Measured in line length units traveled.
+                MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
+            },
         },
     },
     Graphics = new GraphicDefinition
