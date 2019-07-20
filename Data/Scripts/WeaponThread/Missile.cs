@@ -29,7 +29,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 10f,
+        DeviateShotAngle = 50f,
         AimingTolerance = 180f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 640,
+            RateOfFire = 600,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -67,7 +67,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 20000f,
+        DefaultDamage = 10000f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
@@ -82,15 +82,15 @@ namespace WeaponThread
             TargetLossDegree = 80f,
             TargetLossTime = 200,
             AccelPerSec = 15f,
-            DesiredSpeed = 300f,
+            DesiredSpeed = 350f,
             MaxTrajectory = 500000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
                 Aggressiveness = 1f, // controls how responsive tracking is.
-                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                TrackingDelay = 1, // Measured in line length units traveled.
+                MaxLateralThrust = 1f, // controls how sharp the trajectile may turn
+                TrackingDelay = 20, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 TopTargets = 4, // 0 = unlimited, max number of targets to pick from
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
@@ -139,7 +139,7 @@ namespace WeaponThread
             Trail = false,
             Material = "ProjectileTrailLine",
             Color = Color(red: 6, green: 6, blue: 6, alpha: 1),
-            Length = 20f,
+            Length = 1f,
             Width = 0.1f,
             ColorVariance = Random(start: 1, end: 3),
             WidthVariance = Random(start: 0, end: 0),

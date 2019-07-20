@@ -2,13 +2,12 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AmmoMagazines>
   
-	<AmmoMagazine>
+    <AmmoMagazine>
       <Id>
         <TypeId>AmmoMagazine</TypeId>
         <SubtypeId>WolfSlug40mm</SubtypeId>
       </Id>
       <DisplayName>40mm Wolfram Slug Belt</DisplayName>
-      <Icon>Textures\GUI\Icons\Telion_30mmAmmo_icon.dds</Icon>
       <Size>
         <X>0.25</X>
         <Y>0.2</Y>
@@ -39,7 +38,6 @@
       <Model>Models\Weapons\Torpedo_Ammo_1st.mwm</Model>
       <Capacity>20</Capacity>
       <AmmoDefinitionId Subtype="Blank" />
-    </AmmoMagazine>
-	
+    </AmmoMagazine>	
   </AmmoMagazines>
 </Definitions>

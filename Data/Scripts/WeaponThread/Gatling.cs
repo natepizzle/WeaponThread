@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 3600,
+            RateOfFire = 1,
             BarrelsPerShot = 6,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -48,7 +48,7 @@ namespace WeaponThread
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 0,
-            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayAfterBurst = 3600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     DamageScales = new DamageScaleDefinition
