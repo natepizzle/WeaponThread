@@ -88,12 +88,14 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
             Smarts = new Smarts
             {
+                Accuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
                 TrackingDelay = 1, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 TopTargets = 4, // 0 = unlimited, max number of targets to pick from
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
+                OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
             },
         },
     },
