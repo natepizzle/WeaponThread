@@ -110,8 +110,8 @@ namespace WeaponThread
             {
                 Name = "ShipWelderArc",
                 Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
-                Offset = Vector(x: 0, y: 0, z: 0),
-                Extras = Options(loop: true, restart: false, distance: 5000, duration: 12, scale: 1f),
+                Offset = Vector(x: 0, y: 0, z: 0.4),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.8f),
             },
             Hit = new Particle
             {
