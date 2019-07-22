@@ -77,7 +77,7 @@ namespace WeaponThread
 
         Trajectory = new AmmoTrajectory
         {
-            Guidance = None,
+            Guidance = None, // None (no tracking or guidance), Smart (guidance enabled), TravelTo (for flak behavior)
             TargetLossDegree = 80,
             TargetLossTime = 0,
             AccelPerSec = 0f,
@@ -100,35 +100,35 @@ namespace WeaponThread
     },
     Graphics = new GraphicDefinition
     {
-        ModelName = "",
-        VisualProbability = 0.5f,
-        ShieldHitDraw = true,
+        ModelName = "", // put your model path here for your ammo (eg see missile.cs)
+        VisualProbability = 1f, // 0 to 1 in % of probability of seeing round model (eg missiles)
+        ShieldHitDraw = true, // show shield hit particle when impacting shields
         Particles = new ParticleDefinition
         {
             Ammo = new Particle
             {
-                Name = "",
+                Name = "", // put your particle subtypeid here
                 Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
             },
             Hit = new Particle
             {
-                Name = "ShipWelderArc",
+                Name = "ShipWelderArc", // put your particle subtypeid here
                 Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
             },
             Barrel1 = new Particle
             {
-                Name = "", 
+                Name = "",  // put your particle subtypeid here
                 Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
             },
             Barrel2 = new Particle
             {
-                Name = "",
+                Name = "", // put your particle subtypeid here
                 Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
@@ -138,7 +138,7 @@ namespace WeaponThread
         Line = new LineDefinition
         {
             Trail = true,
-            Material = "ProjectileTrailLine",
+            Material = "ProjectileTrailLine", // put your transparentmaterial subtypeid here
             Color = Color(red: 10, green: 10, blue: 10, alpha: 1),
             Length = 1f,
             Width = 0.04f,
@@ -150,18 +150,18 @@ namespace WeaponThread
     {
         HardPoint = new AudioHardPointDefinition
         {
-            FiringSound = "",
+            FiringSound = "", // put your audio subtypeid here
             FiringSoundPerShot = false,
-            ReloadSound = "",
-            NoAmmoSound = "",
-            HardPointRotationSound = "",
-            BarrelRotationSound = "",
+            ReloadSound = "", // put your audio subtypeid here
+            NoAmmoSound = "", // put your audio subtypeid here
+            HardPointRotationSound = "", // put your audio subtypeid here
+            BarrelRotationSound = "", // put your audio subtypeid here
         },
 
         Ammo = new AudioAmmoDefinition
         {
-            TravelSound = "",
-            HitSound = "",
+            TravelSound = "", // put your audio subtypeid here
+            HitSound = "", // put your audio subtypeid here
         }, // Don't edit below this line
     }, 
 };}}
