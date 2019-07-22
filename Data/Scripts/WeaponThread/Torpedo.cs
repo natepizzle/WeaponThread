@@ -107,7 +107,7 @@ namespace WeaponThread
         {
             Ammo = new Particle
             {
-                Name = "", // put your particle subtypeid here
+                Name = "Photon", // put your particle subtypeid here
                 Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
