@@ -171,7 +171,7 @@ namespace WeaponThread
         [ProtoContract]
         public struct Smarts
         {
-            [ProtoMember(1)] internal double Accuracy;
+            [ProtoMember(1)] internal double Inaccuracy;
             [ProtoMember(2)] internal double Aggressiveness;
             [ProtoMember(3)] internal double MaxLateralThrust;
             [ProtoMember(4)] internal double TrackingDelay;

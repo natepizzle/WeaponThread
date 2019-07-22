@@ -87,7 +87,7 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 100),
             Smarts = new Smarts
             {
-                Accuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
                 TrackingDelay = 1, // Measured in line length units traveled.
