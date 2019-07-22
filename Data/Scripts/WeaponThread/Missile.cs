@@ -29,7 +29,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 50f,
+        DeviateShotAngle = 75f,
         AimingTolerance = 180f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
@@ -47,8 +47,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 0,
-            DelayAfterBurst = 99999999,
+            ShotsInBurst = 60,
+            DelayAfterBurst = 3600,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -67,7 +67,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 10000f,
+        DefaultDamage = 1000f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
@@ -80,17 +80,17 @@ namespace WeaponThread
         {
             Guidance = Smart,
             TargetLossDegree = 80f,
-            TargetLossTime = 200,
+            TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 25f,
-            DesiredSpeed = 1000f,
-            MaxTrajectory = 500000f,
+            DesiredSpeed = 600f,
+            MaxTrajectory = 10000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 20f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 250f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
-                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
+                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 TopTargets = 4, // 0 = unlimited, max number of targets to pick from
@@ -108,10 +108,10 @@ namespace WeaponThread
         {
             Ammo = new Particle
             {
-                Name = "ShipWelderArc",
+                Name = "PhotonTorpedoParticle",
                 Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                 Offset = Vector(x: 0, y: 0, z: 0.4),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.8f),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 12, scale: 1000f),
             },
             Hit = new Particle
             {
