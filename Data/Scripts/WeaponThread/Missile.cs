@@ -47,8 +47,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 60,
-            DelayAfterBurst = 3600,
+            ShotsInBurst = 1,
+            DelayAfterBurst = 600,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -67,7 +67,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 1000f,
+        DefaultDamage = 10000f,
         AreaEffectYield = 0f,
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
@@ -88,7 +88,7 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 250f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 0f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
