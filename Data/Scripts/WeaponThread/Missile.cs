@@ -67,35 +67,35 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 10000f,
-        AreaEffectYield = 0f,
-        AreaEffectRadius = 0f,
-        DetonateOnEnd = true,
-        Mass = 1000f,
-        Health = 0, 
-        MaxObjectsHit = 0,
-        BackKickForce = 2.5f,
+        DefaultDamage = 10000f, 	// damage done
+        AreaEffectYield = 0f, 		// how much damage is done within the Area of Effect
+        AreaEffectRadius = 0f, 		// Area of Effect range this is spherical
+        DetonateOnEnd = true,		// true or false, explodes at end of lifespan
+        Mass = 1000f, 				// how heavy the round is
+        Health = 0, 				// how much health a round has (more health means more bullets to stop it)
+        MaxObjectsHit = 0, 			// how many object round can hit before dying
+        BackKickForce = 2.5f, 		// how much force each round causes when impacting targets
 
         Trajectory = new AmmoTrajectory
         {
-            Guidance = Smart,
-            TargetLossDegree = 80f,
-            TargetLossTime = 200,
-            AccelPerSec = 25f,
-            DesiredSpeed = 1000f,
-            MaxTrajectory = 500000f,
-            SpeedVariance = Random(start: 0, end: 0),
-            RangeVariance = Random(start: 0, end: 0),
+            Guidance = Smart, 							// None (no tracking or guidance), Smart (guidance enabled), TravelTo (for flak behavior)
+            TargetLossDegree = 80f, 					// degree of angle from center 0 that round will lose target
+            TargetLossTime = 200, 						// Amount of time in seconds till target loss
+            AccelPerSec = 15f, 							// how quickly the round accelerates
+            DesiredSpeed = 350f, 						// speed is m/s 
+            MaxTrajectory = 500000f, 					// distance ammo will travel before despawn
+            SpeedVariance = Random(start: 0, end: 0), 	// random variation of speed per round
+            RangeVariance = Random(start: 0, end: 0), 	// random variation of distance per round
             Smarts = new Smarts
             {
-                Inaccuracy = 20f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
-                Aggressiveness = 1f, // controls how responsive tracking is.
-                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                TrackingDelay = 5, // Measured in line length units traveled.
-                MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
-                OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
+                Accuracy = 20f, 			// 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                Aggressiveness = 1f, 		// controls how responsive tracking is.
+                MaxLateralThrust = 0.5, 	// controls how sharp the trajectile may turn
+                TrackingDelay = 1, 			// Measured in line length units traveled.
+                MaxChaseTime = 1800, 		// Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TopTargets = 4, 			// 0 = unlimited, max number of targets to pick from
+                TopBlocks = 4, 				// 0 = unlimited, max number of blocks to pick from
+                OverideTarget = false, 		// when set to true ammo picks its own target, does not use hardpoints.
             },
         },
     },
