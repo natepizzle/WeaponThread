@@ -93,7 +93,7 @@
       <PCU>225</PCU>
     </Definition>
 	
-<!-- Multi Turret Platform -->
+<!-- Multi Turret Platform 
 
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
       <Id>
@@ -150,7 +150,7 @@
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <MaxRangeMeters>800</MaxRangeMeters>
       <PCU>225</PCU>
-    </Definition>
+    </Definition>  -->
 
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
       <Id>

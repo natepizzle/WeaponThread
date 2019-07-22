@@ -47,8 +47,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 1,
-            DelayAfterBurst = 600,
+            ShotsInBurst = 60,
+            DelayAfterBurst = 3600,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -67,8 +67,8 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 10000f,
-        AreaEffectYield = 0f,
+        DefaultDamage = 1000f, 		// how much damage the projectile does
+        AreaEffectYield = 0f,		// how much damage is done when/if it explodes
         AreaEffectRadius = 0f,
         DetonateOnEnd = true,
         Mass = 1000f,
@@ -88,20 +88,20 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 0f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 250f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
-                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
+                MaxLateralThrust = 0.2, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 TopTargets = 4, // 0 = unlimited, max number of targets to pick from
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
-                OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
+                OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
             },
         },
     },
     Graphics = new GraphicDefinition
     {
-        ModelName = "\\Models\\Weapons\\Projectile_Missile.mwm", 
+        ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm", 
         VisualProbability = 1f,
         ShieldHitDraw = true,
         Particles = new ParticleDefinition
@@ -109,9 +109,9 @@ namespace WeaponThread
             Ammo = new Particle
             {
                 Name = "PhotonTorpedoParticle",
-                Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
+                Color = Color(red: 1, green: 1, blue: 10, alpha: 1),
                 Offset = Vector(x: 0, y: 0, z: 0.4),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 12, scale: 1000f),
+                Extras = Options(loop: true, restart: false, distance: 5000, duration: 12, scale: .31f),
             },
             Hit = new Particle
             {
