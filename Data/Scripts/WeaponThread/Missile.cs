@@ -30,7 +30,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 75f,
+        DeviateShotAngle = 5f,
         AimingTolerance = 180f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
@@ -39,7 +39,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 600,
+            RateOfFire = 180,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -48,8 +48,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 10,
-            DelayAfterBurst = 1200,
+            ShotsInBurst = 3,
+            DelayAfterBurst = 120,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -68,34 +68,34 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 15000f, 		// how much damage the projectile does
-        Mass = 5000f,
+        BaseDamage = 25000f, 		// how much damage the projectile does
+        Mass = 10000f,
         Health = 0, 
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 250f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 7.5f,
+            AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 500f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 5f,
             DisableExplosionVisuals = false,
             DetonateOnEnd = false, // at trajectile death (baseDamage = 0/MaxTrajectory).
         },
 
         Trajectory = new AmmoTrajectory
         {
-            Guidance = Smart,
+            Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 25f,
+            AccelPerSec = 50f,
             DesiredSpeed = 600f,
             MaxTrajectory = 10000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 10f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.2, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
