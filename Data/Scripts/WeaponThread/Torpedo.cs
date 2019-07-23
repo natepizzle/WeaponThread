@@ -1,6 +1,7 @@
 ﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
+using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session;
 namespace WeaponThread
 {   // Don't edit above this line
@@ -66,14 +67,20 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 20f,
-        AreaEffectYield = 10f,
-        AreaEffectRadius = 15f,
-        DetonateOnEnd = false,
+        BaseDamage = 20f,
         Mass = 150f,
         Health = 0, 
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
+
+        AreaEffect = new AreaDamage
+        {
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 0f,
+            DisableExplosionVisuals = false,
+            DetonateOnEnd = true, // at trajectile death (baseDamage = 0/MaxTrajectory).
+        },
 
         Trajectory = new AmmoTrajectory
         {

@@ -1,6 +1,7 @@
 ﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
+using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session;
 namespace WeaponThread
 {   // Don't edit above this line
@@ -34,7 +35,7 @@ namespace WeaponThread
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
-        DelayCeaseFire = 120, 
+        DelayCeaseFire = 0, 
 
         Loading = new AmmoLoading
         {
@@ -47,8 +48,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 60,
-            DelayAfterBurst = 3600,
+            ShotsInBurst = 10,
+            DelayAfterBurst = 1200,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -67,14 +68,20 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 1000f, 		// how much damage the projectile does
-        AreaEffectYield = 0f,		// how much damage is done when/if it explodes
-        AreaEffectRadius = 0f,
-        DetonateOnEnd = true,
-        Mass = 1000f,
+        BaseDamage = 15000f, 		// how much damage the projectile does
+        Mass = 5000f,
         Health = 0, 
         MaxObjectsHit = 0,
         BackKickForce = 2.5f,
+
+        AreaEffect = new AreaDamage
+        {
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 250f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 7.5f,
+            DisableExplosionVisuals = false,
+            DetonateOnEnd = false, // at trajectile death (baseDamage = 0/MaxTrajectory).
+        },
 
         Trajectory = new AmmoTrajectory
         {
@@ -88,7 +95,7 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 250f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 10f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.2, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
@@ -101,7 +108,7 @@ namespace WeaponThread
     },
     Graphics = new GraphicDefinition
     {
-        ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm", 
+        ModelName = "", //\\Models\\Weapons\\Torpedo_Ammo_1st.mwm
         VisualProbability = 1f,
         ShieldHitDraw = true,
         Particles = new ParticleDefinition
@@ -110,8 +117,8 @@ namespace WeaponThread
             {
                 Name = "PhotonTorpedoParticle",
                 Color = Color(red: 1, green: 1, blue: 10, alpha: 1),
-                Offset = Vector(x: 0, y: 0, z: 0.4),
-                Extras = Options(loop: true, restart: false, distance: 5000, duration: 12, scale: .31f),
+                Offset = Vector(x: 0, y: 0, z: 0),
+                Extras = Options(loop: true, restart: false, distance: 5000, duration: 12, scale: 1.5f),
             },
             Hit = new Particle
             {

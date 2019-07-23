@@ -1,6 +1,7 @@
 ﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
+using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session;
 namespace WeaponThread
 {   // Don't edit above this line
@@ -34,7 +35,7 @@ namespace WeaponThread
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
-        DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+        DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
         Loading = new AmmoLoading
         {
@@ -43,12 +44,12 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 999999, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 150,
-            DelayAfterBurst = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 1,
+            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -67,14 +68,21 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        DefaultDamage = 1f,
-        AreaEffectYield = 0f,
-        AreaEffectRadius = 0f,
-        DetonateOnEnd = false,
-        Mass = 2000f, // in kilograms
+        BaseDamage = 100000000f,
+        Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         MaxObjectsHit = 0, // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         BackKickForce = 0f,
+
+        AreaEffect = new AreaDamage
+        {
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 0f,
+            DisableExplosionVisuals = false,
+            DetonateOnEnd = true, // at trajectile death (baseDamage = 0/MaxTrajectory).
+
+        },
 
         Trajectory = new AmmoTrajectory
         {
