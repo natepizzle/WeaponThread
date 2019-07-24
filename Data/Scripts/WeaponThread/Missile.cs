@@ -30,7 +30,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 5f,
+        DeviateShotAngle = 2.5f,
         AimingTolerance = 180f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
@@ -39,7 +39,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 180,
+            RateOfFire = 300,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -48,7 +48,7 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 3,
+            ShotsInBurst = 1,
             DelayAfterBurst = 120,
         },
     },
@@ -59,28 +59,28 @@ namespace WeaponThread
 
         // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
         Characters = -1f,
-        Grids = Size(largeGridModifier: -1f, smallGridModifier: -1f),
-        Armor = Modifiers(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-        Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+        Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
+        Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
+        Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-        Custom = Scale(false),
+        Custom = Options(false),
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 25000f, 		// how much damage the projectile does
-        Mass = 10000f,
-        Health = 0, 
-        MaxObjectsHit = 0,
+        BaseDamage = 5000f, 		// how much damage the projectile does
+        Mass = 2500f,
+        Health = 0,
         BackKickForce = 2.5f,
+        ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
 
         AreaEffect = new AreaDamage
         {
             AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 500f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 5f,
-            DisableExplosionVisuals = false,
-            DetonateOnEnd = false, // at trajectile death (baseDamage = 0/MaxTrajectory).
+            AreaEffectDamage = 5000f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 7.5f,
+            Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 25),
         },
 
         Trajectory = new AmmoTrajectory
@@ -88,8 +88,8 @@ namespace WeaponThread
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 50f,
-            DesiredSpeed = 600f,
+            AccelPerSec = 500f,
+            DesiredSpeed = 1500f,
             MaxTrajectory = 10000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),

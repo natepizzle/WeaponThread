@@ -32,29 +32,57 @@ namespace WeaponThread
             };
         }
 
-        internal Session.GridSizeDefinition Size(float largeGridModifier, float smallGridModifier)
+        internal Session.Detonate Options(bool detonateOnEnd, bool armOnlyOnHit, float detonationDamage, float detonationRadius)
+        {
+            return new Session.Detonate
+            {
+                DetonateOnEnd = detonateOnEnd,
+                ArmOnlyOnHit = armOnlyOnHit,
+                DetonationDamage = detonationDamage,
+                DetonationRadius = detonationRadius,
+            };
+        }
+
+        internal Session.Explosion Options(bool noVisuals, bool noSound, float scale, string customParticle, string customSound)
+        {
+            return new Session.Explosion
+            {
+                NoVisuals = noVisuals,
+                NoSound = noSound,
+                Scale = scale,
+                CustomParticle = customParticle,
+                CustomSound = customSound,
+            };
+        }
+
+        internal Session.GridSizeDefinition Options(float largeGridModifier, float smallGridModifier)
         {
             return new Session.GridSizeDefinition { Large = largeGridModifier, Small = smallGridModifier };
         }
 
-        internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
+        internal Session.ObjectsHit Options(int maxObjectsHit, bool countBlocks)
         {
-            return new Session.CustomBlocksDefinition {SubTypeId = subTypeId, Modifier = modifier};
+            return new Session.ObjectsHit { MaxObjectsHit = maxObjectsHit, CountBlocks = countBlocks };
         }
 
-        internal Session.CustomScalesDefinition Scale(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
+        internal Session.CustomScalesDefinition Options(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
         {
             return new Session.CustomScalesDefinition {IgnoreAllOthers = ignoreOthers, Types = customDefScale};
         }
 
-        internal Session.ArmorDefinition Modifiers(float armor, float light, float heavy, float nonArmor)
+        internal Session.ArmorDefinition Options(float armor, float light, float heavy, float nonArmor)
         {
             return new Session.ArmorDefinition { Armor = armor, Light = light, Heavy = heavy, NonArmor = nonArmor };
         }
 
-        internal Session.ShieldDefinition Modulation(float modifier, ShieldType type)
+        internal Session.ShieldDefinition Options(float modifier, ShieldType type)
         {
             return new Session.ShieldDefinition { Modifier = modifier, Type = type };
+        }
+
+        internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
+        {
+            return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };
         }
 
         internal Session.Slider Slider(bool enable, double min, double max)

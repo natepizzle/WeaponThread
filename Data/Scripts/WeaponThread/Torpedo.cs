@@ -58,28 +58,28 @@ namespace WeaponThread
 
         // modifier values: -1 = disabled (higher performance), 0 = no damage , 0.01 = 1% damage, 2 = 200% damage.
         Characters = -1f,
-        Grids = Size(largeGridModifier: -1f, smallGridModifier: -1f),
-        Armor = Modifiers(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-        Shields = Modulation(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+        Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
+        Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
+        Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-        Custom = Scale(false),
+        Custom = Options(false),
     },
     Ammo = new AmmoDefinition
     {
         BaseDamage = 20f,
         Mass = 150f,
-        Health = 0, 
-        MaxObjectsHit = 0,
+        Health = 0,
         BackKickForce = 2.5f,
+        ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
 
         AreaEffect = new AreaDamage
         {
             AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 0f,
-            DisableExplosionVisuals = false,
-            DetonateOnEnd = true, // at trajectile death (baseDamage = 0/MaxTrajectory).
+            Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""), // not used with radiant
+            Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
 
         Trajectory = new AmmoTrajectory
