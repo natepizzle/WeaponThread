@@ -40,16 +40,16 @@ namespace WeaponThread
         Loading = new AmmoLoading
         {
             RateOfFire = 3600,
-            BarrelsPerShot = 6,
+            BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            DelayUntilFire = 999999, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 1,
-            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 0,
+            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -68,7 +68,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 100000000f,
+        BaseDamage = 10f,
         Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -76,9 +76,9 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 0f,
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 15f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 10f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },

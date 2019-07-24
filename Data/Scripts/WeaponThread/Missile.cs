@@ -44,7 +44,7 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 300,
-            DelayUntilFire = 0,
+            DelayUntilFire = 999,
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
