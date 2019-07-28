@@ -27,7 +27,7 @@ namespace WeaponThread
         AmmoMagazineId = "TorpAmmo",
         IsTurret = true,
         TurretController = false,
-        TrackTargets = false,
+        TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 0f,
