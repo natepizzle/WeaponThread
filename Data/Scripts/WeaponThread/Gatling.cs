@@ -44,12 +44,12 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 999, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 600,
-            DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayAfterBurst = 300, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -68,7 +68,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 1f,
+        BaseDamage = 25f,
         Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -77,8 +77,8 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 15f,
+            AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectRadius = 7.5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
@@ -125,7 +125,7 @@ namespace WeaponThread
                 Name = "ShipWelderArc",
                 Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
                 Offset = Vector(x: 0, y: 0, z: 0),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 2f),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f),
             },
             Barrel1 = new Particle
             {

@@ -27,11 +27,11 @@ namespace WeaponThread
         AmmoMagazineId = "TorpAmmo",
         IsTurret = true,
         TurretController = false,
-        TrackTargets = true,
+        TrackTargets = false,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 0f,
-        AimingTolerance = 15f,
+        AimingTolerance = 5f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
@@ -68,7 +68,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 5000f, 		// how much damage the projectile does
+        BaseDamage = 500000000f, 		// how much damage the projectile does
         Mass = 500f,
         Health = 0,
         BackKickForce = 2.5f,
@@ -76,11 +76,11 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 5000f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 0, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 7.5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 25),
+            Detonation = Options(detonateOnEnd: false, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 25),
         },
 
         Trajectory = new AmmoTrajectory
