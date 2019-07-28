@@ -77,7 +77,7 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 15f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
@@ -90,7 +90,7 @@ namespace WeaponThread
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 0f,
             DesiredSpeed = 0f,
-            MaxTrajectory = 3000f,
+            MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
             Smarts = new Smarts

@@ -27,11 +27,11 @@ namespace WeaponThread
         AmmoMagazineId = "TorpAmmo",
         IsTurret = true,
         TurretController = false,
-        TrackTargets = true,
+        TrackTargets = false,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 2.5f,
-        AimingTolerance = 180f,
+        DeviateShotAngle = 0f,
+        AimingTolerance = 15f,
         EnergyCost = 0,
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
@@ -44,12 +44,12 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 300,
-            DelayUntilFire = 999,
+            DelayUntilFire = 0,
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
             ShotsInBurst = 1,
-            DelayAfterBurst = 120,
+            DelayAfterBurst = 300,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -69,7 +69,7 @@ namespace WeaponThread
     Ammo = new AmmoDefinition
     {
         BaseDamage = 5000f, 		// how much damage the projectile does
-        Mass = 2500f,
+        Mass = 500f,
         Health = 0,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -90,7 +90,7 @@ namespace WeaponThread
             TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 500f,
             DesiredSpeed = 1500f,
-            MaxTrajectory = 10000f,
+            MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
