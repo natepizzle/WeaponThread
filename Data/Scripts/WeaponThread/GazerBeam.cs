@@ -30,7 +30,7 @@ namespace WeaponThread
         ElevationSpeed = 0.01f,
         RotateSpeed = 0.01f,
         DeviateShotAngle = 0f,
-        AimingTolerance = 180f, // 0 - 180 firing angle
+        AimingTolerance = 4f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -39,7 +39,7 @@ namespace WeaponThread
         Loading = new AmmoLoading
         {
             RateOfFire = 3600,
-            BarrelsPerShot = 1,
+            BarrelsPerShot = 8,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -47,8 +47,8 @@ namespace WeaponThread
             HeatPerRoF = 1,
             MaxHeat = 180,
             HeatSinkRate = 2,
-            ShotsInBurst = 8,
-            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 600,
+            DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -67,7 +67,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 10f,
+        BaseDamage = 1f,
         Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -76,8 +76,8 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 15f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 10f,
+            AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectRadius = 15f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
@@ -122,9 +122,9 @@ namespace WeaponThread
             Hit = new Particle
             {
                 Name = "ShipWelderArc",
-                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
-                Offset = Vector(x: 0, y: -1, z: 0),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f),
+                Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
+                Offset = Vector(x: 0, y: 0, z: 0),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 2f),
             },
             Barrel1 = new Particle
             {
@@ -146,11 +146,11 @@ namespace WeaponThread
         {
             Trail = true,
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-            Color = Color(red: 96, green: 32, blue: 32, alpha: 1),
-            Length = 15f,
+            Color = Color(red: 32, green: 32, blue: 128, alpha: 1),
+            Length = 1f,
             Width = 0.05f,
-            ColorVariance = Random(start: 0.5f, end: 2.0f), // multiply the color by random values within range.
-            WidthVariance = Random(start: 0f, end: 0.1f), // adds random value to default width (negatives shrinks width)
+            ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
+            WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
         },
     },
     Audio = new AudioDefinition
