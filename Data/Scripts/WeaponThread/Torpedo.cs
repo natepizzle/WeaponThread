@@ -2,8 +2,8 @@
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
+using static WeaponThread.Session.TargetOrder.BlockTypes;
 using static WeaponThread.Session;
-using static WeaponThread.Session.Order;
 
 namespace WeaponThread
 {   // Don't edit above this line
@@ -37,8 +37,7 @@ namespace WeaponThread
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
         DelayCeaseFire = 120,
-        EnableTargeting = false, //enables block type targeting
-        Targeting = Order(BlockTypes.Offense, BlockTypes.Defense, BlockTypes.Navigation, BlockTypes.Power, BlockTypes.Production, BlockTypes.All), //define block type targeting order
+        Targeting = Order(true, Offense, Defense, Navigation, Power, Production, All), //define block type targeting order
 
         Loading = new AmmoLoading
         {
