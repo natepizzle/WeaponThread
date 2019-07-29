@@ -37,7 +37,7 @@ namespace WeaponThread
         RotateBarrelAxis = 0, 
         TargetPrediction = Advanced,
         DelayCeaseFire = 120,
-        Targeting = Order(true, Offense, Defense, Navigation, Power, Production, Any), //define block type targeting order
+        Targeting = Order(false, false, Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
 
         Loading = new AmmoLoading
         {
@@ -52,6 +52,7 @@ namespace WeaponThread
             HeatSinkRate = 2,
             ShotsInBurst = 0,
             DelayAfterBurst = 120,
+            DegradeROF = true,
         },
     },
     DamageScales = new DamageScaleDefinition

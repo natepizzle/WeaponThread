@@ -125,6 +125,7 @@ namespace WeaponThread
 
             [ProtoMember(1)] internal BlockTypes[] Priorities;
             [ProtoMember(2)] internal bool Enable;
+            [ProtoMember(3)] internal bool Sort;
         }
 
         [ProtoContract]
@@ -141,6 +142,7 @@ namespace WeaponThread
             [ProtoMember(9)] internal int DelayUntilFire;
             [ProtoMember(10)] internal int ShotsInBurst;
             [ProtoMember(11)] internal int DelayAfterBurst;
+            [ProtoMember(12)] internal bool DegradeROF;
         }
 
         [ProtoContract]
