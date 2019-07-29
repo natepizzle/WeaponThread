@@ -1,0 +1,2 @@
+C:\Users\Alex\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\WeaponThread.csprojAssemblyReference.cache
+C:\Users\Alex\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\WeaponThread.csproj.CoreCompileInputs.cache
