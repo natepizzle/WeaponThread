@@ -136,7 +136,7 @@ namespace WeaponThread
             [ProtoMember(3)] internal int BarrelsPerShot;
             [ProtoMember(4)] internal int SkipBarrels;
             [ProtoMember(5)] internal int TrajectilesPerBarrel;
-            [ProtoMember(6)] internal int HeatPerRoF;
+            [ProtoMember(6)] internal int HeatPerShot;
             [ProtoMember(7)] internal int MaxHeat;
             [ProtoMember(8)] internal int HeatSinkRate;
             [ProtoMember(9)] internal int DelayUntilFire;

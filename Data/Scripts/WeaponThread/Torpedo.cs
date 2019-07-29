@@ -47,12 +47,12 @@ namespace WeaponThread
             SkipBarrels = 0,
             ReloadTime = 600,
             DelayUntilFire = 204,
-            HeatPerRoF = 1,
-            MaxHeat = 180,
-            HeatSinkRate = 2,
+            HeatPerShot = 1, //heat generated per shot
+            MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
+            HeatSinkRate = 200, //amount of heat lost per second
+            DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
             ShotsInBurst = 0,
             DelayAfterBurst = 120,
-            DegradeROF = true,
         },
     },
     DamageScales = new DamageScaleDefinition

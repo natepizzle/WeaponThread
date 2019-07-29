@@ -47,12 +47,12 @@ namespace WeaponThread
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            HeatPerRoF = 1,
-            MaxHeat = 1800,
-            HeatSinkRate = 20,
+            HeatPerShot = 1, //heat generated per shot
+            MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
+            HeatSinkRate = 200, //amount of heat lost per second
+            DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
             ShotsInBurst = 600,
             DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            DegradeROF = true,
         },
     },
     DamageScales = new DamageScaleDefinition
@@ -71,7 +71,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 1f,
+        BaseDamage = 100f,
         Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -80,7 +80,7 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 15f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
