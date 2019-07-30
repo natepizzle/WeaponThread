@@ -29,15 +29,15 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = true,
         TrackTargets = true,
-        ElevationSpeed = 0.01f,
-        RotateSpeed = 0.01f,
+        ElevationSpeed = 0.03f,
+        RotateSpeed = 0.03f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
-        EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-        RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+        EnergyCost = 0.001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-        Targeting = Order(false, false, Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
+        Targeting = Order(false, false, Power, Defense, Offense, Navigation, Production, Any), // Enable targeting / Order of targets / define block type targeting order
 
         Loading = new AmmoLoading
         {
@@ -119,17 +119,17 @@ namespace WeaponThread
         {
             Ammo = new Particle
             {
-                Name = "ShipWelderArc",
-                Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                Name = "MaterialHit_Metal_GatlingGun",
+                Color = Color(red: 40, green: 14, blue: 4, alpha: 2),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
             },
             Hit = new Particle
             {
-                Name = "ShipWelderArc",
-                Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
+                Name = "LaserImpactParticle", //"MaterialHit_Metal_GatlingGun",
+                Color = Color(red: 10, green: 1, blue: 0, alpha: 2),
                 Offset = Vector(x: 0, y: 0, z: 0),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 2f),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.2f),
             },
             Barrel1 = new Particle
             {
