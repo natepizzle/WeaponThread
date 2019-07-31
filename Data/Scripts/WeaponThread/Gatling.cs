@@ -2,7 +2,7 @@
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
-using static WeaponThread.Session.TargetOrder.BlockTypes;
+using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -36,9 +36,8 @@ namespace WeaponThread
         AimingTolerance = 4f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-        TargetPrediction = Advanced, // Off, Basic, Accurate, Advanced
+        AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-        Targeting = Order(false, false, Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
 
         Loading = new AmmoLoading
         {
@@ -57,6 +56,17 @@ namespace WeaponThread
             DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
+    Targeting = new TargetingDefinition
+    {
+        SubSystems = new SubSystemDefinition()
+        {
+            Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
+            SubSystemPriority = true,
+            ClosestFirst = true,
+        },
+        TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+        TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+    },
     DamageScales = new DamageScaleDefinition
     {
         MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
@@ -68,7 +78,7 @@ namespace WeaponThread
         Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f), 
         Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
-        // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
+        // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
         Custom = Options(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
     },
     Ammo = new AmmoDefinition
@@ -105,8 +115,6 @@ namespace WeaponThread
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
                 TrackingDelay = 1, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
                 OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
             },
         },

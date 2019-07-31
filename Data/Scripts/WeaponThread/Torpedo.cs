@@ -2,7 +2,7 @@
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
-using static WeaponThread.Session.TargetOrder.BlockTypes;
+using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -34,10 +34,9 @@ namespace WeaponThread
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 0,
-        RotateBarrelAxis = 0, 
-        TargetPrediction = Advanced,
+        RotateBarrelAxis = 0,
+        AimLeadingPrediction = Advanced,
         DelayCeaseFire = 120,
-        Targeting = Order(false, false, Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
 
         Loading = new AmmoLoading
         {
@@ -55,6 +54,17 @@ namespace WeaponThread
             ShotsInBurst = 600,
             DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
+    },
+    Targeting = new TargetingDefinition
+    {
+        SubSystems = new SubSystemDefinition()
+        {
+            Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
+            SubSystemPriority = true,
+            ClosestFirst = true,
+        },
+        TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+        TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
     },
     DamageScales = new DamageScaleDefinition
     {
@@ -104,8 +114,6 @@ namespace WeaponThread
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
                 TrackingDelay = 1, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
                 OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
             },
         },

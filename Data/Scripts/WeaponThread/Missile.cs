@@ -2,7 +2,7 @@
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
-using static WeaponThread.Session.TargetOrder.BlockTypes;
+using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -35,14 +35,13 @@ namespace WeaponThread
         DeviateShotAngle = 0f,
         AimingTolerance = 5f,
         EnergyCost = 0,
-        RotateBarrelAxis = 0, 
-        TargetPrediction = Advanced,
+        RotateBarrelAxis = 0,
+        AimLeadingPrediction = Advanced,
         DelayCeaseFire = 0,
-        Targeting = Order(false, false, Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 300,
+            RateOfFire = 60,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -53,9 +52,20 @@ namespace WeaponThread
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
             DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-            ShotsInBurst = 600,
+            ShotsInBurst = 6,
             DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
+    },
+    Targeting = new TargetingDefinition
+    {
+        SubSystems = new SubSystemDefinition()
+        {
+            Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
+            SubSystemPriority = true,
+            ClosestFirst = true,
+        },
+        TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+        TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
     },
     DamageScales = new DamageScaleDefinition
     {
@@ -73,7 +83,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 500000000f, 		// how much damage the projectile does
+        BaseDamage = 50000f, 		// how much damage the projectile does
         Mass = 500f,
         Health = 0,
         BackKickForce = 2.5f,
@@ -105,8 +115,6 @@ namespace WeaponThread
                 MaxLateralThrust = 0.2, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                TopTargets = 4, // 0 = unlimited, max number of targets to pick from
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to pick from
                 OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
             },
         },

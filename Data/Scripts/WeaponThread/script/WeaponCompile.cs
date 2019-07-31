@@ -85,9 +85,9 @@ namespace WeaponThread
             return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };
         }
 
-        internal Session.TargetOrder Order(bool enable, bool sort, params Session.TargetOrder.BlockTypes[] priorities)
+        internal Session.SubSystemDefinition.BlockTypes[] Priority(params Session.SubSystemDefinition.BlockTypes[] systems)
         {
-            return new Session.TargetOrder { Enable = enable, Sort = sort, Priorities = priorities };
+            return systems;
         }
 
         internal Session.Slider Slider(bool enable, double min, double max)
