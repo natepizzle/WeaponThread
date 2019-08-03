@@ -42,6 +42,7 @@ namespace WeaponThread
         {
             RateOfFire = 3600,
             BarrelsPerShot = 8,
+            FakeBarrels = true,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -92,7 +93,7 @@ namespace WeaponThread
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 15f,
+            AreaEffectRadius = 25f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },

@@ -29,7 +29,7 @@ namespace WeaponThread
         AmmoMagazineId = "TorpAmmo",
         IsTurret = true,
         TurretController = false,
-        TrackTargets = false,
+        TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 0f,
@@ -43,10 +43,11 @@ namespace WeaponThread
         {
             RateOfFire = 60,
             BarrelsPerShot = 1,
+            FakeBarrels = false,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 300,
-            DelayUntilFire = 0,
+            DelayUntilFire = 9999,
             HeatPerShot = 1, //heat generated per shot
             MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -83,8 +84,8 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 50000f, 		// how much damage the projectile does
-        Mass = 500f,
+        BaseDamage = 500f, 		// how much damage the projectile does
+        Mass = 2500f,
         Health = 0,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -92,7 +93,7 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectDamage = 500, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 7.5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 25),
@@ -100,10 +101,10 @@ namespace WeaponThread
 
         Trajectory = new AmmoTrajectory
         {
-            Guidance = None,
+            Guidance = Smart,
             TargetLossDegree = 80f,
             TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 500f,
+            AccelPerSec = 50f,
             DesiredSpeed = 1500f,
             MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0),
@@ -138,7 +139,7 @@ namespace WeaponThread
                 Name = "ShipWelderArc",
                 Color = Color(red: 10, green: 10, blue: 255, alpha: 1),
                 Offset = Vector(x: 0, y: 0, z: 0),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.25f),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.75f),
             },
             Barrel1 = new Particle
             {

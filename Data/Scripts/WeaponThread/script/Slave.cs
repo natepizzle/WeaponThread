@@ -126,6 +126,7 @@ namespace WeaponThread
             [ProtoMember(11)] internal int ShotsInBurst;
             [ProtoMember(12)] internal int DelayAfterBurst;
             [ProtoMember(13)] internal bool DegradeROF;
+            [ProtoMember(14)] internal bool FakeBarrels;
         }
 
         [ProtoContract]
@@ -190,7 +191,7 @@ namespace WeaponThread
                 Radiant,
             }
 
-            [ProtoMember(1)] internal float AreaEffectRadius;
+            [ProtoMember(1)] internal double AreaEffectRadius;
             [ProtoMember(2)] internal float AreaEffectDamage;
             [ProtoMember(3)] internal AreaEffectType AreaEffect;
             [ProtoMember(4)] internal Detonate Detonation;

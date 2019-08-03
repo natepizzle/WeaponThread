@@ -43,12 +43,13 @@ namespace WeaponThread
         {
             RateOfFire = 3600,
             BarrelsPerShot = 6,
+            FakeBarrels = true,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            DelayUntilFire = 999, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             HeatPerShot = 1, //heat generated per shot
-            MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
+            MaxHeat = 37000, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
             DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
@@ -83,7 +84,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 25f,
+        BaseDamage = 1f,
         Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -92,8 +93,8 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 7.5f,
+            AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectRadius = 5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
