@@ -29,20 +29,19 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = true,
         TrackTargets = true,
-        ElevationSpeed = 0.01f,
-        RotateSpeed = 0.01f,
+        ElevationSpeed = 0.04f,
+        RotateSpeed = 0.04f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-        RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+        RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 3600,
-            BarrelsPerShot = 8,
-            FakeBarrels = true,
+            RateOfFire = 500,
+            BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -83,17 +82,17 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 100f,
-        Mass = 10000f, // in kilograms
+        BaseDamage = 10f,
+        Mass = 0.1f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
-        ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+        ObjectsHit = Options(maxObjectsHit: 2, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 25f,
+            AreaEffectRadius = 100f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
@@ -135,10 +134,10 @@ namespace WeaponThread
             },
             Hit = new Particle
             {
-                Name = "ShipWelderArc",
-                Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
+                Name = "LaserImpactParticle", //"MaterialHit_Metal_GatlingGun",
+                Color = Color(red: 10, green: 1, blue: 0, alpha: 2),
                 Offset = Vector(x: 0, y: 0, z: 0),
-                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 2f),
+                Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.2f),
             },
             Barrel1 = new Particle
             {
@@ -160,7 +159,7 @@ namespace WeaponThread
         {
             Trail = true,
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-            Color = Color(red: 32, green: 32, blue: 128, alpha: 1),
+            Color = Color(red: 2, green: 2, blue: 30, alpha: 1),
             Length = 1f,
             Width = 0.05f,
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
