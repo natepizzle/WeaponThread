@@ -43,7 +43,7 @@ namespace WeaponThread
         {
             RateOfFire = 3600,
             BarrelsPerShot = 6,
-            FakeBarrels = true,
+            FakeBarrels = Options(enable: true, converge: true), // use virtual barrels to save performance at the cost of hit accuracy, converge beams to save even more performance
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).

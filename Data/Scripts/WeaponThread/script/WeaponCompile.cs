@@ -60,6 +60,11 @@ namespace WeaponThread
             return new Session.GridSizeDefinition { Large = largeGridModifier, Small = smallGridModifier };
         }
 
+        internal Session.FakeBarrels Options(bool enable, bool converge)
+        {
+            return new Session.FakeBarrels { Enable = enable, Converge = converge };
+        }
+
         internal Session.ObjectsHit Options(int maxObjectsHit, bool countBlocks)
         {
             return new Session.ObjectsHit { MaxObjectsHit = maxObjectsHit, CountBlocks = countBlocks };

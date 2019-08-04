@@ -42,7 +42,7 @@ namespace WeaponThread
         {
             RateOfFire = 500,
             BarrelsPerShot = 1,
-            FakeBarrels = true,
+            FakeBarrels = Options(enable: true, converge: true),
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).

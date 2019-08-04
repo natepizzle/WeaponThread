@@ -42,7 +42,7 @@ namespace WeaponThread
         {
             RateOfFire = 600,
             BarrelsPerShot = 1,
-            FakeBarrels = false,
+            FakeBarrels = Options(enable: true, converge: true),
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 600,
