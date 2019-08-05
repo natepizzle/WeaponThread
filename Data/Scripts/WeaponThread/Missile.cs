@@ -41,13 +41,13 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 60,
+            RateOfFire = 120,
             BarrelsPerShot = 1,
             FakeBarrels = Options(enable: true, converge: true), 
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 300,
-            DelayUntilFire = 9999,
+            DelayUntilFire = 0,
             HeatPerShot = 1, //heat generated per shot
             MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -113,7 +113,7 @@ namespace WeaponThread
             {
                 Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
-                MaxLateralThrust = 0.2, // controls how sharp the trajectile may turn (1 is max value)
+                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
