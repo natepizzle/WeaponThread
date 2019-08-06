@@ -46,7 +46,7 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 300,
-            DelayUntilFire = 9999,
+            DelayUntilFire = 0,
             HeatPerShot = 1, //heat generated per shot
             MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -103,6 +103,7 @@ namespace WeaponThread
             VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+            OneParticle = true, // Only spawn one particle hit per beam weapon.
         },
         Trajectory = new AmmoTrajectory
         {

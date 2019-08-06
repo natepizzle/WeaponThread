@@ -91,9 +91,9 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 0f,
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectRadius = 5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
@@ -103,6 +103,7 @@ namespace WeaponThread
             VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+            OneParticle = true, // Only spawn one particle hit per beam weapon.
         },
         Trajectory = new AmmoTrajectory
         {
