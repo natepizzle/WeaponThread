@@ -42,7 +42,6 @@ namespace WeaponThread
         {
             RateOfFire = 500,
             BarrelsPerShot = 1,
-            FakeBarrels = Options(enable: true, converge: true),
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -97,7 +96,13 @@ namespace WeaponThread
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
-
+        Beams = new BeamDefinition
+        {
+            Enable = false,
+            VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
+            RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+        },
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,

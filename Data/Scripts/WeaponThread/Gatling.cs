@@ -43,7 +43,6 @@ namespace WeaponThread
         {
             RateOfFire = 3600,
             BarrelsPerShot = 6,
-            FakeBarrels = Options(enable: true, converge: true), // use virtual barrels to save performance at the cost of hit accuracy, converge beams to save even more performance (One particle hit)
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -92,13 +91,19 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 5f,
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectRadius = 0f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
-
+        Beams = new BeamDefinition
+        {
+            Enable = true,
+            VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
+            RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+        },
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,

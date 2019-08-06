@@ -41,13 +41,12 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 120,
+            RateOfFire = 30,
             BarrelsPerShot = 1,
-            FakeBarrels = Options(enable: true, converge: true), 
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 300,
-            DelayUntilFire = 0,
+            DelayUntilFire = 9999,
             HeatPerShot = 1, //heat generated per shot
             MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -84,7 +83,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 500f, 		// how much damage the projectile does
+        BaseDamage = 50f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 0,
         BackKickForce = 2.5f,
@@ -93,12 +92,18 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 500, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 7.5f,
+            AreaEffectDamage = 50, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 25f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 25),
         },
-
+        Beams = new BeamDefinition
+        {
+            Enable = false,
+            VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
+            RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+        },
         Trajectory = new AmmoTrajectory
         {
             Guidance = Smart,
