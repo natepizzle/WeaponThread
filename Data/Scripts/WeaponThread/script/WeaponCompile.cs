@@ -65,6 +65,11 @@ namespace WeaponThread
             return new Session.ObjectsHit { MaxObjectsHit = maxObjectsHit, CountBlocks = countBlocks };
         }
 
+        internal Session.Shrapnel Options(float baseDamage, int fragments, float maxTrajectory, float mass)
+        {
+            return new Session.Shrapnel { BaseDamage = baseDamage, Fragments = fragments, MaxTrajectory = maxTrajectory, Mass = mass};
+        }
+
         internal Session.CustomScalesDefinition Options(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
         {
             return new Session.CustomScalesDefinition {IgnoreAllOthers = ignoreOthers, Types = customDefScale};

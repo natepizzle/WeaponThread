@@ -88,6 +88,7 @@ namespace WeaponThread
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+        Shrapnel = Options(baseDamage: 1, fragments: 1, maxTrajectory: 100, mass: 10),
 
         AreaEffect = new AreaDamage
         {

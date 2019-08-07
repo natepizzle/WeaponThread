@@ -172,6 +172,7 @@ namespace WeaponThread
             [ProtoMember(6)] internal AmmoTrajectory Trajectory;
             [ProtoMember(7)] internal AreaDamage AreaEffect;
             [ProtoMember(8)] internal BeamDefinition Beams;
+            [ProtoMember(9)] internal Shrapnel Shrapnel;
         }
 
         [ProtoContract]
@@ -259,6 +260,15 @@ namespace WeaponThread
             [ProtoMember(4)] internal double TrackingDelay;
             [ProtoMember(5)] internal int MaxChaseTime;
             [ProtoMember(6)] internal bool OverideTarget;
+        }
+
+        [ProtoContract]
+        public struct Shrapnel
+        {
+            [ProtoMember(1)] internal float BaseDamage;
+            [ProtoMember(2)] internal int Fragments;
+            [ProtoMember(3)] internal float MaxTrajectory;
+            [ProtoMember(4)] internal float Mass;
         }
 
         [ProtoContract]
