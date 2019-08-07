@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Data",
+    "\\Data\\Scripts",
+    "\\Data\\Scripts\\WeaponThread",
+    "\\Data\\Scripts\\WeaponThread\\script"
   ],
+  "SelectedNode": "\\Data\\Scripts\\WeaponThread\\GazerBeam.cs",
   "PreviewInSolutionExplorer": false
 }

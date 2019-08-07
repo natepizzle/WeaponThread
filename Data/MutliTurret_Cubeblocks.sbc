@@ -92,6 +92,61 @@
       <MaxRangeMeters>800</MaxRangeMeters>
       <PCU>225</PCU>
     </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>DronePod</SubtypeId>
+      </Id>
+      <DisplayName>Drone Pod</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\missile_turret.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="3" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\BeamGenerator_Large.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="LargeTube" Count="3" />
+        <Component Subtype="MetalGrid" Count="4" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="300" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="SteelPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0.20" StartY="0.20" EndX="0.80" EndY="0.80" />
+        <MountPoint Side="Back" StartX="0.20" StartY="0.20" EndX="0.80" EndY="0.80" />
+        <MountPoint Side="Left" StartX="1.20" StartY="0.20" EndX="1.80" EndY="0.80" />
+        <MountPoint Side="Right" StartX="1.20" StartY="0.20" EndX="1.80" EndY="0.80" />
+        <MountPoint Side="Bottom" StartX="0.20" StartY="1.20" EndX="0.80" EndY="1.80" />
+        <MountPoint Side="Top" StartX="0.20" StartY="1.20" EndX="0.80" EndY="1.80" />
+      </MountPoints>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <BlockPairName>DronePod</BlockPairName>
+      <Description>testing</Description>
+      <EdgeType>Light</EdgeType>
+      <EmissiveColorPreset>Extended</EmissiveColorPreset>
+      <BuildTimeSeconds>30</BuildTimeSeconds>
+      <WeaponDefinitionId Subtype="DronePod" />
+      <InventoryMaxVolume>0.384</InventoryMaxVolume>
+      <MinElevationDegrees>0</MinElevationDegrees>
+      <MaxElevationDegrees>0</MaxElevationDegrees>
+      <MinAzimuthDegrees>0</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>0</MaxAzimuthDegrees>
+      <RotationSpeed>0.006</RotationSpeed>
+      <ElevationSpeed>0.006</ElevationSpeed>
+      <MaxRangeMeters>2000</MaxRangeMeters>
+      <IdlePower>2</IdlePower>
+      <UsePower>6</UsePower>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <PCU>225</PCU>
+    </Definition>    
 	
 <!-- Multi Turret Platform 
 

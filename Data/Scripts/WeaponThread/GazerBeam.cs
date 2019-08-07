@@ -33,7 +33,7 @@ namespace WeaponThread
         RotateSpeed = 0.04f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
-        EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        EnergyCost = 0.01f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -82,7 +82,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 10f,
+        BaseDamage = 10000f,
         Mass = 0.1f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -110,8 +110,8 @@ namespace WeaponThread
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 0f,
-            DesiredSpeed = 0f,
+            AccelPerSec = 1f,
+            DesiredSpeed = 10f,
             MaxTrajectory = 3000f,
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
