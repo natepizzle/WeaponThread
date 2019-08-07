@@ -98,10 +98,10 @@ namespace WeaponThread
         },
         Beams = new BeamDefinition
         {
-            Enable = false,
-            VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            Enable = true,
+            VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
-            RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+            RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
             OneParticle = true, // Only spawn one particle hit per beam weapon.
         },
         Trajectory = new AmmoTrajectory

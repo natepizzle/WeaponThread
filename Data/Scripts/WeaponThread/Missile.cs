@@ -83,7 +83,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 50f, 		// how much damage the projectile does
+        BaseDamage = 15000f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 0,
         BackKickForce = 2.5f,
@@ -92,10 +92,10 @@ namespace WeaponThread
         AreaEffect = new AreaDamage
         {
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 50, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 25f,
+            AreaEffectDamage = 0, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 7.5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: false, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 25),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 17),
         },
         Beams = new BeamDefinition
         {
