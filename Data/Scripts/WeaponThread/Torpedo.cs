@@ -78,7 +78,7 @@ namespace WeaponThread
         Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-        Custom = Options(false),
+        Custom = SubTypeIds(false),
     },
     Ammo = new AmmoDefinition
     {
@@ -172,6 +172,13 @@ namespace WeaponThread
             Width = 0.04f,
             ColorVariance = Random(start: 1, end: 2),
             WidthVariance = Random(start: -0.025f, end: 0.025f),
+        },
+        Emissive = new EmissiveDefinition
+        {
+            Heating = Options(enable: true),
+            Tracking = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
+            Reloading = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1), pulse: false),
+            Firing = Options(enable: true, stages: 1, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
         },
     },
     Audio = new AudioDefinition
