@@ -268,7 +268,6 @@ namespace WeaponThread
             [ProtoMember(1)] internal float BaseDamage;
             [ProtoMember(2)] internal int Fragments;
             [ProtoMember(3)] internal float MaxTrajectory;
-            [ProtoMember(4)] internal float Mass;
         }
 
         [ProtoContract]
@@ -279,6 +278,7 @@ namespace WeaponThread
             [ProtoMember(3)] internal string ModelName;
             [ProtoMember(4)] internal ParticleDefinition Particles;
             [ProtoMember(5)] internal LineDefinition Line;
+            [ProtoMember(6)] internal EmissiveDefinition Emissive;
         }
 
         [ProtoContract]
@@ -319,6 +319,43 @@ namespace WeaponThread
             [ProtoMember(5)] internal Vector4 Color;
             [ProtoMember(6)] internal Randomize ColorVariance;
             [ProtoMember(7)] internal Randomize WidthVariance;
+        }
+
+        [ProtoContract]
+        public struct EmissiveDefinition
+        {
+            [ProtoMember(1)] internal HeatingEmissive Heating;
+            [ProtoMember(2)] internal TrackingEmissive Tracking;
+            [ProtoMember(3)] internal FiringEmissive Firing;
+            [ProtoMember(4)] internal ReloadingEmissive Reloading;
+        }
+
+        [ProtoContract]
+        public struct HeatingEmissive
+        {
+            [ProtoMember(1)] internal bool Enable;
+        }
+
+        [ProtoContract]
+        public struct TrackingEmissive
+        {
+            [ProtoMember(1)] internal bool Enable;
+            [ProtoMember(2)] internal Vector4 Color;
+        }
+
+        [ProtoContract]
+        public struct FiringEmissive
+        {
+            [ProtoMember(1)] internal bool Enable;
+            [ProtoMember(2)] internal int Stages;
+            [ProtoMember(3)] internal Vector4 Color;
+        }
+
+        [ProtoContract]
+        public struct ReloadingEmissive
+        {
+            [ProtoMember(1)] internal bool Enable;
+            [ProtoMember(2)] internal Vector4 Color;
         }
 
         [ProtoContract]

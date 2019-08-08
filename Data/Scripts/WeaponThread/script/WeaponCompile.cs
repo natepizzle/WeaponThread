@@ -65,12 +65,32 @@ namespace WeaponThread
             return new Session.ObjectsHit { MaxObjectsHit = maxObjectsHit, CountBlocks = countBlocks };
         }
 
-        internal Session.Shrapnel Options(float baseDamage, int fragments, float maxTrajectory, float mass)
+        internal Session.Shrapnel Options(float baseDamage, int fragments, float maxTrajectory)
         {
-            return new Session.Shrapnel { BaseDamage = baseDamage, Fragments = fragments, MaxTrajectory = maxTrajectory, Mass = mass};
+            return new Session.Shrapnel { BaseDamage = baseDamage, Fragments = fragments, MaxTrajectory = maxTrajectory };
         }
 
-        internal Session.CustomScalesDefinition Options(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
+        internal Session.HeatingEmissive Options(bool enable)
+        {
+            return new Session.HeatingEmissive { Enable = enable};
+        }
+
+        internal Session.FiringEmissive Options(bool enable, int stages, Vector4 color)
+        {
+            return new Session.FiringEmissive { Enable = enable, Color = color };
+        }
+
+        internal Session.TrackingEmissive Options(bool enable, Vector4 color)
+        {
+            return new Session.TrackingEmissive { Enable = enable, Color = color };
+        }
+
+        internal Session.ReloadingEmissive Options(bool enable, Vector4 color, bool pulse)
+        {
+            return new Session.ReloadingEmissive { Enable = enable, Color = color };
+        }
+
+        internal Session.CustomScalesDefinition SubTypeIds(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
         {
             return new Session.CustomScalesDefinition {IgnoreAllOthers = ignoreOthers, Types = customDefScale};
         }
