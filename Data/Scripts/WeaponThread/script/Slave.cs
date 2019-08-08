@@ -268,7 +268,6 @@ namespace WeaponThread
             [ProtoMember(1)] internal float BaseDamage;
             [ProtoMember(2)] internal int Fragments;
             [ProtoMember(3)] internal float MaxTrajectory;
-            [ProtoMember(4)] internal float Mass;
         }
 
         [ProtoContract]

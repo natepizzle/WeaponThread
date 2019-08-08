@@ -87,7 +87,7 @@ namespace WeaponThread
         Health = 0,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-        Shrapnel = Options(baseDamage: 1, fragments: 1, maxTrajectory: 100, mass: 10),
+        Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100),
 
         AreaEffect = new AreaDamage
         {
