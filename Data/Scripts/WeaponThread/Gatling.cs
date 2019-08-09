@@ -3,6 +3,7 @@ using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
+using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -46,7 +47,7 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            DelayUntilFire = 9999, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             HeatPerShot = 1, //heat generated per shot
             MaxHeat = 37000, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -88,7 +89,7 @@ namespace WeaponThread
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-        Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100),
+        Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, shape: HalfMoon), // Cone, HalfMoon, FullMoon
 
         AreaEffect = new AreaDamage
         {

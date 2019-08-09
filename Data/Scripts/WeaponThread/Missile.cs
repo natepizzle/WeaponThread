@@ -3,6 +3,7 @@ using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
+using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -32,7 +33,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 0f,
+        DeviateShotAngle = 15f,
         AimingTolerance = 5f,
         EnergyCost = 0,
         RotateBarrelAxis = 0,
@@ -88,7 +89,7 @@ namespace WeaponThread
         Health = 0,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-        Shrapnel = Options(baseDamage: 1000, fragments: 10, maxTrajectory: 100),
+        Shrapnel = Options(baseDamage: 500, fragments: 100, maxTrajectory: 600, shape: FullMoon),
 
         AreaEffect = new AreaDamage
         {
@@ -96,7 +97,7 @@ namespace WeaponThread
             AreaEffectDamage = 0, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 7.5f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 17),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },
         Beams = new BeamDefinition
         {
@@ -111,16 +112,16 @@ namespace WeaponThread
             Guidance = Smart,
             TargetLossDegree = 80f,
             TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 50f,
-            DesiredSpeed = 1500f,
+            AccelPerSec = 5000f,
+            DesiredSpeed = 300f,
             MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0),
-            RangeVariance = Random(start: 0, end: 0),
+            RangeVariance = Random(start: 4500, end: 4500),
             Smarts = new Smarts
             {
                 Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
-                Aggressiveness = 1f, // controls how responsive tracking is.
-                MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
+                Aggressiveness = 10f, // controls how responsive tracking is.
+                MaxLateralThrust = 1, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
@@ -168,7 +169,7 @@ namespace WeaponThread
         {
             Trail = false,
             Material = "ProjectileTrailLine",
-            Color = Color(red: 6, green: 6, blue: 6, alpha: 1),
+            Color = Color(red: 30, green: 0, blue: 30, alpha: 1),
             Length = 1f,
             Width = 0.1f,
             ColorVariance = Random(start: 1, end: 3),
