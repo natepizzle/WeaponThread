@@ -178,9 +178,9 @@ namespace WeaponThread
         Emissive = new EmissiveDefinition
         {
             Heating = Options(enable: true),
-            Tracking = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
-            Reloading = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1), pulse: false),
-            Firing = Options(enable: true, stages: 1, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
+            Tracking = Options(enable: true, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
+            Reloading = Options(enable: true, color: Color(red: 1, green: 0, blue: 0, alpha: 1), pulse: false),
+            Firing = Options(enable: true, stages: 6, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
         },
     },
     Audio = new AudioDefinition
