@@ -3,6 +3,7 @@ using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
+using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -83,20 +84,20 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 15000f, 		// how much damage the projectile does
+        BaseDamage = 500f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 0,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-        Shrapnel = Options(baseDamage: 1000, fragments: 10, maxTrajectory: 100),
+        Shrapnel = Options(baseDamage: 500, fragments: 100, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 7.5f,
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 0f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: true, detonationDamage: 50000, detonationRadius: 17),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },
         Beams = new BeamDefinition
         {
@@ -111,11 +112,11 @@ namespace WeaponThread
             Guidance = Smart,
             TargetLossDegree = 80f,
             TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 50f,
-            DesiredSpeed = 1500f,
+            AccelPerSec = 25f,
+            DesiredSpeed = 300f,
             MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0),
-            RangeVariance = Random(start: 0, end: 0),
+            RangeVariance = Random(start: 4500, end: 4500),
             Smarts = new Smarts
             {
                 Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
@@ -168,7 +169,7 @@ namespace WeaponThread
         {
             Trail = false,
             Material = "ProjectileTrailLine",
-            Color = Color(red: 6, green: 6, blue: 6, alpha: 1),
+            Color = Color(red: 30, green: 0, blue: 30, alpha: 1),
             Length = 1f,
             Width = 0.1f,
             ColorVariance = Random(start: 1, end: 3),
@@ -177,9 +178,9 @@ namespace WeaponThread
         Emissive = new EmissiveDefinition
         {
             Heating = Options(enable: true),
-            Tracking = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
-            Reloading = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1), pulse: false),
-            Firing = Options(enable: true, stages: 1, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
+            Tracking = Options(enable: true, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
+            Reloading = Options(enable: true, color: Color(red: 1, green: 0, blue: 0, alpha: 1), pulse: false),
+            Firing = Options(enable: true, stages: 6, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
         },
     },
     Audio = new AudioDefinition
