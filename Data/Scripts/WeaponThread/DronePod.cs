@@ -81,7 +81,7 @@ namespace WeaponThread
                 Shields = Options(modifier: .01f, type: Energy), // Types: Kinetic, Energy, Emp or Bypass
 
                 // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-                Custom = Options(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
+                Custom = SubTypeIds(false),
             },
             Ammo = new AmmoDefinition
             {
@@ -90,7 +90,7 @@ namespace WeaponThread
                 Health = 1, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-                Shrapnel = Options(baseDamage: 1, fragments: 1, maxTrajectory: 100, mass: 10),
+                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100),
 
                 AreaEffect = new AreaDamage
                 {
