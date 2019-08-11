@@ -33,7 +33,7 @@ namespace WeaponThread
         TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
-        DeviateShotAngle = 0f,
+        DeviateShotAngle = 25f,
         AimingTolerance = 5f,
         EnergyCost = 0,
         RotateBarrelAxis = 0,
@@ -86,7 +86,7 @@ namespace WeaponThread
     {
         BaseDamage = 500f, 		// how much damage the projectile does
         Mass = 2500f,
-        Health = 0,
+        Health = 1,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 500, fragments: 100, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
@@ -116,7 +116,7 @@ namespace WeaponThread
             DesiredSpeed = 300f,
             MaxTrajectory = 5000f,
             SpeedVariance = Random(start: 0, end: 0),
-            RangeVariance = Random(start: 4500, end: 4500),
+            RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
                 Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
