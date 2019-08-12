@@ -31,8 +31,8 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = true,
         TrackTargets = true,
-        ElevationSpeed = 0.01f,
-        RotateSpeed = 0.01f,
+        ElevationSpeed = 0.1f,
+        RotateSpeed = 0.1f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -53,8 +53,8 @@ namespace WeaponThread
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
             DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-            ShotsInBurst = 600,
-            DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 0,
+            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Targeting = new TargetingDefinition
@@ -84,7 +84,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 10f,
+        BaseDamage = 1f,
         Mass = 10000f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -102,7 +102,7 @@ namespace WeaponThread
         Beams = new BeamDefinition
         {
             Enable = true,
-            VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
             OneParticle = true, // Only spawn one particle hit per beam weapon.
@@ -169,7 +169,7 @@ namespace WeaponThread
         {
             Trail = true,
             Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-            Color = Color(red: 32, green: 32, blue: 128, alpha: 1),
+            Color = Color(red: 8, green: 8, blue: 64, alpha: 8),
             Length = 1f,
             Width = 0.05f,
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
