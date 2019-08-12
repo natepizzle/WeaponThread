@@ -3,6 +3,7 @@ using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
+using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -43,7 +44,7 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 400,
+                    RateOfFire = 300,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
@@ -64,7 +65,7 @@ namespace WeaponThread
                 {
                     Systems = Priority(Power, Defense, Navigation, Offense, Production), //define block type targeting order
                     SubSystemPriority = true,
-                    ClosestFirst = false, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
+                    ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
                 },
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
@@ -76,8 +77,8 @@ namespace WeaponThread
 
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
-                Grids = Options(largeGridModifier: 10f, smallGridModifier: -5f),
-                Armor = Options(armor: 1f, light: .1f, heavy: 100f, nonArmor: .04f),
+                Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
+                Armor = Options(armor: 1f, light: .1f, heavy: 70f, nonArmor: .04f),
                 Shields = Options(modifier: .01f, type: Energy), // Types: Kinetic, Energy, Emp or Bypass
 
                 // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
@@ -87,10 +88,10 @@ namespace WeaponThread
             {
                 BaseDamage = 200000f,
                 Mass = 100f, // in kilograms
-                Health = 1, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100),
+                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
                 {
@@ -98,7 +99,7 @@ namespace WeaponThread
                     AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
                     AreaEffectRadius = 100f,
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "Energy_Explosion", customSound: ""),
-                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 2000, detonationRadius: 5),
+                    Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000, detonationRadius: 5),
                 },
                 Beams = new BeamDefinition
                 {

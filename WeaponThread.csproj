@@ -114,6 +114,7 @@
     <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Scripts\WeaponThread\DronePod.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
     <Compile Include="Data\Scripts\WeaponThread\GazerBeam.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
