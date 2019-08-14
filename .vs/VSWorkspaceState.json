@@ -6,6 +6,6 @@
     "\\Data\\Scripts\\WeaponThread",
     "\\Data\\Scripts\\WeaponThread\\script"
   ],
-  "SelectedNode": "\\Data\\Scripts\\WeaponThread\\script\\Slave.cs",
+  "SelectedNode": "\\Data\\Scripts\\WeaponThread\\MasterConfig.cs",
   "PreviewInSolutionExplorer": false
 }

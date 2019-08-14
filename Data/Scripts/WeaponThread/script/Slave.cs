@@ -143,6 +143,7 @@ namespace WeaponThread
             [ProtoMember(1)] internal int TopTargets;
             [ProtoMember(2)] internal int TopBlocks;
             [ProtoMember(3)] internal SubSystemDefinition SubSystems;
+            [ProtoMember(4)] internal bool onlyTargetProjectiles;
         }
 
         [ProtoContract]
@@ -161,6 +162,7 @@ namespace WeaponThread
             [ProtoMember(1)] internal BlockTypes[] Systems;
             [ProtoMember(2)] internal bool SubSystemPriority;
             [ProtoMember(3)] internal bool ClosestFirst;
+            [ProtoMember(4)] internal bool onlyTargetSubSystems;
         }
 
         [ProtoContract]

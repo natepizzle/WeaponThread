@@ -36,10 +36,10 @@ namespace WeaponThread
                 ElevationSpeed = 0.04f,
                 RotateSpeed = 0.04f,
                 DeviateShotAngle = 0f,
-                AimingTolerance = 4f, // 0 - 180 firing angle
+                AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.0002f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
-                EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with shields and thrusters, 2 = Highest Does not share power will use all available power until energy requirements met
+                EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -68,9 +68,11 @@ namespace WeaponThread
                     Systems = Priority(Power, Defense, Navigation, Offense, Production), //define block type targeting order
                     SubSystemPriority = true,
                     ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
+                    onlyTargetSubSystems = false, //will not target other blocks if not in Priorities list
                 },
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+                onlyTargetProjectiles = false, //point defense weapons, only targets projectiles
             },
             DamageScales = new DamageScaleDefinition
             {
@@ -90,7 +92,7 @@ namespace WeaponThread
             {
                 BaseDamage = 200000f,
                 Mass = 100f, // in kilograms
-                Health = 100, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),

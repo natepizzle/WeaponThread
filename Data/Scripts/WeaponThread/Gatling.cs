@@ -40,7 +40,7 @@ namespace WeaponThread
                 AimingTolerance = 4f, // 0 - 180 firing angle
                 EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
-                EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with shields and thrusters, 2 = Highest Does not share power will use all available power until energy requirements met
+                EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -69,9 +69,11 @@ namespace WeaponThread
                     Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
                     SubSystemPriority = true,
                     ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
+                    onlyTargetSubSystems = false, //will not target other blocks if not in Priorities list
                 },
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+                onlyTargetProjectiles = false, //point defense weapons, only targets projectiles
             },
             DamageScales = new DamageScaleDefinition
             {

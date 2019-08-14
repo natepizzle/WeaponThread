@@ -147,8 +147,6 @@
             <!--OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture-->
             <WeaponDefinitionId Subtype="MA_PDX" />
             <InventoryMaxVolume>0.384</InventoryMaxVolume>
-            
-            <ResourceSinkGroup>Defense</ResourceSinkGroup>
             <MinElevationDegrees>-30</MinElevationDegrees>
             <MaxElevationDegrees>90</MaxElevationDegrees>
             <MinAzimuthDegrees>-180</MinAzimuthDegrees>
