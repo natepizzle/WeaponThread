@@ -81,7 +81,7 @@ namespace WeaponThread
 
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
-                Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
+                Grids = Options(largeGridModifier: 10f, smallGridModifier: 5f),
                 Armor = Options(armor: 1f, light: .1f, heavy: 70f, nonArmor: .04f),
                 Shields = Options(modifier: .01f, type: Energy), // Types: Kinetic, Energy, Emp or Bypass
 
@@ -92,7 +92,7 @@ namespace WeaponThread
             {
                 BaseDamage = 200000f,
                 Mass = 100f, // in kilograms
-                Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 8000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
@@ -127,7 +127,7 @@ namespace WeaponThread
                     {
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.1f, // controls how sharp the trajectile may turn
+                        MaxLateralThrust = 0.15f, // controls how sharp the trajectile may turn
                         TrackingDelay = 500, // Measured in line length units traveled.
                         MaxChaseTime = 900, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
