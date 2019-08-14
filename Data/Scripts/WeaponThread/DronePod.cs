@@ -15,9 +15,9 @@ namespace WeaponThread
             Assignments = new ModelAssignments
             {
                 MountPoints = new[]
-{
-            MountPoint(subTypeId: "DronePod", subPartId: "MissileTurretBarrels"),
-        },
+                {
+                    MountPoint(subTypeId: "DronePod", subPartId: "MissileTurretBarrels"),
+                },
                 Barrels = Names("muzzle_missile_001")
             },
             Ui = new UiDefinition
@@ -38,6 +38,8 @@ namespace WeaponThread
                 DeviateShotAngle = 0f,
                 AimingTolerance = 4f, // 0 - 180 firing angle
                 EnergyCost = 0.0002f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+                Hybrid = false, //projectile based weapon with energy cost
+                EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with shields and thrusters, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -88,7 +90,7 @@ namespace WeaponThread
             {
                 BaseDamage = 200000f,
                 Mass = 100f, // in kilograms
-                Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 100, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),

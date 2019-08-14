@@ -34,7 +34,9 @@ namespace WeaponThread
         RotateSpeed = 0.04f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
-        EnergyCost = 0.01f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        EnergyCost = 0.0001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        Hybrid = false, //projectile based weapon with energy cost
+        EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with shields and thrusters, 2 = Highest Does not share power will use all available power until energy requirements met
         RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).

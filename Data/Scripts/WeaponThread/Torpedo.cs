@@ -35,6 +35,8 @@ namespace WeaponThread
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 0,
+        Hybrid = true, //projectile based weapon with energy cost
+        EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with shields and thrusters, 2 = Highest Does not share power will use all available power until energy requirements met
         RotateBarrelAxis = 0,
         AimLeadingPrediction = Advanced,
         DelayCeaseFire = 120,
