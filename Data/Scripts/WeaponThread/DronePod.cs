@@ -10,16 +10,15 @@ namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons
     {
-        WeaponDefinition Gatling => new WeaponDefinition
+        WeaponDefinition DronePod => new WeaponDefinition
         {
             Assignments = new ModelAssignments
             {
                 MountPoints = new[]
-{
-            MountPoint(subTypeId: "PDCTurretLB", subPartId: "Boomsticks"),
-            MountPoint(subTypeId: "PDCTurretSB", subPartId: "Boomsticks"),
-        },
-                Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
+                {
+                    MountPoint(subTypeId: "DronePod", subPartId: "MissileTurretBarrels"),
+                },
+                Barrels = Names("muzzle_missile_001")
             },
             Ui = new UiDefinition
             {
@@ -29,44 +28,44 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                DefinitionId = "Gatling",
+                DefinitionId = "DronePod",
                 AmmoMagazineId = "Blank",
-                IsTurret = true,
+                IsTurret = false,
                 TurretController = true,
                 TrackTargets = true,
-                ElevationSpeed = 0.1f,
-                RotateSpeed = 0.1f,
+                ElevationSpeed = 0.04f,
+                RotateSpeed = 0.04f,
                 DeviateShotAngle = 0f,
-                AimingTolerance = 4f, // 0 - 180 firing angle
-                EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+                AimingTolerance = 180f, // 0 - 180 firing angle
+                EnergyCost = 0.0002f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
-                RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+                AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 3600,
-                    BarrelsPerShot = 6,
+                    RateOfFire = 300,
+                    BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    HeatPerShot = 1, //heat generated per shot
-                    MaxHeat = 37000, //max heat before weapon enters cooldown (70% of max heat)
+                    HeatPerShot = 0, //heat generated per shot
+                    MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 200, //amount of heat lost per second
-                    DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 0,
-                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DegradeROF = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    ShotsInBurst = 10,
+                    DelayAfterBurst = 1000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
             Targeting = new TargetingDefinition
             {
                 SubSystems = new SubSystemDefinition()
                 {
-                    Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
+                    Systems = Priority(Power, Defense, Navigation, Offense, Production), //define block type targeting order
                     SubSystemPriority = true,
                     ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
                     onlyTargetSubSystems = false, //will not target other blocks if not in Priorities list
@@ -82,62 +81,62 @@ namespace WeaponThread
 
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
-                Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
-                Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-                Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+                Grids = Options(largeGridModifier: 10f, smallGridModifier: 5f),
+                Armor = Options(armor: 1f, light: .1f, heavy: 70f, nonArmor: .04f),
+                Shields = Options(modifier: .01f, type: Energy), // Types: Kinetic, Energy, Emp or Bypass
 
-                // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-                Custom = SubTypeIds(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
+                // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
+                Custom = SubTypeIds(false),
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 1f,
-                Mass = 10000f, // in kilograms
-                Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                BaseDamage = 200000f,
+                Mass = 100f, // in kilograms
+                Health = 9000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
-                ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+                ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
                 {
-                    AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-                    AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 5f,
-                    Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
-                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
+                    AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+                    AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                    AreaEffectRadius = 100f,
+                    Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "Energy_Explosion", customSound: ""),
+                    Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000, detonationRadius: 5),
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
+                    Enable = false,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
-                    RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
-                    OneParticle = true, // Only spawn one particle hit per beam weapon.
+                    RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+                    OneParticle = false, // Only spawn one particle hit per beam weapon.
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = None,
+                    Guidance = Smart,
                     TargetLossDegree = 80f,
-                    TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 0f,
-                    DesiredSpeed = 0f,
-                    MaxTrajectory = 5000f,
+                    TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    AccelPerSec = 70f,
+                    DesiredSpeed = 80f,
+                    MaxTrajectory = 3000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
                     {
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                        TrackingDelay = 1, // Measured in line length units traveled.
-                        MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                        MaxLateralThrust = 0.15f, // controls how sharp the trajectile may turn
+                        TrackingDelay = 500, // Measured in line length units traveled.
+                        MaxChaseTime = 900, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
             },
             Graphics = new GraphicDefinition
             {
-                ModelName = "",
+                ModelName = "\\Models\\Weapons\\Drone_Projectile.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
@@ -145,16 +144,16 @@ namespace WeaponThread
                     Ammo = new Particle
                     {
                         Name = "ShipWelderArc",
-                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
-                        Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
+                        Color = Color(red: 245, green: 200, blue: 66, alpha: .02f),//245, 200, 66
+                        Offset = Vector(x: 0, y: 0, z: -0.5),
+                        Extras = Options(loop: true, restart: false, distance: 800, duration: 12, scale: 1.1f)
                     },
                     Hit = new Particle
                     {
-                        Name = "ShipWelderArc",
-                        Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
+                        Name = "", //"MaterialHit_Metal_GatlingGun",
+                        Color = Color(red: 10, green: 1, blue: 0, alpha: 2),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f),
+                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.2f),
                     },
                     Barrel1 = new Particle
                     {
@@ -174,20 +173,13 @@ namespace WeaponThread
 
                 Line = new LineDefinition
                 {
-                    Trail = true,
+                    Trail = false,
                     Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-                    Color = Color(red: 8, green: 8, blue: 64, alpha: 8),
-                    Length = 1f,
-                    Width = 0.05f,
-                    ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
-                },
-                Emissive = new EmissiveDefinition
-                {
-                    Heating = Options(enable: true),
-                    Tracking = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
-                    Reloading = Options(enable: true, color: Color(red: 255, green: 0, blue: 0, alpha: 1), pulse: false),
-                    Firing = Options(enable: true, stages: 1, color: Color(red: 255, green: 0, blue: 0, alpha: 1)),
+                    Color = Color(red: 2, green: 2, blue: 30, alpha: 1),
+                    Length = .01f,
+                    Width = .01f,
+                    ColorVariance = Random(start: 1f, end: 1f), // multiply the color by random values within range.
+                    WidthVariance = Random(start: 0f, end: 0f), // adds random value to default width (negatives shrinks width)
                 },
             },
             Audio = new AudioDefinition

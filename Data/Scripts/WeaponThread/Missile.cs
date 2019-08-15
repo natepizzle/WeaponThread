@@ -34,8 +34,10 @@ namespace WeaponThread
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 25f,
-        AimingTolerance = 4f,
-        EnergyCost = 0,
+        AimingTolerance = 10f,
+        EnergyCost = 10,
+        Hybrid = false, //projectile based weapon with energy cost
+        EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
         RotateBarrelAxis = 0,
         AimLeadingPrediction = Advanced,
         DelayCeaseFire = 0,
@@ -64,9 +66,11 @@ namespace WeaponThread
             Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
             SubSystemPriority = true,
             ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
+            onlyTargetSubSystems = false, //will not target other blocks if not in Priorities list
         },
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+        onlyTargetProjectiles = false, //point defense weapons, only targets projectiles
     },
     DamageScales = new DamageScaleDefinition
     {
@@ -84,7 +88,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 10000f, 		// how much damage the projectile does
+        BaseDamage = 1f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 240,
         BackKickForce = 2.5f,
@@ -93,9 +97,9 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 3f,
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 0f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },
@@ -119,7 +123,7 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 5f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.

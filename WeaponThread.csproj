@@ -67,6 +67,9 @@
     <None Include="Data\BlueprintClasses_PDC.sbc" />
     <None Include="Data\CubeBlocks_PDC.sbc" />
     <None Include="Data\EntityComponents.sbc" />
+    <None Include="Data\MA_Laser2_BlockCategories.sbc" />
+    <None Include="Data\MA_Laser2_CubeBlocks.sbc" />
+    <None Include="Data\MA_Laser2_Weapons.sbc" />
     <None Include="Data\Particles_PDC.sbc" />
     <None Include="Data\Weapons.sbc" />
     <None Include="Models\Ammo\DeURounds.mwm" />
@@ -114,8 +117,10 @@
     <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Scripts\WeaponThread\DronePod.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
     <Compile Include="Data\Scripts\WeaponThread\GazerBeam.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\MA_PDX.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Missile.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\Slave.cs" />
