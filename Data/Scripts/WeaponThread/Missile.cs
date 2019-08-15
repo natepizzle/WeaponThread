@@ -34,7 +34,7 @@ namespace WeaponThread
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 25f,
-        AimingTolerance = 10f,
+        AimingTolerance = 4f,
         EnergyCost = 0,
         RotateBarrelAxis = 0,
         AimLeadingPrediction = Advanced,
@@ -84,7 +84,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 1f, 		// how much damage the projectile does
+        BaseDamage = 10000f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 240,
         BackKickForce = 2.5f,
@@ -93,9 +93,9 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 0f,
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 3f,
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },
@@ -119,7 +119,7 @@ namespace WeaponThread
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
             {
-                Inaccuracy = 15f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
+                Inaccuracy = 5f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 5, // Measured in line length units traveled.
