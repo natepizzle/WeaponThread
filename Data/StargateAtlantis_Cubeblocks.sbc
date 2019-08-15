@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TransparentMaterials>
+         <TransparentMaterial>
+          <Id>
+              <TypeId>TransparentMaterialDefinition</TypeId>
+              <SubtypeId>EnergyAmmoGlass</SubtypeId>
+          </Id>      
+          <AlphaMistingEnable>false</AlphaMistingEnable>
+          <AlphaSaturation>1</AlphaSaturation>
+          <CanBeAffectedByOtherLights>true</CanBeAffectedByOtherLights>
+          <IgnoreDepth>false</IgnoreDepth>
+		  <UseAtlas>false</UseAtlas>
+          <SoftParticleDistanceScale>1</SoftParticleDistanceScale>
+          <Texture>Textures\Particles\SemiTintGlass_ca.dds</Texture>
+          <GlossTexture>Textures\Models\Cubes\Chrome_ng.dds</GlossTexture>
+        <ShadowMultiplier>
+            <X>3</X>
+            <Y>3</Y>
+            <Z>3</Z>
+            <W>1</W>
+        </ShadowMultiplier>
+        <LightMultiplier>
+            <X>0.4</X>
+            <Y>0.4</Y>
+            <Z>0.4</Z>
+            <W>3</W>
+        </LightMultiplier>
+        <Reflectivity>1.0</Reflectivity>
+        <Fresnel>2.0</Fresnel>
+        <ReflectionShadow>0.25</ReflectionShadow>
+        <TriangleFaceCulling>false</TriangleFaceCulling>
+        <SoftParticleDistanceScale>20</SoftParticleDistanceScale>
+        <SpecularColorFactor>10</SpecularColorFactor>
+        <Gloss>4.4</Gloss>
+      </TransparentMaterial>
+  </TransparentMaterials>
+  <CubeBlocks>
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>DronePod</SubtypeId>
+      </Id>
+      <DisplayName>Drone Launcher Bay</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\missile_turret.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="5" y="2" z="5" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\AncientDroneLaunchBay.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="LargeTube" Count="3" />
+        <Component Subtype="MetalGrid" Count="4" />
+        <Component Subtype="Motor" Count="8" />
+        <Component Subtype="Computer" Count="300" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="SteelPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+		<MountPoint Side="Front" StartX="0.01" StartY="0.02" EndX="4.97" EndY="0.98" />
+		<MountPoint Side="Back" StartX="0.03" StartY="0.02" EndX="4.99" EndY="0.98" />
+		<MountPoint Side="Left" StartX="0.02" StartY="0.02" EndX="4.98" EndY="0.98" />
+		<MountPoint Side="Right" StartX="0.02" StartY="0.02" EndX="4.98" EndY="0.98" />
+		<MountPoint Side="Bottom" StartX="0.02" StartY="0.02" EndX="4.98" EndY="4.98" />
+      </MountPoints>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <BlockPairName>DronePod</BlockPairName>
+      <Description>testing</Description>
+      <EdgeType>Light</EdgeType>
+      <EmissiveColorPreset>Extended</EmissiveColorPreset>
+      <BuildTimeSeconds>30</BuildTimeSeconds>
+      <WeaponDefinitionId Subtype="DronePod" />
+      <InventoryMaxVolume>0.384</InventoryMaxVolume>
+      <MinElevationDegrees>5</MinElevationDegrees>
+      <MaxElevationDegrees>90</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <RotationSpeed>0.006</RotationSpeed>
+      <ElevationSpeed>0.006</ElevationSpeed>
+      <MaxRangeMeters>2000</MaxRangeMeters>
+      <IdlePower>2</IdlePower>
+      <UsePower>6</UsePower>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <PCU>225</PCU>
+    </Definition>    
+  </CubeBlocks>
+  <BlueprintClassEntries>
+   
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="DroneLaunchBay" />
+    <Entry Class="Ammo" BlueprintSubtypeId="Blank" />
+  </BlueprintClassEntries>
+</Definitions>
