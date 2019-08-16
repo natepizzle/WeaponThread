@@ -144,6 +144,7 @@ namespace WeaponThread
             [ProtoMember(2)] internal int TopBlocks;
             [ProtoMember(3)] internal SubSystemDefinition SubSystems;
             [ProtoMember(4)] internal bool onlyTargetProjectiles;
+            [ProtoMember(5)] internal bool IgnoreProjectiles;
         }
 
         [ProtoContract]

@@ -70,7 +70,8 @@ namespace WeaponThread
         },
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-        onlyTargetProjectiles = false, //point defense weapons, only targets projectiles
+        onlyTargetProjectiles = false, //point defense weapons, only targets projectiles that have health
+        IgnoreProjectiles = false, //ignores projectiles with health
     },
     DamageScales = new DamageScaleDefinition
     {

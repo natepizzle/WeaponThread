@@ -73,7 +73,8 @@ namespace WeaponThread
                 },
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-                onlyTargetProjectiles = false, //point defense weapons, only targets projectiles
+                onlyTargetProjectiles = false, //point defense weapons, only targets projectiles that have health
+                IgnoreProjectiles = true, //ignores projectiles with health
             },
             DamageScales = new DamageScaleDefinition
             {
@@ -131,7 +132,6 @@ namespace WeaponThread
                         MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
                         TrackingDelay = 1, // Measured in line length units traveled.
                         MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                        OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
             },
