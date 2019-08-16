@@ -41,12 +41,12 @@ namespace WeaponThread
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 300,
+                    RateOfFire = 200,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
@@ -58,7 +58,7 @@ namespace WeaponThread
                     HeatSinkRate = 200, //amount of heat lost per second
                     DegradeROF = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 10,
-                    DelayAfterBurst = 1000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayAfterBurst = 2800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
             Targeting = new TargetingDefinition
@@ -82,7 +82,7 @@ namespace WeaponThread
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
                 Grids = Options(largeGridModifier: 10f, smallGridModifier: 5f),
-                Armor = Options(armor: 1f, light: .1f, heavy: 70f, nonArmor: .04f),
+                Armor = Options(armor: 1f, light: .1f, heavy: 100f, nonArmor: .04f),
                 Shields = Options(modifier: .01f, type: Energy), // Types: Kinetic, Energy, Emp or Bypass
 
                 // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
@@ -92,16 +92,16 @@ namespace WeaponThread
             {
                 BaseDamage = 200000f,
                 Mass = 100f, // in kilograms
-                Health = 2000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
+                Shrapnel = Options(baseDamage: 0, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
                 {
                     AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
                     AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 100f,
+                    AreaEffectRadius = 1f,
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "Energy_Explosion", customSound: ""),
                     Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000, detonationRadius: 5),
                 },
@@ -116,10 +116,10 @@ namespace WeaponThread
                 Trajectory = new AmmoTrajectory
                 {
                     Guidance = Smart,
-                    TargetLossDegree = 80f,
-                    TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 70f,
-                    DesiredSpeed = 80f,
+                    TargetLossDegree = 180f,
+                    TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    AccelPerSec = 60f,
+                    DesiredSpeed = 100f,
                     MaxTrajectory = 3000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -127,9 +127,9 @@ namespace WeaponThread
                     {
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.4f, // controls how sharp the trajectile may turn
-                        TrackingDelay = 500, // Measured in line length units traveled.
-                        MaxChaseTime = 900, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                        MaxLateralThrust = 0.3f, // controls how sharp the trajectile may turn
+                        TrackingDelay = 800, // Measured in line length units traveled.
+                        MaxChaseTime = 2000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
