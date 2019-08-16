@@ -71,7 +71,7 @@ namespace WeaponThread
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
         onlyTargetProjectiles = false, //point defense weapons, only targets projectiles that have health
-        IgnoreProjectiles = false, //ignores projectiles with health
+        MaxProjectileTargetSpeed = 60, //0 = ignores projectiles with health, double.MaxValue for no limit, sets max speed a projectile can travel before this weapon no longer targets them
     },
     DamageScales = new DamageScaleDefinition
     {
