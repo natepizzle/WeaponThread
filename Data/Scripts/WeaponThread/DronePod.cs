@@ -18,7 +18,7 @@ namespace WeaponThread
                 {
                     MountPoint(subTypeId: "DronePod", subPartId: "MissileTurretBarrels"),
                 },
-                Barrels = Names("muzzle_missile_001")
+                Barrels = Names("muzzle_drone_001, muzzle_drone_002")
             },
             Ui = new UiDefinition
             {
@@ -31,7 +31,7 @@ namespace WeaponThread
                 DefinitionId = "DronePod",
                 AmmoMagazineId = "Blank",
                 IsTurret = false,
-                TurretController = true,
+                TurretController = false,
                 TrackTargets = true,
                 ElevationSpeed = 0.04f,
                 RotateSpeed = 0.04f,
@@ -41,7 +41,7 @@ namespace WeaponThread
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
+                AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
                 Loading = new AmmoLoading
@@ -92,7 +92,7 @@ namespace WeaponThread
             {
                 BaseDamage = 200000f,
                 Mass = 100f, // in kilograms
-                Health = 9000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 2000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
@@ -127,7 +127,7 @@ namespace WeaponThread
                     {
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.15f, // controls how sharp the trajectile may turn
+                        MaxLateralThrust = 0.4f, // controls how sharp the trajectile may turn
                         TrackingDelay = 500, // Measured in line length units traveled.
                         MaxChaseTime = 900, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
