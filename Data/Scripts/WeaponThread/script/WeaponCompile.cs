@@ -95,6 +95,7 @@ namespace WeaponThread
             return new Session.CustomScalesDefinition {IgnoreAllOthers = ignoreOthers, Types = customDefScale};
         }
 
+
         internal Session.ArmorDefinition Options(float armor, float light, float heavy, float nonArmor)
         {
             return new Session.ArmorDefinition { Armor = armor, Light = light, Heavy = heavy, NonArmor = nonArmor };
@@ -113,6 +114,11 @@ namespace WeaponThread
         internal Session.SubSystemDefinition.BlockTypes[] Priority(params Session.SubSystemDefinition.BlockTypes[] systems)
         {
             return systems;
+        }
+
+        internal Session.TargetingDefinition.Threat[] Valid(params Session.TargetingDefinition.Threat[] threats)
+        {
+            return threats;
         }
 
         internal Session.Slider Slider(bool enable, double min, double max)

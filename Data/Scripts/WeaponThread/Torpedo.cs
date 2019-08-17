@@ -3,6 +3,7 @@ using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
+using static WeaponThread.Session.TargetingDefinition.Threat;
 using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session;
 
@@ -58,16 +59,17 @@ namespace WeaponThread
     },
     Targeting = new TargetingDefinition
     {
+        Threats = Valid(Characters, Projectiles, Grids),
         SubSystems = new SubSystemDefinition()
         {
             Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
             SubSystemPriority = true,
             ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
+            OnlyTargetSubSystems = false, //will not target other blocks if not in Priorities list
         },
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-        onlyTargetProjectiles = false, //point defense weapons, only targets projectiles that have health
-        MaxProjectileTargetSpeed = 30, //0 = ignores projectiles with health, double.MaxValue for no limit, sets max speed a projectile can travel before this weapon no longer targets them
+        StopTrackingSpeed = 30, // do not track target threats traveling faster than this speed
     },
     DamageScales = new DamageScaleDefinition
     {
