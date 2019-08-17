@@ -34,6 +34,20 @@
 			<string>LargeMissileTurret/PDCTurretLB</string>
 			<string>LargeMissileTurret/PDCTurretSB</string>
       </ItemIds>
+    </Category> 
+	<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId />
+      </Id>
+      <DisplayName>ShipTools</DisplayName>
+      <Name>ShipTools</Name>
+      <SearchBlocks>false</SearchBlocks>
+      <IsShipCategory>true</IsShipCategory>
+      <IsBlockCategory>false</IsBlockCategory>
+      <ItemIds>
+        <string>DronePod</string>
+      </ItemIds>
     </Category>
 </CategoryClasses>
 </Definitions>
