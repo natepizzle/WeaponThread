@@ -45,19 +45,19 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 120,
+            RateOfFire = 3600,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 0,
             DelayUntilFire = 0,
-            HeatPerShot = 1, //heat generated per shot
-            MaxHeat = 3700, //max heat before weapon enters cooldown (70% of max heat)
+            HeatPerShot = 0, //heat generated per shot
+            MaxHeat = 0, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
-            HeatSinkRate = 2000, //amount of heat lost per second
-            DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-            ShotsInBurst = 18,
-            DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            HeatSinkRate = 0, //amount of heat lost per second
+            DegradeROF = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+            ShotsInBurst = 0,
+            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Targeting = new TargetingDefinition
