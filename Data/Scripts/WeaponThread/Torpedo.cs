@@ -2,7 +2,7 @@
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
-using static WeaponThread.Session.SubSystemDefinition.BlockTypes;
+using static WeaponThread.Session.TargetingDefinition.BlockTypes;
 using static WeaponThread.Session.TargetingDefinition.Threat;
 using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session;
@@ -27,18 +27,18 @@ namespace WeaponThread
     HardPoint = new HardPointDefinition
     { 
         DefinitionId = "Torpedo",
-        AmmoMagazineId = "WolfSlug40mm",
+        AmmoMagazineId = "Blank",
         IsTurret = false,
         TurretController = false,
-        TrackTargets = false,
+        TrackTargets = true,
         ElevationSpeed = 0.05f,
         RotateSpeed = 0.05f,
         DeviateShotAngle = 0f,
-        AimingTolerance = 10f,
-        EnergyCost = 0,
+        AimingTolerance = 50f,
+        EnergyCost = 0.0000000001f,
         RotateBarrelAxis = 0,
         AimLeadingPrediction = Advanced,
-        DelayCeaseFire = 120,
+        DelayCeaseFire = 0,
 
         Loading = new AmmoLoading
         {
@@ -47,7 +47,7 @@ namespace WeaponThread
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
             ReloadTime = 600,
-            DelayUntilFire = 204,
+            DelayUntilFire = 0,
             HeatPerShot = 1, //heat generated per shot
             MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -60,14 +60,10 @@ namespace WeaponThread
     Targeting = new TargetingDefinition
     {
         Threats = Valid(Characters, Projectiles, Grids),
-        SubSystems = new SubSystemDefinition()
-        {
-            Systems = Priority(Navigation, Defense, Offense, Power, Production), //define block type targeting order
-            SubSystemPriority = true,
-            ClosestFirst = true, // targets closest of first subtarget until closest of next subtarget is reached, will switch back to previous subtarget if closer than next subtarget if set to true. If set to false will target and destroy all of subtarget groups and then move to next subtarget group.
-            OnlyTargetSubSystems = false, //will not target other blocks if not in Priorities list
-        },
-        MinimumRadius = 10, // 0 = unlimited, Minimum radius of threat to engage.
+        SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
+        ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+        MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
+        MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
         StopTrackingSpeed = 30, // do not track target threats traveling faster than this speed
@@ -113,7 +109,7 @@ namespace WeaponThread
         },
         Trajectory = new AmmoTrajectory
         {
-            Guidance = None,
+            Guidance = Smart,
             TargetLossDegree = 80,
             TargetLossTime = 0,
             AccelPerSec = 0f,

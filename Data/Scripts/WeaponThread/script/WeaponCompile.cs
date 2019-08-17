@@ -111,7 +111,7 @@ namespace WeaponThread
             return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };
         }
 
-        internal Session.SubSystemDefinition.BlockTypes[] Priority(params Session.SubSystemDefinition.BlockTypes[] systems)
+        internal Session.TargetingDefinition.BlockTypes[] Priority(params Session.TargetingDefinition.BlockTypes[] systems)
         {
             return systems;
         }
