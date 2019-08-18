@@ -45,7 +45,7 @@
       <Icon>Textures\GUI\Icons\Cubes\missile_turret.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="5" y="2" z="5" />
+      <Size x="5" y="5" z="2" />
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\Cubes\AncientDroneLaunchBay.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
@@ -61,11 +61,11 @@
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
-		<MountPoint Side="Front" StartX="0.01" StartY="0.02" EndX="4.97" EndY="0.98" />
-		<MountPoint Side="Back" StartX="0.03" StartY="0.02" EndX="4.99" EndY="0.98" />
-		<MountPoint Side="Left" StartX="0.02" StartY="0.02" EndX="4.98" EndY="0.98" />
-		<MountPoint Side="Right" StartX="0.02" StartY="0.02" EndX="4.98" EndY="0.98" />
-		<MountPoint Side="Bottom" StartX="0.02" StartY="0.02" EndX="4.98" EndY="4.98" />
+		<MountPoint Side="Bottom" StartX="0.03" StartY="1.03" EndX="4.99" EndY="1.99" />
+		<MountPoint Side="Top" StartX="0.03" StartY="0.01" EndX="4.99" EndY="0.97" />
+		<MountPoint Side="Left" StartX="1.03" StartY="0.01" EndX="1.99" EndY="4.97" />
+		<MountPoint Side="Right" StartX="0.01" StartY="0.01" EndX="0.97" EndY="4.97" />
+		<MountPoint Side="Back" StartX="0.02" StartY="0.02" EndX="4.98" EndY="4.97" />
       </MountPoints>
       <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
       <BlockPairName>DronePod</BlockPairName>
