@@ -19,7 +19,7 @@
             <ModelOffset x="0" y="0" z="0" />
 			<ShowEdges>false</ShowEdges>
 			<GuiVisible>true</GuiVisible>
-            <Model>Models\Cubes\MA_PDX.mwm</Model>
+            <Model>Models\MA_Laser2\MA_PDX.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
                 <Component Subtype="SteelPlate" Count="15" />
@@ -37,9 +37,9 @@
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
-		<Model BuildPercentUpperBound="0.33" File="Models\Cubes\MA_PDX_Constr1.mwm" />
-		<Model BuildPercentUpperBound="0.67" File="Models\Cubes\MA_PDX_Constr2.mwm" />
-		<Model BuildPercentUpperBound="1.00" File="Models\Cubes\MA_PDX_Constr3.mwm" />
+		<Model BuildPercentUpperBound="0.33" File="Models\MA_Laser2\MA_PDX_Constr1.mwm" />
+		<Model BuildPercentUpperBound="0.67" File="Models\MA_Laser2\MA_PDX_Constr2.mwm" />
+		<Model BuildPercentUpperBound="1.00" File="Models\MA_Laser2\MA_PDX_Constr3.mwm" />
 	</BuildProgressModels>
             <MountPoints>
 		<MountPoint Side="Bottom" StartX="0.11" StartY="0.11" EndX="0.89" EndY="0.89" />
@@ -100,7 +100,7 @@
             <ModelOffset x="0" y="0" z="0" />
 			<ShowEdges>false</ShowEdges>
 			<GuiVisible>true</GuiVisible>
-            <Model>Models\Cubes\MA_PDX.mwm</Model>
+            <Model>Models\MA_Laser2\MA_PDX.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
                 <Component Subtype="SteelPlate" Count="15" />
@@ -118,9 +118,9 @@
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
-		<Model BuildPercentUpperBound="0.33" File="Models\Cubes\MA_PDX_Constr1.mwm" />
-		<Model BuildPercentUpperBound="0.67" File="Models\Cubes\MA_PDX_Constr2.mwm" />
-		<Model BuildPercentUpperBound="1.00" File="Models\Cubes\MA_PDX_Constr3.mwm" />
+		<Model BuildPercentUpperBound="0.33" File="Models\MA_Laser2\MA_PDX_Constr1.mwm" />
+		<Model BuildPercentUpperBound="0.67" File="Models\MA_Laser2\MA_PDX_Constr2.mwm" />
+		<Model BuildPercentUpperBound="1.00" File="Models\MA_Laser2\MA_PDX_Constr3.mwm" />
 	</BuildProgressModels>
             <MountPoints>
 		<MountPoint Side="Bottom" StartX="0.11" StartY="0.11" EndX="0.89" EndY="0.89" />
