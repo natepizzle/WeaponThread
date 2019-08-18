@@ -74,13 +74,13 @@ namespace WeaponThread
     DamageScales = new DamageScaleDefinition
     {
         MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
-        DamageVoxels = false, // true = voxels are vulnerable to this weapon
+        DamageVoxels = true, // true = voxels are vulnerable to this weapon
 
         // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
         Characters = -1f,
         Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
         Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-        Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+        Shields = Options(modifier: 0.1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
 
         // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
         Custom = SubTypeIds(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
@@ -88,7 +88,7 @@ namespace WeaponThread
     Ammo = new AmmoDefinition
     {
         BaseDamage = 100f,
-        Mass = 10000f, // in kilograms
+        Mass = 100f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -108,7 +108,7 @@ namespace WeaponThread
             VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
-            OneParticle = true, // Only spawn one particle hit per beam weapon.
+            OneParticle = false, // Only spawn one particle hit per beam weapon.
         },
         Trajectory = new AmmoTrajectory
         {
@@ -134,7 +134,7 @@ namespace WeaponThread
     {
         ModelName = "",
         VisualProbability = 1f,
-        ShieldHitDraw = true,
+        ShieldHitDraw = false,
         Particles = new ParticleDefinition
         {
             Ammo = new Particle

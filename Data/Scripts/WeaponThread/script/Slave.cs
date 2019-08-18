@@ -7,7 +7,7 @@ using VRageMath;
 
 namespace WeaponThread
 {
-    [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate, int.MinValue + 1)]
+    [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate, int.MaxValue)]
     public class Session : MySessionComponentBase
     {
         internal WeaponDefinition[] WeaponDefinitions;
