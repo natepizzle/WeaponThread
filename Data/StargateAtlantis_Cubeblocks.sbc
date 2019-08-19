@@ -60,6 +60,9 @@
         <Component Subtype="SteelPlate" Count="10" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\AncientDroneLaunchBay_Constr1.mwm" />
+      </BuildProgressModels>
       <MountPoints>
 		<MountPoint Side="Bottom" StartX="0.03" StartY="1.03" EndX="4.99" EndY="1.99" />
 		<MountPoint Side="Top" StartX="0.03" StartY="0.01" EndX="4.99" EndY="0.97" />
