@@ -129,7 +129,7 @@ namespace WeaponThread
                         MaxLateralThrust = 0.3f, // controls how sharp the trajectile may turn
                         TrackingDelay = 800, // Measured in line length units traveled.
                         MaxChaseTime = 2000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                        OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
+                        OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
             },
