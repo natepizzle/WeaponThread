@@ -60,9 +60,6 @@
         <Component Subtype="SteelPlate" Count="10" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\AncientDroneLaunchBay_Constr1.mwm" />
-      </BuildProgressModels>
       <MountPoints>
 		<MountPoint Side="Bottom" StartX="0.03" StartY="1.03" EndX="4.99" EndY="1.99" />
 		<MountPoint Side="Top" StartX="0.03" StartY="0.01" EndX="4.99" EndY="0.97" />
@@ -70,6 +67,9 @@
 		<MountPoint Side="Right" StartX="0.01" StartY="0.01" EndX="0.97" EndY="4.97" />
 		<MountPoint Side="Back" StartX="0.02" StartY="0.02" EndX="4.98" EndY="4.97" />
       </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\AncientDroneLaunchBay_Constr1.mwm" />
+      </BuildProgressModels>
       <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
       <BlockPairName>DronePod</BlockPairName>
       <Description>testing</Description>
@@ -78,8 +78,8 @@
       <BuildTimeSeconds>30</BuildTimeSeconds>
       <WeaponDefinitionId Subtype="DronePod" />
       <InventoryMaxVolume>0.384</InventoryMaxVolume>
-      <MinElevationDegrees>90</MinElevationDegrees>
-      <MaxElevationDegrees>90</MaxElevationDegrees>
+      <MinElevationDegrees>0</MinElevationDegrees>
+      <MaxElevationDegrees>0</MaxElevationDegrees>
       <MinAzimuthDegrees>0</MinAzimuthDegrees>
       <MaxAzimuthDegrees>0</MaxAzimuthDegrees>
       <RotationSpeed>0.006</RotationSpeed>
