@@ -27,7 +27,7 @@ namespace WeaponThread
     },
     HardPoint = new HardPointDefinition
     {
-        DefinitionId = "Gatling",
+        WeaponId = "Gatling",
         AmmoMagazineId = "Blank",
         IsTurret = true,
         TurretController = true,

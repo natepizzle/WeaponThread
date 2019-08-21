@@ -26,8 +26,8 @@ namespace WeaponThread
         SelectableProjectileColor = true,
     },
     HardPoint = new HardPointDefinition
-    { 
-        DefinitionId = "GazerBeam",
+    {
+        WeaponId = "GazerBeam",
         AmmoMagazineId = "Blank",
         IsTurret = true,
         TurretController = true,

@@ -25,8 +25,8 @@ namespace WeaponThread
         SelectableProjectileColor = true,
     },
     HardPoint = new HardPointDefinition
-    { 
-        DefinitionId = "Torpedo",
+    {
+        WeaponId = "Torpedo",
         AmmoMagazineId = "Blank",
         IsTurret = false,
         TurretController = false,
