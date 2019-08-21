@@ -27,7 +27,7 @@ namespace WeaponThread
     },
     HardPoint = new HardPointDefinition
     {
-        WeaponId = "GazerBeam",
+        WeaponId = "GazerBeam", // name of weapon in terminal
         AmmoMagazineId = "Blank",
         IsTurret = true,
         TurretController = true,
