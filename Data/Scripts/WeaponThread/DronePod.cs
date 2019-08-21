@@ -29,7 +29,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                DefinitionId = "DronePod",
+                WeaponId = "DronePod", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 IsTurret = false,
                 TurretController = false,
@@ -65,13 +65,13 @@ namespace WeaponThread
             Targeting = new TargetingDefinition
             {
                 Threats = Valid(Grids),
-                SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
+                SubSystems = Priority(Power, Defense, Offense, Navigation), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-                StopTrackingSpeed = 0, // do not track target threats traveling faster than this speed
+                StopTrackingSpeed = 99, // do not track target threats traveling faster than this speed
             },
             DamageScales = new DamageScaleDefinition
             {
@@ -118,8 +118,8 @@ namespace WeaponThread
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 60f,
-                    DesiredSpeed = 100f,
-                    MaxTrajectory = 3000f,
+                    DesiredSpeed = 1000f,
+                    MaxTrajectory = 2000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts

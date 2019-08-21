@@ -30,7 +30,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                DefinitionId = "MA_PDX",
+                WeaponId = "PDX", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 IsTurret = true,
                 TurretController = true,

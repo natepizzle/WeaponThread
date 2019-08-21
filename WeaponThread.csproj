@@ -72,6 +72,7 @@
     <None Include="Data\MA_Laser2_Weapons.sbc" />
     <None Include="Data\Particles_PDC.sbc" />
     <None Include="Data\StargateAtlantis_Cubeblocks.sbc" />
+    <None Include="Data\Stargate_Weapons.sbc" />
     <None Include="Data\Weapons.sbc" />
     <None Include="Models\Ammo\DeURounds.mwm" />
     <None Include="Models\Cubes\DS_TorpBarrel.mwm" />
