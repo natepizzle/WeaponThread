@@ -35,7 +35,7 @@ namespace WeaponThread
         ElevationSpeed = 0.1f,
         RotateSpeed = 0.1f,
         DeviateShotAngle = 0f,
-        AimingTolerance = 4f, // 0 - 180 firing angle
+        AimingTolerance = 2f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         Hybrid = false, //projectile based weapon with energy cost
         EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
@@ -105,10 +105,10 @@ namespace WeaponThread
         Beams = new BeamDefinition
         {
             Enable = true,
-            VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
-            RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
-            OneParticle = false, // Only spawn one particle hit per beam weapon.
+            RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+            OneParticle = true, // Only spawn one particle hit per beam weapon.
         },
         Trajectory = new AmmoTrajectory
         {

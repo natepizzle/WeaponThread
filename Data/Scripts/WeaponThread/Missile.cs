@@ -89,7 +89,7 @@ namespace WeaponThread
     {
         BaseDamage = 1f, 		// how much damage the projectile does
         Mass = 2500f,
-        Health = 240,
+        Health = 7500,
         BackKickForce = 2.5f,
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 500, fragments: 0, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
