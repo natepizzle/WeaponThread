@@ -27,7 +27,7 @@ namespace WeaponThread
     },
     HardPoint = new HardPointDefinition
     {
-        DefinitionId = "Gatling",
+        WeaponId = "Gatling", // name of weapon in terminal
         AmmoMagazineId = "Blank",
         IsTurret = true,
         TurretController = true,

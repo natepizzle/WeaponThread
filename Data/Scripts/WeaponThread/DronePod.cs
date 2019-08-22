@@ -17,7 +17,7 @@ namespace WeaponThread
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "DronePod", subPartId: "MissileTurretBarrels"),
+                    MountPoint(subTypeId: "DronePod", subPartId: "None"),
                 },
                 Barrels = Names("muzzle_missile_001")
             },
@@ -29,7 +29,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                DefinitionId = "DronePod",
+                WeaponId = "DronePod", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 IsTurret = false,
                 TurretController = false,
@@ -48,7 +48,7 @@ namespace WeaponThread
                 Loading = new AmmoLoading
                 {
                     RateOfFire = 200,
-                    BarrelsPerShot = 2,
+                    BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -64,14 +64,14 @@ namespace WeaponThread
             },
             Targeting = new TargetingDefinition
             {
-                Threats = Valid(Characters, Projectiles, Grids),
-                SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
+                Threats = Valid(Grids),
+                SubSystems = Priority(Power, Defense, Offense, Navigation), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-                StopTrackingSpeed = 0, // do not track target threats traveling faster than this speed
+                StopTrackingSpeed = 99, // do not track target threats traveling faster than this speed
             },
             DamageScales = new DamageScaleDefinition
             {
@@ -118,8 +118,8 @@ namespace WeaponThread
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 60f,
-                    DesiredSpeed = 100f,
-                    MaxTrajectory = 3000f,
+                    DesiredSpeed = 1000f,
+                    MaxTrajectory = 2000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -127,9 +127,9 @@ namespace WeaponThread
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
                         MaxLateralThrust = 0.3f, // controls how sharp the trajectile may turn
-                        TrackingDelay = 800, // Measured in line length units traveled.
+                        TrackingDelay = 1200, // Measured in line length units traveled.
                         MaxChaseTime = 2000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                        OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
+                        OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
             },

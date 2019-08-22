@@ -94,7 +94,7 @@ namespace WeaponThread
                 Advanced,
             }
 
-            [ProtoMember(1)] internal string DefinitionId;
+            [ProtoMember(1)] internal string WeaponId;
             [ProtoMember(2)] internal string AmmoMagazineId;
             [ProtoMember(3)] internal bool IsTurret;
             [ProtoMember(4)] internal bool TurretController;
