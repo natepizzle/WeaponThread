@@ -58,7 +58,7 @@ namespace WeaponThread
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 200, //amount of heat lost per second
                     DegradeROF = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 10,
+                    ShotsInBurst = 30,
                     DelayAfterBurst = 2800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
@@ -135,7 +135,7 @@ namespace WeaponThread
             },
             Graphics = new GraphicDefinition
             {
-                ModelName = "\\Models\\Weapons\\Drone_Projectile.mwm",
+                ModelName = "\\Models\\Weapons\\AmmoOrb.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition

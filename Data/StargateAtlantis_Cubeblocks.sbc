@@ -43,9 +43,9 @@
         <X>1</X>
         <Y>1</Y>
         <Z>1</Z>
-        <W>1</W>
+        <W>0.1</W>
       </LightMultiplier>
-      <Reflectivity>1</Reflectivity>
+      <Reflectivity>0</Reflectivity>
       <Fresnel>0</Fresnel>
       <ReflectionShadow>0</ReflectionShadow>
       <Gloss>0</Gloss>
