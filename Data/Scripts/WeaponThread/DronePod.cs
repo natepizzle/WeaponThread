@@ -118,17 +118,17 @@ namespace WeaponThread
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 60f,
-                    DesiredSpeed = 1000f,
-                    MaxTrajectory = 2000f,
+                    DesiredSpeed = 250f,
+                    MaxTrajectory = 2500f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
                     {
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
-                        Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.3f, // controls how sharp the trajectile may turn
+                        Aggressiveness = 2f, // controls how responsive tracking is.
+                        MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
                         TrackingDelay = 1200, // Measured in line length units traveled.
-                        MaxChaseTime = 2000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                        MaxChaseTime = 2500, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
