@@ -54,12 +54,12 @@ namespace WeaponThread
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
-                    MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
+                    MaxHeat = 18000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 200, //amount of heat lost per second
                     DegradeROF = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 30,
-                    DelayAfterBurst = 2800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayAfterBurst = 300, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
             Targeting = new TargetingDefinition
@@ -89,12 +89,12 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 200000f,
-                Mass = 100f, // in kilograms
+                BaseDamage = 20f,
+                Mass = 1f, // in kilograms
                 Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-                Shrapnel = Options(baseDamage: 0, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
+                Shrapnel = Options(baseDamage: 0, fragments: 0, maxTrajectory: 200, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
                 {
