@@ -94,7 +94,7 @@
         <SubtypeId>DronePod</SubtypeId>
       </Id>
       <DisplayName>Drone Launcher Bay</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\missile_turret.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\DroneBayIcon.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="5" y="5" z="2" />
