@@ -43,9 +43,9 @@
         <X>1</X>
         <Y>1</Y>
         <Z>1</Z>
-        <W>1</W>
+        <W>0.1</W>
       </LightMultiplier>
-      <Reflectivity>1</Reflectivity>
+      <Reflectivity>0</Reflectivity>
       <Fresnel>0</Fresnel>
       <ReflectionShadow>0</ReflectionShadow>
       <Gloss>0</Gloss>
@@ -94,7 +94,7 @@
         <SubtypeId>DronePod</SubtypeId>
       </Id>
       <DisplayName>Drone Launcher Bay</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\missile_turret.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\DroneBayIcon.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="5" y="5" z="2" />
