@@ -14,7 +14,7 @@ namespace WeaponThread
     {
         MountPoints = new[]
         {
-            MountPoint(subTypeId: "LargeFixedPositionMissileTurret", subPartId: "None"),
+            MountPoint(subTypeId: "LargeFixedPositionMissileTurret", aimPartId: "MissileTurretBarrels", muzzlePartId: "None"),
         },
         Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002")
     },

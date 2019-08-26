@@ -16,10 +16,10 @@ namespace WeaponThread
             Assignments = new ModelAssignments
             {
                 MountPoints = new[]
-{
-            new MountPoint {SubtypeId = "MA_PDX", SubpartId = "MissileTurretBarrels"},
-            new MountPoint {SubtypeId = "MA_PDX_sm", SubpartId = "MissileTurretBarrels"},
-        },
+                {
+                    MountPoint(subTypeId: "MA_PDX", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
+                    MountPoint(subTypeId: "MA_PDX_sm", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
+                },
                 Barrels = Names("muzzle_projectile_001")
             },
             Ui = new UiDefinition

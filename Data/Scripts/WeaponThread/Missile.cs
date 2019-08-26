@@ -14,8 +14,8 @@ namespace WeaponThread
     {
         MountPoints = new[]
         {
-            MountPoint(subTypeId: "PDCTurretLB", subPartId: "MissileTurretBarrels"),
-            MountPoint(subTypeId: "PDCTurretSB", subPartId: "MissileTurretBarrels"),
+            MountPoint(subTypeId: "PDCTurretLB", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
+            MountPoint(subTypeId: "PDCTurretSB", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
         },
         Barrels = Names("muzzle_missile_001", "muzzle_missile_002", "muzzle_missile_003", "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006")
     },
@@ -114,7 +114,7 @@ namespace WeaponThread
         {
             Guidance = Smart,
             TargetLossDegree = 80f,
-            TargetLossTime = 200, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 25f,
             DesiredSpeed = 300f,
             MaxTrajectory = 5000f,

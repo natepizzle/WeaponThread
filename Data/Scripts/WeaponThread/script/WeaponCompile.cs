@@ -141,9 +141,9 @@ namespace WeaponThread
             return new Vector3D(x, y, z);
         }
 
-        internal Session.MountPoint MountPoint(string subTypeId, string subPartId)
+        internal Session.MountPoint MountPoint(string subTypeId, string aimPartId, string muzzlePartId)
         {
-            return new Session.MountPoint { SubtypeId = subTypeId, SubpartId = subPartId };
+            return new Session.MountPoint { SubtypeId = subTypeId, AimPartId = aimPartId, MuzzlePartId = muzzlePartId};
         }
 
         internal string[] Names(params string[] names)
