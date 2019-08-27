@@ -81,6 +81,8 @@ namespace WeaponThread
             [ProtoMember(1)] internal Slider RateOfFire;
             [ProtoMember(2)] internal Slider DamageModifier;
             [ProtoMember(3)] internal bool SelectableProjectileColor;
+            [ProtoMember(4)] internal bool ToggleGuidance;
+            [ProtoMember(5)] internal bool EnableOverload;
         }
 
         [ProtoContract]

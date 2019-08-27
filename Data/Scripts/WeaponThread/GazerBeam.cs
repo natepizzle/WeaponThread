@@ -24,6 +24,8 @@ namespace WeaponThread
         RateOfFire = Slider(enable: true, min: 1200, max: 3600),
         DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
         SelectableProjectileColor = true,
+        ToggleGuidance = false,
+        EnableOverload = true,
     },
     HardPoint = new HardPointDefinition
     {
@@ -36,7 +38,7 @@ namespace WeaponThread
         RotateSpeed = 0.04f,
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
-        EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+        EnergyCost = 0.1f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
