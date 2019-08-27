@@ -23,10 +23,11 @@ namespace WeaponThread
             },
             Ui = new UiDefinition
             {
-                RateOfFire = Slider(enable: true, min: 1200, max: 3600),
-                DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
-                SelectableProjectileColor = true,
-                ToggleGuidance = true,
+                RateOfFire = Slider(enable: false, min: 1200, max: 3600),
+                DamageModifier = Slider(enable: false, min: 0.1, max: 1.1),
+                SelectableProjectileColor = false,
+                ToggleGuidance = false,
+                EnableOverload = false,
             },
             HardPoint = new HardPointDefinition
             {
