@@ -121,11 +121,6 @@ namespace WeaponThread
             return threats;
         }
 
-        internal Session.Slider Slider(bool enable, double min, double max)
-        {
-            return new Session.Slider { Enable = enable, Min = min, Max = max };
-        }
-
         internal Session.Randomize Random(float start, float end)
         {
             return new Session.Randomize { Start = start, End = end };

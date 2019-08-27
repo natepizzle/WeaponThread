@@ -24,9 +24,9 @@ namespace WeaponThread
             },
             Ui = new UiDefinition
             {
-                RateOfFire = Slider(enable: false, min: 4000, max: 4000),
-                DamageModifier = Slider(enable: true, min: 0.1, max: 1.1),
-                SelectableProjectileColor = true,
+                RateOfFire = false,
+                DamageModifier = true,
+                SelectableProjectileColor = false,
                 ToggleGuidance = false,
                 EnableOverload = true,
             },
