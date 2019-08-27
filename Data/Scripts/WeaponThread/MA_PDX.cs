@@ -26,7 +26,6 @@ namespace WeaponThread
             {
                 RateOfFire = false,
                 DamageModifier = true,
-                SelectableProjectileColor = false,
                 ToggleGuidance = false,
                 EnableOverload = true,
             },
