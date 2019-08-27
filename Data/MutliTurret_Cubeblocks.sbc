@@ -88,6 +88,7 @@
 	  <UsePower>6</UsePower>
       <MinFov>0.1</MinFov>
       <MaxFov>1.04719755</MaxFov>
+	  <AiEnabled>false</AiEnabled>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <MaxRangeMeters>800</MaxRangeMeters>
       <PCU>225</PCU>
@@ -206,6 +207,7 @@
 	  <UsePower>6</UsePower>
       <MinFov>0.1</MinFov>
       <MaxFov>1.04719755</MaxFov>
+	  <AiEnabled>false</AiEnabled>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <MaxRangeMeters>800</MaxRangeMeters>
       <PCU>225</PCU>
@@ -282,6 +284,7 @@
       <RotationSpeed>0.002</RotationSpeed>
       <ElevationSpeed>0.002 </ElevationSpeed>
 	  <MaxRangeMeters>5000</MaxRangeMeters>
+	  <AiEnabled>false</AiEnabled>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <MinFov>0.1</MinFov>
       <MaxFov>1.04719755</MaxFov>

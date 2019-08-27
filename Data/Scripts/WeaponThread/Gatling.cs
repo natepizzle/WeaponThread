@@ -32,8 +32,8 @@ namespace WeaponThread
         IsTurret = true,
         TurretController = true,
         TrackTargets = true,
-        ElevationSpeed = 0.1f,
-        RotateSpeed = 0.1f,
+        ElevationSpeed = 0.01f,
+        RotateSpeed = 0.01f,
         DeviateShotAngle = 0f,
         AimingTolerance = 2f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel

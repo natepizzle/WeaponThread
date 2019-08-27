@@ -78,6 +78,7 @@
             <MinFov>0.1</MinFov>
             <MaxFov>1.04719755</MaxFov>
             <ShowEdges>false</ShowEdges>
+			<AiEnabled>false</AiEnabled>
 			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
 			<DamagedSound>ParticleElectrical</DamagedSound>
 			<EmissiveColorPreset>Default</EmissiveColorPreset>
@@ -159,6 +160,7 @@
             <MinFov>0.1</MinFov>
             <MaxFov>1.04719755</MaxFov>
             <ShowEdges>false</ShowEdges>
+			<AiEnabled>false</AiEnabled>
 			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
 			<DamagedSound>ParticleElectrical</DamagedSound>
 			<EmissiveColorPreset>Default</EmissiveColorPreset>
