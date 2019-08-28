@@ -40,6 +40,7 @@ namespace WeaponThread
         RotateBarrelAxis = 0,
         AimLeadingPrediction = Advanced,
         DelayCeaseFire = 0,
+        GridWeaponCap = 0,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
 
         Loading = new AmmoLoading
         {
