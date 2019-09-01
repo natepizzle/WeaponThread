@@ -43,7 +43,7 @@ namespace WeaponThread
         RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
         AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-        GridWeaponCap = 0, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+        GridWeaponCap = 3, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
 
         Loading = new AmmoLoading
         {
@@ -98,9 +98,10 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, EWar.
             AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 5f,
+            Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },
@@ -120,6 +121,7 @@ namespace WeaponThread
             AccelPerSec = 0f,
             DesiredSpeed = 0f,
             MaxTrajectory = 5000f,
+            RestTime = 1, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
             Smarts = new Smarts

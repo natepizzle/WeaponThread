@@ -106,6 +106,11 @@ namespace WeaponThread
             return new Session.ShieldDefinition { Modifier = modifier, Type = type };
         }
 
+        internal Session.Pulse Options(int interval, int pulseChance)
+        {
+            return new Session.Pulse { Interval = interval, PulseChance = pulseChance };
+        }
+
         internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
         {
             return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };

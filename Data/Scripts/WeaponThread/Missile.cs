@@ -89,7 +89,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 1f, 		// how much damage the projectile does
+        BaseDamage = 100f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 7500,
         BackKickForce = 2.5f,
@@ -98,9 +98,10 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 0f,
+            AreaEffect = AntiSmart, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 150f,
+            Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },
@@ -114,12 +115,13 @@ namespace WeaponThread
         },
         Trajectory = new AmmoTrajectory
         {
-            Guidance = Smart,
+            Guidance = PulseDetect,
             TargetLossDegree = 80f,
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 25f,
-            DesiredSpeed = 300f,
-            MaxTrajectory = 5000f,
+            DesiredSpeed = 100f,
+            MaxTrajectory = 500f,
+            RestTime = 7200, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts

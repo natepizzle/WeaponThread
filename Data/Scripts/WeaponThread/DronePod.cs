@@ -91,9 +91,9 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 200000f,
+                BaseDamage = 200f,
                 Mass = 100f, // in kilograms
-                Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 ObjectsHit = Options(maxObjectsHit: 1, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 0, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
@@ -101,8 +101,8 @@ namespace WeaponThread
                 AreaEffect = new AreaDamage
                 {
                     AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-                    AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 1f,
+                    AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                    AreaEffectRadius = 0f,
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "Energy_Explosion", customSound: ""),
                     Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000, detonationRadius: 5),
                 },
@@ -121,7 +121,7 @@ namespace WeaponThread
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 60f,
                     DesiredSpeed = 1000f,
-                    MaxTrajectory = 2000f,
+                    MaxTrajectory = 15000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -130,7 +130,7 @@ namespace WeaponThread
                         Aggressiveness = 1f, // controls how responsive tracking is.
                         MaxLateralThrust = 0.3f, // controls how sharp the trajectile may turn
                         TrackingDelay = 1200, // Measured in line length units traveled.
-                        MaxChaseTime = 2000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                        MaxChaseTime = 9600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                 },
@@ -147,7 +147,7 @@ namespace WeaponThread
                         Name = "ShipWelderArc",
                         Color = Color(red: 245, green: 200, blue: 66, alpha: .02f),//245, 200, 66
                         Offset = Vector(x: 0, y: 0, z: -0.5),
-                        Extras = Options(loop: true, restart: false, distance: 800, duration: 12, scale: 1.1f)
+                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 12, scale: 1.1f)
                     },
                     Hit = new Particle
                     {
@@ -177,8 +177,8 @@ namespace WeaponThread
                     Trail = false,
                     Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     Color = Color(red: 2, green: 2, blue: 30, alpha: 1),
-                    Length = .01f,
-                    Width = .01f,
+                    Length = 1f,
+                    Width = .2f,
                     ColorVariance = Random(start: 1f, end: 1f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0f), // adds random value to default width (negatives shrinks width)
                 },
