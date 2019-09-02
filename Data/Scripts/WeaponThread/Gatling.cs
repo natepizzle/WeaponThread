@@ -100,7 +100,7 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, EWar.
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, Anchor, JumpNullField.
             AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 5f,
             Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
