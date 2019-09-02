@@ -90,11 +90,11 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 10f, 		// how much damage the projectile does
+        BaseDamage = 10000f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 7500,
         BackKickForce = 2.5f,
-        Shape = Options(Sphere, 1), //defines the collision shape of projectile, defaults to visual Line Length
+        Shape = Options(shape: Sphere, diameter: 10), //defines the collision shape of projectile, defaults to visual Line Length
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 500, fragments: 0, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
 
