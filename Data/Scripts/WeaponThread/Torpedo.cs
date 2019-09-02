@@ -5,6 +5,7 @@ using static WeaponThread.Session.AreaDamage.AreaEffectType;
 using static WeaponThread.Session.TargetingDefinition.BlockTypes;
 using static WeaponThread.Session.TargetingDefinition.Threat;
 using static WeaponThread.Session.Shrapnel.ShrapnelShape;
+using static WeaponThread.Session.ShapeDefinition.Shapes;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -90,6 +91,7 @@ namespace WeaponThread
         Mass = 150f,
         Health = 0,
         BackKickForce = 2.5f,
+        Shape = Options(Line, 0), //defines the collision shape of projectile, defaults to visual Line Length
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 

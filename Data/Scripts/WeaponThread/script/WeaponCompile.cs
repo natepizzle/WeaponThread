@@ -106,6 +106,11 @@ namespace WeaponThread
             return new Session.ShieldDefinition { Modifier = modifier, Type = type };
         }
 
+        internal Session.ShapeDefinition Options(Session.ShapeDefinition.Shapes shape, double diameter)
+        {
+            return new Session.ShapeDefinition { Shape = shape, Diameter = diameter };
+        }
+
         internal Session.Pulse Options(int interval, int pulseChance)
         {
             return new Session.Pulse { Interval = interval, PulseChance = pulseChance };

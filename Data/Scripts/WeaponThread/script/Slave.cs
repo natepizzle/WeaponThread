@@ -180,11 +180,25 @@ namespace WeaponThread
             [ProtoMember(2)] internal float Mass;
             [ProtoMember(3)] internal float Health;
             [ProtoMember(4)] internal float BackKickForce;
-            [ProtoMember(5)] internal ObjectsHit ObjectsHit;
-            [ProtoMember(6)] internal AmmoTrajectory Trajectory;
-            [ProtoMember(7)] internal AreaDamage AreaEffect;
-            [ProtoMember(8)] internal BeamDefinition Beams;
-            [ProtoMember(9)] internal Shrapnel Shrapnel;
+            [ProtoMember(5)] internal ShapeDefinition Shape;
+            [ProtoMember(6)] internal ObjectsHit ObjectsHit;
+            [ProtoMember(7)] internal AmmoTrajectory Trajectory;
+            [ProtoMember(8)] internal AreaDamage AreaEffect;
+            [ProtoMember(9)] internal BeamDefinition Beams;
+            [ProtoMember(10)] internal Shrapnel Shrapnel;
+        }
+
+        [ProtoContract]
+        public struct ShapeDefinition
+        {
+            public enum Shapes
+            {
+                Line,
+                Sphere,
+            }
+
+            [ProtoMember(1)] internal Shapes Shape;
+            [ProtoMember(2)] internal double Diameter;
         }
 
         [ProtoContract]
@@ -193,7 +207,6 @@ namespace WeaponThread
             [ProtoMember(1)] internal int MaxObjectsHit;
             [ProtoMember(2)] internal bool CountBlocks;
         }
-
 
         [ProtoContract]
         public struct BeamDefinition
