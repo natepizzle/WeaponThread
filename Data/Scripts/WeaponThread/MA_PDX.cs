@@ -69,7 +69,7 @@ namespace WeaponThread
             Targeting = new TargetingDefinition
             {
                 // This weapon ideally is point defense, always prioritize incoming missiles/threats first, then offense/defenses.
-                Threats = Valid(Characters, Projectiles, Grids),
+                Threats = Valid( Projectiles, Grids),
                 SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.

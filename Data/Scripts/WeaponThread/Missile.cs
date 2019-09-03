@@ -68,7 +68,7 @@ namespace WeaponThread
         Threats = Valid(Characters, Projectiles, Grids),
         SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
         ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
-        MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
+        MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
         MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
@@ -103,7 +103,7 @@ namespace WeaponThread
             AreaEffect = JumpNullField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 500f,
-            Pulse = Options(interval: 30, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
+            Pulse = Options(interval: 30, pulseChance: 100), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },

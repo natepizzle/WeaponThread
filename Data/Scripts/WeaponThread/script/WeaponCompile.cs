@@ -151,6 +151,16 @@ namespace WeaponThread
             return new Session.MountPoint { SubtypeId = subTypeId, AimPartId = aimPartId, MuzzlePartId = muzzlePartId};
         }
 
+        internal Session.PartAnimationSetDef.EventOptions[] Events(params Session.PartAnimationSetDef.EventOptions[] events)
+        {
+            return events;
+        }
+
+        internal Session.XYZ Transformation(double X, double Y, double Z)
+        {
+            return new Session.XYZ { x = X, y = Y, z = Z };
+        }
+
         internal string[] Names(params string[] names)
         {
             return names;
