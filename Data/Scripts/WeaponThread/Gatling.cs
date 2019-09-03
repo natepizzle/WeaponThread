@@ -103,7 +103,7 @@ namespace WeaponThread
             AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, Anchor, JumpNullField, EnergySink, EmpPulse.
             AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 5f,
-            Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
+            Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
         },

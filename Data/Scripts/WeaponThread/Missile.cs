@@ -90,7 +90,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 10000f, 		// how much damage the projectile does
+        BaseDamage = 100f, 		// how much damage the projectile does
         Mass = 2500f,
         Health = 7500,
         BackKickForce = 2.5f,
@@ -100,10 +100,10 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 0f,
-            Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
+            AreaEffect = JumpNullField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 1f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 500f,
+            Pulse = Options(interval: 30, pulseChance: 15), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
         },
@@ -122,8 +122,8 @@ namespace WeaponThread
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 50f,
             DesiredSpeed = 1000f,
-            MaxTrajectory = 1000f,
-            RestTime = 7200, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
+            MaxTrajectory = 1500f,
+            RestTime = 99999, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts
@@ -139,17 +139,17 @@ namespace WeaponThread
     },
     Graphics = new GraphicDefinition
     {
-        ModelName = "", //\\Models\\Weapons\\Torpedo_Ammo_1st.mwm
+        ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm", //\\Models\\Weapons\\Torpedo_Ammo_1st.mwm
         VisualProbability = 1f,
         ShieldHitDraw = true,
         Particles = new ParticleDefinition
         {
             Ammo = new Particle
             {
-                Name = "PhotonTorpedoParticle",
-                Color = Color(red: 1, green: 1, blue: 10, alpha: 1),
+                Name = "ShipWelderArc",
+                Color = Color(red: 5, green: 5, blue: 10, alpha: 1),
                 Offset = Vector(x: 0, y: 0, z: 0),
-                Extras = Options(loop: true, restart: false, distance: 5000, duration: 12, scale: 1.5f),
+                Extras = Options(loop: true, restart: false, distance: 1600, duration: 12, scale: 1f),
             },
             Hit = new Particle
             {
