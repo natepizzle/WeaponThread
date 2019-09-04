@@ -166,8 +166,8 @@ namespace WeaponThread
                     {
                         Name = "Explosion_Warhead_30", // Smoke_LargeGunShot
                         Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
-                        Offset = Vector(x: 0, y: 0, z: -20),
-                        Extras = Options(loop: false, restart: false, distance: 200, duration: 6, scale: 1f),
+                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Extras = Options(loop: false, restart: false, distance: 200, duration: 10, scale: 10f),
                     },
                     Barrel2 = new Particle
                     {
@@ -216,6 +216,7 @@ namespace WeaponThread
                         SubpartId = "Bertha_Barrel",
                         muzzle = "Any", //only used for firing, use "Any" for all muzzles
                         StartupDelay = 0, //only used for On animation
+                        motionDelay = 0,
                         Reverse = Events(),
                         Loop = Events(),
                         EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
@@ -224,23 +225,22 @@ namespace WeaponThread
                             {
                                 new RelMove{
                                     CenterEmpty = "",
-                                    ticksToMove = 15, //number of ticks to complete motion, 60 = 1 second
-                                    motionDelay = 0, //number of ticks to delay part animation, all motions are proccessed in parrallel
+                                    ticksToMove = 20, //number of ticks to complete motion, 60 = 1 second
                                     MovementType = ExpoDecay,
                                     linearPoints = new[]
                                     {
-                                        Transformation(0,0,12), //linear movement
+                                        Transformation(0,0,15), //linear movement
                                     },
                                     rotation = Transformation(0,0,0), //degrees
                                     rotAroundCenter = Transformation(0,0,0),//degrees
-                                },new RelMove{
+                                },
+                                new RelMove{
                                     CenterEmpty = "",
                                     ticksToMove = 20, //number of ticks to complete motion, 60 = 1 second
-                                    motionDelay = 0, //number of ticks to delay part animation, all motions are proccessed in parrallel
                                     MovementType = Linear,
                                     linearPoints = new[]
                                     {
-                                        Transformation(0,0,-12), //linear movement
+                                        Transformation(0,0,-15), //linear movement
                                     },
                                     rotation = Transformation(0,0,0), //degrees
                                     rotAroundCenter = Transformation(0,0,0),//degrees

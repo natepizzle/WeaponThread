@@ -521,9 +521,10 @@ namespace WeaponThread
             [ProtoMember(1)] internal string SubpartId;
             [ProtoMember(2)] internal string muzzle;
             [ProtoMember(3)] internal uint StartupDelay;
-            [ProtoMember(4)] internal EventOptions[] Reverse;
-            [ProtoMember(5)] internal EventOptions[] Loop;
-            [ProtoMember(6)] internal Dictionary<EventOptions, RelMove[]> EventMoveSets;
+            [ProtoMember(4)] internal uint motionDelay;
+            [ProtoMember(5)] internal EventOptions[] Reverse;
+            [ProtoMember(6)] internal EventOptions[] Loop;
+            [ProtoMember(7)] internal Dictionary<EventOptions, RelMove[]> EventMoveSets;
 
         }
 
@@ -543,7 +544,6 @@ namespace WeaponThread
             [ProtoMember(4)] internal XYZ rotAroundCenter;
             [ProtoMember(5)] internal uint ticksToMove;
             [ProtoMember(6)] internal string CenterEmpty;
-            [ProtoMember(7)] internal uint motionDelay;
         }
 
         [ProtoContract]
