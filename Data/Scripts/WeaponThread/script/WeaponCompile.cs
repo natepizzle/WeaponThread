@@ -116,6 +116,11 @@ namespace WeaponThread
             return new Session.Pulse { Interval = interval, PulseChance = pulseChance };
         }
 
+        internal Session.EwarFields Options(int duration, bool stackDuration, bool depletable)
+        {
+            return new Session.EwarFields { Duration = duration, StackDuration = stackDuration, Depletable = depletable};
+        }
+
         internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
         {
             return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };
