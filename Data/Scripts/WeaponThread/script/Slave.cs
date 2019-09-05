@@ -535,7 +535,8 @@ namespace WeaponThread
             {
                 Linear,
                 ExpoDecay,
-                ExpoGrowth
+                ExpoGrowth,
+                Delay
             }
 
             [ProtoMember(1)] internal MoveType MovementType;

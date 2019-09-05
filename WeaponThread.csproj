@@ -119,6 +119,7 @@
     <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Scripts\WeaponThread\BigBerthaAnimations.cs" />
     <Compile Include="Data\Scripts\WeaponThread\BigBertha.cs" />
     <Compile Include="Data\Scripts\WeaponThread\DronePod.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />

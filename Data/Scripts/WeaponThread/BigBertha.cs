@@ -57,7 +57,7 @@ namespace WeaponThread
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 10, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 1800, //max heat before weapon enters cooldown (70% of max heat)
@@ -164,17 +164,17 @@ namespace WeaponThread
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "Explosion_Warhead_30", // Smoke_LargeGunShot
+                        Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 200, duration: 10, scale: 10f),
+                        Extras = Options(loop: true, restart: false, distance: 200, duration: 5, scale: 10f),
                     },
                     Barrel2 = new Particle
                     {
-                        Name = "",//Muzzle_Flash_Large
+                        Name = "Muzzle_Flash_Large",//Muzzle_Flash_Large
                         Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
-                        Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 10f),
+                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Extras = Options(loop: true, restart: false, distance: 100, duration: 6, scale: 10f),
                     },
                 },
 
@@ -207,49 +207,7 @@ namespace WeaponThread
                     HitSound = "",
                 }, // Don't edit below this line
             },
-            Animations = new AnimationDefinition
-            {
-                WeaponAnimationSets = new[]
-                {
-                    new PartAnimationSetDef()
-                    {
-                        SubpartId = "Bertha_Barrel",
-                        muzzle = "Any", //only used for firing, use "Any" for all muzzles
-                        StartupDelay = 0, //only used for On animation
-                        motionDelay = 0,
-                        Reverse = Events(),
-                        Loop = Events(),
-                        EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
-                        {
-                            [Firing] = new [] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
-                            {
-                                new RelMove{
-                                    CenterEmpty = "",
-                                    ticksToMove = 20, //number of ticks to complete motion, 60 = 1 second
-                                    MovementType = ExpoDecay,
-                                    linearPoints = new[]
-                                    {
-                                        Transformation(0,0,15), //linear movement
-                                    },
-                                    rotation = Transformation(0,0,0), //degrees
-                                    rotAroundCenter = Transformation(0,0,0),//degrees
-                                },
-                                new RelMove{
-                                    CenterEmpty = "",
-                                    ticksToMove = 20, //number of ticks to complete motion, 60 = 1 second
-                                    MovementType = Linear,
-                                    linearPoints = new[]
-                                    {
-                                        Transformation(0,0,-15), //linear movement
-                                    },
-                                    rotation = Transformation(0,0,0), //degrees
-                                    rotAroundCenter = Transformation(0,0,0),//degrees
-                                },
-                            },
-                        }
-                    }
-                }
-            }
+            Animations = BigBerthaAnimations,
         };
     }
 }
