@@ -106,6 +106,7 @@ namespace WeaponThread
             Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
+            EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
         },
         Beams = new BeamDefinition
         {

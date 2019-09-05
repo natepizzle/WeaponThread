@@ -107,6 +107,7 @@ namespace WeaponThread
                     AreaEffectRadius = 0f,
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "Energy_Explosion", customSound: ""),
                     Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000, detonationRadius: 5),
+                    EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
                 },
                 Beams = new BeamDefinition
                 {
