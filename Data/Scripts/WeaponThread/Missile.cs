@@ -102,7 +102,7 @@ namespace WeaponThread
         {
             AreaEffect = AnchorField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 6600f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 500f,
+            AreaEffectRadius = 2000f,
             Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
