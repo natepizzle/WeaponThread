@@ -18,7 +18,7 @@ namespace WeaponThread
                     StartupDelay = 0, //only used for On animation
                     motionDelay = 0,
                     Reverse = Events(),
-                    Loop = Events(Firing),
+                    Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
                     {
                         [Firing] =
