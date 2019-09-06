@@ -190,7 +190,7 @@ namespace WeaponThread
                             new RelMove
                             {
                                 CenterEmpty = "",
-                                ticksToMove = 32, //number of ticks to complete motion, 60 = 1 second
+                                ticksToMove = 50, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Delay,
                                 linearPoints = new XYZ[0],
                                 rotation = Transformation(0, 0, 0), //degrees
