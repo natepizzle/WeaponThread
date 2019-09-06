@@ -461,6 +461,7 @@ namespace WeaponThread
             [ProtoMember(5)] internal ShieldDefinition Shields;
             [ProtoMember(6)] internal float Characters;
             [ProtoMember(7)] internal CustomScalesDefinition Custom;
+            [ProtoMember(8)] internal bool SelfDamage;
         }
 
         [ProtoContract]

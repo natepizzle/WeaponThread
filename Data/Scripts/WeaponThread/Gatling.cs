@@ -78,6 +78,7 @@ namespace WeaponThread
     {
         MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
         DamageVoxels = true, // true = voxels are vulnerable to this weapon
+        SelfDamage = false, // true = allow self damage.
 
         // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
         Characters = -1f,
@@ -91,7 +92,7 @@ namespace WeaponThread
     Ammo = new AmmoDefinition
     {
         BaseDamage = 100f,
-        Mass = 100f, // in kilograms
+        Mass = 0f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
         Shape = Options(shape: Line, diameter: 0), //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
@@ -167,10 +168,10 @@ namespace WeaponThread
             },
             Barrel2 = new Particle
             {
-                Name = "",//Muzzle_Flash_Large
-                Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                Name = "Muzzle_Flash_Large",//Muzzle_Flash_Large
+                Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
-                Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
+                Extras = Options(loop: false, restart: false, distance: 150, duration: 6, scale: 1f),
             },
         },
 
