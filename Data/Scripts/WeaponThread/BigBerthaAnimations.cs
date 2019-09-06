@@ -16,9 +16,9 @@ namespace WeaponThread
                     SubpartId = "Bertha_Barrel",
                     muzzle = "Any", //only used for firing, use "Any" for all muzzles
                     StartupDelay = 0, //only used for On animation
-                    motionDelay = 10,
+                    motionDelay = 0,
                     Reverse = Events(),
-                    Loop = Events(),
+                    Loop = Events(Firing),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
                     {
                         [Firing] =
