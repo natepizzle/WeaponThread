@@ -83,7 +83,7 @@ namespace WeaponThread
             {
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
                 DamageVoxels = false, // true = voxels are vulnerable to this weapon
-
+                SelfDamage = true, // true = allow self damage.
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
                 Grids = Options(largeGridModifier: 10f, smallGridModifier: 5f),
@@ -99,7 +99,7 @@ namespace WeaponThread
                 Mass = 100f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 500f,
-                Shape = Options(shape: Sphere, diameter: 10), //defines the collision shape of projectile, defaults to visual Line Length
+                Shape = Options(shape: Sphere, diameter: 2), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 200, fragments: 5, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
@@ -164,14 +164,14 @@ namespace WeaponThread
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "Explosion_Warhead_30", // Smoke_LargeGunShot
+                        Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: false, restart: false, distance: 200, duration: 10, scale: 10f),
                     },
                     Barrel2 = new Particle
                     {
-                        Name = "",//Muzzle_Flash_Large
+                        Name = "Muzzle_Flash_Large",//Muzzle_Flash_Large
                         Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: true, restart: false, distance: 100, duration: 6, scale: 10f),
