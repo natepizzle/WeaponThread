@@ -13,7 +13,7 @@ namespace WeaponThread
             {
                 new PartAnimationSetDef()
                 {
-                    SubpartId = "Bertha_Barrel",
+                    SubpartId = Names("Bertha_Barrel"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),//Delay before animation starts, OnFireDelay = delaying fire of weapon when turned on
                     Reverse = Events(),
@@ -52,7 +52,7 @@ namespace WeaponThread
                 },
                 new PartAnimationSetDef()
                 {
-                    SubpartId = "Bertha_Reloader",
+                    SubpartId = Names("Bertha_Reloader"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 170, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),
                     Reverse = Events(),
@@ -100,7 +100,7 @@ namespace WeaponThread
                 },
                 new PartAnimationSetDef()
                 {
-                    SubpartId = "Bertha_BreechDoor",
+                    SubpartId = Names("Bertha_BreechDoor"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 75, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),
                     Reverse = Events(),
@@ -141,7 +141,7 @@ namespace WeaponThread
                 },
                 new PartAnimationSetDef()
                 {
-                    SubpartId = "round",
+                    SubpartId = Names("round"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 200, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),
                     Reverse = Events(),

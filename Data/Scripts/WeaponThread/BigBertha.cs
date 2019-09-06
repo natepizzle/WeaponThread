@@ -141,6 +141,9 @@ namespace WeaponThread
                     },
                 },
             },
+
+            Animations = BigBerthaAnimations, //link to animation config
+
             Graphics = new GraphicDefinition
             {
                 ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm",
@@ -207,7 +210,6 @@ namespace WeaponThread
                     HitSound = "",
                 }, // Don't edit below this line
             },
-            Animations = BigBerthaAnimations,
         };
     }
 }
