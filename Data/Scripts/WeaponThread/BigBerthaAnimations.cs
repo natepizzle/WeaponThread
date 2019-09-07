@@ -21,11 +21,11 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
                     {
                         [Firing] =
-                            new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, Locked, On, Off, BurstReload define a new[] for each
                             {
                                 new RelMove
                                 {
-                                    CenterEmpty = "",
+                                    CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
                                     TicksToMove = 25, //number of ticks to complete motion, 60 = 1 second
                                     MovementType = ExpoDecay,
                                     LinearPoints = new[]
@@ -33,7 +33,7 @@ namespace WeaponThread
                                         Transformation(0, 0, 15), //linear movement
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
-                                    RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                    RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                                 new RelMove
                                 {

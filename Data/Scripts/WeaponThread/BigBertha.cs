@@ -168,16 +168,16 @@ namespace WeaponThread
                     Barrel1 = new Particle
                     {
                         Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
-                        Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                        Color = Color(red: 50, green: 50, blue: 50, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 200, duration: 10, scale: 10f),
+                        Extras = Options(loop: false, restart: false, distance: 300, duration: 3, scale: 10f),
                     },
                     Barrel2 = new Particle
                     {
                         Name = "Muzzle_Flash_Large",//Muzzle_Flash_Large
-                        Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                        Color = Color(red: 200, green: 200, blue: 100, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 100, duration: 6, scale: 10f),
+                        Extras = Options(loop: true, restart: false, distance: 300, duration: 10, scale: 10f),
                     },
                 },
 
@@ -196,7 +196,7 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
-                    FiringSound = "", // WepShipGatlingShot
+                    FiringSound = "WepShipGatlingShot", // WepShipGatlingShot
                     FiringSoundPerShot = true,
                     ReloadSound = "WepTurretGatlingRotate",
                     NoAmmoSound = "",
