@@ -103,7 +103,7 @@ namespace WeaponThread
         {
             AreaEffect = AnchorField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 6600f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 2000f,
+            AreaEffectRadius = 1000f,
             Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
@@ -116,6 +116,7 @@ namespace WeaponThread
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
             OneParticle = true, // Only spawn one particle hit per beam weapon.
+            OffsetEffect = Options(maxOffset: 0, minLength: 5, maxLength: 15) // 0 offset value disables this effect
         },
         Trajectory = new AmmoTrajectory
         {

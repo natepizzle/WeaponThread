@@ -95,10 +95,14 @@ namespace WeaponThread
             return new Session.CustomScalesDefinition {IgnoreAllOthers = ignoreOthers, Types = customDefScale};
         }
 
-
         internal Session.ArmorDefinition Options(float armor, float light, float heavy, float nonArmor)
         {
             return new Session.ArmorDefinition { Armor = armor, Light = light, Heavy = heavy, NonArmor = nonArmor };
+        }
+
+        internal Session.OffsetEffect Options(double maxOffset, double minLength, double maxLength)
+        {
+            return new Session.OffsetEffect { MaxOffset = maxOffset, MinLength = minLength, MaxLength = maxLength};
         }
 
         internal Session.ShieldDefinition Options(float modifier, ShieldType type)

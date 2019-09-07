@@ -116,6 +116,7 @@ namespace WeaponThread
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
             OneParticle = true, // Only spawn one particle hit per beam weapon.
+            OffsetEffect = Options(maxOffset: 1, minLength: 5, maxLength: 15) // 0 offset value disables this effect
         },
         Trajectory = new AmmoTrajectory
         {
@@ -168,7 +169,7 @@ namespace WeaponThread
             },
             Barrel2 = new Particle
             {
-                Name = "Muzzle_Flash_Large",//Muzzle_Flash_Large
+                Name = "",//Muzzle_Flash_Large
                 Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: false, restart: false, distance: 150, duration: 6, scale: 1f),
