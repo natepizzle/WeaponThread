@@ -68,7 +68,7 @@ namespace WeaponThread
         Threats = Valid(Characters, Projectiles, Grids),
         SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
         ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
-        MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
+        MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
         MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between

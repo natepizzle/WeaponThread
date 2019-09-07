@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Sandbox.Gui;
 using VRageMath;
 using static WeaponThread.Session.ShieldDefinition;
+using static WeaponThread.Session.PartAnimationSetDef.EventOptions;
 
 namespace WeaponThread
 {
@@ -158,6 +160,30 @@ namespace WeaponThread
         internal Session.MountPoint MountPoint(string subTypeId, string aimPartId, string muzzlePartId)
         {
             return new Session.MountPoint { SubtypeId = subTypeId, AimPartId = aimPartId, MuzzlePartId = muzzlePartId};
+        }
+
+        internal Session.PartAnimationSetDef.EventOptions[] Events(params Session.PartAnimationSetDef.EventOptions[] events)
+        {
+            return events;
+        }
+
+        internal Session.XYZ Transformation(double X, double Y, double Z)
+        {
+            return new Session.XYZ { x = X, y = Y, z = Z };
+        }
+
+        internal Dictionary<Session.PartAnimationSetDef.EventOptions, uint> Delays(uint FiringDelay = 0, uint ReloadingDelay = 0, uint OverheatedDelay = 0, uint TrackingDelay = 0, uint LockedDelay =0, uint OnDelay = 0, uint OffDelay = 0)
+        {
+            return new Dictionary<Session.PartAnimationSetDef.EventOptions, uint>
+            {
+                [Firing] = FiringDelay,
+                [Reloading] = ReloadingDelay,
+                [Overheated] = OverheatedDelay,
+                [Tracking] = TrackingDelay,
+                [Locked] = LockedDelay,
+                [On] = OnDelay,
+                [Off] = OffDelay
+            };
         }
 
         internal string[] Names(params string[] names)
