@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sandbox.Gui;
 using VRageMath;
 using static WeaponThread.Session.ShieldDefinition;
 using static WeaponThread.Session.PartAnimationSetDef.EventOptions;
