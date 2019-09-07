@@ -22,22 +22,11 @@ namespace WeaponThread
                 },
                 Barrels = Names("muzzle_missile_001")
             },
-            Ui = new UiDefinition
-            {
-                RateOfFire = true,
-                DamageModifier = true,
-                ToggleGuidance = false,
-                EnableOverload = false,
-            },
             HardPoint = new HardPointDefinition
             {
                 WeaponId = "DronePod", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                IsTurret = false,
-                TurretController = false,
-                TrackTargets = true,
-                ElevationSpeed = 0.04f,
-                RotateSpeed = 0.04f,
+                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, rotateRate: 0f, elevateRate: 0f),
                 DeviateShotAngle = 0f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.0002f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -47,6 +36,7 @@ namespace WeaponThread
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 0,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+                Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: false),
 
                 Loading = new AmmoLoading
                 {
@@ -176,16 +166,13 @@ namespace WeaponThread
                         Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
                     },
                 },
-
                 Line = new LineDefinition
                 {
-                    Trail = false,
-                    Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-                    Color = Color(red: 2, green: 2, blue: 30, alpha: 1),
-                    Length = 1f,
-                    Width = .2f,
+                    Tracer = Base(enable: false, length: 1f, width: 0.2f, color: Color(red: 2, green: 2, blue: 30, alpha: 1)),
+                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 1f, end: 1f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0f), // adds random value to default width (negatives shrinks width)
+                    Trail = Options(enable: false, material: "WeaponLaser", decayTime: 600, color: Color(red: 8, green: 8, blue: 64, alpha: 8))
                 },
             },
             Audio = new AudioDefinition
