@@ -200,8 +200,8 @@ namespace WeaponThread
                 [Overheated] = OverheatedDelay,
                 [Tracking] = TrackingDelay,
                 [Locked] = LockedDelay,
-                [On] = OnDelay,
-                [Off] = OffDelay
+                [TurnOn] = OnDelay,
+                [TurnOff] = OffDelay
             };
         }
 
