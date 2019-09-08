@@ -23,22 +23,11 @@ namespace WeaponThread
                 },
                 Barrels = Names("muzzle_projectile_001")
             },
-            Ui = new UiDefinition
-            {
-                RateOfFire = false,
-                DamageModifier = true,
-                ToggleGuidance = false,
-                EnableOverload = true,
-            },
             HardPoint = new HardPointDefinition
             {
                 WeaponId = "PDX", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                IsTurret = true,
-                TurretController = true,
-                TrackTargets = true,
-                ElevationSpeed = 0.4f,
-                RotateSpeed = 0.4f,
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.4f, elevateRate: 0.4f),
                 DeviateShotAngle = 0f,
                 AimingTolerance = 4f, // 0 - 180 firing angle
                 EnergyCost = 0.001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel .1f=30MW
@@ -48,6 +37,7 @@ namespace WeaponThread
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 0,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+                Ui = Display(rateOfFire: false, damageModifier: true, toggleGuidance: false, enableOverload: true),
 
                 Loading = new AmmoLoading
                 {
@@ -179,16 +169,13 @@ namespace WeaponThread
                         Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
                     },
                 },
-
                 Line = new LineDefinition
                 {
-                    Trail = true,
-                    Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-                    Color = Color(red: 32, green: 5, blue: 5, alpha: 1),
-                    Length = 1f,
-                    Width = 0.05f,
+                    Tracer = Base(enable: true, length: 1f, width: 0.05f, color: Color(red: 32, green: 5, blue: 5, alpha: 1)),
+                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.8f, end: 1.2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: -.01f, end: 0.01f), // adds random value to default width (negatives shrinks width)
+                    Trail = Options(enable: false, material: "WeaponLaser", decayTime: 600, color: Color(red: 8, green: 8, blue: 64, alpha: 8))
                 },
                 Emissive = new EmissiveDefinition
                 {

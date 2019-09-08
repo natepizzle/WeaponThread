@@ -20,22 +20,11 @@ namespace WeaponThread
         },
         Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
     },
-    Ui = new UiDefinition
-    {
-        RateOfFire = true,
-        DamageModifier = true,
-        ToggleGuidance = false,
-        EnableOverload = true,
-    },
     HardPoint = new HardPointDefinition
     {
         WeaponId = "Gatling", // name of weapon in terminal
         AmmoMagazineId = "Blank",
-        IsTurret = true,
-        TurretController = true,
-        TrackTargets = true,
-        ElevationSpeed = 0.01f,
-        RotateSpeed = 0.01f,
+        Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, rotateRate: 0.01f, elevateRate: 0.01f),
         DeviateShotAngle = 0f,
         AimingTolerance = 2f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -45,6 +34,7 @@ namespace WeaponThread
         AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
         DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         GridWeaponCap = 3, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+        Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: true),
 
         Loading = new AmmoLoading
         {
@@ -134,7 +124,7 @@ namespace WeaponThread
                 Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                TrackingDelay = 1, // Measured in line length units traveled.
+                TrackingDelay = 1, // Measured in Shape diameter units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             },
         },
@@ -175,16 +165,13 @@ namespace WeaponThread
                 Extras = Options(loop: false, restart: false, distance: 150, duration: 6, scale: 1f),
             },
         },
-
         Line = new LineDefinition
         {
-            Trail = true,
-            Material = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-            Color = Color(red: 8, green: 8, blue: 64, alpha: 8),
-            Length = 1f,
-            Width = 0.05f,
+            Tracer = Base(enable: true, length: 1f, width: 0.05f, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
+            TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
+            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 600, color: Color(red: 8, green: 8, blue: 64, alpha: 8))
         },
         Emissive = new EmissiveDefinition
         {

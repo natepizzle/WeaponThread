@@ -126,9 +126,29 @@ namespace WeaponThread
             return new Session.EwarFields { Duration = duration, StackDuration = stackDuration, Depletable = depletable};
         }
 
+        internal Session.TrailDefinition Options(bool enable, string material, int decayTime, Vector4 color)
+        {
+            return new Session.TrailDefinition { Enable = enable, Material = material, DecayTime = decayTime };
+        }
+
         internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
         {
             return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };
+        }
+
+        internal Session.TracerBaseDefinition Base(bool enable, float length, float width, Vector4 color)
+        {
+            return new Session.TracerBaseDefinition { Enable = enable, Length = length, Width = width, Color = color};
+        }
+
+        internal Session.AimControlDefinition AimControl(bool trackTargets, bool turretAttached, bool turretController, float rotateRate, float elevateRate)
+        {
+            return new Session.AimControlDefinition { TrackTargets = trackTargets, TurretAttached = turretAttached, TurretController = turretController, RotateRate = rotateRate, ElevateRate = elevateRate };
+        }
+
+        internal Session.UiDefinition Display(bool rateOfFire, bool damageModifier, bool toggleGuidance, bool enableOverload)
+        {
+            return new Session.UiDefinition { RateOfFire = rateOfFire, DamageModifier = damageModifier, ToggleGuidance = toggleGuidance, EnableOverload = enableOverload };
         }
 
         internal Session.TargetingDefinition.BlockTypes[] Priority(params Session.TargetingDefinition.BlockTypes[] systems)

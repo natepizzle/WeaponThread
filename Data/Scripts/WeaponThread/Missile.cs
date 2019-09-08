@@ -20,22 +20,11 @@ namespace WeaponThread
         },
         Barrels = Names("muzzle_missile_001", "muzzle_missile_002", "muzzle_missile_003", "muzzle_missile_004", "muzzle_missile_005", "muzzle_missile_006")
     },
-    Ui = new UiDefinition
-    {
-        RateOfFire = true,
-        DamageModifier = false,
-        ToggleGuidance = true,
-        EnableOverload = false,
-    },
     HardPoint = new HardPointDefinition
     {
         WeaponId = "Missile", // name of weapon in terminal
         AmmoMagazineId = "TorpAmmo",
-        IsTurret = true,
-        TurretController = false,
-        TrackTargets = true,
-        ElevationSpeed = 0.05f,
-        RotateSpeed = 0.05f,
+        Block = AimControl(trackTargets: true, turretAttached: true, turretController: false, rotateRate: 0f, elevateRate: 0f),
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 10,
@@ -45,6 +34,7 @@ namespace WeaponThread
         AimLeadingPrediction = Advanced,
         DelayCeaseFire = 0,
         GridWeaponCap = 0,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+        Ui = Display(rateOfFire: true, damageModifier: false, toggleGuidance: true, enableOverload: false),
 
         Loading = new AmmoLoading
         {
@@ -176,16 +166,13 @@ namespace WeaponThread
                 Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
             },
         },
-
         Line = new LineDefinition
         {
-            Trail = false,
-            Material = "ProjectileTrailLine",
-            Color = Color(red: 30, green: 0, blue: 30, alpha: 1),
-            Length = 1f,
-            Width = 0.1f,
-            ColorVariance = Random(start: 1, end: 3),
-            WidthVariance = Random(start: 0, end: 0),
+            Tracer = Base(enable: false, length: 1f, width: 0.1f, color: Color(red: 30, green: 0, blue: 30, alpha: 1)),
+            TracerMaterial = "ProjectileTrailLine", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+            ColorVariance = Random(start: 1, end: 3), // multiply the color by random values within range.
+            WidthVariance = Random(start: 0, end: 0), // adds random value to default width (negatives shrinks width)
+            Trail = Options(enable: false, material: "ProjectileTrailLine", decayTime: 600, color: Color(red: 8, green: 8, blue: 64, alpha: 8))
         },
         Emissive = new EmissiveDefinition
         {
