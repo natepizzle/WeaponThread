@@ -136,7 +136,7 @@ namespace WeaponThread
 
             Graphics = new GraphicDefinition
             {
-                ModelName = "MA_Bertha_Projectile",
+                ModelName = "\\Models\\Weapons\\MA_Bertha_Projectile.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
