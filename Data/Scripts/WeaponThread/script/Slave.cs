@@ -63,7 +63,8 @@ namespace WeaponThread
             TurnOn,
             TurnOff,
             BurstReload,
-            Locked,
+            OutOfAmmo,
+            PreFire,
         }
 
         [ProtoContract]
@@ -565,7 +566,7 @@ namespace WeaponThread
         {
             [ProtoMember(1)] internal string[] SubpartId;
             [ProtoMember(2)] internal string BarrelId;
-            [ProtoMember(3)] internal uint StartupDelay;
+            [ProtoMember(3)] internal uint StartupFireDelay;
             [ProtoMember(4)] internal Dictionary<EventTriggers, uint> AnimationDelays;
             [ProtoMember(5)] internal EventTriggers[] Reverse;
             [ProtoMember(6)] internal EventTriggers[] Loop;
