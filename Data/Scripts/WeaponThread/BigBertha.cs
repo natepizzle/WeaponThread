@@ -7,8 +7,6 @@ using static WeaponThread.Session.TargetingDefinition.BlockTypes;
 using static WeaponThread.Session.TargetingDefinition.Threat;
 using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session.ShapeDefinition.Shapes;
-using static WeaponThread.Session.PartAnimationSetDef.EventOptions;
-using static WeaponThread.Session.RelMove.MoveType;
 using static WeaponThread.Session;
 
 namespace WeaponThread
