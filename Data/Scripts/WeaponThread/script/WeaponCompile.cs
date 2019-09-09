@@ -128,7 +128,7 @@ namespace WeaponThread
 
         internal Session.TrailDefinition Options(bool enable, string material, int decayTime, Vector4 color)
         {
-            return new Session.TrailDefinition { Enable = enable, Material = material, DecayTime = decayTime };
+            return new Session.TrailDefinition { Enable = enable, Material = material, DecayTime = decayTime, Color = color };
         }
 
         internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
