@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 3600,
+            RateOfFire = 10,
             BarrelsPerShot = 6,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -96,27 +96,26 @@ namespace WeaponThread
             AreaEffectRadius = 5f,
             Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 0),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 999999, detonationRadius: 75),
             EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
         },
         Beams = new BeamDefinition
         {
-            Enable = true,
+            Enable = false,
             VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
             RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
             OneParticle = true, // Only spawn one particle hit per beam weapon.
-            OffsetEffect = Options(maxOffset: 1, minLength: 5, maxLength: 15) // 0 offset value disables this effect
         },
         Trajectory = new AmmoTrajectory
         {
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 0f,
-            DesiredSpeed = 0f,
+            AccelPerSec = 100f,
+            DesiredSpeed = 1000f,
             MaxTrajectory = 5000f,
-            RestTime = 1, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
+            RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
             Smarts = new Smarts
@@ -138,7 +137,7 @@ namespace WeaponThread
         {
             Ammo = new Particle
             {
-                Name = "ShipWelderArc",
+                Name = "", //ShipWelderArc
                 Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                 Offset = Vector(x: 0, y: -1, z: 0),
                 Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
@@ -167,11 +166,12 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 1f, width: 0.05f, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
+            Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
-            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 600, color: Color(red: 8, green: 8, blue: 64, alpha: 8))
+            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 60, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
+            OffsetEffect = Options(maxOffset: 0.75, minLength: 0.5, maxLength: 3), // 0 offset value disables this effect
         },
         Emissive = new EmissiveDefinition
         {
