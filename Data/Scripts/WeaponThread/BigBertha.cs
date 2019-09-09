@@ -7,8 +7,6 @@ using static WeaponThread.Session.TargetingDefinition.BlockTypes;
 using static WeaponThread.Session.TargetingDefinition.Threat;
 using static WeaponThread.Session.Shrapnel.ShrapnelShape;
 using static WeaponThread.Session.ShapeDefinition.Shapes;
-using static WeaponThread.Session.PartAnimationSetDef.EventOptions;
-using static WeaponThread.Session.RelMove.MoveType;
 using static WeaponThread.Session;
 
 namespace WeaponThread
@@ -99,8 +97,8 @@ namespace WeaponThread
                     AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
                     AreaEffectRadius = 70f,
                     Pulse = Options(interval: 30, pulseChance: 100), // interval measured in game ticks (60 == 1 second)
-                    Explosions = Options(noVisuals: false, noSound: false, scale: 2, customParticle: "Explosion_Warhead_30", customSound: ""),
-                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 10000000, detonationRadius: 70),
+                    Explosions = Options(noVisuals: false, noSound: false, scale: 2, customParticle: "", customSound: ""),
+                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 70),
                 },
                 Beams = new BeamDefinition
                 {
@@ -136,7 +134,7 @@ namespace WeaponThread
 
             Graphics = new GraphicDefinition
             {
-                ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm",
+                ModelName = "\\Models\\Weapons\\MA_Bertha_Projectile.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
@@ -144,30 +142,30 @@ namespace WeaponThread
                     Ammo = new Particle
                     {
                         Name = "ShipWelderArc",
-                        Color = Color(red: 245, green: 200, blue: 66, alpha: .02f),//245, 200, 66
-                        Offset = Vector(x: 0, y: 0, z: -0.5),
-                        Extras = Options(loop: true, restart: false, distance: 800, duration: 12, scale: 2f)
+                        Color = Color(red: 100, green: 40, blue: 30, alpha: .02f),//245, 200, 66
+                        Offset = Vector(x: 0, y: 0, z: 1),
+                        Extras = Options(loop: true, restart: false, distance: 800, duration: 12, scale: 1f)
                     },
                     Hit = new Particle
                     {
                         Name = "Explosion_Warhead_15", //"MaterialHit_Metal_GatlingGun",
                         Color = Color(red: 10, green: 1, blue: 0, alpha: 2),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 0.2f),
+                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1f),
                     },
                     Barrel1 = new Particle
                     {
                         Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 50, green: 50, blue: 50, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 300, duration: 3, scale: 10f),
+                        Extras = Options(loop: false, restart: false, distance: 2000, duration: 5, scale: 10f),
                     },
                     Barrel2 = new Particle
                     {
-                        Name = "Muzzle_Flash_Large",//Muzzle_Flash_Large
+                        Name = "Berth_Fire",//Muzzle_Flash_Large
                         Color = Color(red: 200, green: 200, blue: 100, alpha: 1),
-                        Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 300, duration: 10, scale: 10f),
+                        Offset = Vector(x: 0, y: 0, z: 2),
+                        Extras = Options(loop: false, restart: false, distance: 2000, duration: 2f, scale: 2f),
                     },
                 },
                 Line = new LineDefinition
@@ -183,7 +181,7 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
-                    FiringSound = "WepShipGatlingShot", // WepShipGatlingShot
+                    FiringSound = "ArcWepSmallWarheadExpl", // WepShipGatlingShot
                     FiringSoundPerShot = true,
                     ReloadSound = "WepTurretGatlingRotate",
                     NoAmmoSound = "",

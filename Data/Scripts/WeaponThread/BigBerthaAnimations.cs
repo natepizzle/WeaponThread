@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using static WeaponThread.Session.PartAnimationSetDef.EventOptions;
+using static WeaponThread.Session.EventTriggers;
 using static WeaponThread.Session.RelMove.MoveType;
 using static WeaponThread.Session;
 
@@ -15,10 +15,11 @@ namespace WeaponThread
                 {
                     SubpartId = Names("Bertha_Barrel"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),//Delay before animation starts, OnFireDelay = delaying fire of weapon when turned on
+                    StartupDelay = 0,
+                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),//Delay before animation starts
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
+                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
                             new[] //Firing, Reloading, Overheated, Tracking, Locked, On, Off, BurstReload define a new[] for each
@@ -54,10 +55,11 @@ namespace WeaponThread
                 {
                     SubpartId = Names("Bertha_Reloader"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
+                    StartupDelay = 0,
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 170, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
+                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Reloading] =
                             new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
@@ -102,10 +104,11 @@ namespace WeaponThread
                 {
                     SubpartId = Names("Bertha_BreechDoor"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
+                    StartupDelay = 0,
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 75, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
+                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Reloading] = new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
                         {
@@ -143,10 +146,11 @@ namespace WeaponThread
                 {
                     SubpartId = Names("round"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
+                    StartupDelay = 0,
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 200, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0),
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventOptions, RelMove[]>
+                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Reloading] = new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
                         {

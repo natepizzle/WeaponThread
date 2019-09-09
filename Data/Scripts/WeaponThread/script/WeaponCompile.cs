@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using VRageMath;
 using static WeaponThread.Session.ShieldDefinition;
-using static WeaponThread.Session.PartAnimationSetDef.EventOptions;
+using static WeaponThread.Session.EventTriggers;
 
 namespace WeaponThread
 {
@@ -181,7 +181,7 @@ namespace WeaponThread
             return new Session.MountPoint { SubtypeId = subTypeId, AimPartId = aimPartId, MuzzlePartId = muzzlePartId};
         }
 
-        internal Session.PartAnimationSetDef.EventOptions[] Events(params Session.PartAnimationSetDef.EventOptions[] events)
+        internal Session.EventTriggers[] Events(params Session.EventTriggers[] events)
         {
             return events;
         }
@@ -191,17 +191,17 @@ namespace WeaponThread
             return new Session.XYZ { x = X, y = Y, z = Z };
         }
 
-        internal Dictionary<Session.PartAnimationSetDef.EventOptions, uint> Delays(uint FiringDelay = 0, uint ReloadingDelay = 0, uint OverheatedDelay = 0, uint TrackingDelay = 0, uint LockedDelay =0, uint OnDelay = 0, uint OffDelay = 0)
+        internal Dictionary<Session.EventTriggers, uint> Delays(uint FiringDelay = 0, uint ReloadingDelay = 0, uint OverheatedDelay = 0, uint TrackingDelay = 0, uint LockedDelay =0, uint OnDelay = 0, uint OffDelay = 0)
         {
-            return new Dictionary<Session.PartAnimationSetDef.EventOptions, uint>
+            return new Dictionary<Session.EventTriggers, uint>
             {
                 [Firing] = FiringDelay,
                 [Reloading] = ReloadingDelay,
                 [Overheated] = OverheatedDelay,
                 [Tracking] = TrackingDelay,
                 [Locked] = LockedDelay,
-                [On] = OnDelay,
-                [Off] = OffDelay
+                [TurnOn] = OnDelay,
+                [TurnOff] = OffDelay
             };
         }
 

@@ -54,6 +54,18 @@ namespace WeaponThread
             WeaponDefinitions = null;
         }
 
+        public enum EventTriggers
+        {
+            Reloading,
+            Firing,
+            Tracking,
+            Overheated,
+            TurnOn,
+            TurnOff,
+            BurstReload,
+            Locked,
+        }
+
         [ProtoContract]
         public struct WeaponDefinition
         {
@@ -551,25 +563,13 @@ namespace WeaponThread
         [ProtoContract(IgnoreListHandling = true)]
         public struct PartAnimationSetDef
         {
-            public enum EventOptions
-            {
-                Firing,
-                Reloading,
-                Overheated,
-                Tracking,
-                Locked,
-                On,
-                Off,
-                BurstReload,
-            }
-
             [ProtoMember(1)] internal string[] SubpartId;
             [ProtoMember(2)] internal string BarrelId;
             [ProtoMember(3)] internal uint StartupDelay;
-            [ProtoMember(4)] internal Dictionary<EventOptions,uint> AnimationDelays;
-            [ProtoMember(5)] internal EventOptions[] Reverse;
-            [ProtoMember(6)] internal EventOptions[] Loop;
-            [ProtoMember(7)] internal Dictionary<EventOptions, RelMove[]> EventMoveSets;
+            [ProtoMember(4)] internal Dictionary<EventTriggers, uint> AnimationDelays;
+            [ProtoMember(5)] internal EventTriggers[] Reverse;
+            [ProtoMember(6)] internal EventTriggers[] Loop;
+            [ProtoMember(7)] internal Dictionary<EventTriggers, RelMove[]> EventMoveSets;
 
         }
 
