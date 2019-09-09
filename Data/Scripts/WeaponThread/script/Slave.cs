@@ -65,6 +65,7 @@ namespace WeaponThread
             BurstReload,
             OutOfAmmo,
             PreFire,
+            EmptyOnGameLoad
         }
 
         [ProtoContract]

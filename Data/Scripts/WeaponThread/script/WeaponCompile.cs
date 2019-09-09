@@ -204,6 +204,7 @@ namespace WeaponThread
                 [BurstReload] = BurstReloadDelay,
                 [OutOfAmmo] = OutOfAmmoDelay,
                 [PreFire] = PreFireDelay,
+                [EmptyOnGameLoad] = 0,
             };
         }
 
