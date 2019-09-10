@@ -25,7 +25,7 @@ namespace WeaponThread
         WeaponId = "Gatling", // name of weapon in terminal
         AmmoMagazineId = "Blank",
         Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, rotateRate: 0.01f, elevateRate: 0.01f),
-        DeviateShotAngle = 0f,
+        DeviateShotAngle = 2f,
         AimingTolerance = 2f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         Hybrid = false, //projectile based weapon with energy cost
@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 10,
+            RateOfFire = 180,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -49,8 +49,8 @@ namespace WeaponThread
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
             DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-            ShotsInBurst = 0,
-            DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ShotsInBurst = 6,
+            DelayAfterBurst = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
     Targeting = new TargetingDefinition
@@ -112,8 +112,8 @@ namespace WeaponThread
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 160f,
-            DesiredSpeed = 1600f,
+            AccelPerSec = 400f,
+            DesiredSpeed = 6400f,
             MaxTrajectory = 5000f,
             RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -166,12 +166,12 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 40f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
+            Tracer = Base(enable: true, length: 10f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
-            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 60, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
-            OffsetEffect = Options(maxOffset: 0, minLength: 0.5, maxLength: 3), // 0 offset value disables this effect
+            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 15, color: Color(red: 32, green: 32, blue: 64, alpha: 1)),
+            OffsetEffect = Options(maxOffset: 0.3, minLength: 0.03, maxLength: 0.3), // 0 offset value disables this effect
         },
         Emissive = new EmissiveDefinition
         {
