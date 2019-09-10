@@ -166,7 +166,7 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 40f, width: 0.05f, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
+            Tracer = Base(enable: true, length: 40f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
