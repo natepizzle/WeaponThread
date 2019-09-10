@@ -39,7 +39,7 @@ namespace WeaponThread
         Loading = new AmmoLoading
         {
             RateOfFire = 10,
-            BarrelsPerShot = 6,
+            BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
             ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -81,7 +81,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 100f,
+        BaseDamage = 1f,
         Mass = 0f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -91,9 +91,9 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, Anchor, JumpNullField, EnergySink, EmpPulse.
-            AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
-            AreaEffectRadius = 5f,
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, Anchor, JumpNullField, EnergySink, EmpPulse.
+            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffectRadius = 0f,
             Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 999999, detonationRadius: 75),
@@ -112,8 +112,8 @@ namespace WeaponThread
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 100f,
-            DesiredSpeed = 1000f,
+            AccelPerSec = 160f,
+            DesiredSpeed = 1600f,
             MaxTrajectory = 5000f,
             RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -166,12 +166,12 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
+            Tracer = Base(enable: true, length: 40f, width: 0.05f, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
             Trail = Options(enable: true, material: "WeaponLaser", decayTime: 60, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
-            OffsetEffect = Options(maxOffset: 0.75, minLength: 0.5, maxLength: 3), // 0 offset value disables this effect
+            OffsetEffect = Options(maxOffset: 0, minLength: 0.5, maxLength: 3), // 0 offset value disables this effect
         },
         Emissive = new EmissiveDefinition
         {
