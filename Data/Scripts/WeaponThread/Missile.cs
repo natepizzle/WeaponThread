@@ -91,7 +91,7 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = JumpNullField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 6600f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 1000f,
             Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
@@ -109,7 +109,7 @@ namespace WeaponThread
         },
         Trajectory = new AmmoTrajectory
         {
-            Guidance = None,
+            Guidance = Smart,
             TargetLossDegree = 80f,
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 50f,
@@ -123,7 +123,7 @@ namespace WeaponThread
                 Inaccuracy = 0f, // 0 = perfect, aim pos will be 0 - # meters from center, recalculates on miss.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
-                TrackingDelay = 5, // Measured in line length units traveled.
+                TrackingDelay = 15, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
             },

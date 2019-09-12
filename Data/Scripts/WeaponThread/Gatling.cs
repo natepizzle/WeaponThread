@@ -24,8 +24,8 @@ namespace WeaponThread
     {
         WeaponId = "Gatling", // name of weapon in terminal
         AmmoMagazineId = "Blank",
-        Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, rotateRate: 0.01f, elevateRate: 0.01f),
-        DeviateShotAngle = 2f,
+        Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.01f, elevateRate: 0.01f),
+        DeviateShotAngle = 0f,
         AimingTolerance = 2f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
         Hybrid = false, //projectile based weapon with energy cost
@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 420,
+            RateOfFire = 60,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -123,7 +123,7 @@ namespace WeaponThread
                 Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                 Aggressiveness = 1f, // controls how responsive tracking is.
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                TrackingDelay = 1, // Measured in Shape diameter units traveled.
+                TrackingDelay = 0, // Measured in Shape diameter units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             },
         },
@@ -166,11 +166,11 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 10f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
+            Tracer = Base(enable: true, length: 25f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
-            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 180, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
+            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
             OffsetEffect = Options(maxOffset: 0.3, minLength: 0.03, maxLength: 0.3), // 0 offset value disables this effect
         },
         Emissive = new EmissiveDefinition
