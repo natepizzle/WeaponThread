@@ -131,6 +131,11 @@ namespace WeaponThread
             return new Session.TrailDefinition { Enable = enable, Material = material, DecayTime = decayTime, Color = color };
         }
 
+        internal Session.Mines Options(double detectRadius, double deCloakRadius, bool cloak, bool persist)
+        {
+            return new Session.Mines {  DetectRadius = detectRadius, DeCloakRadius = deCloakRadius, Cloak = cloak, Persist = persist};
+        }
+
         internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)
         {
             return new Session.CustomBlocksDefinition { SubTypeId = subTypeId, Modifier = modifier };

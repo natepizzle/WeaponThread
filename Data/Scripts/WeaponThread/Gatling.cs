@@ -38,7 +38,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 60,
+            RateOfFire = 240,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
@@ -49,7 +49,7 @@ namespace WeaponThread
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
             DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-            ShotsInBurst = 1,
+            ShotsInBurst = 6,
             DelayAfterBurst = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
@@ -91,7 +91,7 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, Anchor, JumpNullField, EnergySink, EmpPulse.
+            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
             AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 0f,
             Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
@@ -112,8 +112,8 @@ namespace WeaponThread
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 400f,
-            DesiredSpeed = 1000f,
+            AccelPerSec = 0f,
+            DesiredSpeed = 400f,
             MaxTrajectory = 5000f,
             RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -126,6 +126,7 @@ namespace WeaponThread
                 TrackingDelay = 0, // Measured in Shape diameter units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             },
+            Mines = Options(detectRadius: 50, deCloakRadius: 100, cloak: true, persist: false),
         },
     },
     Graphics = new GraphicDefinition
@@ -166,11 +167,11 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 100f, width: 0.05f, color: Color(red: 64, green: 64, blue: 64, alpha: 8)),
+            Tracer = Base(enable: true, length: 10f, width: 0.05f, color: Color(red: 32, green: 32, blue: 32, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
-            Trail = Options(enable: false, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
+            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
             OffsetEffect = Options(maxOffset: 0.3, minLength: 0.03, maxLength: 0.3), // 0 offset value disables this effect
         },
         Emissive = new EmissiveDefinition

@@ -24,7 +24,7 @@ namespace WeaponThread
     {
         WeaponId = "Missile", // name of weapon in terminal
         AmmoMagazineId = "TorpAmmo",
-        Block = AimControl(trackTargets: true, turretAttached: true, turretController: false, rotateRate: 0f, elevateRate: 0f),
+        Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, rotateRate: 0f, elevateRate: 0f),
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 10,
@@ -81,18 +81,18 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 100f, 		// how much damage the projectile does
-        Mass = 2500f,
+        BaseDamage = 1000000f, 		// how much damage the projectile does
+        Mass = 500f,
         Health = 800,
         BackKickForce = 2.5f,
-        Shape = Options(shape: Sphere, diameter: 10), //defines the collision shape of projectile, defaults to visual Line Length
+        Shape = Options(shape: Sphere, diameter: 5), //defines the collision shape of projectile, defaults to visual Line Length
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 500, fragments: 0, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 6600f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 1000f,
             Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
@@ -109,7 +109,7 @@ namespace WeaponThread
         },
         Trajectory = new AmmoTrajectory
         {
-            Guidance = Smart,
+            Guidance = DetectFixed,
             TargetLossDegree = 80f,
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 50f,
@@ -125,8 +125,9 @@ namespace WeaponThread
                 MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn (1 is max value)
                 TrackingDelay = 15, // Measured in line length units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
+                OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
             },
+            Mines = Options(detectRadius: 200, deCloakRadius: 100, cloak: true, persist: false),
         },
     },
     Graphics = new GraphicDefinition
