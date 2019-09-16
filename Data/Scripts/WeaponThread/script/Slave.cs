@@ -255,6 +255,7 @@ namespace WeaponThread
                 EmpField,
                 OffenseField,
                 NavField,
+                DotField,
             }
 
             [ProtoMember(1)] internal double AreaEffectRadius;
@@ -309,7 +310,9 @@ namespace WeaponThread
                 Remote,
                 TravelTo,
                 Smart,
-                PulseDetect
+                DetectTravelTo,
+                DetectSmart,
+                DetectFixed,
             }
 
             [ProtoMember(1)] internal float MaxTrajectory;
@@ -322,6 +325,7 @@ namespace WeaponThread
             [ProtoMember(8)] internal Randomize RangeVariance;
             [ProtoMember(9)] internal GuidanceType Guidance;
             [ProtoMember(10)] internal Smarts Smarts;
+            [ProtoMember(11)] internal Mines Mines;
         }
 
         [ProtoContract]
@@ -333,6 +337,16 @@ namespace WeaponThread
             [ProtoMember(4)] internal double TrackingDelay;
             [ProtoMember(5)] internal int MaxChaseTime;
             [ProtoMember(6)] internal bool OverideTarget;
+        }
+
+        [ProtoContract]
+        public struct Mines
+        {
+            [ProtoMember(1)] internal double DetectRadius;
+            [ProtoMember(2)] internal double DeCloakRadius;
+            [ProtoMember(3)] internal int FieldTime;
+            [ProtoMember(4)] internal bool Cloak;
+            [ProtoMember(5)] internal bool Persist;
         }
 
         [ProtoContract]
