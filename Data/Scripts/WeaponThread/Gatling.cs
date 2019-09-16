@@ -126,7 +126,7 @@ namespace WeaponThread
                 TrackingDelay = 0, // Measured in Shape diameter units traveled.
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             },
-            Mines = Options(detectRadius: 50, deCloakRadius: 100, cloak: true, persist: false),
+            Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: false),
         },
     },
     Graphics = new GraphicDefinition

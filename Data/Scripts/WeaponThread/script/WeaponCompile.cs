@@ -131,9 +131,9 @@ namespace WeaponThread
             return new Session.TrailDefinition { Enable = enable, Material = material, DecayTime = decayTime, Color = color };
         }
 
-        internal Session.Mines Options(double detectRadius, double deCloakRadius, bool cloak, bool persist)
+        internal Session.Mines Options(double detectRadius, double deCloakRadius, int fieldTime, bool cloak, bool persist)
         {
-            return new Session.Mines {  DetectRadius = detectRadius, DeCloakRadius = deCloakRadius, Cloak = cloak, Persist = persist};
+            return new Session.Mines {  DetectRadius = detectRadius, DeCloakRadius = deCloakRadius, FieldTime = fieldTime, Cloak = cloak, Persist = persist};
         }
 
         internal Session.CustomBlocksDefinition Block(string subTypeId, float modifier)

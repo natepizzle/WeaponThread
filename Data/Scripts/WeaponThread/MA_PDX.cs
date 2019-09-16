@@ -130,6 +130,7 @@ namespace WeaponThread
                         MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoints.
                     },
+                    Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: false),
                 },
             },
             Graphics = new GraphicDefinition

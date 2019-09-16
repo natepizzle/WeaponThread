@@ -91,7 +91,7 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffect = JumpNullField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 1000f,
             Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
@@ -127,7 +127,7 @@ namespace WeaponThread
                 MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
             },
-            Mines = Options(detectRadius: 200, deCloakRadius: 100, cloak: true, persist: false),
+            Mines = Options(detectRadius: 100, deCloakRadius: 200, fieldTime: 1800, cloak: true, persist: false),
         },
     },
     Graphics = new GraphicDefinition
