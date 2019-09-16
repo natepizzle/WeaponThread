@@ -9,7 +9,7 @@ namespace WeaponThread
     {
         private AnimationDefinition BigBerthaAnimations => new AnimationDefinition
         {
-            Emissives = new []
+            /*Emissives = new []
             {
                 Emissive(
                     EmissiveName: "RGB", 
@@ -27,7 +27,7 @@ namespace WeaponThread
                     {
                         "EmissiveName_01"
                     }),
-            },
+            },*/
             WeaponAnimationSets = new[]
             {
                 new PartAnimationSetDef()
