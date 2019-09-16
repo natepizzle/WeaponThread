@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using VRageMath;
 using static WeaponThread.Session.ShieldDefinition;
 using static WeaponThread.Session.EventTriggers;
@@ -69,26 +70,6 @@ namespace WeaponThread
         internal Session.Shrapnel Options(float baseDamage, int fragments, float maxTrajectory, bool noAudioVisual, bool noGuidance, Session.Shrapnel.ShrapnelShape shape)
         {
             return new Session.Shrapnel { BaseDamage = baseDamage, Fragments = fragments, MaxTrajectory = maxTrajectory, NoAudioVisual = noAudioVisual, NoGuidance = noGuidance, Shape = shape};
-        }
-
-        internal Session.HeatingEmissive Options(bool enable)
-        {
-            return new Session.HeatingEmissive { Enable = enable};
-        }
-
-        internal Session.FiringEmissive Options(bool enable, int stages, Vector4 color)
-        {
-            return new Session.FiringEmissive { Enable = enable, Color = color };
-        }
-
-        internal Session.TrackingEmissive Options(bool enable, Vector4 color)
-        {
-            return new Session.TrackingEmissive { Enable = enable, Color = color };
-        }
-
-        internal Session.ReloadingEmissive Options(bool enable, Vector4 color, bool pulse)
-        {
-            return new Session.ReloadingEmissive { Enable = enable, Color = color };
         }
 
         internal Session.CustomScalesDefinition SubTypeIds(bool ignoreOthers, params Session.CustomBlocksDefinition[] customDefScale)
@@ -205,6 +186,19 @@ namespace WeaponThread
                 [OutOfAmmo] = OutOfAmmoDelay,
                 [PreFire] = PreFireDelay,
                 [EmptyOnGameLoad] = 0,
+            };
+        }
+
+        internal Session.WeaponEmissive Emissive(string EmissiveName, bool CycleEmissiveParts, bool LeavePreviousOn, Vector4[] Colors, float IntensityFrom, float IntensityTo, string[] EmissivePartNames)
+        {
+            return new Session.WeaponEmissive()
+            {
+                emissiveName = EmissiveName,
+                colors = Colors,
+                cycleEmissivesParts = CycleEmissiveParts,
+                leavePreviousOn = LeavePreviousOn,
+                emissivePartNames = EmissivePartNames,
+                intensityRange = new []{IntensityFrom,IntensityTo}
             };
         }
 

@@ -174,13 +174,6 @@ namespace WeaponThread
             Trail = Options(enable: false, material: "ProjectileTrailLine", decayTime: 600, color: Color(red: 8, green: 8, blue: 64, alpha: 8)),
             OffsetEffect = Options(maxOffset: 0, minLength: 5, maxLength: 15) // 0 offset value disables this effect
         },
-        Emissive = new EmissiveDefinition
-        {
-            Heating = Options(enable: true),
-            Tracking = Options(enable: true, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
-            Reloading = Options(enable: true, color: Color(red: 1, green: 0, blue: 0, alpha: 1), pulse: false),
-            Firing = Options(enable: true, stages: 6, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
-        },
     },
     Audio = new AudioDefinition
     {

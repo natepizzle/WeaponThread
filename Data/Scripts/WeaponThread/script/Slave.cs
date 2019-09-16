@@ -361,7 +361,6 @@ namespace WeaponThread
             [ProtoMember(3)] internal string ModelName;
             [ProtoMember(4)] internal ParticleDefinition Particles;
             [ProtoMember(5)] internal LineDefinition Line;
-            [ProtoMember(6)] internal EmissiveDefinition Emissive;
         }
 
         [ProtoContract]
@@ -430,40 +429,14 @@ namespace WeaponThread
         }
 
         [ProtoContract]
-        public struct EmissiveDefinition
+        public struct WeaponEmissive
         {
-            [ProtoMember(1)] internal HeatingEmissive Heating;
-            [ProtoMember(2)] internal TrackingEmissive Tracking;
-            [ProtoMember(3)] internal FiringEmissive Firing;
-            [ProtoMember(4)] internal ReloadingEmissive Reloading;
-        }
-
-        [ProtoContract]
-        public struct HeatingEmissive
-        {
-            [ProtoMember(1)] internal bool Enable;
-        }
-
-        [ProtoContract]
-        public struct TrackingEmissive
-        {
-            [ProtoMember(1)] internal bool Enable;
-            [ProtoMember(2)] internal Vector4 Color;
-        }
-
-        [ProtoContract]
-        public struct FiringEmissive
-        {
-            [ProtoMember(1)] internal bool Enable;
-            [ProtoMember(2)] internal int Stages;
-            [ProtoMember(3)] internal Vector4 Color;
-        }
-
-        [ProtoContract]
-        public struct ReloadingEmissive
-        {
-            [ProtoMember(1)] internal bool Enable;
-            [ProtoMember(2)] internal Vector4 Color;
+            [ProtoMember(1)] internal string emissiveName;
+            [ProtoMember(2)] internal string[] emissivePartNames;
+            [ProtoMember(3)] internal bool cycleEmissivesParts;
+            [ProtoMember(4)] internal bool leavePreviousOn;
+            [ProtoMember(5)] internal Vector4[] colors;
+            [ProtoMember(6)] internal float[] intensityRange;
         }
 
         [ProtoContract]
@@ -560,6 +533,7 @@ namespace WeaponThread
         public struct AnimationDefinition
         {
             [ProtoMember(1)] internal PartAnimationSetDef[] WeaponAnimationSets;
+            [ProtoMember(2)] internal WeaponEmissive[] Emissives;
         }
 
         [ProtoContract(IgnoreListHandling = true)]
@@ -595,6 +569,7 @@ namespace WeaponThread
             [ProtoMember(5)] internal uint TicksToMove;
             [ProtoMember(6)] internal string CenterEmpty;
             [ProtoMember(7)] internal bool Fade;
+            [ProtoMember(8)] internal string EmissiveName;
         }
 
         [ProtoContract]
