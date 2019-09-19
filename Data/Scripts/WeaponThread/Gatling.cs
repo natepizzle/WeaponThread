@@ -38,18 +38,18 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 240,
+            RateOfFire = 3600,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
             SkipBarrels = 0,
-            ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+            ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            HeatPerShot = 1, //heat generated per shot
+            HeatPerShot = 11, //heat generated per shot
             MaxHeat = 37000, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
             DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-            ShotsInBurst = 6,
+            ShotsInBurst = 0,
             DelayAfterBurst = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
     },
@@ -101,10 +101,10 @@ namespace WeaponThread
         },
         Beams = new BeamDefinition
         {
-            Enable = false,
-            VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+            Enable = true,
+            VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
             ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
-            RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+            RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
             OneParticle = true, // Only spawn one particle hit per beam weapon.
         },
         Trajectory = new AmmoTrajectory
@@ -113,7 +113,7 @@ namespace WeaponThread
             TargetLossDegree = 80f,
             TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 0f,
-            DesiredSpeed = 400f,
+            DesiredSpeed = 2000f,
             MaxTrajectory = 5000f,
             RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -167,12 +167,12 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 10f, width: 0.05f, color: Color(red: 32, green: 32, blue: 32, alpha: 8)),
+            Tracer = Base(enable: true, length: 1f, width: 0.05f, color: Color(red: 1, green: 0, blue: 32, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-            WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
-            Trail = Options(enable: true, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
-            OffsetEffect = Options(maxOffset: 0.3, minLength: 0.03, maxLength: 0.3), // 0 offset value disables this effect
+            WidthVariance = Random(start: 0f, end: .05f), // adds random value to default width (negatives shrinks width)
+            Trail = Options(enable: false, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
+            OffsetEffect = Options(maxOffset: 0, minLength: 0.03, maxLength: 0.3), // 0 offset value disables this effect
         },
     },
     Audio = new AudioDefinition
