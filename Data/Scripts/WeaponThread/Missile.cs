@@ -1,4 +1,5 @@
-﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
+﻿using System.Diagnostics;
+using static WeaponThread.Session.ShieldDefinition.ShieldType;
 using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
 using static WeaponThread.Session.HardPointDefinition.Prediction;
 using static WeaponThread.Session.AreaDamage.AreaEffectType;
@@ -24,7 +25,7 @@ namespace WeaponThread
     {
         WeaponId = "Missile", // name of weapon in terminal
         AmmoMagazineId = "TorpAmmo",
-        Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, rotateRate: 0f, elevateRate: 0f),
+        Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, rotateRate: 0f, elevateRate: 0f, offset: Vector(x: 0, y: 0, z: 0), debug: false),
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 10,
