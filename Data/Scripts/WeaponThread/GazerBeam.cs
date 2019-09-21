@@ -23,7 +23,7 @@ namespace WeaponThread
     {
         WeaponId = "GazerBeam", // name of weapon in terminal
         AmmoMagazineId = "Blank",
-        Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.04f, elevateRate: 0.04f, offset: Vector(x: 0, y: 0, z: 0), debug: false),
+        Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.04f, elevateRate: 0.04f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
         DeviateShotAngle = 0f,
         AimingTolerance = 4f, // 0 - 180 firing angle
         EnergyCost = 0.1f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel

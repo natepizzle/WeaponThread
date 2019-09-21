@@ -135,7 +135,8 @@ namespace WeaponThread
             [ProtoMember(4)] internal float RotateRate;
             [ProtoMember(5)] internal float ElevateRate;
             [ProtoMember(6)] internal Vector3D Offset;
-            [ProtoMember(7)] internal bool Debug;
+            [ProtoMember(7)] internal bool FixedOffset;
+            [ProtoMember(8)] internal bool Debug;
         }
 
         [ProtoContract]
