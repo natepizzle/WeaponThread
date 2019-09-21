@@ -82,6 +82,15 @@ namespace WeaponThread
             [ProtoMember(9)] internal AnimationDefinition Animations;
         }
 
+        /*
+        [ProtoContract]
+        public struct UpgradeModuleDefinition
+        {
+
+            [ProtoMember(1)] internal HardPointDefinitionUpgrade HardPointMods;
+            [ProtoMember(2)] internal AmmoDefinition AmmoMods;
+        }*/
+
 
         [ProtoContract]
         public struct ModelAssignments
@@ -125,6 +134,25 @@ namespace WeaponThread
             [ProtoMember(13)] internal AimControlDefinition Block;
             [ProtoMember(14)] internal UiDefinition Ui;
         }
+        
+        /*
+        [ProtoContract]
+        public struct HardPointDefinitionUpgrade
+        {
+            public enum Prediction
+            {
+                Off,
+                Basic,
+                Accurate,
+                Advanced,
+            }
+
+            [ProtoMember(1)] internal float DeviateShotAngle;
+            [ProtoMember(2)] internal float EnergyCost;
+            [ProtoMember(3)] internal double AimingTolerance;
+            [ProtoMember(4)] internal Prediction AimLeadingPrediction;
+            [ProtoMember(5)] internal AmmoLoading Loading;
+        }*/
 
         [ProtoContract]
         public struct AimControlDefinition
@@ -134,6 +162,14 @@ namespace WeaponThread
             [ProtoMember(3)] internal bool TurretController;
             [ProtoMember(4)] internal float RotateRate;
             [ProtoMember(5)] internal float ElevateRate;
+        }
+
+        [ProtoContract]
+        public struct UpgradeBlockDefinition
+        {
+            [ProtoMember(1)] internal string DisplayName;
+            [ProtoMember(2)] internal string BlockSubTypeId;
+            [ProtoMember(3)] internal string RequiredModule;
         }
 
         [ProtoContract]
