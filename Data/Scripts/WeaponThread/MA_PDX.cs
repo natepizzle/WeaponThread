@@ -119,6 +119,7 @@ namespace WeaponThread
                     AccelPerSec = 0f,
                     DesiredSpeed = 0f,
                     MaxTrajectory = 600f,
+                    FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts

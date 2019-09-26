@@ -82,22 +82,22 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 1000000f, 		// how much damage the projectile does
-        Mass = 500f,
+        BaseDamage = 100000f, 		// how much damage the projectile does
+        Mass = 50f,
         Health = 800,
         BackKickForce = 2.5f,
-        Shape = Options(shape: Sphere, diameter: 5), //defines the collision shape of projectile, defaults to visual Line Length
+        Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 500, fragments: 0, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 1000f,
+            AreaEffect = JumpNullField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 100f,
             Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 1),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 100),
             EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
         },
         Beams = new BeamDefinition
@@ -116,7 +116,7 @@ namespace WeaponThread
             AccelPerSec = 50f,
             DesiredSpeed = 1000f,
             MaxTrajectory = 1500f,
-            RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
+            FieldTime = 9999, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts

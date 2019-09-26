@@ -24,7 +24,7 @@ namespace WeaponThread
     {
         WeaponId = "Gatling", // name of weapon in terminal
         AmmoMagazineId = "Blank",
-        Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.01f, elevateRate: 0.01f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: true),
+        Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.01f, elevateRate: 0.01f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
         DeviateShotAngle = 0f,
         AimingTolerance = 2f, // 0 - 180 firing angle
         EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -81,7 +81,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 1f,
+        BaseDamage = 0f,
         Mass = 0f, // in kilograms
         Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
         BackKickForce = 0f,
@@ -91,8 +91,8 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-            AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
+            AreaEffect = AnchorField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+            AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
             AreaEffectRadius = 0f,
             Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
             Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
@@ -115,7 +115,7 @@ namespace WeaponThread
             AccelPerSec = 0f,
             DesiredSpeed = 0f,
             MaxTrajectory = 5000f,
-            RestTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
+            FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
             RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
             Smarts = new Smarts
@@ -133,7 +133,7 @@ namespace WeaponThread
     {
         ModelName = "",
         VisualProbability = 1f,
-        ShieldHitDraw = false,
+        ShieldHitDraw = true,
         Particles = new ParticleDefinition
         {
             Ammo = new Particle
@@ -167,10 +167,10 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 10f, width: 0.05f, color: Color(red: 32, green: 32, blue: 32, alpha: 8)),
+            Tracer = Base(enable: true, length: 1f, width: 0.03f, color: Color(red: 32, green: 32, blue: 32, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-            WidthVariance = Random(start: 0f, end: 0.15f), // adds random value to default width (negatives shrinks width)
+            WidthVariance = Random(start: 0f, end: 0.015f), // adds random value to default width (negatives shrinks width)
             Trail = Options(enable: false, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
             OffsetEffect = Options(maxOffset: 0, minLength: 5, maxLength: 15), // 0 offset value disables this effect
         },
