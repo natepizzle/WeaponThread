@@ -60,7 +60,7 @@ namespace WeaponThread
             {
                 // This weapon ideally is point defense, always prioritize incoming missiles/threats first, then offense/defenses.
                 Threats = Valid( Projectiles, Grids),
-                SubSystems = Priority(Thrust, Defense, Offense, Power, Production, Any), //define block type targeting order
+                SubSystems = Priority(Thrust, Utility, Offense, Power, Production, Any), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.

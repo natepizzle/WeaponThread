@@ -217,8 +217,8 @@ namespace WeaponThread
             public enum BlockTypes
             {
                 Any,
-                Weapons,
-                Utilities,
+                Offense,
+                Utility,
                 Power,
                 Production,
                 Thrust,
