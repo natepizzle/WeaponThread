@@ -194,16 +194,16 @@ namespace WeaponThread
             };
         }
 
-        internal Session.WeaponEmissive Emissive(string emissiveName, bool cycleEmissiveParts, bool leavePreviousOn, Vector4[] colors, float intensityFrom, float intensityTo, string[] emissivePartNames)
+        internal Session.WeaponEmissive Emissive(string EmissiveName, bool CycleEmissiveParts, bool LeavePreviousOn, Vector4[] Colors, float IntensityFrom, float IntensityTo, string[] EmissivePartNames)
         {
             return new Session.WeaponEmissive()
             {
-                EmissiveName = emissiveName,
-                Colors = colors,
-                CycleEmissivesParts = cycleEmissiveParts,
-                LeavePreviousOn = leavePreviousOn,
-                EmissivePartNames = emissivePartNames,
-                IntensityRange = new []{intensityFrom, intensityTo}
+                EmissiveName = EmissiveName,
+                Colors = Colors,
+                CycleEmissivesParts = CycleEmissiveParts,
+                LeavePreviousOn = LeavePreviousOn,
+                EmissivePartNames = EmissivePartNames,
+                IntensityRange = new []{ IntensityFrom, IntensityTo }
             };
         }
 
