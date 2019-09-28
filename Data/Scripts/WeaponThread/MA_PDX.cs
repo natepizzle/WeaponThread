@@ -51,7 +51,7 @@ namespace WeaponThread
                     MaxHeat = 1, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .99f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 1, //amount of heat lost per second
-                    DegradeROF = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    DegradeRof = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
@@ -60,7 +60,7 @@ namespace WeaponThread
             {
                 // This weapon ideally is point defense, always prioritize incoming missiles/threats first, then offense/defenses.
                 Threats = Valid( Projectiles, Grids),
-                SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
+                SubSystems = Priority(Thrust, Defense, Offense, Power, Production, Any), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.

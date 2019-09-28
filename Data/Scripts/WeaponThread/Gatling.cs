@@ -48,7 +48,7 @@ namespace WeaponThread
             MaxHeat = 37000, //max heat before weapon enters cooldown (70% of max heat)
             Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
             HeatSinkRate = 200, //amount of heat lost per second
-            DegradeROF = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+            DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
             ShotsInBurst = 0,
             DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
         },
@@ -56,8 +56,8 @@ namespace WeaponThread
     Targeting = new TargetingDefinition
     {
         Threats = Valid(Characters, Projectiles, Grids),
-        SubSystems = Priority(Navigation, Defense, Offense, Power, Production, Any), //define block type targeting order
-        ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+        SubSystems = Priority(Thrust, Defense, Offense, Power, Production, Any), //define block type targeting order
+        ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
         MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
         MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
@@ -167,7 +167,7 @@ namespace WeaponThread
         },
         Line = new LineDefinition
         {
-            Tracer = Base(enable: true, length: 1f, width: 0.03f, color: Color(red: 32, green: 32, blue: 32, alpha: 8)),
+            Tracer = Base(enable: true, length: 1f, width: 0.035f, color: Color(red: 8, green: 8, blue: 8, alpha: 8)),
             TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
             ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
             WidthVariance = Random(start: 0f, end: 0.015f), // adds random value to default width (negatives shrinks width)

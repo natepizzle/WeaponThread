@@ -190,7 +190,7 @@ namespace WeaponThread
             [ProtoMember(10)] internal int DelayUntilFire;
             [ProtoMember(11)] internal int ShotsInBurst;
             [ProtoMember(12)] internal int DelayAfterBurst;
-            [ProtoMember(13)] internal bool DegradeROF;
+            [ProtoMember(13)] internal bool DegradeRof;
         }
 
         [ProtoContract]
@@ -217,11 +217,13 @@ namespace WeaponThread
             public enum BlockTypes
             {
                 Any,
-                Offense,
-                Defense,
+                Weapons,
+                Utilities,
                 Power,
                 Production,
-                Navigation
+                Thrust,
+                Jumping,
+                Steering
             }
 
             [ProtoMember(1)] internal int TopTargets;
@@ -484,12 +486,12 @@ namespace WeaponThread
         [ProtoContract]
         public struct WeaponEmissive
         {
-            [ProtoMember(1)] internal string emissiveName;
-            [ProtoMember(2)] internal string[] emissivePartNames;
-            [ProtoMember(3)] internal bool cycleEmissivesParts;
-            [ProtoMember(4)] internal bool leavePreviousOn;
-            [ProtoMember(5)] internal Vector4[] colors;
-            [ProtoMember(6)] internal float[] intensityRange;
+            [ProtoMember(1)] internal string EmissiveName;
+            [ProtoMember(2)] internal string[] EmissivePartNames;
+            [ProtoMember(3)] internal bool CycleEmissivesParts;
+            [ProtoMember(4)] internal bool LeavePreviousOn;
+            [ProtoMember(5)] internal Vector4[] Colors;
+            [ProtoMember(6)] internal float[] IntensityRange;
         }
 
         [ProtoContract]
@@ -572,6 +574,7 @@ namespace WeaponThread
         {
             internal enum ShieldType
             {
+                Heal,
                 Bypass,
                 Emp,
                 Energy,
