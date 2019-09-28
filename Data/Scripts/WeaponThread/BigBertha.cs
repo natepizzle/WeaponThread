@@ -21,7 +21,8 @@ namespace WeaponThread
                 {
                     MountPoint(subTypeId: "MA_Bertha", aimPartId: "Bertha_Barrel", muzzlePartId: "None"),
                 },
-                Barrels = Names("muzzle_missile_001")
+                Barrels = Names("muzzle_missile_001"),
+                EnableSubPartPhysics = false
             },
             HardPoint = new HardPointDefinition
             {

@@ -21,7 +21,8 @@ namespace WeaponThread
                     MountPoint(subTypeId: "MA_PDX", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
                     MountPoint(subTypeId: "MA_PDX_sm", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
                 },
-                Barrels = Names("muzzle_projectile_001")
+                Barrels = Names("muzzle_projectile_001"),
+                EnableSubPartPhysics = false
             },
             HardPoint = new HardPointDefinition
             {

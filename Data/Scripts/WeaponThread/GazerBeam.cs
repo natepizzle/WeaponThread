@@ -17,7 +17,8 @@ namespace WeaponThread
         {
             MountPoint(subTypeId: "GazerBeamLB", aimPartId: "GazerBeamLenses", muzzlePartId: "GazerBeamLenses"),
         },
-        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006", "muzzle_barrel_007", "muzzle_barrel_008")
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006", "muzzle_barrel_007", "muzzle_barrel_008"),
+        EnableSubPartPhysics = false
     },
     HardPoint = new HardPointDefinition
     {
