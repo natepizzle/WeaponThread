@@ -20,7 +20,8 @@ namespace WeaponThread
                 {
                     MountPoint(subTypeId: "DronePod", aimPartId: "MissileTurretBarrels", muzzlePartId: "MissileTurretBarrels"),
                 },
-                Barrels = Names("muzzle_missile_001")
+                Barrels = Names("muzzle_missile_001"),
+                EnableSubPartPhysics = false
             },
             HardPoint = new HardPointDefinition
             {

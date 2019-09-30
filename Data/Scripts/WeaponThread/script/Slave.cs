@@ -97,6 +97,7 @@ namespace WeaponThread
         {
             [ProtoMember(1)] internal MountPoint[] MountPoints;
             [ProtoMember(2)] internal string[] Barrels;
+            [ProtoMember(3)] internal bool EnableSubPartPhysics;
         }
 
         [ProtoContract]

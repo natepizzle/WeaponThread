@@ -18,7 +18,8 @@ namespace WeaponThread
             MountPoint(subTypeId: "PDCTurretLB", aimPartId: "Boomsticks", muzzlePartId: "Boomsticks"),
             MountPoint(subTypeId: "PDCTurretSB", aimPartId: "Boomsticks", muzzlePartId: "Boomsticks"),
         },
-        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006")
+        Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006"),
+        EnableSubPartPhysics = false
     },
     HardPoint = new HardPointDefinition
     {
