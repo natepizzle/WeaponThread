@@ -135,7 +135,7 @@ namespace WeaponThread
             [ProtoMember(13)] internal AimControlDefinition Block;
             [ProtoMember(14)] internal UiDefinition Ui;
         }
-        
+
         /*
         [ProtoContract]
         public struct HardPointDefinitionUpgrade
@@ -166,6 +166,12 @@ namespace WeaponThread
             [ProtoMember(6)] internal Vector3D Offset;
             [ProtoMember(7)] internal bool FixedOffset;
             [ProtoMember(8)] internal bool Debug;
+            [ProtoMember(9)] internal int MaxAzimuth;
+            [ProtoMember(10)] internal int MinAzimuth;
+            [ProtoMember(11)] internal int MaxElevation;
+            [ProtoMember(12)] internal int MinElevation;
+            [ProtoMember(13)] internal bool PrimaryTracking;
+            [ProtoMember(14)] internal float InventorySize;
         }
 
         [ProtoContract]
