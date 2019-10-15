@@ -30,7 +30,7 @@ namespace WeaponThread
                 Restart = restart,
                 MaxDistance = distance,
                 MaxDuration = duration,
-                Scale = scale, 
+                Scale = scale,
                 HitPlayChance = hitPlayChance,
             };
         }
@@ -204,7 +204,7 @@ namespace WeaponThread
                 CycleEmissivesParts = CycleEmissiveParts,
                 LeavePreviousOn = LeavePreviousOn,
                 EmissivePartNames = EmissivePartNames,
-                IntensityRange = new []{ IntensityFrom, IntensityTo }
+                IntensityRange = new[]{ IntensityFrom, IntensityTo }
             };
         }
 
