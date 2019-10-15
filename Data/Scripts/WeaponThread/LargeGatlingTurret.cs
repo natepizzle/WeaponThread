@@ -130,9 +130,6 @@ namespace WeaponThread
                     Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: false),
                 },
             },
-
-
-
             Graphics = new GraphicDefinition
             {
                 ModelName = "",
