@@ -28,7 +28,7 @@ namespace WeaponThread
             {
                 WeaponId = "Big Bertha", // name of weapon in terminal
                 AmmoMagazineId = "ChonkShell",
-                Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, rotateRate: 0f, elevateRate: 0f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
+                Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, primaryTracking: true, rotateRate: 0f, elevateRate: 0f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
                 DeviateShotAngle = 0f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.0002f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
