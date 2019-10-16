@@ -30,7 +30,7 @@ namespace WeaponThread
                 Restart = restart,
                 MaxDistance = distance,
                 MaxDuration = duration,
-                Scale = scale, 
+                Scale = scale,
                 HitPlayChance = hitPlayChance,
             };
         }
@@ -128,9 +128,9 @@ namespace WeaponThread
             return new Session.TracerBaseDefinition { Enable = enable, Length = length, Width = width, Color = color};
         }
 
-        internal Session.AimControlDefinition AimControl(bool trackTargets, bool turretAttached, bool turretController, float rotateRate, float elevateRate, Vector3D offset, bool fixedOffset, bool debug)
+        internal Session.AimControlDefinition AimControl(bool trackTargets, bool turretAttached, bool turretController, float rotateRate, float elevateRate, Vector3D offset, bool primaryTracking = false, int minAzimuth = 0, int maxAzimuth = 0, int minElevation = 0, int maxElevation = 0, bool fixedOffset = false, float inventorySize = .384f, bool debug = false)
         {
-            return new Session.AimControlDefinition { TrackTargets = trackTargets, TurretAttached = turretAttached, TurretController = turretController, RotateRate = rotateRate, ElevateRate = elevateRate, Offset = offset, FixedOffset = fixedOffset, Debug = debug};
+            return new Session.AimControlDefinition { TrackTargets = trackTargets, TurretAttached = turretAttached, TurretController = turretController, RotateRate = rotateRate, ElevateRate = elevateRate, Offset = offset, Debug = debug, MinAzimuth = minAzimuth, MaxAzimuth = maxAzimuth, MinElevation = minElevation, MaxElevation = maxElevation, FixedOffset = fixedOffset, InventorySize = inventorySize, PrimaryTracking = primaryTracking };
         }
 
         internal Session.UiDefinition Display(bool rateOfFire, bool damageModifier, bool toggleGuidance, bool enableOverload)
@@ -163,9 +163,9 @@ namespace WeaponThread
             return new Vector3D(x, y, z);
         }
 
-        internal Session.MountPoint MountPoint(string subTypeId, string aimPartId, string muzzlePartId)
+        internal Session.MountPoint MountPoint(string subTypeId, string aimPartId, string muzzlePartId, string azimuthPartId = "", string elevationPartId = "")
         {
-            return new Session.MountPoint { SubtypeId = subTypeId, AimPartId = aimPartId, MuzzlePartId = muzzlePartId};
+            return new Session.MountPoint { SubtypeId = subTypeId, AimPartId = aimPartId, MuzzlePartId = muzzlePartId, AzimuthPartId = azimuthPartId, ElevationPartId = elevationPartId };
         }
 
         internal Session.EventTriggers[] Events(params Session.EventTriggers[] events)
@@ -204,7 +204,7 @@ namespace WeaponThread
                 CycleEmissivesParts = CycleEmissiveParts,
                 LeavePreviousOn = LeavePreviousOn,
                 EmissivePartNames = EmissivePartNames,
-                IntensityRange = new []{ IntensityFrom, IntensityTo }
+                IntensityRange = new[]{ IntensityFrom, IntensityTo }
             };
         }
 

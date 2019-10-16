@@ -28,7 +28,7 @@ namespace WeaponThread
             {
                 WeaponId = "PDX", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, rotateRate: 0.4f, elevateRate: 0.4f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.4f, elevateRate: 0.4f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
                 DeviateShotAngle = 0f,
                 AimingTolerance = 4f, // 0 - 180 firing angle
                 EnergyCost = 0.001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel .1f=30MW
