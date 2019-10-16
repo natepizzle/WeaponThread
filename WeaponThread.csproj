@@ -124,9 +124,6 @@
     <Compile Include="Data\Scripts\WeaponThread\DronePod.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
     <Compile Include="Data\Scripts\WeaponThread\GazerBeam.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\LargeDualGatlingTurret1.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\LargeDualGatlingTurret2.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\LargeGatlingTurret.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MA_PDX.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Missile.cs" />
