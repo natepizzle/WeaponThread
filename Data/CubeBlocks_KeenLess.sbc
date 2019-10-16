@@ -17,7 +17,7 @@
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\Large\unKeenTurret\GatlingBase.mwm</Model>
+      <Model>Models\Cubes\GatlingBase.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
         <Component Subtype="SteelPlate" Count="5" />
@@ -101,7 +101,7 @@
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\Large\unKeenTurret\DualGatlingBase.mwm</Model>
+      <Model>Models\Cubes\DualGatlingBase.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
         <Component Subtype="SteelPlate" Count="5" />
