@@ -5,6 +5,7 @@ using ProtoBuf;
 using Sandbox.ModAPI;
 using VRage.Game.Components;
 using VRageMath;
+using VRageMath;
 
 namespace WeaponThread
 {
