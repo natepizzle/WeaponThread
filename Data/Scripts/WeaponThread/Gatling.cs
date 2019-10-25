@@ -95,8 +95,8 @@ namespace WeaponThread
 
                 AreaEffect = new AreaDamage
                 {
-                    AreaEffect = AnchorField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                    AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                    AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                    AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
                     AreaEffectRadius = 0f,
                     Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
