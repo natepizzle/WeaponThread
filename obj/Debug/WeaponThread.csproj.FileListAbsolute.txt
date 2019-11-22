@@ -219,3 +219,5 @@ C:\Users\shane\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\Weapon
 C:\Users\shane\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\WeaponThread.csproj.CopyComplete
 C:\Users\shane\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\ClassLibrary.dll
 C:\Users\shane\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\ClassLibrary.pdb
+C:\Users\Alex\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\ClassLibrary.dll
+C:\Users\Alex\AppData\Roaming\SpaceEngineers\Mods\WeaponThread\obj\Debug\ClassLibrary.pdb
