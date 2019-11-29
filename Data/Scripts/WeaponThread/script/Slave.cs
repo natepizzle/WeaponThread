@@ -409,6 +409,7 @@ namespace WeaponThread
             [ProtoMember(3)] internal Vector3D Offset;
             [ProtoMember(4)] internal ParticleOptions Extras;
             [ProtoMember(5)] internal bool ApplyToShield;
+            [ProtoMember(6)] internal bool ShrinkByDistance;
         }
 
         [ProtoContract]

@@ -26,7 +26,7 @@ namespace WeaponThread
     {
         WeaponId = "Missile", // name of weapon in terminal
         AmmoMagazineId = "TorpAmmo",
-        Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0f, elevateRate: 0f, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
+        Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
         DeviateShotAngle = 0f,
         AimingTolerance = 10f,
         EnergyCost = 10,

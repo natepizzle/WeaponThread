@@ -17,7 +17,7 @@ namespace WeaponThread
             Assignments = new ModelAssignments
             {
                 MountPoints = new[]
-{
+            {
             MountPoint(subTypeId: "PDCTurretLB", aimPartId: "Boomsticks", muzzlePartId: "Boomsticks"),
             MountPoint(subTypeId: "PDCTurretSB", aimPartId: "Boomsticks", muzzlePartId: "Boomsticks"),
         },
@@ -28,7 +28,7 @@ namespace WeaponThread
             {
                 WeaponId = "Gatling", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -20, maxElevation: 80, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: true),
                 DeviateShotAngle = 0f,
                 AimingTolerance = 2f, // 0 - 180 firing angle
                 EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -49,9 +49,9 @@ namespace WeaponThread
                     ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
-                    MaxHeat = 37000, //max heat before weapon enters cooldown (70% of max heat)
+                    MaxHeat = 7000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
-                    HeatSinkRate = 200, //amount of heat lost per second
+                    HeatSinkRate = 100, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -71,7 +71,7 @@ namespace WeaponThread
             DamageScales = new DamageScaleDefinition
             {
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
-                DamageVoxels = true, // true = voxels are vulnerable to this weapon
+                DamageVoxels = false, // true = voxels are vulnerable to this weapon
                 SelfDamage = false, // true = allow self damage.
 
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
@@ -85,7 +85,7 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 0f,
+                BaseDamage = 1f,
                 Mass = 0f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
@@ -145,14 +145,16 @@ namespace WeaponThread
                         Name = "", //ShipWelderArc
                         Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                         Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
+                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1),
                     },
                     Hit = new Particle
                     {
                         Name = "ShipWelderArc",
                         Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f),
+                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f, hitPlayChance: 0.5f),
+                        ApplyToShield = true,
+                        ShrinkByDistance = true,
                     },
                     Barrel1 = new Particle
                     {
@@ -195,6 +197,8 @@ namespace WeaponThread
                 {
                     TravelSound = "",
                     HitSound = "",
+                    HitPlayChance = 0.5f,
+                    HitPlayShield = true,
                 }, // Don't edit below this line
             },
         };
