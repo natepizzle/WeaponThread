@@ -13,7 +13,7 @@
       <NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
       <SecondarySoundName>WepShipGatlingRotation</SecondarySoundName>
       <AmmoMagazines>
-        <AmmoMagazine Subtype="Blank" />
+        <AmmoMagazine Subtype="ChonkShell" />
       </AmmoMagazines>
       <ReloadTime>0</ReloadTime>
     </Weapon>

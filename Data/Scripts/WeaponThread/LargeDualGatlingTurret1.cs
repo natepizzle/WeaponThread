@@ -13,7 +13,7 @@ namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons
     {
-        WeaponDefinition DualLargeGatlingTurret_KL_Turret1 => new WeaponDefinition
+        WeaponDefinition DualLargeGatlingTurret_KL_Turret1 => new WeaponDefinition // this is the name in the config file
         {
             Assignments = new ModelAssignments
             {
