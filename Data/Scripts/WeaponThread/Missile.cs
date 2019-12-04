@@ -57,14 +57,14 @@ namespace WeaponThread
     },
     Targeting = new TargetingDefinition
     {
-        Threats = Valid(Characters, Projectiles, Grids),
+        Threats = Valid(Characters, Grids),
         SubSystems = Priority(Thrust, Utility, Offense, Power, Production, Any), //define block type targeting order
         ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
         MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
         MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
         TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
         TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-        StopTrackingSpeed = 50, // do not track target threats traveling faster than this speed
+        StopTrackingSpeed = 500, // do not track target threats traveling faster than this speed
     },
     DamageScales = new DamageScaleDefinition
     {
@@ -83,22 +83,22 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 100000f, 		// how much damage the projectile does
+        BaseDamage = 100f, 		// how much damage the projectile does
         Mass = 50f,
         Health = 800,
         BackKickForce = 2.5f,
-        Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
+        Shape = Options(shape: Sphere, diameter: 2), //defines the collision shape of projectile, defaults to visual Line Length
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
         Shrapnel = Options(baseDamage: 500, fragments: 0, maxTrajectory: 600, noAudioVisual: false, noGuidance: false, shape: FullMoon),
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = JumpNullField, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-            AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 100f,
-            Pulse = Options(interval: 30, pulseChance: 25), // interval measured in game ticks (60 == 1 second)
+            AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
+            AreaEffectRadius = 50f,
+            Pulse = Options(interval: 0, pulseChance: 0), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
-            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 50000, detonationRadius: 100),
+            Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 500, detonationRadius: 50),
             EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
         },
         Beams = new BeamDefinition
@@ -114,10 +114,10 @@ namespace WeaponThread
             Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 50f,
-            DesiredSpeed = 1000f,
-            MaxTrajectory = 1500f,
-            FieldTime = 9999, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
+            AccelPerSec = 0f,
+            DesiredSpeed = 15f,
+            MaxTrajectory = 3500f,
+            FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts

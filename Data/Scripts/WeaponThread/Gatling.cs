@@ -28,41 +28,41 @@ namespace WeaponThread
             {
                 WeaponId = "Gatling", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: true),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
                 DeviateShotAngle = 0f,
-                AimingTolerance = 2f, // 0 - 180 firing angle
+                AimingTolerance = 1f, // 0 - 180 firing angle
                 EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                GridWeaponCap = 3, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+                GridWeaponCap = 0, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
                 Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: true),
 
                 Loading = new AmmoLoading
                 {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 2000, // visual only, 0 disables and uses RateOfFire
-                    BarrelsPerShot = 6,
+                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
-                    MaxHeat = 7000, //max heat before weapon enters cooldown (70% of max heat)
+                    MaxHeat = 70000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
-                    HeatSinkRate = 100, //amount of heat lost per second
+                    HeatSinkRate = 1000, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 0,
-                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ShotsInBurst = 1,
+                    DelayAfterBurst = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
             Targeting = new TargetingDefinition
             {
-                Threats = Valid(Characters, Projectiles, Grids),
+                Threats = Valid(Projectiles),
                 SubSystems = Priority(Thrust, Utility, Offense, Power, Production, Any), //define block type targeting order
-                ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
@@ -96,18 +96,18 @@ namespace WeaponThread
 
                 AreaEffect = new AreaDamage
                 {
-                    AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                    AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
                     AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
                     AreaEffectRadius = 0f,
                     Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
-                    Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 999999, detonationRadius: 75),
+                    Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
                     EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
-                    VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+                    Enable = false,
+                    VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
                     OneParticle = true, // Only spawn one particle hit per beam weapon.
@@ -118,8 +118,8 @@ namespace WeaponThread
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 0f,
-                    MaxTrajectory = 5000f,
+                    DesiredSpeed = 50f,
+                    MaxTrajectory = 1500f,
                     FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -150,10 +150,10 @@ namespace WeaponThread
                     },
                     Hit = new Particle
                     {
-                        Name = "ShipWelderArc",
+                        Name = "",
                         Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f, hitPlayChance: 0.5f),
+                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f, hitPlayChance: 1f),
                         ApplyToShield = true,
                         ShrinkByDistance = true,
                     },
