@@ -57,7 +57,7 @@ namespace WeaponThread
     },
     Targeting = new TargetingDefinition
     {
-        Threats = Valid(Characters, Grids),
+        Threats = Valid(Projectiles, Characters, Grids),
         SubSystems = Priority(Thrust, Utility, Offense, Power, Production, Any), //define block type targeting order
         ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
         MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
@@ -85,7 +85,7 @@ namespace WeaponThread
     {
         BaseDamage = 100f, 		// how much damage the projectile does
         Mass = 50f,
-        Health = 800,
+        Health = 1,
         BackKickForce = 2.5f,
         Shape = Options(shape: Sphere, diameter: 2), //defines the collision shape of projectile, defaults to visual Line Length
         ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -93,10 +93,10 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffect = AntiSmart, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
-            AreaEffectRadius = 50f,
-            Pulse = Options(interval: 0, pulseChance: 0), // interval measured in game ticks (60 == 1 second)
+            AreaEffectRadius = 100f,
+            Pulse = Options(interval: 60, pulseChance: 50), // interval measured in game ticks (60 == 1 second)
             Explosions = Options(noVisuals: false, noSound: false, scale: 4, customParticle: "", customSound: ""),
             Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 500, detonationRadius: 50),
             EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
@@ -111,13 +111,13 @@ namespace WeaponThread
         },
         Trajectory = new AmmoTrajectory
         {
-            Guidance = None,
+            Guidance = TravelTo,
             TargetLossDegree = 80f,
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
-            AccelPerSec = 0f,
-            DesiredSpeed = 15f,
-            MaxTrajectory = 3500f,
-            FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
+            AccelPerSec = 10f,
+            DesiredSpeed = 30f,
+            MaxTrajectory = 250f,
+            FieldTime = 3600, // 0 is disabled, a value causes the projectile to come to rest and remain for a time (Measured in game ticks, 60 = 1 second)
             SpeedVariance = Random(start: 0, end: 0),
             RangeVariance = Random(start: 0, end: 0),
             Smarts = new Smarts

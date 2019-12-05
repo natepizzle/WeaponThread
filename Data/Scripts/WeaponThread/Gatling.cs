@@ -60,10 +60,10 @@ namespace WeaponThread
             },
             Targeting = new TargetingDefinition
             {
-                Threats = Valid(Projectiles),
+                Threats = Valid(Grids),
                 SubSystems = Priority(Thrust, Utility, Offense, Power, Production, Any), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
-                MinimumDiameter = 10, // 0 = unlimited, Minimum radius of threat to engage.
+                MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
@@ -114,12 +114,12 @@ namespace WeaponThread
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = None,
+                    Guidance = Smart,
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 0f,
+                    AccelPerSec = 1f,
                     DesiredSpeed = 50f,
-                    MaxTrajectory = 1500f,
+                    MaxTrajectory = 1000f,
                     FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -128,8 +128,9 @@ namespace WeaponThread
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
                         MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                        TrackingDelay = 0, // Measured in Shape diameter units traveled.
+                        TrackingDelay = 1, // Measured in Shape diameter units traveled.
                         MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                        OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
                     },
                     Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: false),
                 },
@@ -174,7 +175,7 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 1f, width: 0.035f, color: Color(red: 8, green: 8, blue: 8, alpha: 8)),
+                    Tracer = Base(enable: true, length: 5f, width: 0.035f, color: Color(red: 64, green: 8, blue: 8, alpha: 8)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.015f), // adds random value to default width (negatives shrinks width)
