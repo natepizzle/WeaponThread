@@ -67,7 +67,8 @@ namespace WeaponThread
             OutOfAmmo,
             PreFire,
             EmptyOnGameLoad,
-            StopFiring
+            StopFiring,
+            StopTracking
         }
 
         [ProtoContract]
