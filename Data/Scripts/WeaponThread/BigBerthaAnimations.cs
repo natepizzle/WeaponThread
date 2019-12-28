@@ -79,6 +79,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 170, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0),
                     Reverse = Events(),
                     Loop = Events(),
+                    ResetEmissives = Events(),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Reloading] =
