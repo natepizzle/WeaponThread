@@ -28,7 +28,7 @@ namespace WeaponThread
         AmmoMagazineId = "TorpAmmo",
         Block = AimControl(trackTargets: false, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
         DeviateShotAngle = 0f,
-        AimingTolerance = 10f,
+        AimingTolerance = 1f,
         EnergyCost = 10,
         Hybrid = false, //projectile based weapon with energy cost
         EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
@@ -76,7 +76,7 @@ namespace WeaponThread
         Characters = -1f,
         Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
         Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-        Shields = Options(modifier: -1f, type: Kinetic), // Types: Kinetic, Energy, Emp or Bypass
+        Shields = Options(modifier: -1f, type: Bypass), // Types: Kinetic, Energy, Emp or Bypass
 
         // ignoreOthers will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
         Custom = SubTypeIds(false),
@@ -93,7 +93,7 @@ namespace WeaponThread
 
         AreaEffect = new AreaDamage
         {
-            AreaEffect = AntiSmart, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
+            AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
             AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise apply this value after baseDamage.
             AreaEffectRadius = 100f,
             Pulse = Options(interval: 60, pulseChance: 50), // interval measured in game ticks (60 == 1 second)
@@ -111,7 +111,7 @@ namespace WeaponThread
         },
         Trajectory = new AmmoTrajectory
         {
-            Guidance = TravelTo,
+            Guidance = None,
             TargetLossDegree = 80f,
             TargetLossTime = 600, // time until trajectile death,  Measured in ticks (6 = 100ms, 60 = 1 seconds, etc..).
             AccelPerSec = 10f,
