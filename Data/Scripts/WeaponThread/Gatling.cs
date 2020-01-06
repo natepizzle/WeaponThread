@@ -42,20 +42,20 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 300,
+                    RateOfFire = 30,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
                     MaxHeat = 70000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
-                    HeatSinkRate = 1000, //amount of heat lost per second
+                    HeatSinkRate = 9000, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 10,
-                    DelayAfterBurst = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ShotsInBurst = 1,
+                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
             Targeting = new TargetingDefinition
@@ -86,7 +86,7 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 10000f,
+                BaseDamage = 0.0001f,
                 Mass = 0f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
@@ -101,7 +101,7 @@ namespace WeaponThread
                     AreaEffectRadius = 0f,
                     Pulse = Options(interval: 60, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
-                    Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
+                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
                     EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
                 },
                 Beams = new BeamDefinition
@@ -117,11 +117,11 @@ namespace WeaponThread
                     Guidance = None,
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 1f,
-                    DesiredSpeed = 50f,
+                    AccelPerSec = 0f,
+                    DesiredSpeed = 50,
                     MaxTrajectory = 1000f,
                     FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
-                    SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
+                    SpeedVariance = Random(start: 0, end: 9), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
                     {
@@ -175,12 +175,12 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 5f, width: 0.035f, color: Color(red: 64, green: 8, blue: 8, alpha: 8)),
+                    Tracer = Base(enable: true, length: 25f, width: 0.05f, color: Color(red: 8, green: 0, blue: 0, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 0.015f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: false, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
-                    OffsetEffect = Options(maxOffset: 0, minLength: 5, maxLength: 15), // 0 offset value disables this effect
+                    WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
+                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 64, color: Color(red: 0, green: 8, blue: 0, alpha: 1), back: true),
+                    OffsetEffect = Options(maxOffset: 0, minLength: 30, maxLength: 30), // 0 offset value disables this effect
                 },
             },
             Audio = new AudioDefinition
