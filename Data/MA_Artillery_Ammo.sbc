@@ -7,7 +7,7 @@
         <SubtypeId>ChonkShell</SubtypeId>
       </Id>
       <BasicProperties>
-        <DesiredSpeed>2000</DesiredSpeed>
+        <DesiredSpeed>4000</DesiredSpeed>
         <SpeedVariance>0</SpeedVariance>
         <MaxTrajectory>8000</MaxTrajectory>
         <BackkickForce>500</BackkickForce>

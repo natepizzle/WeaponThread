@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using ProtoBuf;
 using Sandbox.ModAPI;
@@ -587,6 +588,7 @@ namespace WeaponThread
             [ProtoMember(6)] internal EventTriggers[] Loop;
             [ProtoMember(7)] internal Dictionary<EventTriggers, RelMove[]> EventMoveSets;
             [ProtoMember(8)] internal EventTriggers[] TriggerOnce;
+            [ProtoMember(9)] internal EventTriggers[] ResetEmissives;
 
         }
 
