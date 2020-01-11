@@ -107,7 +107,7 @@ namespace WeaponThread
                 Beams = new BeamDefinition
                 {
                     Enable = false,
-                    VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+                    VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
                     OneParticle = true, // Only spawn one particle hit per beam weapon.
@@ -118,10 +118,10 @@ namespace WeaponThread
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 50,
+                    DesiredSpeed = 5000,
                     MaxTrajectory = 1000f,
                     FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
-                    SpeedVariance = Random(start: 0, end: 9), // subtracts value from DesiredSpeed
+                    SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
                     {
@@ -169,18 +169,18 @@ namespace WeaponThread
                     {
                         Name = "",//Muzzle_Flash_Large
                         Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
-                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Offset = Vector(x: 0, y: -1, z: 0),	
                         Extras = Options(loop: false, restart: false, distance: 150, duration: 6, scale: 1f),
                     },
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 25f, width: 0.05f, color: Color(red: 8, green: 0, blue: 0, alpha: 1)),
+                    Tracer = Base(enable: true, length: 25f, width: 0.1f, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 64, color: Color(red: 0, green: 8, blue: 0, alpha: 1), back: true),
-                    OffsetEffect = Options(maxOffset: 0, minLength: 30, maxLength: 30), // 0 offset value disables this effect
+                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 10, color: Color(red: 0, green: 0, blue: 16, alpha: 1), back: true, customWidth: 2, useWidthVariance: true),
+                    OffsetEffect = Options(maxOffset: 0, minLength: 1, maxLength: 25), // 0 offset value disables this effect
                 },
             },
             Audio = new AudioDefinition
