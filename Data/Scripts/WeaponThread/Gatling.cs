@@ -179,7 +179,7 @@ namespace WeaponThread
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 10, color: Color(red: 0, green: 0, blue: 16, alpha: 1), back: true, customWidth: 2, useWidthVariance: true),
+                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 10, color: Color(red: 0, green: 0, blue: 16, alpha: 1), back: true, customWidth: 2, useWidthVariance: true, useColorFade: true),
                     OffsetEffect = Options(maxOffset: 0, minLength: 1, maxLength: 25), // 0 offset value disables this effect
                 },
             },

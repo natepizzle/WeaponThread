@@ -465,6 +465,7 @@ namespace WeaponThread
             [ProtoMember(5)] internal bool Back;
             [ProtoMember(6)] internal float CustomWidth;
             [ProtoMember(7)] internal bool UseWidthVariance;
+            [ProtoMember(8)] internal bool UseColorFade;
         }
 
         [ProtoContract]
