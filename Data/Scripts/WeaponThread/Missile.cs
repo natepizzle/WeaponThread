@@ -40,7 +40,7 @@ namespace WeaponThread
 
         Loading = new AmmoLoading
         {
-            RateOfFire = 180,
+            RateOfFire = 1,
             BarrelsPerShot = 1,
             TrajectilesPerBarrel = 1,
             SkipBarrels = 0,
@@ -83,7 +83,7 @@ namespace WeaponThread
     },
     Ammo = new AmmoDefinition
     {
-        BaseDamage = 100f, 		// how much damage the projectile does
+        BaseDamage = 1f, 		// how much damage the projectile does
         Mass = 50f,
         Health = 1,
         BackKickForce = 2.5f,
@@ -192,7 +192,7 @@ namespace WeaponThread
 
         Ammo = new AudioAmmoDefinition
         {
-            TravelSound = "",
+            TravelSound = "WepShipSmallMissileShot",
             HitSound = "",
         }, // Don't edit below this line
     }, 

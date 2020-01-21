@@ -29,6 +29,7 @@ namespace WeaponThread
                 WeaponId = "Gatling", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
+                MuzzleCheck = true,
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -42,7 +43,7 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 30,
+                    RateOfFire = 20,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
@@ -54,7 +55,7 @@ namespace WeaponThread
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 9000, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 1,
+                    ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
@@ -118,7 +119,7 @@ namespace WeaponThread
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 5000,
+                    DesiredSpeed = 50000,
                     MaxTrajectory = 1000f,
                     FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -179,8 +180,8 @@ namespace WeaponThread
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 10, color: Color(red: 0, green: 0, blue: 16, alpha: 1), back: true, customWidth: 2, useWidthVariance: true, useColorFade: true),
-                    OffsetEffect = Options(maxOffset: 0, minLength: 1, maxLength: 25), // 0 offset value disables this effect
+                    Trail = Options(enable: true, material: "WeaponLaser", decayTime: 128, color: Color(red: 0, green: 0, blue: 1, alpha: 1), back: true, customWidth: 0, useWidthVariance: false, useColorFade: true),
+                    OffsetEffect = Options(maxOffset: 1, minLength: 0.2f, maxLength: 5), // 0 offset value disables this effect
                 },
             },
             Audio = new AudioDefinition
