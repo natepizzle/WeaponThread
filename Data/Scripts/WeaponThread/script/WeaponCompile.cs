@@ -68,7 +68,7 @@ namespace WeaponThread
             return new Session.ObjectsHit { MaxObjectsHit = maxObjectsHit, CountBlocks = countBlocks };
         }
 
-        internal Session.Shrapnel Options(float baseDamage, int fragments, float maxTrajectory, bool noAudioVisual, bool noGuidance, Session.Shrapnel.ShrapnelShape shape)
+        internal Session.Shrapnel Options(float baseDamage, int fragments, float maxTrajectory, bool noAudioVisual, bool noGuidance, Session.Shrapnel.ShrapnelShape shape, bool areaEffect = false)
         {
             return new Session.Shrapnel { BaseDamage = baseDamage, Fragments = fragments, MaxTrajectory = maxTrajectory, NoAudioVisual = noAudioVisual, NoGuidance = noGuidance, Shape = shape};
         }

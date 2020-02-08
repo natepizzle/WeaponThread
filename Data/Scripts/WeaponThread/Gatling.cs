@@ -28,7 +28,7 @@ namespace WeaponThread
             {
                 WeaponId = "Gatling", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false, inventorySize: 15f),
                 MuzzleCheck = true,
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
@@ -93,7 +93,7 @@ namespace WeaponThread
                 BackKickForce = 0f,
                 Shape = Options(shape: Line, diameter: 0), //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
+                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon, areaEffect: false),
 
                 AreaEffect = new AreaDamage
                 {
