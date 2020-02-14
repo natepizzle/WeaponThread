@@ -154,6 +154,7 @@ namespace WeaponThread
             [ProtoMember(12)] internal int MinElevation;
             [ProtoMember(13)] internal bool PrimaryTracking;
             [ProtoMember(14)] internal float InventorySize;
+            [ProtoMember(15)] internal bool LockOnFocus;
         }
 
         [ProtoContract]
@@ -518,6 +519,7 @@ namespace WeaponThread
             [ProtoMember(4)] internal string BarrelRotationSound;
             [ProtoMember(5)] internal string FiringSound;
             [ProtoMember(6)] internal bool FiringSoundPerShot;
+            [ProtoMember(7)] internal string PreFiringSound;
         }
 
         [ProtoContract]

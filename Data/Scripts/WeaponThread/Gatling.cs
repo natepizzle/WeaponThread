@@ -28,7 +28,7 @@ namespace WeaponThread
             {
                 WeaponId = "Gatling", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false, inventorySize: 15f),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: false, inventorySize: 15f, lockOnFocus: false),
                 MuzzleCheck = true,
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
@@ -188,6 +188,7 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
+                    PreFiringSound = "",
                     FiringSound = "", // WepShipGatlingShot
                     FiringSoundPerShot = true,
                     ReloadSound = "",
