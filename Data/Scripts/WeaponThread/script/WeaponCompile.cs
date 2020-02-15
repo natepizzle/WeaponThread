@@ -88,9 +88,9 @@ namespace WeaponThread
             return new Session.OffsetEffect { MaxOffset = maxOffset, MinLength = minLength, MaxLength = maxLength};
         }
 
-        internal Session.ShieldDefinition Options(float modifier, ShieldType type)
+        internal Session.ShieldDefinition Options(float modifier, ShieldType type, float bypassModifier = -1f)
         {
-            return new Session.ShieldDefinition { Modifier = modifier, Type = type };
+            return new Session.ShieldDefinition { Modifier = modifier, Type = type , BypassModifier = bypassModifier };
         }
 
         internal Session.ShapeDefinition Options(Session.ShapeDefinition.Shapes shape, double diameter)

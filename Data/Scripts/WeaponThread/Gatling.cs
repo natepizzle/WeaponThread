@@ -80,14 +80,14 @@ namespace WeaponThread
                 Characters = -1f,
                 Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
                 Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-                Shields = Options(modifier: 0.1f, type: Heal), // Types: Kinetic, Energy, Emp or Bypass
+                Shields = Options(modifier: 1f, type: Bypass, bypassModifier: 0.5f), // Types: Kinetic, Energy, Emp or Bypass, bypassModifer -1 = disabled, 0.5f = 50% dmg to shield
 
                 // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
                 Custom = SubTypeIds(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 0.0001f,
+                BaseDamage = 1000f,
                 Mass = 0f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
@@ -119,7 +119,7 @@ namespace WeaponThread
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 50000,
+                    DesiredSpeed = 200,
                     MaxTrajectory = 1000f,
                     FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -176,12 +176,12 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 25f, width: 0.1f, color: Color(red: 1, green: 0, blue: 0, alpha: 1)),
+                    Tracer = Base(enable: true, length: 5f, width: 0.1f, color: Color(red: 1, green: 1, blue: 1, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Trail = Options(enable: true, material: "WeaponLaser", decayTime: 128, color: Color(red: 0, green: 0, blue: 1, alpha: 1), back: true, customWidth: 0, useWidthVariance: false, useColorFade: true),
-                    OffsetEffect = Options(maxOffset: 1, minLength: 0.2f, maxLength: 5), // 0 offset value disables this effect
+                    OffsetEffect = Options(maxOffset: 1, minLength: 0.2f, maxLength: 3), // 0 offset value disables this effect
                 },
             },
             Audio = new AudioDefinition
