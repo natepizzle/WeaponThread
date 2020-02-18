@@ -37,7 +37,7 @@ namespace WeaponThread
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
-                DelayCeaseFire = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 0, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
                 Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: true),
 
@@ -66,7 +66,7 @@ namespace WeaponThread
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
                 StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
             },
@@ -103,7 +103,7 @@ namespace WeaponThread
                     Pulse = Options(interval: 0, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
                     Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
-                    EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
+                    EwarFields = Options(duration: 600, stackDuration: true, depletable: true, maxStacks: 10, triggerRange: 10f)
                 },
                 Beams = new BeamDefinition
                 {

@@ -103,9 +103,9 @@ namespace WeaponThread
             return new Session.Pulse { Interval = interval, PulseChance = pulseChance };
         }
 
-        internal Session.EwarFields Options(int duration, bool stackDuration, bool depletable)
+        internal Session.EwarFields Options(int duration, bool stackDuration, bool depletable, int maxStacks = int.MaxValue, double triggerRange = 0)
         {
-            return new Session.EwarFields { Duration = duration, StackDuration = stackDuration, Depletable = depletable};
+            return new Session.EwarFields { Duration = duration, StackDuration = stackDuration, Depletable = depletable, MaxStacks = maxStacks, TriggerRange = triggerRange};
         }
 
         internal Session.TrailDefinition Options(bool enable, string material, int decayTime, Vector4 color, bool back = false, float customWidth = 0, bool useWidthVariance = false, bool useColorFade = false)
