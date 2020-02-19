@@ -29,7 +29,7 @@ namespace WeaponThread
                 WeaponId = "Gatling", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: true, inventorySize: 15f, lockOnFocus: false),
-                MuzzleCheck = true,
+                MuzzleCheck = false,
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -37,15 +37,15 @@ namespace WeaponThread
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
-                DelayCeaseFire = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 0, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
                 Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: true),
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 3600,
+                    RateOfFire = 60,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
-                    BarrelsPerShot = 6,
+                    BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -66,7 +66,7 @@ namespace WeaponThread
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
                 StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
             },
@@ -97,17 +97,17 @@ namespace WeaponThread
 
                 AreaEffect = new AreaDamage
                 {
-                    AreaEffect = Explosive, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                    AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
                     AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 2.5f,
-                    Pulse = Options(interval: 0, pulseChance: 15), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
+                    AreaEffectRadius = 20f,
+                    Pulse = Options(interval: 60, pulseChance: 100), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
                     Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
-                    EwarFields = Options(duration: 600, stackDuration: true, depletable: true)
+                    EwarFields = Options(duration: 600, stackDuration: true, depletable: true, maxStacks: 10, triggerRange: 10f)
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
+                    Enable = false,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -115,13 +115,13 @@ namespace WeaponThread
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = None,
+                    Guidance = Smart,
                     TargetLossDegree = 80f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 10f,
                     DesiredSpeed = 300,
                     MaxTrajectory = 1000f,
-                    FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                    FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -138,7 +138,7 @@ namespace WeaponThread
             },
             Graphics = new GraphicDefinition
             {
-                ModelName = "",
+                ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
@@ -176,7 +176,7 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 1f, width: 0.1f, color: Color(red: 1, green: 1, blue: 1, alpha: 1)),
+                    Tracer = Base(enable: false, length: 1f, width: 0.1f, color: Color(red: 1, green: 1, blue: 1, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
