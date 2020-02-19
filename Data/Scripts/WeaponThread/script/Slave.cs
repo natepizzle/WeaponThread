@@ -174,6 +174,7 @@ namespace WeaponThread
             [ProtoMember(12)] internal int DelayAfterBurst;
             [ProtoMember(13)] internal bool DegradeRof;
             [ProtoMember(14)] internal int BarrelSpinRate;
+            [ProtoMember(15)] internal bool FireFullBurst;
         }
 
         [ProtoContract]
