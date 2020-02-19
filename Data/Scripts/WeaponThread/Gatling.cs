@@ -36,7 +36,7 @@ namespace WeaponThread
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
-                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 0, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
                 Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: true),
@@ -87,31 +87,31 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 10f,
+                BaseDamage = 1000f,
                 Mass = 0f, // in kilograms
-                Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
-                Shape = Options(shape: Line, diameter: 0), //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
+                Shape = Options(shape: Line, diameter: 1), //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon, areaEffect: false),
 
                 AreaEffect = new AreaDamage
                 {
-                    AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                    AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                    AreaEffect = AnchorField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                    AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
                     AreaEffectRadius = 20f,
-                    Pulse = Options(interval: 60, pulseChance: 100), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
+                    Pulse = Options(interval: 0, pulseChance: 0), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
                     Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
                     EwarFields = Options(duration: 600, stackDuration: true, depletable: true, maxStacks: 10, triggerRange: 10f)
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = false,
+                    Enable = true,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
-                    RotateRealBeam = true, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
-                    OneParticle = true, // Only spawn one particle hit per beam weapon.
+                    RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
+                    OneParticle = false, // Only spawn one particle hit per beam weapon.
                 },
                 Trajectory = new AmmoTrajectory
                 {
@@ -121,7 +121,7 @@ namespace WeaponThread
                     AccelPerSec = 10f,
                     DesiredSpeed = 300,
                     MaxTrajectory = 1000f,
-                    FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                    FieldTime = 6000, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
