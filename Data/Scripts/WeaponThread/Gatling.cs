@@ -1,12 +1,12 @@
-﻿using static WeaponThread.Session.ShieldDefinition.ShieldType;
-using static WeaponThread.Session.AmmoTrajectory.GuidanceType;
-using static WeaponThread.Session.HardPointDefinition.Prediction;
-using static WeaponThread.Session.AreaDamage.AreaEffectType;
-using static WeaponThread.Session.TargetingDefinition.BlockTypes;
-using static WeaponThread.Session.TargetingDefinition.Threat;
-using static WeaponThread.Session.Shrapnel.ShrapnelShape;
-using static WeaponThread.Session.ShapeDefinition.Shapes;
-using static WeaponThread.Session;
+﻿using static WeaponThread.WeaponStructure.ShieldDefinition.ShieldType;
+using static WeaponThread.WeaponStructure.AmmoTrajectory.GuidanceType;
+using static WeaponThread.WeaponStructure.HardPointDefinition.Prediction;
+using static WeaponThread.WeaponStructure.AreaDamage.AreaEffectType;
+using static WeaponThread.WeaponStructure.TargetingDefinition.BlockTypes;
+using static WeaponThread.WeaponStructure.TargetingDefinition.Threat;
+using static WeaponThread.WeaponStructure.Shrapnel.ShrapnelShape;
+using static WeaponThread.WeaponStructure.ShapeDefinition.Shapes;
+using static WeaponThread.WeaponStructure;
 
 namespace WeaponThread
 {   // Don't edit above this line
@@ -81,7 +81,7 @@ namespace WeaponThread
                 Characters = -1f,
                 Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
                 Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-                Shields = Options(modifier: 1f, type: Bypass, bypassModifier: 0.5f), // Types: Kinetic, Energy, Emp or Bypass, bypassModifer -1 = disabled, 0.5f = 50% dmg to shield
+                Shields = Options(modifier: 1f, type: Kinetic, bypassModifier: -1f), // Types: Kinetic, Energy, Emp or Bypass, bypassModifer -1 = disabled, 0.5f = 50% dmg to shield
 
                 // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
                 Custom = SubTypeIds(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
@@ -98,17 +98,17 @@ namespace WeaponThread
 
                 AreaEffect = new AreaDamage
                 {
-                    AreaEffect = AnchorField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                    AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
                     AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
                     AreaEffectRadius = 20f,
-                    Pulse = Options(interval: 0, pulseChance: 0), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
+                    Pulse = Options(interval: 60, pulseChance: 75), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                     Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
                     Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
-                    EwarFields = Options(duration: 600, stackDuration: true, depletable: true, maxStacks: 10, triggerRange: 10f)
+                    EwarFields = Options(duration: 60, stackDuration: true, depletable: false, maxStacks: 10, triggerRange: 5f)
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
+                    Enable = false,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -122,7 +122,7 @@ namespace WeaponThread
                     AccelPerSec = 10f,
                     DesiredSpeed = 300,
                     MaxTrajectory = 1000f,
-                    FieldTime = 6000, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                    FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
