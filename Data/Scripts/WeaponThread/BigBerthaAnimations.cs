@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using static WeaponThread.WeaponStructure.PartAnimationSetDef.EventTriggers;
 using static WeaponThread.WeaponStructure.RelMove.MoveType;
-using static WeaponThread.Session;
+using static WeaponThread.WeaponStructure;
 
 namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
     {
-        private WeaponStructure.AnimationDefinition BigBerthaAnimations => new WeaponStructure.AnimationDefinition
+        private AnimationDefinition BigBerthaAnimations => new AnimationDefinition
         {
             /*Emissives = new []
             {
@@ -30,20 +30,20 @@ namespace WeaponThread
             },*/
             WeaponAnimationSets = new[]
             {
-                new WeaponStructure.PartAnimationSetDef()
+                new PartAnimationSetDef
                 {
                     SubpartId = Names("Bertha_Barrel"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0),//Delay before animation starts
+                    AnimationDelays = Delays(),//Delay before animation starts
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<WeaponStructure.PartAnimationSetDef.EventTriggers, WeaponStructure.RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Firing] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
-                                new WeaponStructure.RelMove
+                                new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
                                     TicksToMove = 25, //number of ticks to complete motion, 60 = 1 second
@@ -51,205 +51,205 @@ namespace WeaponThread
                                     //EmissiveName = "",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0, 0, 15), //linear movement
+                                        Transformation(0, 0, 15) //linear movement
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
-                                    RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
+                                    RotAroundCenter = Transformation(0, 0, 0) //degrees, rotates around CenterEmpty
                                 },
-                                new WeaponStructure.RelMove
+                                new RelMove
                                 {
                                     CenterEmpty = "",
                                     TicksToMove = 40, //number of ticks to complete motion, 60 = 1 second
                                     MovementType = Linear,
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0, 0, -15), //linear movement
+                                        Transformation(0, 0, -15) //linear movement
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
-                                    RotAroundCenter = Transformation(0, 0, 0), //degrees
-                                },
-                            },
+                                    RotAroundCenter = Transformation(0, 0, 0) //degrees
+                                }
+                            }
                     }
                 },
-                new WeaponStructure.PartAnimationSetDef()
+                new PartAnimationSetDef
                 {
                     SubpartId = Names("Bertha_Reloader"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 170, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0),
+                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 170),
                     Reverse = Events(),
                     Loop = Events(),
                     ResetEmissives = Events(),
-                    EventMoveSets = new Dictionary<WeaponStructure.PartAnimationSetDef.EventTriggers, WeaponStructure.RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Reloading] =
                             new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
                             {
-                                new WeaponStructure.RelMove
+                                new RelMove
                                 {
                                     CenterEmpty = "",
                                     TicksToMove = 30, //number of ticks to complete motion, 60 = 1 second
                                     MovementType = Linear,
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0, 5.4, 0), //linear movement
+                                        Transformation(0, 5.4, 0) //linear movement
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
-                                    RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                    RotAroundCenter = Transformation(0, 0, 0) //degrees
                                 },
-                                new WeaponStructure.RelMove
+                                new RelMove
                                 {
                                     CenterEmpty = "",
                                     TicksToMove = 32, //number of ticks to complete motion, 60 = 1 second
                                     MovementType = Delay,
-                                    LinearPoints = new WeaponStructure.XYZ[0],
+                                    LinearPoints = new XYZ[0],
                                     Rotation = Transformation(0, 0, 0), //degrees
-                                    RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                    RotAroundCenter = Transformation(0, 0, 0) //degrees
                                 },
-                                new WeaponStructure.RelMove
+                                new RelMove
                                 {
                                     CenterEmpty = "",
                                     TicksToMove = 30, //number of ticks to complete motion, 60 = 1 second
                                     MovementType = Linear,
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0, -5.4, 0), //linear movement
+                                        Transformation(0, -5.4, 0) //linear movement
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
-                                    RotAroundCenter = Transformation(0, 0, 0), //degrees
-                                },
-                            },
+                                    RotAroundCenter = Transformation(0, 0, 0) //degrees
+                                }
+                            }
                     }
                 },
-                new WeaponStructure.PartAnimationSetDef()
+                new PartAnimationSetDef
                 {
                     SubpartId = Names("Bertha_BreechDoor"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 75, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0),
+                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 75),
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<WeaponStructure.PartAnimationSetDef.EventTriggers, WeaponStructure.RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Reloading] = new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
                         {
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 70, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Linear,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(-90, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 100, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Delay,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 70, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Linear,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(90, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
-                            },
-                        },
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
+                            }
+                        }
                     }
                 },
-                new WeaponStructure.PartAnimationSetDef()
+                new PartAnimationSetDef
                 {
                     SubpartId = Names("round"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 200, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0),
+                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 200),
                     Reverse = Events(),
                     Loop = Events(),
-                    EventMoveSets = new Dictionary<WeaponStructure.PartAnimationSetDef.EventTriggers, WeaponStructure.RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Reloading] = new[] //Firing, Reloading, Overheated, Tracking, Locked, OnOff define a new[] for each
                         {
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 30, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Linear,
                                 LinearPoints = new[]
                                 {
-                                    Transformation(0, 0, -20), //linear movement
+                                    Transformation(0, 0, -20) //linear movement
                                 },
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 2, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Delay,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 30, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Linear,
                                 LinearPoints = new[]
                                 {
-                                    Transformation(0, 5.4, 0), //linear movement
+                                    Transformation(0, 5.4, 0) //linear movement
                                 },
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 50, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Delay,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 1, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Hide,
                                 Fade = false,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 1, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Linear,
                                 LinearPoints = new[]
                                 {
-                                    Transformation(0, -5.4, 20), //linear movement
+                                    Transformation(0, -5.4, 20) //linear movement
                                 },
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
                             },
-                            new WeaponStructure.RelMove
+                            new RelMove
                             {
                                 CenterEmpty = "",
                                 TicksToMove = 1, //number of ticks to complete motion, 60 = 1 second
                                 MovementType = Show,
                                 Fade = true,
-                                LinearPoints = new WeaponStructure.XYZ[0],
+                                LinearPoints = new XYZ[0],
                                 Rotation = Transformation(0, 0, 0), //degrees
-                                RotAroundCenter = Transformation(0, 0, 0), //degrees
-                            },
-                        },
+                                RotAroundCenter = Transformation(0, 0, 0) //degrees
+                            }
+                        }
                     }
                 }
             }
