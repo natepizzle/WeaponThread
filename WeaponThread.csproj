@@ -67,12 +67,7 @@
     <None Include="Data\BlueprintClasses_PDC.sbc" />
     <None Include="Data\CubeBlocks_PDC.sbc" />
     <None Include="Data\EntityComponents.sbc" />
-    <None Include="Data\MA_Laser2_BlockCategories.sbc" />
-    <None Include="Data\MA_Laser2_CubeBlocks.sbc" />
-    <None Include="Data\MA_Laser2_Weapons.sbc" />
     <None Include="Data\Particles_PDC.sbc" />
-    <None Include="Data\StargateAtlantis_Cubeblocks.sbc" />
-    <None Include="Data\Stargate_Weapons.sbc" />
     <None Include="Data\Weapons.sbc" />
     <None Include="Models\Ammo\DeURounds.mwm" />
     <None Include="Models\Cubes\DS_TorpBarrel.mwm" />
@@ -119,21 +114,13 @@
     <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Scripts\WeaponThread\BigBerthaAnimations.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\BigBertha.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\DronePod.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\GatlingAmmos.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\GatlingAnimationExample.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\GazerBeam.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\LargeDualGatlingTurret1.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\LargeDualGatlingTurret2.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\LargeGatlingTurret.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\MA_PDX.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\Missile.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\Slave.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\WeaponCompile.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\WeaponStructrure.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\Torpedo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.dll" />

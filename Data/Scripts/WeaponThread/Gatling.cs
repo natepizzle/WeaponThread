@@ -1,12 +1,11 @@
-﻿using static WeaponThread.WeaponStructure.ShieldDefinition.ShieldType;
-using static WeaponThread.WeaponStructure.AmmoTrajectory.GuidanceType;
-using static WeaponThread.WeaponStructure.HardPointDefinition.Prediction;
-using static WeaponThread.WeaponStructure.AreaDamage.AreaEffectType;
-using static WeaponThread.WeaponStructure.TargetingDefinition.BlockTypes;
-using static WeaponThread.WeaponStructure.TargetingDefinition.Threat;
-using static WeaponThread.WeaponStructure.Shrapnel.ShrapnelShape;
-using static WeaponThread.WeaponStructure.ShapeDefinition.Shapes;
+﻿using VRageMath;
 using static WeaponThread.WeaponStructure;
+using static WeaponThread.WeaponStructure.WeaponDefinition;
+using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.Prediction;
+using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.BlockTypes;
+using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.Threat;
 
 namespace WeaponThread
 {   // Don't edit above this line
@@ -14,34 +13,94 @@ namespace WeaponThread
     {
         WeaponDefinition Gatling => new WeaponDefinition
         {
-            Assignments = new ModelAssignments
+            Assignments = new ModelAssignmentsDef
             {
                 MountPoints = new[]
-            {
-            MountPoint(subTypeId: "PDCTurretLB", aimPartId: "Boomsticks", muzzlePartId: "Boomsticks"),
-            MountPoint(subTypeId: "PDCTurretSB", aimPartId: "Boomsticks", muzzlePartId: "Boomsticks"),
-        },
-                Barrels = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006"),
-                EnableSubPartPhysics = false
+                {
+                    new MountPointDef
+                    {
+                        SubtypeId = "PDCTurretLB",
+                        AimPartId = "Boomsticks",
+                        MuzzlePartId = "Boomsticks",
+                    },
+                    new MountPointDef
+                    {
+                        SubtypeId = "PDCTurretSB",
+                        AimPartId = "Boomsticks",
+                        MuzzlePartId = "Boomsticks",
+                    },
+                },
+                Barrels = new []
+                {
+                    "muzzle_barrel_001",
+                    "muzzle_barrel_002",
+                    "muzzle_barrel_003",
+                    "muzzle_barrel_004",
+                    "muzzle_barrel_005",
+                    "muzzle_barrel_006",
+                },
             },
-            HardPoint = new HardPointDefinition
+            Targeting = new TargetingDef
             {
-                WeaponId = "Gatling", // name of weapon in terminal
-                AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.01f, elevateRate: 0.01f, minAzimuth: -180, maxAzimuth: 180, minElevation: -9, maxElevation: 50, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, debug: true, inventorySize: 15f, lockOnFocus: false),
-                MuzzleCheck = false,
+                Threats = new[]
+                {
+                    Grids,
+                },
+                SubSystems = new[]
+                {
+                    Thrust, Utility, Offense, Power, Production, Any,
+                },
+                ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
+                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+            },
+            HardPoint = new HardPointDef
+            {
+                WeaponName = "Gatling", // name of weapon in terminal
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
-                EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-                Hybrid = false, //projectile based weapon with energy cost
-                EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
-                RotateBarrelAxis = 3, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                GridWeaponCap = 0, // 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
-                Ui = Display(rateOfFire: true, damageModifier: true, toggleGuidance: false, enableOverload: true),
 
-                Loading = new AmmoLoading
+                Ui = new UiDef
+                {
+                    RateOfFire = true,
+                    DamageModifier = true,
+                    ToggleGuidance = true,
+                    EnableOverload =  true,
+                },
+                Ai = new AiDef
+                {
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = true,
+                },
+                HardWare = new HardwareDef
+                {
+                    RotateRate = 0.01f,
+                    ElevateRate = 0.01f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -9,
+                    MaxElevation = 50,
+                    FixedOffset = false,
+                    InventorySize = 15f,
+                    Offset = Vector(x: 0, y: 0, z: 0),
+                },
+                Other = new OtherDef
+                {
+                    GridWeaponCap = 0,
+                    RotateBarrelAxis = 0,
+                    EnergyPriority = 0,
+                    MuzzleCheck = false,
+                    Debug = true,
+                },
+                Loading = new LoadingDef
                 {
                     RateOfFire = 60,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
@@ -59,135 +118,7 @@ namespace WeaponThread
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     FireFullBurst = false,
                 },
-            },
-            Targeting = new TargetingDefinition
-            {
-                Threats = Valid(Grids),
-                SubSystems = Priority(Thrust, Utility, Offense, Power, Production, Any), //define block type targeting order
-                ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
-                MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
-                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
-            },
-            DamageScales = new DamageScaleDefinition
-            {
-                MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
-                DamageVoxels = false, // true = voxels are vulnerable to this weapon
-                SelfDamage = false, // true = allow self damage.
-
-                // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
-                Characters = -1f,
-                Grids = Options(largeGridModifier: -1f, smallGridModifier: -1f),
-                Armor = Options(armor: -1f, light: -1f, heavy: -1f, nonArmor: -1f),
-                Shields = Options(modifier: 1f, type: Kinetic, bypassModifier: -1f), // Types: Kinetic, Energy, Emp or Bypass, bypassModifer -1 = disabled, 0.5f = 50% dmg to shield
-
-                // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
-                Custom = SubTypeIds(false, Block(subTypeId: "Test1", modifier: -1), Block(subTypeId: "Test2", modifier: -1)),
-            },
-            Ammo = new AmmoDefinition
-            {
-                BaseDamage = 1000f,
-                Mass = 0f, // in kilograms
-                Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
-                BackKickForce = 0f,
-                Shape = Options(shape: Line, diameter: 1), //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
-                ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
-                Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon, areaEffect: false),
-
-                AreaEffect = new AreaDamage
-                {
-                    AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                    AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 20f,
-                    Pulse = Options(interval: 60, pulseChance: 75), // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
-                    Explosions = Options(noVisuals: false, noSound: false, scale: 1, customParticle: "", customSound: ""),
-                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 1000000, detonationRadius: 75),
-                    EwarFields = Options(duration: 60, stackDuration: true, depletable: false, maxStacks: 10, triggerRange: 5f)
-                },
-                Beams = new BeamDefinition
-                {
-                    Enable = false,
-                    VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
-                    ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
-                    RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
-                    OneParticle = false, // Only spawn one particle hit per beam weapon.
-                },
-                Trajectory = new AmmoTrajectory
-                {
-                    Guidance = Smart,
-                    TargetLossDegree = 80f,
-                    TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 10f,
-                    DesiredSpeed = 300,
-                    MaxTrajectory = 1000f,
-                    FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
-                    SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
-                    RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
-                    Smarts = new Smarts
-                    {
-                        Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
-                        Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                        TrackingDelay = 1, // Measured in Shape diameter units traveled.
-                        MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                        OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
-                    },
-                    Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: false, persist: false),
-                },
-            },
-            Graphics = new GraphicDefinition
-            {
-                ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm",
-                VisualProbability = 1f,
-                ShieldHitDraw = true,
-                Particles = new ParticleDefinition
-                {
-                    Ammo = new Particle
-                    {
-                        Name = "", //ShipWelderArc
-                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
-                        Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1),
-                    },
-                    Hit = new Particle
-                    {
-                        Name = "ShipWelderArc",
-                        Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
-                        Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.5f, hitPlayChance: 1f),
-                        ApplyToShield = true,
-                        ShrinkByDistance = true,
-                    },
-                    Barrel1 = new Particle
-                    {
-                        Name = "", // Smoke_LargeGunShot
-                        Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
-                        Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: false, restart: false, distance: 50, duration: 6, scale: 1f),
-                    },
-                    Barrel2 = new Particle
-                    {
-                        Name = "",//Muzzle_Flash_Large
-                        Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
-                        Offset = Vector(x: 0, y: -1, z: 0),	
-                        Extras = Options(loop: false, restart: false, distance: 150, duration: 6, scale: 1f),
-                    },
-                },
-                Line = new LineDefinition
-                {
-                    Tracer = Base(enable: false, length: 1f, width: 0.1f, color: Color(red: 1, green: 1, blue: 1, alpha: 1)),
-                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-                    ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: false, material: "WeaponLaser", decayTime: 128, color: Color(red: 0, green: 0, blue: 1, alpha: 1), back: true, customWidth: 0, useWidthVariance: false, useColorFade: true),
-                    OffsetEffect = Options(maxOffset: 0, minLength: 0.2f, maxLength: 3), // 0 offset value disables this effect
-                },
-            },
-            Audio = new AudioDefinition
-            {
-                HardPoint = new AudioHardPointDefinition
+                Audio = new HardPointAudioDef
                 {
                     PreFiringSound = "",
                     FiringSound = "", // WepShipGatlingShot
@@ -197,15 +128,40 @@ namespace WeaponThread
                     HardPointRotationSound = "WepTurretGatlingRotate",
                     BarrelRotationSound = "WepShipGatlingRotation",
                 },
-
-                Ammo = new AudioAmmoDefinition
+                Graphics = new HardPointParticleDef
                 {
-                    TravelSound = "",
-                    HitSound = "",
-                    HitPlayChance = 0.5f,
-                    HitPlayShield = true,
-                }, // Don't edit below this line
+                    Barrel1 = new ParticleDef
+                    {
+                        Name = "", // Smoke_LargeGunShot
+                        Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = false,
+                            MaxDistance = 50,
+                            MaxDuration = 6,
+                            Scale = 1f,
+                        },
+                    },
+                    Barrel2 = new ParticleDef
+                    {
+                        Name = "",//Muzzle_Flash_Large
+                        Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
+                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = false,
+                            MaxDistance = 150,
+                            MaxDuration = 6,
+                            Scale = 1f,
+                        },
+                    },
+                },
             },
+
+            Ammos = GatlingAmmos,
         };
     }
 }
