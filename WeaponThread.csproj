@@ -115,7 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Scripts\WeaponThread\AmmoTypes.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\GatlingAnimationExample.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\Slave.cs" />

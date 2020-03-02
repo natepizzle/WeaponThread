@@ -9,7 +9,7 @@ namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
     {
-        private AnimationDef M12SwarmAnimations => new AnimationDef
+        private AnimationDef AdvancedAnimation => new AnimationDef
         {
             WeaponAnimationSets = new[]
             {

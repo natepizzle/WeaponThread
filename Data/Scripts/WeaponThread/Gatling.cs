@@ -152,7 +152,7 @@ namespace WeaponThread {
                 AmmoType1,
                 AmmoType2
             },
-            // Animations = BigBerthaAnimations,
+            //Animations = AdvancedAnimation,
             // Don't edit below this line
         };
     }
