@@ -161,7 +161,10 @@ namespace WeaponThread
                 },
             },
 
-            Ammos = GatlingAmmos,
+            Ammos = new [] {
+                AmmoType1,
+                AmmoType2
+            },
         };
     }
 }
