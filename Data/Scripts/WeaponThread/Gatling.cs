@@ -21,12 +21,16 @@ namespace WeaponThread
                         SubtypeId = "PDCTurretLB",
                         AimPartId = "Boomsticks",
                         MuzzlePartId = "Boomsticks",
+                        //AzimuthPartId = "Boomsticks",
+                        //ElevationPartId = "Boomsticks",
                     },
                     new MountPointDef
                     {
                         SubtypeId = "PDCTurretSB",
                         AimPartId = "Boomsticks",
                         MuzzlePartId = "Boomsticks",
+                        //AzimuthPartId = "Boomsticks",
+                        //ElevationPartId = "Boomsticks",
                     },
                 },
                 Barrels = new []
