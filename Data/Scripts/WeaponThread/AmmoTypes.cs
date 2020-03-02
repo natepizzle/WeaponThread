@@ -239,7 +239,7 @@ namespace WeaponThread
         private AmmoDef AmmoType2 => new AmmoDef
         {
             AmmoMagazine = "Energy",
-            AmmoRound = "AmmoType1",
+            AmmoRound = "AmmoType2",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
             BaseDamage = 1000f,
@@ -259,8 +259,8 @@ namespace WeaponThread
             },
             Shrapnel = new ShrapnelDef
             {
-                AmmoRound = "AmmoType2",
-                Fragments = 100,
+                AmmoRound = "",
+                Fragments = 0,
                 ForwardDegrees = 15,
                 BackwardDegrees = 0,
             },
