@@ -1,5 +1,4 @@
-﻿using VRageMath;
-using static WeaponThread.WeaponStructure;
+﻿using static WeaponThread.WeaponStructure;
 using static WeaponThread.WeaponStructure.WeaponDefinition;
 using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;

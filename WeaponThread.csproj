@@ -114,8 +114,7 @@
     <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Scripts\WeaponThread\AmmoType1.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\AmmoType2.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\AmmoTypes.cs" />
     <Compile Include="Data\Scripts\WeaponThread\GatlingAnimationExample.cs" />
     <Compile Include="Data\Scripts\WeaponThread\Gatling.cs" />
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
