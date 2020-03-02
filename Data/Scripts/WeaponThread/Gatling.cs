@@ -6,26 +6,22 @@ using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.Predicti
 using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.BlockTypes;
 using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.Threat;
 
-namespace WeaponThread
-{   // Don't edit above this line
-    partial class Weapons
-    {
-        WeaponDefinition Gatling => new WeaponDefinition
-        {
-            Assignments = new ModelAssignmentsDef
+namespace WeaponThread {   
+    partial class Weapons {
+        // Don't edit above this line
+        WeaponDefinition Gatling => new WeaponDefinition {
+
+            Assignments = new ModelAssignmentsDef 
             {
-                MountPoints = new[]
-                {
-                    new MountPointDef
-                    {
+                MountPoints = new[] {
+                    new MountPointDef {
                         SubtypeId = "PDCTurretLB",
                         AimPartId = "Boomsticks",
                         MuzzlePartId = "Boomsticks",
                         //AzimuthPartId = "Boomsticks",
                         //ElevationPartId = "Boomsticks",
                     },
-                    new MountPointDef
-                    {
+                    new MountPointDef {
                         SubtypeId = "PDCTurretSB",
                         AimPartId = "Boomsticks",
                         MuzzlePartId = "Boomsticks",
@@ -33,8 +29,7 @@ namespace WeaponThread
                         //ElevationPartId = "Boomsticks",
                     },
                 },
-                Barrels = new []
-                {
+                Barrels = new [] {
                     "muzzle_barrel_001",
                     "muzzle_barrel_002",
                     "muzzle_barrel_003",
@@ -43,14 +38,12 @@ namespace WeaponThread
                     "muzzle_barrel_006",
                 },
             },
-            Targeting = new TargetingDef
+            Targeting = new TargetingDef  
             {
-                Threats = new[]
-                {
+                Threats = new[] {
                     Grids,
                 },
-                SubSystems = new[]
-                {
+                SubSystems = new[] {
                     Thrust, Utility, Offense, Power, Production, Any,
                 },
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
@@ -60,7 +53,7 @@ namespace WeaponThread
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
                 StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
             },
-            HardPoint = new HardPointDef
+            HardPoint = new HardPointDef 
             {
                 WeaponName = "Gatling", // name of weapon in terminal
                 DeviateShotAngle = 0f,
@@ -68,23 +61,20 @@ namespace WeaponThread
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
-                Ui = new UiDef
-                {
+                Ui = new UiDef {
                     RateOfFire = true,
                     DamageModifier = true,
                     ToggleGuidance = true,
                     EnableOverload =  true,
                 },
-                Ai = new AiDef
-                {
+                Ai = new AiDef {
                     TrackTargets = true,
                     TurretAttached = true,
                     TurretController = true,
                     PrimaryTracking = true,
                     LockOnFocus = true,
                 },
-                HardWare = new HardwareDef
-                {
+                HardWare = new HardwareDef {
                     RotateRate = 0.01f,
                     ElevateRate = 0.01f,
                     MinAzimuth = -180,
@@ -95,16 +85,14 @@ namespace WeaponThread
                     InventorySize = 15f,
                     Offset = Vector(x: 0, y: 0, z: 0),
                 },
-                Other = new OtherDef
-                {
+                Other = new OtherDef {
                     GridWeaponCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
                     Debug = true,
                 },
-                Loading = new LoadingDef
-                {
+                Loading = new LoadingDef {
                     RateOfFire = 60,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
@@ -121,8 +109,7 @@ namespace WeaponThread
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     FireFullBurst = false,
                 },
-                Audio = new HardPointAudioDef
-                {
+                Audio = new HardPointAudioDef {
                     PreFiringSound = "",
                     FiringSound = "", // WepShipGatlingShot
                     FiringSoundPerShot = true,
@@ -131,15 +118,14 @@ namespace WeaponThread
                     HardPointRotationSound = "WepTurretGatlingRotate",
                     BarrelRotationSound = "WepShipGatlingRotation",
                 },
-                Graphics = new HardPointParticleDef
-                {
-                    Barrel1 = new ParticleDef
-                    {
+                Graphics = new HardPointParticleDef {
+
+                    Barrel1 = new ParticleDef {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = new ParticleOptionDef
-                        {
+
+                        Extras = new ParticleOptionDef {
                             Loop = false,
                             Restart = false,
                             MaxDistance = 50,
@@ -147,13 +133,12 @@ namespace WeaponThread
                             Scale = 1f,
                         },
                     },
-                    Barrel2 = new ParticleDef
-                    {
+                    Barrel2 = new ParticleDef {
                         Name = "",//Muzzle_Flash_Large
                         Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = new ParticleOptionDef
-                        {
+
+                        Extras = new ParticleOptionDef {
                             Loop = false,
                             Restart = false,
                             MaxDistance = 150,
@@ -163,12 +148,12 @@ namespace WeaponThread
                     },
                 },
             },
-
             Ammos = new [] {
                 AmmoType1,
                 AmmoType2
             },
+            // Animations = BigBerthaAnimations,
+            // Don't edit below this line
         };
     }
-
 }
