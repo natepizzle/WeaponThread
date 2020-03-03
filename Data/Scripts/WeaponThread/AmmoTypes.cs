@@ -23,6 +23,7 @@ namespace WeaponThread
             Mass = 0f, // in kilograms
             Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
+            HardPointUsable = false,
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
@@ -246,6 +247,7 @@ namespace WeaponThread
             Mass = 0f, // in kilograms
             Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
+            HardPointUsable = false,
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
@@ -263,7 +265,6 @@ namespace WeaponThread
                 Fragments = 0,
                 ForwardDegrees = 15,
                 BackwardDegrees = 0,
-                HardPointUsable = false,
             },
             DamageScales = new DamageScaleDef
             {
