@@ -42,16 +42,6 @@
     <Content Include="Audio\WEP\OneShotStart_2D.wav" />
     <Content Include="Audio\WEP\OneShotStart_3D.wav" />
     <Content Include="Audio\WEP\startloopend_original.wav" />
-    <Content Include="Models\Cubes\MultiTurretBarrelsLB.blockdef.xml" />
-    <Content Include="Models\Cubes\MultiTurretBarrelsLB.xml" />
-    <Content Include="Models\Cubes\MultiTurretBase1LB.blockdef.xml" />
-    <Content Include="Models\Cubes\MultiTurretBase1LB.xml" />
-    <Content Include="Models\Cubes\MultiTurretBase2LB.blockdef.xml" />
-    <Content Include="Models\Cubes\MultiTurretBase2LB.xml" />
-    <Content Include="Models\Cubes\MultiTurretBase2LB_2.blockdef.xml" />
-    <Content Include="Models\Cubes\MultiTurretBase2LB_2.xml" />
-    <Content Include="Models\Cubes\MultiTurretLB.blockdef.xml" />
-    <Content Include="Models\Cubes\MultiTurretLB.xml" />
     <Content Include="Textures\GUI\Icons\ammo\DeURounds.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\PDC_Turret.dds" />
     <Content Include="Textures\Models\Cubes\Ntechlogo_add.dds" />
@@ -60,32 +50,10 @@
     <Content Include="Textures\Models\Cubes\Ntechlogo_ng.dds" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Ammo.sbc" />
-    <None Include="Data\AmmoMag.sbc" />
-    <None Include="Data\Audio_PDC.sbc" />
-    <None Include="Data\BlockCategories_PDC.sbc" />
-    <None Include="Data\BlueprintClasses_PDC.sbc" />
-    <None Include="Data\CubeBlocks_PDC.sbc" />
-    <None Include="Data\EntityComponents.sbc" />
-    <None Include="Data\Particles_PDC.sbc" />
-    <None Include="Data\Weapons.sbc" />
-    <None Include="Models\Ammo\DeURounds.mwm" />
-    <None Include="Models\Cubes\DS_TorpBarrel.mwm" />
-    <None Include="Models\Cubes\DS_TorpBase0.mwm" />
-    <None Include="Models\Cubes\DS_TorpBase0_Constr1.mwm" />
-    <None Include="Models\Cubes\DS_TorpBase0_Constr2.mwm" />
-    <None Include="Models\Cubes\DS_TorpBase1.mwm" />
-    <None Include="Models\Cubes\MultiTurretBarrelsLB.fbx" />
     <None Include="Models\Cubes\MultiTurretBarrelsLB.mwm" />
-    <None Include="Models\Cubes\MultiTurretBase1LB.fbx" />
     <None Include="Models\Cubes\MultiTurretBase1LB.mwm" />
-    <None Include="Models\Cubes\MultiTurretBase2LB.fbx" />
     <None Include="Models\Cubes\MultiTurretBase2LB.mwm" />
-    <None Include="Models\Cubes\MultiTurretBase2LB_2.fbx" />
     <None Include="Models\Cubes\MultiTurretBase2LB_2.mwm" />
-    <None Include="Models\Cubes\MultiTurretLB.fbx" />
-    <None Include="Models\Cubes\MultiTurretLB.hkt" />
-    <None Include="Models\Cubes\MultiTurretLB.hkt.fbx" />
     <None Include="Models\Cubes\MultiTurretLB.mwm" />
     <None Include="Models\Cubes\PDCBarrelsLB.mwm" />
     <None Include="Models\Cubes\PDCBase1LB.mwm" />
@@ -110,8 +78,6 @@
     <None Include="Models\Cubes\Small\MissileTurret_LOD1.mwm" />
     <None Include="Models\Cubes\Small\MissileTurret_LOD2.mwm" />
     <None Include="Models\Cubes\Small\MissileTurret_LOD3.mwm" />
-    <None Include="Models\Weapons\Torpedo_Ammo_1st.mwm" />
-    <None Include="Models\Weapons\Torpedo_Test.mwm" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Scripts\WeaponThread\AmmoTypes.cs" />
@@ -222,6 +188,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.XmlSerializers.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Ammo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

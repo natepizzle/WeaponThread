@@ -161,7 +161,7 @@ namespace WeaponThread
             },
             AmmoGraphics = new GraphicDef
             {
-                ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm",
+                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new AmmoParticleDef
@@ -385,7 +385,7 @@ namespace WeaponThread
             },
             AmmoGraphics = new GraphicDef
             {
-                ModelName = "\\Models\\Weapons\\Torpedo_Ammo_1st.mwm",
+                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new AmmoParticleDef
