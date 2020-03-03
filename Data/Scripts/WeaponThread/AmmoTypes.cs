@@ -263,6 +263,7 @@ namespace WeaponThread
                 Fragments = 0,
                 ForwardDegrees = 15,
                 BackwardDegrees = 0,
+                HardPointUsable = false,
             },
             DamageScales = new DamageScaleDef
             {
@@ -360,7 +361,7 @@ namespace WeaponThread
                 AccelPerSec = 10f,
                 DesiredSpeed = 300,
                 MaxTrajectory = 1000f,
-                FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
