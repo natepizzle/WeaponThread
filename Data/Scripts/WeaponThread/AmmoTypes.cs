@@ -296,8 +296,7 @@ namespace WeaponThread
                 Custom = new CustomScalesDef
                 {
                     IgnoreAllOthers = false,
-                    Types = new[]
-            {
+                    Types = new[] {
                         new CustomBlocksDef
                         {
                             SubTypeId = "Test1",
