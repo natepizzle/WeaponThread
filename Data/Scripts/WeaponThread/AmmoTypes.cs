@@ -39,8 +39,9 @@ namespace WeaponThread
             {
                 AmmoRound = "AmmoType2",
                 Fragments = 100,
-                ForwardDegrees = 15,
-                BackwardDegrees = 0,
+                Degrees = 15,
+                Reverse = false,
+                RandomizeDir = true,
             },
             DamageScales = new DamageScaleDef
             {
@@ -263,8 +264,9 @@ namespace WeaponThread
             {
                 AmmoRound = "",
                 Fragments = 0,
-                ForwardDegrees = 15,
-                BackwardDegrees = 0,
+                Degrees = 15,
+                Reverse = true,
+                RandomizeDir = true,
             },
             DamageScales = new DamageScaleDef
             {
