@@ -150,6 +150,7 @@ namespace WeaponThread
                     TrackingDelay = 1, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
+                    MaxTargets = 0,
                 },
                 Mines = new MinesDef
                 {
@@ -264,9 +265,9 @@ namespace WeaponThread
             {
                 AmmoRound = "",
                 Fragments = 0,
-                Degrees = 15,
-                Reverse = true,
-                RandomizeDir = true,
+                Degrees = 0,
+                Reverse = false,
+                RandomizeDir = false,
             },
             DamageScales = new DamageScaleDef
             {
@@ -374,6 +375,7 @@ namespace WeaponThread
                     TrackingDelay = 1, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
+                    MaxTargets = 0,
                 },
                 Mines = new MinesDef
                 {
