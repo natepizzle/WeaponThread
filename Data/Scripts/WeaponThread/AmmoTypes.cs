@@ -171,6 +171,7 @@ namespace WeaponThread
                     Ammo = new ParticleDef
                     {
                         Name = "", //ShipWelderArc
+                        ShrinkByDistance = false,
                         Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                         Offset = Vector(x: 0, y: -1, z: 0),
                         Extras = new ParticleOptionDef
@@ -186,7 +187,7 @@ namespace WeaponThread
                     {
                         Name = "ShipWelderArc",
                         ApplyToShield = true,
-                        ShrinkByDistance = true,
+                        ShrinkByDistance = false,
                         Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
