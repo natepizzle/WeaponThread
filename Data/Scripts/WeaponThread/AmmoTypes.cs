@@ -54,7 +54,7 @@ namespace WeaponThread
                 FallOff = new FallOffDef
                 {
                     Distance = 1000f, // Distance at which max damage begins falling off.
-                    LossFactor = 0.45f, // value 1f - 0.00001f.. where 0.1f == 10% max damage.
+                    MinMultipler = 0.45f, // value from 0.0f to 1f where 0.1f is equal to a min damage of 10% of max damage.
                 },
                 Grids = new GridSizeDef
                 {
@@ -287,7 +287,7 @@ namespace WeaponThread
                 FallOff = new FallOffDef
                 {
                     Distance = 1000f, // Distance at which max damage begins falling off.
-                    LossFactor = 0.45f, // value 1f - 0.00001f.. where 0.1f == 10% max damage.
+                    MinMultipler = 0.45f, // value from 0.0f to 1f where 0.1f is equal to a min damage of 10% of max damage.
                 },
                 Grids = new GridSizeDef
                 {

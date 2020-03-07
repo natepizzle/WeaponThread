@@ -299,7 +299,7 @@ namespace WeaponThread
                     public struct FallOffDef
                     {
                         [ProtoMember(1)] internal float Distance;
-                        [ProtoMember(2)] internal float LossFactor;
+                        [ProtoMember(2)] internal float MinMultipler;
                     }
 
                     [ProtoContract]
