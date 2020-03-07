@@ -41,7 +41,7 @@ namespace WeaponThread
                 Fragments = 100,
                 Degrees = 15,
                 Reverse = false,
-                RandomizeDir = true,
+                RandomizeDir = false, // randomzie between forward and backward directions
             },
             DamageScales = new DamageScaleDef
             {
@@ -51,6 +51,11 @@ namespace WeaponThread
 
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
+                FallOff = new FallOffDef
+                {
+                    Distance = 1000f, // Distance at which max damage begins falling off.
+                    LossFactor = 0.45f, // value 1f - 0.00001f.. where 0.1f == 10% max damage.
+                },
                 Grids = new GridSizeDef
                 {
                     Large = -1f,
@@ -140,6 +145,7 @@ namespace WeaponThread
                 DesiredSpeed = 300,
                 MaxTrajectory = 1000f,
                 FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
@@ -278,6 +284,11 @@ namespace WeaponThread
 
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
+                FallOff = new FallOffDef
+                {
+                    Distance = 1000f, // Distance at which max damage begins falling off.
+                    LossFactor = 0.45f, // value 1f - 0.00001f.. where 0.1f == 10% max damage.
+                },
                 Grids = new GridSizeDef
                 {
                     Large = -1f,
@@ -366,6 +377,7 @@ namespace WeaponThread
                 DesiredSpeed = 300,
                 MaxTrajectory = 1000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                GravityMultiplier = 0f, // Gravity influences the trajectory of the projectile.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
