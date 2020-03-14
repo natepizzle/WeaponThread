@@ -19,7 +19,7 @@ namespace WeaponThread
             AmmoRound = "AmmoType1",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 1000f,
+            BaseDamage = 100f,
             Mass = 0f, // in kilograms
             Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
@@ -37,7 +37,7 @@ namespace WeaponThread
             },
             Shrapnel = new ShrapnelDef
             {
-                AmmoRound = "AmmoType2",
+                AmmoRound = "",
                 Fragments = 100,
                 Degrees = 15,
                 Reverse = false,
@@ -95,13 +95,13 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 20f,
+                AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectRadius = 0f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
-                    Interval = 60,
-                    PulseChance = 75,
+                    Interval = 0,
+                    PulseChance = 0,
                 },
                 Explosions = new ExplosionDef
                 {
@@ -115,13 +115,13 @@ namespace WeaponThread
                 {
                     DetonateOnEnd = false,
                     ArmOnlyOnHit = false,
-                    DetonationDamage = 100000,
+                    DetonationDamage = 1000000,
                     DetonationRadius = 75,
                 },
                 EwarFields = new EwarFieldsDef
                 {
-                    Duration = 60,
-                    StackDuration = true,
+                    Duration = 0,
+                    StackDuration = false,
                     Depletable = false,
                     MaxStacks = 10,
                     TriggerRange = 5f,
@@ -137,14 +137,14 @@ namespace WeaponThread
             },
             Trajectory = new TrajectoryDef
             {
-                Guidance = Smart,
+                Guidance = None,
                 TargetLossDegree = 80f,
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AccelPerSec = 10f,
+                AccelPerSec = 0f,
                 DesiredSpeed = 300,
                 MaxTrajectory = 1000f,
-                FieldTime = 600, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
