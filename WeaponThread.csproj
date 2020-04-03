@@ -85,7 +85,7 @@
     <Compile Include="Data\Scripts\WeaponThread\MasterConfig.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\Slave.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\WeaponCompile.cs" />
-    <Compile Include="Data\Scripts\WeaponThread\script\WeaponStructrure.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\script\WeaponStructure.cs" />
     <Compile Include="Data\Scripts\WeaponThread\AdvancedAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
