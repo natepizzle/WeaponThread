@@ -195,6 +195,7 @@ namespace WeaponThread
                     [ProtoMember(13)] internal bool DegradeRof;
                     [ProtoMember(14)] internal int BarrelSpinRate;
                     [ProtoMember(15)] internal bool FireFullBurst;
+                    [ProtoMember(16)] internal bool GiveUpAfterBurst;
                 }
 
 
@@ -465,7 +466,6 @@ namespace WeaponThread
                     [ProtoMember(5)] internal bool Random;
                     [ProtoMember(6)] internal int RandomMin;
                     [ProtoMember(7)] internal int RandomMax;
-                    [ProtoMember(8)] internal bool RandomParent;
                 }
 
                 [ProtoContract]

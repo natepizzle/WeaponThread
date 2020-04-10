@@ -47,13 +47,13 @@ namespace WeaponThread
             {
                 Ammos = new[] {
                     "AmmoType2",
+                    "AmmoType3",
                 },
                 Enable = true,
                 TriggerChance = 0.25f,
                 Random = true,
                 RandomMin = 1,
                 RandomMax = 1,
-                RandomParent = false,
                 SkipParent = false,
             },
             DamageScales = new DamageScaleDef
