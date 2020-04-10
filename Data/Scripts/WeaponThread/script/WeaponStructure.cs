@@ -282,6 +282,8 @@ namespace WeaponThread
                 [ProtoMember(16)] internal GraphicDef AmmoGraphics;
                 [ProtoMember(17)] internal AmmoAudioDef AmmoAudio;
                 [ProtoMember(18)] internal bool HardPointUsable;
+                [ProtoMember(19)] internal AmmoPatternDef Pattern;
+
 
                 [ProtoContract]
                 public struct DamageScaleDef
@@ -453,6 +455,18 @@ namespace WeaponThread
                     [ProtoMember(7)] internal bool RandomizeDir;
                 }
 
+                [ProtoContract]
+                public struct AmmoPatternDef
+                {
+                    [ProtoMember(1)] internal string[] Ammos;
+                    [ProtoMember(2)] internal bool Enable;
+                    [ProtoMember(3)] internal float TriggerChance;
+                    [ProtoMember(4)] internal bool SkipParent;
+                    [ProtoMember(5)] internal bool Random;
+                    [ProtoMember(6)] internal int RandomMin;
+                    [ProtoMember(7)] internal int RandomMax;
+                    [ProtoMember(8)] internal bool RandomParent;
+                }
 
                 [ProtoContract]
                 public struct AreaDamageDef
