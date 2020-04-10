@@ -47,7 +47,6 @@ namespace WeaponThread
             {
                 Ammos = new[] {
                     "AmmoType2",
-                    "AmmoType3",
                 },
                 Enable = true,
                 TriggerChance = 0.25f,
@@ -288,6 +287,18 @@ namespace WeaponThread
                 Degrees = 0,
                 Reverse = false,
                 RandomizeDir = false,
+            },
+            Pattern = new AmmoPatternDef
+            {
+                Ammos = new[] {
+                    "",
+                },
+                Enable = false,
+                TriggerChance = 0f,
+                Random = false,
+                RandomMin = 0,
+                RandomMax = 0,
+                SkipParent = false,
             },
             DamageScales = new DamageScaleDef
             {
