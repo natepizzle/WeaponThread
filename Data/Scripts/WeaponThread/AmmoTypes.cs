@@ -43,6 +43,18 @@ namespace WeaponThread
                 Reverse = false,
                 RandomizeDir = false, // randomzie between forward and backward directions
             },
+            Pattern = new AmmoPatternDef
+            {
+                Ammos = new[] {
+                    "AmmoType2",
+                },
+                Enable = true,
+                TriggerChance = 0.25f,
+                Random = true,
+                RandomMin = 1,
+                RandomMax = 1,
+                SkipParent = false,
+            },
             DamageScales = new DamageScaleDef
             {
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
@@ -276,6 +288,18 @@ namespace WeaponThread
                 Reverse = false,
                 RandomizeDir = false,
             },
+            Pattern = new AmmoPatternDef
+            {
+                Ammos = new[] {
+                    "",
+                },
+                Enable = false,
+                TriggerChance = 0f,
+                Random = false,
+                RandomMin = 0,
+                RandomMax = 0,
+                SkipParent = false,
+            },
             DamageScales = new DamageScaleDef
             {
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
@@ -408,7 +432,7 @@ namespace WeaponThread
                 {
                     Ammo = new ParticleDef
                     {
-                        Name = "", //ShipWelderArc
+                        Name = "ShipWelderArc", //ShipWelderArc
                         ShrinkByDistance = false,
                         Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
                         Offset = Vector(x: 0, y: -1, z: 0),
@@ -472,7 +496,7 @@ namespace WeaponThread
             },
             AmmoAudio = new AmmoAudioDef
             {
-                TravelSound = "",
+                TravelSound = "ArcWepShipGatlingRotation",
                 HitSound = "",
                 HitPlayChance = 0.5f,
                 HitPlayShield = true,
