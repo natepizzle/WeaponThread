@@ -19,7 +19,7 @@ namespace WeaponThread
             AmmoRound = "AmmoType1",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 100f,
+            BaseDamage = 0.1f,
             Mass = 0f, // in kilograms
             Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
@@ -46,11 +46,11 @@ namespace WeaponThread
             Pattern = new AmmoPatternDef
             {
                 Ammos = new[] {
-                    "AmmoType2",
+                    "",
                 },
-                Enable = true,
-                TriggerChance = 0.25f,
-                Random = true,
+                Enable = false,
+                TriggerChance = 1f,
+                Random = false,
                 RandomMin = 1,
                 RandomMax = 1,
                 SkipParent = false,
@@ -141,7 +141,7 @@ namespace WeaponThread
             },
             Beams = new BeamDef
             {
-                Enable = false,
+                Enable = true,
                 VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                 ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                 RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -160,6 +160,7 @@ namespace WeaponThread
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
+                MaxTrajectoryTime = 120, // How long the weapon must fire before it reaches MaxTrajectory.
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
@@ -181,7 +182,7 @@ namespace WeaponThread
             },
             AmmoGraphics = new GraphicDef
             {
-                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm",
+                ModelName = "",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new AmmoParticleDef
@@ -213,7 +214,7 @@ namespace WeaponThread
                             Loop = true,
                             Restart = false,
                             MaxDistance = 5000,
-                            MaxDuration = 1,
+                            MaxDuration = 30,
                             Scale = 1,
                             HitPlayChance = 1f,
                         },
@@ -226,10 +227,12 @@ namespace WeaponThread
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Length = 1f,
                         Width = 0.1f,
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
+                        VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
+                        VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
                     },
                     Trail = new TrailDef
                     {
@@ -385,7 +388,7 @@ namespace WeaponThread
             },
             Beams = new BeamDef
             {
-                Enable = false,
+                Enable = true,
                 VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                 ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                 RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -393,11 +396,11 @@ namespace WeaponThread
             },
             Trajectory = new TrajectoryDef
             {
-                Guidance = Smart,
+                Guidance = None,
                 TargetLossDegree = 80f,
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AccelPerSec = 10f,
+                AccelPerSec = 0f,
                 DesiredSpeed = 300,
                 MaxTrajectory = 1000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
@@ -425,17 +428,17 @@ namespace WeaponThread
             },
             AmmoGraphics = new GraphicDef
             {
-                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm",
+                ModelName = "",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new AmmoParticleDef
                 {
                     Ammo = new ParticleDef
                     {
-                        Name = "ShipWelderArc", //ShipWelderArc
+                        Name = "", //ShipWelderArc
                         ShrinkByDistance = false,
-                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
-                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Color = Color(red: 0, green: 0, blue: 64, alpha: 32),
+                        Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
                             Loop = true,
@@ -470,7 +473,7 @@ namespace WeaponThread
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Length = 1f,
                         Width = 0.1f,
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
