@@ -21,12 +21,13 @@ namespace WeaponThread {
                         AzimuthPartId = "",
                         ElevationPartId = "",
                     },
+                    //subparts names are without the subpart_ prefix
                     new MountPointDef {
-                        SubtypeId = "PDCTurretSB",
-                        AimPartId = "Boomsticks",
-                        MuzzlePartId = "Boomsticks",
-                        AzimuthPartId = "",
-                        ElevationPartId = "",
+                        SubtypeId = "PDCTurretSB", //subtype in sbc
+                        AimPartId = "Boomsticks", // no longer used, can be ""
+                        MuzzlePartId = "Boomsticks", //the subpart the barrel empties below are on, None = main model
+                        AzimuthPartId = "", //the azimuth subpart, None = main model
+                        ElevationPartId = "",//the elevation subpart, None = main model
                     },
                 },
                 Barrels = new [] {
