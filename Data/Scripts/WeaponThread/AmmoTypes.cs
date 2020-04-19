@@ -170,6 +170,8 @@ namespace WeaponThread
                     MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 0,
+                    NoTargetExpire = false,
+                    Roam = false,
                 },
                 Mines = new MinesDef
                 {
@@ -416,6 +418,8 @@ namespace WeaponThread
                     MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 0,
+                    NoTargetExpire = false,
+                    Roam = false,
                 },
                 Mines = new MinesDef
                 {
