@@ -169,9 +169,9 @@ namespace WeaponThread
                     TrackingDelay = 1, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
-                    MaxTargets = 0,
-                    NoTargetExpire = false,
-                    Roam = false,
+                    MaxTargets = 0, // Number of targets allowed before ending, 0 = unlimited
+                    NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
+                    Roam = false, // Roam current area after target loss
                 },
                 Mines = new MinesDef
                 {
@@ -417,9 +417,9 @@ namespace WeaponThread
                     TrackingDelay = 1, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
-                    MaxTargets = 0,
-                    NoTargetExpire = false,
-                    Roam = false,
+                    MaxTargets = 0, // Number of targets allowed before ending, 0 = unlimited
+                    NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
+                    Roam = false, // Roam current area after target loss
                 },
                 Mines = new MinesDef
                 {
