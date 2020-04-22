@@ -179,6 +179,7 @@ namespace WeaponThread
                 [ProtoMember(10)] internal HardPointAudioDef Audio;
                 [ProtoMember(11)] internal HardPointParticleDef Graphics;
                 [ProtoMember(12)] internal OtherDef Other;
+                [ProtoMember(13)] internal bool AddToleranceToTracking;
 
                 [ProtoContract]
                 public struct LoadingDef
