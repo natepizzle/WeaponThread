@@ -122,6 +122,7 @@ namespace WeaponThread {
                     NoAmmoSound = "",
                     HardPointRotationSound = "WepTurretGatlingRotate",
                     BarrelRotationSound = "WepShipGatlingRotation",
+                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
                 },
                 Graphics = new HardPointParticleDef {
 
