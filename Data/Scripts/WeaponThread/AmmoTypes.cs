@@ -259,6 +259,10 @@ namespace WeaponThread
             {
                 TravelSound = "",
                 HitSound = "",
+                ShieldHitSound = "",
+                PlayerHitSound = "",
+                VoxelHitSound = "",
+                FloatingHitSound = "",
                 HitPlayChance = 0.5f,
                 HitPlayShield = true,
             }, // Don't edit below this line
@@ -505,6 +509,10 @@ namespace WeaponThread
             {
                 TravelSound = "ArcWepShipGatlingRotation",
                 HitSound = "",
+                ShieldHitSound = "",
+                PlayerHitSound = "",
+                VoxelHitSound = "",
+                FloatingHitSound = "",
                 HitPlayChance = 0.5f,
                 HitPlayShield = true,
             }, // Don't edit below this line
