@@ -114,7 +114,7 @@ namespace WeaponThread
                 {
                     Interval = 60,
                     PulseChance = 100,
-                    MaxSteps = 100,
+                    GrowTime = 100,
                     HideModel = false,
                     ShowParticle = false,
                     Particle = new ParticleDef
