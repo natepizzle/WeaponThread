@@ -112,8 +112,25 @@ namespace WeaponThread
                 AreaEffectRadius = 0f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
-                    Interval = 0,
-                    PulseChance = 0,
+                    Interval = 60,
+                    PulseChance = 100,
+                    HideModel = false,
+                    ShowParticle = false,
+                    Particle = new ParticleDef
+                    {
+                        Name = "", //ShipWelderArc
+                        ShrinkByDistance = false,
+                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = true,
+                            Restart = false,
+                            MaxDistance = 5000,
+                            MaxDuration = 1,
+                            Scale = 1,
+                        },
+                    },
                 },
                 Explosions = new ExplosionDef
                 {
@@ -360,8 +377,8 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffect = AntiSmart, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise use this value.
                 AreaEffectRadius = 20f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
