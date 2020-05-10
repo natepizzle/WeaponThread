@@ -9,6 +9,7 @@ using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDe
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
 namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
@@ -253,6 +254,19 @@ namespace WeaponThread
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
+                        Segmentation = new SegmentDef
+                        {
+                            Material = "WeaponLaser",
+                            SegmentLength = 5f,
+                            SegmentGap = 3f,
+                            Speed = 15f,
+                            Color = Color(red: 2, green: 2, blue: 2, alpha: 1),
+                            WidthMultiplier = 1f,
+                            Reverse = false,
+                            UseLineVariance = false,
+                            WidthVariance = Random(start: 0f, end: 0f),
+                            ColorVariance = Random(start: 0f, end: 0f)
+                        }
                     },
                     Trail = new TrailDef
                     {
