@@ -95,7 +95,7 @@ namespace WeaponThread {
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
-                    Debug = true,
+                    Debug = false,
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 3600,
@@ -159,7 +159,7 @@ namespace WeaponThread {
                 AmmoType1,
                 AmmoType2
             },
-            //Animations = AdvancedAnimation,
+            Animations = AdvancedAnimation,
             // Don't edit below this line
         };
     }

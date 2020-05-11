@@ -47,8 +47,9 @@ namespace WeaponThread
             Log.CleanLine($"Found: {WeaponDefinitions.Length} weapon definitions");
             for (int i = 0; i < WeaponDefinitions.Length; i++)
             {
-                Log.CleanLine($"Compiling: {WeaponDefinitions[i].HardPoint.WeaponName}");
+                Log.CleanLine($"Compiling: {WeaponDefinitions[i].HardPoint.WeaponName} Particles: {WeaponDefinitions[i].Animations.EventParticles.Count}");
                 WeaponDefinitions[i].ModPath = ModContext.ModPath;
+
             }
             Storage = MyAPIGateway.Utilities.SerializeToBinary(WeaponDefinitions);
             Array.Clear(WeaponDefinitions, 0, WeaponDefinitions.Length);
