@@ -132,6 +132,7 @@ namespace WeaponThread
                     [ProtoMember(2)] internal ParticleDef Particle;
                     [ProtoMember(4)] internal uint StartDelay;
                     [ProtoMember(5)] internal uint LoopDelay;
+                    [ProtoMember(6)] internal bool ForceStop;
                 }
 
                 [ProtoContract]

@@ -47,7 +47,7 @@ namespace WeaponThread
             Log.CleanLine($"Found: {WeaponDefinitions.Length} weapon definitions");
             for (int i = 0; i < WeaponDefinitions.Length; i++)
             {
-                Log.CleanLine($"Compiling: {WeaponDefinitions[i].HardPoint.WeaponName} Particles: {WeaponDefinitions[i].Animations.EventParticles.Count}");
+                Log.CleanLine($"Compiling: {WeaponDefinitions[i].HardPoint.WeaponName}");
                 WeaponDefinitions[i].ModPath = ModContext.ModPath;
 
             }

@@ -26,7 +26,7 @@ namespace WeaponThread
 
         private AnimationDef AdvancedAnimation => new AnimationDef
         {
-            /*Emissives = new[]
+            Emissives = new[]
             {
                 Emissive(
                     EmissiveName: "TurnOn",
@@ -58,7 +58,7 @@ namespace WeaponThread
                     {
                         "Emissive3"
                     }),
-            },*/
+            },
 
             EventParticles = new Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]>
             {
@@ -78,14 +78,14 @@ namespace WeaponThread
                                 Loop = false,
                                 Restart = false,
                                 MaxDistance = 200, //meters
-                                MaxDuration = 60, //ticks 60 = 1 second
+                                MaxDuration = 200, //ticks 60 = 1 second
                                 Scale = 1,
                             }
                         }
                     },
                 },
             },
-            /*
+            
             WeaponAnimationSets = new[]
             {
                 new PartAnimationSetDef
@@ -194,7 +194,7 @@ namespace WeaponThread
                             },
                     }
                 },
-            }*/
+            }
         };
     }
 }
