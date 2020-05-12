@@ -9,6 +9,7 @@ using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDe
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
 namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
@@ -112,8 +113,26 @@ namespace WeaponThread
                 AreaEffectRadius = 0f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
-                    Interval = 0,
-                    PulseChance = 0,
+                    Interval = 60,
+                    PulseChance = 100,
+                    GrowTime = 100,
+                    HideModel = false,
+                    ShowParticle = false,
+                    Particle = new ParticleDef
+                    {
+                        Name = "", //ShipWelderArc
+                        ShrinkByDistance = false,
+                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = true,
+                            Restart = false,
+                            MaxDistance = 5000,
+                            MaxDuration = 1,
+                            Scale = 1,
+                        },
+                    },
                 },
                 Explosions = new ExplosionDef
                 {
@@ -235,6 +254,19 @@ namespace WeaponThread
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
+                        Segmentation = new SegmentDef
+                        {
+                            Material = "WeaponLaser",
+                            SegmentLength = 5f,
+                            SegmentGap = 3f,
+                            Speed = 15f,
+                            Color = Color(red: 2, green: 2, blue: 2, alpha: 1),
+                            WidthMultiplier = 1f,
+                            Reverse = false,
+                            UseLineVariance = false,
+                            WidthVariance = Random(start: 0f, end: 0f),
+                            ColorVariance = Random(start: 0f, end: 0f)
+                        }
                     },
                     Trail = new TrailDef
                     {
@@ -360,8 +392,8 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffect = AntiSmart, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise use this value.
                 AreaEffectRadius = 20f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
