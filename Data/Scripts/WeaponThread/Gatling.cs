@@ -159,7 +159,7 @@ namespace WeaponThread {
                 AmmoType1,
                 AmmoType2
             },
-            //Animations = AdvancedAnimation,
+            Animations = AdvancedAnimation,
             // Don't edit below this line
         };
     }

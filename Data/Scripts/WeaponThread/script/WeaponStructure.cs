@@ -73,13 +73,13 @@ namespace WeaponThread
                 [ProtoMember(12)] internal bool LockedSmartOnly;
             }
 
-            [ProtoContract(IgnoreListHandling = true)]
+            [ProtoContract]
             public struct AnimationDef
             {
                 [ProtoMember(1)] internal PartAnimationSetDef[] WeaponAnimationSets;
                 [ProtoMember(2)] internal WeaponEmissive[] Emissives;
                 [ProtoMember(3)] internal string[] HeatingEmissiveParts;
-                [ProtoMember(4)] internal Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]> EventParticles;
+                [ProtoMember(4)] internal List<EventParticle> EventParticles;
 
 
                 [ProtoContract(IgnoreListHandling = true)]
@@ -133,6 +133,7 @@ namespace WeaponThread
                     [ProtoMember(4)] internal uint StartDelay;
                     [ProtoMember(5)] internal uint LoopDelay;
                     [ProtoMember(6)] internal bool ForceStop;
+                    [ProtoMember(7)] internal PartAnimationSetDef.EventTriggers Trigger;
                 }
 
                 [ProtoContract]

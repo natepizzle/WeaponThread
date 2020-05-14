@@ -26,6 +26,7 @@ namespace WeaponThread
 
         private AnimationDef AdvancedAnimation => new AnimationDef
         {
+            /*
             Emissives = new[]
             {
                 Emissive(
@@ -59,33 +60,32 @@ namespace WeaponThread
                         "Emissive3"
                     }),
             },
-
-            EventParticles = new Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]>
+            */
+            EventParticles = new List<EventParticle>
             {
-                [Firing] = new[]
+                new EventParticle
                 {
-                    new EventParticle
+                    Trigger = Firing,
+                    EmptyName = "camera",
+                    StartDelay = 0, //ticks 60 = 1 second
+                    LoopDelay = 0, //ticks 60 = 1 second
+                    ForceStop = false,
+                    Particle = new ParticleDef
                     {
-                        EmptyName = "camera",
-                        StartDelay = 0, //ticks 60 = 1 second
-                        LoopDelay = 0, //ticks 60 = 1 second
-                        Particle = new ParticleDef
+                        Name = "ShipWelderArc",
+                        Color = Color(red: 20, green: 20, blue: 20, alpha: 1),
+                        Extras = new ParticleOptionDef
                         {
-                            Name = "ShipWelderArc",
-                            Color = Color(red: 20, green: 20, blue: 20, alpha: 1),
-                            Extras = new ParticleOptionDef
-                            {
-                                Loop = false,
-                                Restart = false,
-                                MaxDistance = 200, //meters
-                                MaxDuration = 200, //ticks 60 = 1 second
-                                Scale = 1,
-                            }
+                            Loop = false,
+                            Restart = false,
+                            MaxDistance = 200, //meters
+                            MaxDuration = 200, //ticks 60 = 1 second
+                            Scale = 1,
                         }
-                    },
+                    }
                 },
             },
-            
+            /*
             WeaponAnimationSets = new[]
             {
                 new PartAnimationSetDef
@@ -195,6 +195,7 @@ namespace WeaponThread
                     }
                 },
             }
+            */
         };
     }
 }
