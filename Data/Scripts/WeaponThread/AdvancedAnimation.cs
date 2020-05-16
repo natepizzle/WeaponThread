@@ -66,7 +66,8 @@ namespace WeaponThread
                 [Firing] = new[]{
                     new EventParticle
                     {
-                        EmptyName = "camera",
+                        EmptyNames = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006"),
+                        MuzzleNames = Names("muzzle_barrel_001", "muzzle_barrel_002", "muzzle_barrel_003", "muzzle_barrel_004", "muzzle_barrel_005", "muzzle_barrel_006"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         ForceStop = false,
