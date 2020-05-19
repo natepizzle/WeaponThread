@@ -255,19 +255,12 @@ namespace WeaponThread
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-                            "BlackFireSeg1",
-                            "BlackFireSeg2",
-                            "BlackFireSeg3",
-                            "BlackFireSeg4",
-                            "BlackFireSeg5",
-                            "BlackFireSeg6",
-                            "BlackFireSeg7",
-                            "BlackFireSeg8",
+                            "WeaponLaser",
                         },
                         TextureMode = Cycle, // Off, Cycle, Chaos
                         Segmentation = new SegmentDef
                         {
-                            Enable = false,
+                            Enable = true,
                             Textures = new[] {
                                 "BlackFireSeg1",
                                 "BlackFireSeg2",
@@ -277,6 +270,14 @@ namespace WeaponThread
                                 "BlackFireSeg6",
                                 "BlackFireSeg7",
                                 "BlackFireSeg8",
+                                "BlackFireSeg9",
+                                "BlackFireSeg10",
+                                "BlackFireSeg11",
+                                "BlackFireSeg12",
+                                "BlackFireSeg13",
+                                "BlackFireSeg14",
+                                "BlackFireSeg15",
+                                "BlackFireSeg16",
                             },
                             SegmentLength = 5f,
                             SegmentGap = 3f,
