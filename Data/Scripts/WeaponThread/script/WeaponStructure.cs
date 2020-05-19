@@ -73,14 +73,13 @@ namespace WeaponThread
             }
 
 
-            [ProtoContract(IgnoreListHandling = true)]
+            [ProtoContract]
             public struct AnimationDef
             {
                 [ProtoMember(1)] internal PartAnimationSetDef[] WeaponAnimationSets;
                 [ProtoMember(2)] internal WeaponEmissive[] Emissives;
                 [ProtoMember(3)] internal string[] HeatingEmissiveParts;
                 [ProtoMember(4)] internal Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]> EventParticles;
-
 
                 [ProtoContract(IgnoreListHandling = true)]
                 public struct PartAnimationSetDef
@@ -128,8 +127,9 @@ namespace WeaponThread
                 [ProtoContract]
                 public struct EventParticle
                 {
-                    [ProtoMember(1)] internal string EmptyName;
-                    [ProtoMember(2)] internal ParticleDef Particle;
+                    [ProtoMember(1)] internal string[] EmptyNames;
+                    [ProtoMember(2)] internal string[] MuzzleNames;
+                    [ProtoMember(3)] internal ParticleDef Particle;
                     [ProtoMember(4)] internal uint StartDelay;
                     [ProtoMember(5)] internal uint LoopDelay;
                     [ProtoMember(6)] internal bool ForceStop;
@@ -414,8 +414,7 @@ namespace WeaponThread
                     {
                         internal enum Texture
                         {
-                            Off,
-                            Resize,
+                            Normal,
                             Cycle,
                             Chaos,
                         }
@@ -462,7 +461,7 @@ namespace WeaponThread
                                 [ProtoMember(9)] internal Randomize ColorVariance;
                                 [ProtoMember(10)] internal Randomize WidthVariance;
                                 [ProtoMember(11)] internal string[] Textures;
-                                [ProtoMember(12)] internal Texture TextureMode;
+                                [ProtoMember(12)] internal bool Enable;
                             }
                         }
 
@@ -691,4 +690,4 @@ namespace WeaponThread
         }
     }
 }
-}
+

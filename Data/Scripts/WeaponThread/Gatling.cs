@@ -98,9 +98,9 @@ namespace WeaponThread {
                     Debug = false,
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 600,
+                    RateOfFire = 3600,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
-                    BarrelsPerShot = 1,
+                    BarrelsPerShot = 6,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -157,7 +157,6 @@ namespace WeaponThread {
             },
             Ammos = new [] {
                 AmmoType1,
-                AmmoType2
             },
             Animations = AdvancedAnimation,
             // Don't edit below this line

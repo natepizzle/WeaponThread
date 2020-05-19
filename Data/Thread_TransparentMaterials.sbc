@@ -103,7 +103,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire1.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg1.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -158,7 +158,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire2.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg2.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -213,7 +213,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire3.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg3.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -268,7 +268,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire4.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg4.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -323,7 +323,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire5.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg5.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -378,7 +378,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire6.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg6.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -433,7 +433,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire7.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg7.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
@@ -488,7 +488,7 @@
 			<CanBeAffectedByOtherLights>false</CanBeAffectedByOtherLights>
 			<IgnoreDepth>false</IgnoreDepth>
 			<SoftParticleDistanceScale>1</SoftParticleDistanceScale>
-			<Texture>Textures\Particles\BlackFire8.dds</Texture>
+			<Texture>Textures\Particles\BlackFireSeg8.dds</Texture>
 			<UseAtlas>false</UseAtlas>
 			<NeedSort>true</NeedSort>
 			<UVOffset>
