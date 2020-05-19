@@ -260,7 +260,7 @@ namespace WeaponThread
                         TextureMode = Cycle, // Off, Cycle, Chaos
                         Segmentation = new SegmentDef
                         {
-                            Enable = true,
+                            Enable = true, // If true Tracer TextureMode is ignored
                             Textures = new[] {
                                 "BlackFireSeg1",
                                 "BlackFireSeg2",
@@ -279,8 +279,8 @@ namespace WeaponThread
                                 "BlackFireSeg15",
                                 "BlackFireSeg16",
                             },
-                            SegmentLength = 15f,
-                            SegmentGap = 3f,
+                            SegmentLength = 15f, // Uses the values below.
+                            SegmentGap = 3f, // Uses Tracer textures and values
                             Speed = 0.5f,
                             Color = Color(red: 0, green: 0, blue: 5, alpha: 1),
                             WidthMultiplier = 1f,
