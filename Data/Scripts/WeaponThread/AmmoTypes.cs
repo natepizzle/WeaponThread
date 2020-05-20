@@ -266,10 +266,14 @@ namespace WeaponThread
                                 "BlackFireSeg2",
                                 "BlackFireSeg3",
                                 "BlackFireSeg4",
+                                "BlackFireSeg5",
+                                "BlackFireSeg6",
+                                "BlackFireSeg7",
+                                "BlackFireSeg8",
                             },
                             SegmentLength = 1f, // Uses the values below.
-                            SegmentGap = 1f, // Uses Tracer textures and values
-                            Speed = 1f,
+                            SegmentGap = 0.1f, // Uses Tracer textures and values
+                            Speed = 5f,
                             Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
                             WidthMultiplier = 2f,
                             Reverse = false,
