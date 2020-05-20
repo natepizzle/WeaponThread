@@ -100,9 +100,9 @@ namespace WeaponThread {
                 Loading = new LoadingDef {
                     RateOfFire = 3600,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
-                    BarrelsPerShot = 6,
+                    BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
-                    SkipBarrels = 0,
+                    SkipBarrels = 5,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
@@ -129,7 +129,7 @@ namespace WeaponThread {
 
                     Barrel1 = new ParticleDef {
                         Name = "", // Smoke_LargeGunShot
-                        Color = Color(red: 255, green: 0, blue: 0, alpha: 1),
+                        Color = Color(red: 0, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
 
                         Extras = new ParticleOptionDef {
@@ -142,7 +142,7 @@ namespace WeaponThread {
                     },
                     Barrel2 = new ParticleDef {
                         Name = "",//Muzzle_Flash_Large
-                        Color = Color(red: 10, green: 0, blue: 0, alpha: 1),
+                        Color = Color(red: 0, green: 0, blue: 0, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
 
                         Extras = new ParticleOptionDef {

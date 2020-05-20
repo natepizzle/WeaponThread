@@ -229,7 +229,7 @@ namespace WeaponThread
                         Name = "ShipWelderArc",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
-                        Color = Color(red: 243, green: 190, blue: 51, alpha: 1),
+                        Color = Color(red: 0, green: 1.9f, blue: 0.5f, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
@@ -251,7 +251,7 @@ namespace WeaponThread
                         Enable = true,
                         Length = 1f,
                         Width = 0.2f,
-                        Color = Color(red: 1, green: 0, blue: 0, alpha: 1),
+                        Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
@@ -266,24 +266,12 @@ namespace WeaponThread
                                 "BlackFireSeg2",
                                 "BlackFireSeg3",
                                 "BlackFireSeg4",
-                                "BlackFireSeg5",
-                                "BlackFireSeg6",
-                                "BlackFireSeg7",
-                                "BlackFireSeg8",
-                                "BlackFireSeg9",
-                                "BlackFireSeg10",
-                                "BlackFireSeg11",
-                                "BlackFireSeg12",
-                                "BlackFireSeg13",
-                                "BlackFireSeg14",
-                                "BlackFireSeg15",
-                                "BlackFireSeg16",
                             },
-                            SegmentLength = 15f, // Uses the values below.
-                            SegmentGap = 3f, // Uses Tracer textures and values
-                            Speed = 0.5f,
-                            Color = Color(red: 0, green: 0, blue: 5, alpha: 1),
-                            WidthMultiplier = 1f,
+                            SegmentLength = 1f, // Uses the values below.
+                            SegmentGap = 1f, // Uses Tracer textures and values
+                            Speed = 1f,
+                            Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
+                            WidthMultiplier = 2f,
                             Reverse = false,
                             UseLineVariance = false,
                             WidthVariance = Random(start: 0f, end: 0f),
