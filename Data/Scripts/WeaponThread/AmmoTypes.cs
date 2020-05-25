@@ -161,7 +161,7 @@ namespace WeaponThread
             },
             Beams = new BeamDef
             {
-                Enable = false,
+                Enable = true,
                 VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                 ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                 RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -174,7 +174,7 @@ namespace WeaponThread
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 0f,
-                DesiredSpeed = 30,
+                DesiredSpeed = 300,
                 MaxTrajectory = 1000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
@@ -229,7 +229,7 @@ namespace WeaponThread
                         Name = "ShipWelderArc",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
-                        Color = Color(red: 0, green: 1.9f, blue: 0.5f, alpha: 1),
+                        Color = Color(red: 3, green: 1.9f, blue: 1f, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
@@ -245,12 +245,12 @@ namespace WeaponThread
                 Lines = new LineDef
                 {
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
+                    WidthVariance = Random(start: 0f, end: 1.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
                         Enable = true,
-                        Length = 50f,
-                        Width = 0.2f,
+                        Length = 1f,
+                        Width = 0.4f,
                         Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
@@ -271,15 +271,15 @@ namespace WeaponThread
                                 "BlackFireSeg7",
                                 "BlackFireSeg8",
                             },
-                            SegmentLength = 5f, // Uses the values below.
+                            SegmentLength = 30f, // Uses the values below.
                             SegmentGap = 0f, // Uses Tracer textures and values
-                            Speed = 10f,
-                            Color = Color(red: 0, green: 0, blue: 3f, alpha: 1),
-                            WidthMultiplier = 5f,
+                            Speed = 150f, // meters per second
+                            Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
+                            WidthMultiplier = 1f,
                             Reverse = false,
-                            UseLineVariance = false,
+                            UseLineVariance = true,
                             WidthVariance = Random(start: 0f, end: 0f),
-                            ColorVariance = Random(start: -0.2f, end: 0.2f)
+                            ColorVariance = Random(start: 0f, end: 0f)
                         }
                     },
                     Trail = new TrailDef
