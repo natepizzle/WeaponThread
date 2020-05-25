@@ -1,7 +1,8 @@
 ﻿using static WeaponThread.WeaponStructure;
 using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.HardwareDef.ArmorState;
 using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.Prediction;
 using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.BlockTypes;
 using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.Threat;
@@ -20,6 +21,7 @@ namespace WeaponThread {
                         MuzzlePartId = "Boomsticks",
                         AzimuthPartId = "",
                         ElevationPartId = "",
+                        DurabilityMod = 0.25f,
                     },
                     new MountPointDef {
                         SubtypeId = "PDCTurretSB",
@@ -27,6 +29,7 @@ namespace WeaponThread {
                         MuzzlePartId = "Boomsticks",
                         AzimuthPartId = "",
                         ElevationPartId = "",
+                        DurabilityMod = 0f,
                     },
                 },
                 Barrels = new [] {
@@ -89,6 +92,7 @@ namespace WeaponThread {
                     FixedOffset = false,
                     InventorySize = 15f,
                     Offset = Vector(x: 0, y: 0, z: 0),
+                    Armor = Passive, // IsWeapon, Passive, Active
                 },
                 Other = new OtherDef {
                     GridWeaponCap = 0,
@@ -98,7 +102,7 @@ namespace WeaponThread {
                     Debug = false,
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 3600,
+                    RateOfFire = 600,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.

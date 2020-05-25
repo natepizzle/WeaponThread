@@ -30,6 +30,7 @@ namespace WeaponThread
                     [ProtoMember(3)] internal string MuzzlePartId;
                     [ProtoMember(4)] internal string AzimuthPartId;
                     [ProtoMember(5)] internal string ElevationPartId;
+                    [ProtoMember(6)] internal float DurabilityMod;
                 }
             }
 
@@ -237,6 +238,13 @@ namespace WeaponThread
                 [ProtoContract]
                 public struct HardwareDef
                 {
+                    public enum ArmorState
+                    {
+                        IsWeapon,
+                        Passive,
+                        Active,
+                    }
+
                     [ProtoMember(1)] internal float RotateRate;
                     [ProtoMember(2)] internal float ElevateRate;
                     [ProtoMember(3)] internal Vector3D Offset;
@@ -246,6 +254,7 @@ namespace WeaponThread
                     [ProtoMember(7)] internal int MaxElevation;
                     [ProtoMember(8)] internal int MinElevation;
                     [ProtoMember(9)] internal float InventorySize;
+                    [ProtoMember(10)] internal ArmorState Armor;
                 }
 
                 [ProtoContract]

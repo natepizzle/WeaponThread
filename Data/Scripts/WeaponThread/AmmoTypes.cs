@@ -161,7 +161,7 @@ namespace WeaponThread
             },
             Beams = new BeamDef
             {
-                Enable = true,
+                Enable = false,
                 VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                 ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                 RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -174,7 +174,7 @@ namespace WeaponThread
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 0f,
-                DesiredSpeed = 300,
+                DesiredSpeed = 30,
                 MaxTrajectory = 1000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
@@ -249,7 +249,7 @@ namespace WeaponThread
                     Tracer = new TracerBaseDef
                     {
                         Enable = true,
-                        Length = 1f,
+                        Length = 50f,
                         Width = 0.2f,
                         Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
@@ -271,15 +271,15 @@ namespace WeaponThread
                                 "BlackFireSeg7",
                                 "BlackFireSeg8",
                             },
-                            SegmentLength = 1f, // Uses the values below.
-                            SegmentGap = 0.1f, // Uses Tracer textures and values
-                            Speed = 5f,
-                            Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
-                            WidthMultiplier = 2f,
+                            SegmentLength = 5f, // Uses the values below.
+                            SegmentGap = 0f, // Uses Tracer textures and values
+                            Speed = 10f,
+                            Color = Color(red: 0, green: 0, blue: 3f, alpha: 1),
+                            WidthMultiplier = 5f,
                             Reverse = false,
                             UseLineVariance = false,
                             WidthVariance = Random(start: 0f, end: 0f),
-                            ColorVariance = Random(start: 0f, end: 0f)
+                            ColorVariance = Random(start: -0.2f, end: 0.2f)
                         }
                     },
                     Trail = new TrailDef
