@@ -22,6 +22,7 @@ namespace WeaponThread {
                         AzimuthPartId = "",
                         ElevationPartId = "",
                         DurabilityMod = 0.25f,
+                        IconName = "TestIcon.dds"
                     },
                     new MountPointDef {
                         SubtypeId = "PDCTurretSB",
@@ -30,6 +31,7 @@ namespace WeaponThread {
                         AzimuthPartId = "",
                         ElevationPartId = "",
                         DurabilityMod = 0f,
+                        IconName = "TestIcon.dds"
                     },
                 },
                 Barrels = new [] {
