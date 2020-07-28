@@ -321,7 +321,7 @@ namespace WeaponThread
                 ItemDefinition = "",
                 Speed = 100f,
                 LifeTime = 1200,
-                SpawnChance = Random(start: 0f, end: 0f),
+                SpawnChance = 0.5f,
             },
         };
         private AmmoDef AmmoType2 => new AmmoDef

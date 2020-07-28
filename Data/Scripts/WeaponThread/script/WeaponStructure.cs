@@ -537,7 +537,7 @@ namespace WeaponThread
                     [ProtoMember(1)] internal string ItemDefinition;
                     [ProtoMember(2)] internal float Speed;
                     [ProtoMember(3)] internal int LifeTime;
-                    [ProtoMember(4)] internal Randomize SpawnChance;
+                    [ProtoMember(4)] internal float SpawnChance;
                 }
 
                 [ProtoContract]
