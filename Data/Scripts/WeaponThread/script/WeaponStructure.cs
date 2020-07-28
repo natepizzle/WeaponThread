@@ -21,6 +21,7 @@ namespace WeaponThread
             {
                 [ProtoMember(1)] internal MountPointDef[] MountPoints;
                 [ProtoMember(2)] internal string[] Barrels;
+                [ProtoMember(3)] internal string Ejector;
 
                 [ProtoContract]
                 public struct MountPointDef
@@ -313,7 +314,8 @@ namespace WeaponThread
                 [ProtoMember(19)] internal AmmoPatternDef Pattern;
                 [ProtoMember(20)] internal int EnergyMagazineSize;
                 [ProtoMember(21)] internal float DecayPerShot;
-
+                [ProtoMember(22)] internal AmmoEjectionDef Ejection;
+                
                 [ProtoContract]
                 public struct DamageScaleDef
                 {
@@ -527,6 +529,15 @@ namespace WeaponThread
                     [ProtoMember(5)] internal bool Random;
                     [ProtoMember(6)] internal int RandomMin;
                     [ProtoMember(7)] internal int RandomMax;
+                }
+
+                [ProtoContract]
+                public struct AmmoEjectionDef
+                {
+                    [ProtoMember(1)] internal string ItemDefinition;
+                    [ProtoMember(2)] internal float Speed;
+                    [ProtoMember(3)] internal int LifeTime;
+                    [ProtoMember(4)] internal Randomize SpawnChance;
                 }
 
                 [ProtoContract]

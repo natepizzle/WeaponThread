@@ -316,6 +316,13 @@ namespace WeaponThread
                 HitPlayChance = 0.5f,
                 HitPlayShield = true,
             }, // Don't edit below this line
+            Ejection = new AmmoEjectionDef
+            {
+                ItemDefinition = "",
+                Speed = 100f,
+                LifeTime = 1200,
+                SpawnChance = Random(start: 0f, end: 0f),
+            },
         };
         private AmmoDef AmmoType2 => new AmmoDef
         {

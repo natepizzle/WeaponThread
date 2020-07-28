@@ -31,7 +31,7 @@ namespace WeaponThread {
                         AzimuthPartId = "",
                         ElevationPartId = "",
                         DurabilityMod = 0f,
-                        IconName = "TestIcon.dds"
+                        IconName = "TestIcon.dds",
                     },
                 },
                 Barrels = new [] {
@@ -42,6 +42,7 @@ namespace WeaponThread {
                     "muzzle_barrel_005",
                     "muzzle_barrel_006",
                 },
+                Ejector = "",
             },
             Targeting = new TargetingDef  
             {
