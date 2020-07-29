@@ -1,5 +1,7 @@
 ﻿using static WeaponThread.WeaponStructure.WeaponDefinition;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef.SpawnType;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.ShapeDef.Shapes;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.TrajectoryDef;
@@ -242,6 +244,23 @@ namespace WeaponThread
                             HitPlayChance = 1f,
                         },
                     },
+                    Eject = new ParticleDef
+                    {
+                        Name = "ShipWelderArc",
+                        ApplyToShield = true,
+                        ShrinkByDistance = false,
+                        Color = Color(red: 3, green: 1.9f, blue: 1f, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = true,
+                            Restart = false,
+                            MaxDistance = 5000,
+                            MaxDuration = 30,
+                            Scale = 1,
+                            HitPlayChance = 1f,
+                        },
+                    },
                 },
                 Lines = new LineDef
                 {
@@ -318,10 +337,14 @@ namespace WeaponThread
             }, // Don't edit below this line
             Ejection = new AmmoEjectionDef
             {
-                ItemDefinition = "",
-                Speed = 100f,
-                LifeTime = 1200,
-                SpawnChance = 0.5f,
+                Type = Particle, // Particle or Item (Inventory Component)
+                Speed = 100f, // Speed inventory is ejected from in dummy direction
+                SpawnChance = 0.5f, // chance of triggering effect (0 - 1)
+                CompDef = new ComponentDef
+                {
+                    ItemDefinition = "",
+                    LifeTime = 0,
+                }
             },
         };
         private AmmoDef AmmoType2 => new AmmoDef
