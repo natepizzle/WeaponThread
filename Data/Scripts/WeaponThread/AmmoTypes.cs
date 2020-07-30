@@ -342,8 +342,9 @@ namespace WeaponThread
                 SpawnChance = 0.5f, // chance of triggering effect (0 - 1)
                 CompDef = new ComponentDef
                 {
-                    ItemDefinition = "",
-                    LifeTime = 0,
+                    ItemDefinition = "", //InventoryComponent name
+                    LifeTime = 0, // how long item should exist in world
+                    Delay = 0, // delay in ticks after shot before ejected
                 }
             },
         };

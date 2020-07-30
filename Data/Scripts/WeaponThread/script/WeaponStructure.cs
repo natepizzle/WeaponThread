@@ -550,6 +550,7 @@ namespace WeaponThread
                     {
                         [ProtoMember(1)] internal string ItemDefinition;
                         [ProtoMember(2)] internal int LifeTime;
+                        [ProtoMember(3)] internal int Delay;
                     }
                 }
 
