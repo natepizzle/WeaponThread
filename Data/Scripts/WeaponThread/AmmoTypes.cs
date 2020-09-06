@@ -152,6 +152,7 @@ namespace WeaponThread
                     ArmOnlyOnHit = false,
                     DetonationDamage = 1000000,
                     DetonationRadius = 75,
+                    MinArmingTime = 600, //Min time in ticks before projectile will arm for detonation (will also affect shrapnel spawning)
                 },
                 EwarFields = new EwarFieldsDef
                 {

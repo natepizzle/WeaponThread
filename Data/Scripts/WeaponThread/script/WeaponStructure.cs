@@ -612,6 +612,7 @@ namespace WeaponThread
                         [ProtoMember(2)] internal bool ArmOnlyOnHit;
                         [ProtoMember(3)] internal float DetonationRadius;
                         [ProtoMember(4)] internal float DetonationDamage;
+                        [ProtoMember(5)] internal int MinArmingTime;
                     }
 
                     [ProtoContract]
