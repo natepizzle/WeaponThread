@@ -23,7 +23,7 @@ namespace WeaponThread
             AmmoRound = "AmmoType1",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 0.001f,
+            BaseDamage = 999999999f,
             Mass = 0f, // in kilograms
             Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
@@ -65,9 +65,10 @@ namespace WeaponThread
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
                 DamageVoxels = false, // true = voxels are vulnerable to this weapon
                 SelfDamage = false, // true = allow self damage.
-
-                // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
+                HealthHitModifier = 0.5, // defaults to a value of 1, this setting modifies how much Health is subtracted from a projectile per hit (1 = per hit).
+                VoxelHitModifier = 10,
                 Characters = -1f,
+                // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 FallOff = new FallOffDef
                 {
                     Distance = 1000f, // Distance at which max damage begins falling off.
@@ -88,8 +89,8 @@ namespace WeaponThread
                 Shields = new ShieldDef
                 {
                     Modifier = 1f,
-                    Type = Kinetic,
-                    BypassModifier = -1f,
+                    Type = Bypass,
+                    BypassModifier = 0.0000001f,
                 },
                 // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
                 Custom = new CustomScalesDef
@@ -117,9 +118,9 @@ namespace WeaponThread
                 AreaEffectRadius = 0f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
-                    Interval = 60,
-                    PulseChance = 100,
-                    GrowTime = 100,
+                    Interval = 0,
+                    PulseChance = 0,
+                    GrowTime = 0,
                     HideModel = false,
                     ShowParticle = false,
                     Particle = new ParticleDef
@@ -130,7 +131,7 @@ namespace WeaponThread
                         Offset = Vector(x: 0, y: -1, z: 0),
                         Extras = new ParticleOptionDef
                         {
-                            Loop = true,
+                            Loop = false,
                             Restart = false,
                             MaxDistance = 5000,
                             MaxDuration = 1,
@@ -150,22 +151,22 @@ namespace WeaponThread
                 {
                     DetonateOnEnd = false,
                     ArmOnlyOnHit = false,
-                    DetonationDamage = 1000000,
-                    DetonationRadius = 75,
-                    MinArmingTime = 600, //Min time in ticks before projectile will arm for detonation (will also affect shrapnel spawning)
+                    DetonationDamage = 0,
+                    DetonationRadius = 0,
+                    MinArmingTime = 0, //Min time in ticks before projectile will arm for detonation (will also affect shrapnel spawning)
                 },
                 EwarFields = new EwarFieldsDef
                 {
                     Duration = 0,
                     StackDuration = false,
                     Depletable = false,
-                    MaxStacks = 10,
-                    TriggerRange = 5f,
+                    MaxStacks = 0,
+                    TriggerRange = 0f,
                 },
             },
             Beams = new BeamDef
             {
-                Enable = true,
+                Enable = false,
                 VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                 ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                 RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -184,14 +185,14 @@ namespace WeaponThread
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
-                MaxTrajectoryTime = 120, // How long the weapon must fire before it reaches MaxTrajectory.
+                MaxTrajectoryTime = 0, // How long the weapon must fire before it reaches MaxTrajectory.
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 0.5, // controls how sharp the trajectile may turn
-                    TrackingDelay = 1, // Measured in Shape diameter units traveled.
-                    MaxChaseTime = 1800, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    TrackingDelay = 0, // Measured in Shape diameter units traveled.
+                    MaxChaseTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 0, // Number of targets allowed before ending, 0 = unlimited
                     NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
@@ -199,9 +200,9 @@ namespace WeaponThread
                 },
                 Mines = new MinesDef
                 {
-                    DetectRadius = 200,
-                    DeCloakRadius = 100,
-                    FieldTime = 1800,
+                    DetectRadius = 0,
+                    DeCloakRadius = 0,
+                    FieldTime = 0,
                     Cloak = false,
                     Persist = false,
                 },
@@ -210,7 +211,7 @@ namespace WeaponThread
             {
                 ModelName = "",
                 VisualProbability = 1f,
-                ShieldHitDraw = true,
+                ShieldHitDraw = false,
                 Particles = new AmmoParticleDef
                 {
                     Ammo = new ParticleDef
@@ -230,7 +231,7 @@ namespace WeaponThread
                     },
                     Hit = new ParticleDef
                     {
-                        Name = "ShipWelderArc",
+                        Name = "",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
                         Color = Color(red: 3, green: 1.9f, blue: 1f, alpha: 1),
@@ -247,7 +248,7 @@ namespace WeaponThread
                     },
                     Eject = new ParticleDef
                     {
-                        Name = "ShipWelderArc",
+                        Name = "",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
                         Color = Color(red: 3, green: 1.9f, blue: 1f, alpha: 1),
@@ -266,12 +267,12 @@ namespace WeaponThread
                 Lines = new LineDef
                 {
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 1.025f), // adds random value to default width (negatives shrinks width)
+                    WidthVariance = Random(start: 0f, end: 0f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
                         Enable = true,
                         Length = 1f,
-                        Width = 0.4f,
+                        Width = 0.2f,
                         Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
@@ -281,20 +282,13 @@ namespace WeaponThread
                         TextureMode = Normal, // Normal, Cycle, Chaos, Wave
                         Segmentation = new SegmentDef
                         {
-                            Enable = true, // If true Tracer TextureMode is ignored
+                            Enable = false, // If true Tracer TextureMode is ignored
                             Textures = new[] {
-                                "BlackFireSeg1",
-                                "BlackFireSeg2",
-                                "BlackFireSeg3",
-                                "BlackFireSeg4",
-                                "BlackFireSeg5",
-                                "BlackFireSeg6",
-                                "BlackFireSeg7",
-                                "BlackFireSeg8",
+								"",
                             },
-                            SegmentLength = 30f, // Uses the values below.
+                            SegmentLength = 0f, // Uses the values below.
                             SegmentGap = 0f, // Uses Tracer textures and values
-                            Speed = 150f, // meters per second
+                            Speed = 1f, // meters per second
                             Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
                             WidthMultiplier = 1f,
                             Reverse = false,
@@ -307,7 +301,7 @@ namespace WeaponThread
                     {
                         Enable = false,
                         Textures = new[] {
-                            "WeaponLaser",
+							"",
                         },
                         TextureMode = Normal,
                         DecayTime = 128,
@@ -349,6 +343,7 @@ namespace WeaponThread
                 }
             },
         };
+		
         private AmmoDef AmmoType2 => new AmmoDef
         {
             AmmoMagazine = "Energy",

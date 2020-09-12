@@ -1,4 +1,5 @@
-﻿using static WeaponThread.WeaponStructure;
+﻿using System.Collections.Generic;
+using static WeaponThread.WeaponStructure;
 using static WeaponThread.WeaponStructure.WeaponDefinition;
 using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
@@ -59,9 +60,9 @@ namespace WeaponThread {
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
-                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
+                StopTrackingSpeed = 0, // do not track target threats traveling faster than this speed
             },
             HardPoint = new HardPointDef 
             {
@@ -69,7 +70,7 @@ namespace WeaponThread {
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
-                DelayCeaseFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AddToleranceToTracking = false,
 
                 Ui = new UiDef {
@@ -95,7 +96,7 @@ namespace WeaponThread {
                     FixedOffset = false,
                     InventorySize = 15f,
                     Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = Passive, // IsWeapon, Passive, Active
+                    Armor = IsWeapon, // IsWeapon, Passive, Active
                 },
                 Other = new OtherDef {
                     GridWeaponCap = 0,
@@ -105,11 +106,11 @@ namespace WeaponThread {
                     Debug = false,
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 600,
+                    RateOfFire = 60,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
-                    SkipBarrels = 5,
+                    SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
@@ -165,7 +166,8 @@ namespace WeaponThread {
             Ammos = new [] {
                 AmmoType1,
             },
-            Animations = AdvancedAnimation,
+            //Animations = AdvancedAnimation,
+            Upgrades = UpgradeModules,
             // Don't edit below this line
         };
     }

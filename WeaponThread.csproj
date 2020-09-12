@@ -87,6 +87,7 @@
     <Compile Include="Data\Scripts\WeaponThread\script\WeaponCompile.cs" />
     <Compile Include="Data\Scripts\WeaponThread\script\WeaponStructure.cs" />
     <Compile Include="Data\Scripts\WeaponThread\AdvancedAnimation.cs" />
+    <Compile Include="Data\Scripts\WeaponThread\UpgradeModules.cs" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.dll" />
