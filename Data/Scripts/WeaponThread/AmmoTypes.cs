@@ -187,8 +187,8 @@ namespace WeaponThread
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 0f,
-                DesiredSpeed = 99999999,
-                MaxTrajectory = 3000f,
+                DesiredSpeed = 1040,
+                MaxTrajectory = 3660f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
@@ -218,7 +218,7 @@ namespace WeaponThread
             AmmoGraphics = new GraphicDef
             {
                 ModelName = "",
-                VisualProbability = 1f,
+                VisualProbability = 0.25f,
                 ShieldHitDraw = false,
                 Particles = new AmmoParticleDef
                 {
