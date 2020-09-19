@@ -31,6 +31,7 @@ namespace WeaponThread
             BackKickForce = 0f,
             DecayPerShot = 0f,
             HardPointUsable = true, // set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
+            IgnoreWater = false,
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {

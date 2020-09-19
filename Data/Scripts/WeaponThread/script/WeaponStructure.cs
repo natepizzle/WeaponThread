@@ -209,6 +209,7 @@ namespace WeaponThread
                 [ProtoMember(11)] internal HardPointParticleDef Graphics;
                 [ProtoMember(12)] internal OtherDef Other;
                 [ProtoMember(13)] internal bool AddToleranceToTracking;
+                [ProtoMember(14)] internal bool CanShootSubmerged;
 
                 [ProtoContract]
                 public struct LoadingDef
@@ -330,7 +331,8 @@ namespace WeaponThread
                 [ProtoMember(20)] internal int EnergyMagazineSize;
                 [ProtoMember(21)] internal float DecayPerShot;
                 [ProtoMember(22)] internal AmmoEjectionDef Ejection;
-                
+                [ProtoMember(23)] internal bool IgnoreWater;
+
                 [ProtoContract]
                 public struct DamageScaleDef
                 {

@@ -72,6 +72,7 @@ namespace WeaponThread {
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AddToleranceToTracking = false,
+                CanShootSubmerged = false,
 
                 Ui = new UiDef {
                     RateOfFire = true,
@@ -121,6 +122,7 @@ namespace WeaponThread {
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     FireFullBurst = false,
                     GiveUpAfterBurst = false,
+                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
