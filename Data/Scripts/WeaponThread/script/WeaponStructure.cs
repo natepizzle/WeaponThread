@@ -623,6 +623,7 @@ namespace WeaponThread
                         [ProtoMember(4)] internal double TriggerRange;
                         [ProtoMember(5)] internal int MaxStacks;
                         [ProtoMember(6)] internal PushPullDef Force;
+                        [ProtoMember(7)] internal bool DisableParticleEffect;
 
                         [ProtoContract]
                         public struct PushPullDef

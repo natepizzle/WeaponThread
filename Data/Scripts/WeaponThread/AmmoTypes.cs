@@ -1,4 +1,5 @@
-﻿using static WeaponThread.WeaponStructure.WeaponDefinition;
+﻿using System.IO;
+using static WeaponThread.WeaponStructure.WeaponDefinition;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef.SpawnType;
@@ -165,6 +166,7 @@ namespace WeaponThread
                     Depletable = false,
                     MaxStacks = 0,
                     TriggerRange = 0f,
+                    DisableParticleEffect = true,
                     Force = new PushPullDef // AreaEffectDamage is multiplied by target mass.
                     {
                         ForceFrom = ProjectileLastPosition, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
