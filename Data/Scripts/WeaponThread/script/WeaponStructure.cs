@@ -549,6 +549,7 @@ namespace WeaponThread
                     [ProtoMember(5)] internal bool Random;
                     [ProtoMember(6)] internal int RandomMin;
                     [ProtoMember(7)] internal int RandomMax;
+                    [ProtoMember(8)] internal int PatternSteps;
                 }
 
                 [ProtoContract]

@@ -63,6 +63,7 @@ namespace WeaponThread
                 RandomMin = 1,
                 RandomMax = 1,
                 SkipParent = false,
+                PatternSteps = 1, // Number of Ammos activated per round, will progress in order and loop.  Ignored if Random = true.
             },
             DamageScales = new DamageScaleDef
             {
