@@ -1,5 +1,4 @@
-﻿using System.IO;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
+﻿using static WeaponThread.WeaponStructure.WeaponDefinition;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef.SpawnType;
@@ -119,8 +118,11 @@ namespace WeaponThread
             AreaEffect = new AreaDamageDef
             {
                 AreaEffect = PullField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 0f,
+                Base = new AreaInfluence
+                {
+                    Radius = 10f, // the sphere of influence of area effects
+                    EffectStrength = 0f, // For ewar it applies this amount per pulse/hit, non-ewar applies this as damage per tick per entity in area of influence. For radiant 0 == use spillover from BaseDamage, otherwise use this value.
+                },
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 0,
@@ -148,6 +150,8 @@ namespace WeaponThread
                 {
                     NoVisuals = false,
                     NoSound = false,
+                    NoShrapnel = false,
+                    NoDeformation = false,
                     Scale = 1,
                     CustomParticle = "",
                     CustomSound = "",
@@ -450,8 +454,11 @@ namespace WeaponThread
             AreaEffect = new AreaDamageDef
             {
                 AreaEffect = AntiSmart, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 100f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 20f,
+                Base = new AreaInfluence
+                {
+                    Radius = 10f, // the sphere of influence of area effects
+                    EffectStrength = 0f, // For ewar it applies this amount per pulse/hit, non-ewar applies this as damage per tick per entity in area of influence. For radiant 0 == use spillover from BaseDamage, otherwise use this value.
+                },
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 60,
@@ -461,6 +468,8 @@ namespace WeaponThread
                 {
                     NoVisuals = false,
                     NoSound = false,
+                    NoShrapnel = false,
+                    NoDeformation = false,
                     Scale = 1,
                     CustomParticle = "",
                     CustomSound = "",

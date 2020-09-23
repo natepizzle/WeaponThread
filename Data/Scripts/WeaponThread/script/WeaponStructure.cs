@@ -28,7 +28,7 @@ namespace WeaponThread
                 public struct MountPointDef
                 {
                     [ProtoMember(1)] internal string SubtypeId;
-                    [ProtoMember(2)] internal string AimPartId;
+                    [ProtoMember(2)] internal string AimPartId; //Depreciated
                     [ProtoMember(3)] internal string MuzzlePartId;
                     [ProtoMember(4)] internal string AzimuthPartId;
                     [ProtoMember(5)] internal string ElevationPartId;
@@ -594,14 +594,21 @@ namespace WeaponThread
                         PullField,
                     }
 
-                    [ProtoMember(1)] internal double AreaEffectRadius;
-                    [ProtoMember(2)] internal float AreaEffectDamage;
+                    [ProtoMember(1)] internal double AreaEffectRadius; //Depreciated
+                    [ProtoMember(2)] internal float AreaEffectDamage; //Depreciated
                     [ProtoMember(3)] internal AreaEffectType AreaEffect;
                     [ProtoMember(4)] internal PulseDef Pulse;
                     [ProtoMember(5)] internal DetonateDef Detonation;
                     [ProtoMember(6)] internal ExplosionDef Explosions;
                     [ProtoMember(7)] internal EwarFieldsDef EwarFields;
+                    [ProtoMember(8)] internal AreaInfluence Base;
 
+                    [ProtoContract]
+                    public struct AreaInfluence
+                    {
+                        [ProtoMember(1)] internal double Radius;
+                        [ProtoMember(2)] internal float EffectStrength;
+                    }
 
 
                     [ProtoContract]
@@ -662,9 +669,9 @@ namespace WeaponThread
                         [ProtoMember(3)] internal float Scale;
                         [ProtoMember(4)] internal string CustomParticle;
                         [ProtoMember(5)] internal string CustomSound;
+                        [ProtoMember(6)] internal bool NoShrapnel;
+                        [ProtoMember(7)] internal bool NoDeformation;
                     }
-
-
                 }
 
                 [ProtoContract]
