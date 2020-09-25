@@ -4,9 +4,10 @@
     {
         internal Weapons()
         {
-            // file convention: Name.cs - See Example.cs file for weapon property details.
+            // Filename convention: 
+            // Name.cs - See Gatling.cs file for weapon property details.
             //
-            // Enable your config files using the follow syntax, don't include the ".cs" extension:
+            // Enable your config files using the following syntax, don't include the ".cs" extension:
             // ConfigFiles(Your1stConfigFile, Your2ndConfigFile, Your3rdConfigFile);
 
             ConfigFiles(Gatling);
