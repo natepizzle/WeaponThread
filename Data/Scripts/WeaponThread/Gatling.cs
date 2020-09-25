@@ -123,6 +123,7 @@ namespace WeaponThread {
                     FireFullBurst = false,
                     GiveUpAfterBurst = false,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
