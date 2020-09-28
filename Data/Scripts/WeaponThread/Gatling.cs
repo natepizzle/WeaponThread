@@ -105,6 +105,9 @@ namespace WeaponThread {
                     EnergyPriority = 0,
                     MuzzleCheck = false,
                     Debug = false,
+                    RestrictionRadius = 0,
+                    CheckInflatedBox = false,
+                    CheckForAnyWeapon = false,
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 3600, // visual only, 0 disables and uses RateOfFire
