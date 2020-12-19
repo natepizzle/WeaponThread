@@ -27,7 +27,7 @@ namespace WeaponThread
             EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
             BaseDamage = 999999999f,
             Mass = 0f, // in kilograms
-            Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+            Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
             DecayPerShot = 0f,
             HardPointUsable = true, // set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
@@ -36,8 +36,8 @@ namespace WeaponThread
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
-                Shape = LineShape,
-                Diameter = 1,
+                Shape = LineShape, // LineShape or SphereShape. Do not use SphereShape for fast moving projectiles if you care about precision.
+                Diameter = 1, // Diameter is minimum length of LineShape or minimum diameter of SphereShape
             },
             ObjectsHit = new ObjectsHitDef
             {
@@ -50,7 +50,7 @@ namespace WeaponThread
                 Fragments = 100,
                 Degrees = 15,
                 Reverse = false,
-                RandomizeDir = false, // randomzie between forward and backward directions
+                RandomizeDir = false, // randomize between forward and backward directions
             },
             Pattern = new AmmoPatternDef
             {
@@ -196,7 +196,7 @@ namespace WeaponThread
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 0f,
-                DesiredSpeed = 1040,
+                DesiredSpeed = 1040, // DO NOT SET HIGHER THAN 4100
                 MaxTrajectory = 3660f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
@@ -369,7 +369,7 @@ namespace WeaponThread
             EnergyCost = 0.00000000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
             BaseDamage = 1000f,
             Mass = 0f, // in kilograms
-            Health = 1000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+            Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
             HardPointUsable = false, // set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
             EnergyMagazineSize = 0,
@@ -508,7 +508,7 @@ namespace WeaponThread
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 0f,
-                DesiredSpeed = 300,
+                DesiredSpeed = 300, // DO NOT SET HIGHER THAN 4100
                 MaxTrajectory = 1000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity influences the trajectory of the projectile.
