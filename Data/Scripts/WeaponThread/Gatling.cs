@@ -86,7 +86,7 @@ namespace WeaponThread {
                     TurretController = true,
                     PrimaryTracking = true,
                     LockOnFocus = false,
-                    SupressFire = true,
+                    SuppressFire = true,
                 },
                 HardWare = new HardwareDef {
                     RotateRate = 0.1f,
