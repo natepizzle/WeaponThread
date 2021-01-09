@@ -11,6 +11,10 @@
             // ConfigFiles(Your1stConfigFile, Your2ndConfigFile, Your3rdConfigFile);
 
             ConfigFiles(Gatling);
+
+            // To register block subtypes as armor you can use these functions below
+            // LightArmorSubtypes("LightArmorSubtypeIdB", "LightArmorSubtypeIdB");
+            // HeavyArmorSubtypes("HeavyArmorSubtypeIdA", "HeavyArmorSubtypeIdB");
         }
     }
 }
