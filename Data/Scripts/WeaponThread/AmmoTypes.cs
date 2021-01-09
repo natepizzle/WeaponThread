@@ -36,8 +36,8 @@ namespace WeaponThread
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
-                Shape = LineShape, // LineShape or SphereShape. Do not use SphereShape for fast moving projectiles if you care about precision.
-                Diameter = 1, // Diameter is minimum length of LineShape or minimum diameter of SphereShape
+                Shape = Sphere, // LineShape or SphereShape. Do not use SphereShape for fast moving projectiles if you care about precision.
+                Diameter = 10, // Diameter is minimum length of LineShape or minimum diameter of SphereShape
             },
             ObjectsHit = new ObjectsHitDef
             {
@@ -377,8 +377,8 @@ namespace WeaponThread
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
-                Shape = LineShape,
-                Diameter = 1,
+                Shape = Sphere,
+                Diameter = 100,
             },
             ObjectsHit = new ObjectsHitDef
             {
