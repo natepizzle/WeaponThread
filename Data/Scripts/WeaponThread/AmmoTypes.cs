@@ -215,7 +215,7 @@ namespace WeaponThread
                     NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
                     Roam = false, // Roam current area after target loss
                     KeepAliveAfterTargetLoss = false, // Whether to stop early death of projectile on target loss
-                    OffsetDegree = 90, // The max number of degrees to offset approach at each time interval
+                    OffsetRatio = 0.5f, // The ratio to offset the random dir (0 to 1) 
                     OffsetTime = 180, // how often to offset degree, measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
                 Mines = new MinesDef
