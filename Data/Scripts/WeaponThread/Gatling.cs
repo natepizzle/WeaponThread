@@ -88,7 +88,7 @@ namespace WeaponThread {
                     PrimaryTracking = true,
                     LockOnFocus = false,
                     SuppressFire = true,
-                    OverrideLeads = false, // Forces target leading HUD on for this weapon
+                    OverrideLeads = false, // Override default behavior for target leads
                 },
                 HardWare = new HardwareDef {
                     RotateRate = 0.1f,
